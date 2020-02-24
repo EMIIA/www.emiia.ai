@@ -17,7 +17,7 @@
     body {
       background: ;
       font-size: 14px;
-      color: white;
+      color:#000;
       margin: 0;
       padding: 0;
     }
@@ -108,23 +108,24 @@
   
   
     var swiper = new Swiper('.swiper-container', {
-      effect: 'fade',
+    effect: 'fade',
+      spaceBetween: 30,
       centeredSlides: true,
       autoplay: {
         delay: 2500,
-        spaceBetween: 30,
-        effect: 'fade',
         disableOnInteraction: false,
       },
       
       
-            pagination: {
+      
+     
+      pagination: {
         el: '.swiper-pagination',
-                clickable: true,
-
-        
-
+        clickable: true,
       },
+      
+   
+      
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
