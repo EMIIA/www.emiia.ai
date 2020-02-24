@@ -102,14 +102,18 @@
   <script src="https://www.emiia.ai/slider1.css"></script>
 
   <!-- Initialize Swiper -->
-   <script>
+  <script>
   
- 
+  
+  
+  
     var swiper = new Swiper('.swiper-container', {
       effect: 'fade',
+      centeredSlides: true,
       autoplay: {
         delay: 2500,
         spaceBetween: 30,
+        effect: 'fade',
         disableOnInteraction: false,
       },
       
@@ -117,9 +121,10 @@
             pagination: {
         el: '.swiper-pagination',
                 clickable: true,
+
+        
+
       },
-      
-      
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -128,6 +133,5 @@
       
     });
   </script>
-  
 </body>
 </html>
