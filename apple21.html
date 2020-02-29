@@ -576,21 +576,7 @@ function closeNav() {
 </div>
 </div>
 
-<!DOCTYPE html>
-<html>
 
-
-<body>
-
-
-
-
-<img src="https://emiia.github.io/1/emiia87.png" alt="HTML5 Icon" width="100%" height="100%">
-
-
-
-</body>
-</html>
 
 
 
@@ -632,119 +618,6 @@ function closeNav() {
 
 
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-
-
-<picture>
-  <source media="(min-width: 650px)" srcset="https://www.w3schools.com/html/img_food.jpg">
-  <source media="(min-width: 465px)" srcset="https://www.w3schools.com/html/img_car.jpg">
-  <img src="https://www.w3schools.com/html/img_girl.jpg" style="width:auto;">
-</picture>
-
-
-
-</body>
-</html>
-
-
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-
-/* Slideshow container */
-.slideshow-container {
-  position: center;
-  background: white;
-    margin: 2px;
-  padding: 2px;
-}
-
-/* Slides */
-.mySlides {
-  display: none;
-  padding: 80px;
-  text-align: center;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -30px;
-  padding: 16px;
-  color: #888;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  position: absolute;
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-  color: white;
-}
-
-
-/* Add an italic font style to all quotes */
-q {font-style: italic;}
-
-/* Add a blue color to the author */
-.author {color: cornflowerblue;}
-</style>
-</head>
-<body>
-
-<div class="slideshow-container">
-
-<div class="mySlides">
-  <p>I love you the more in that I believe you had liked me for my own sake and for nothing else</p>
-  <p class="author">- John Keats</p>
-</div>
-
-<div class="mySlides">
-  <p>But man is not made for defeat. A man can be destroyed but not defeated.</p>
-  <p class="author">- Ernest Hemingway</p>
-</div>
-
-<div class="mySlides">
-  <p>I have not failed. I've just found 10,000 ways that won't work.</p>
-  <p class="author">- Thomas A. Edison</p>
-</div>
-
-<a class="prev" onclick="plusSlides(-1)">❮</a>
-<a class="next" onclick="plusSlides(1)">❯</a>
-
-</div>
-
-<div class="dot-container">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-</div>
 
 
 
@@ -753,62 +626,6 @@ q {font-style: italic;}
 
 
 
-
-
-<script>
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
-</script>
-
-
-
-
-
-<script>
-var slideIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none"; 
-  }
-  slideIndex++;
-  if (slideIndex > x.length) {slideIndex = 1} 
-  x[slideIndex-1].style.display = "block"; 
-  setTimeout(carousel, 3000); 
-}
-</script>
-
-
-
-</body>
-</html> 
 
 
 
@@ -823,7 +640,7 @@ function carousel() {
 .column {
   float: left;
   width: 33.33%;
-  padding: 0px;
+  padding: 0.01px;
 }
 
 /* Clearfix (clear floats) */
@@ -843,9 +660,8 @@ function carousel() {
 </head>
 <body>
 
-<h2>Responsive "Side-by-Side" Images</h2>
-<p>How to create side-by-side images with the CSS float property. On screens that are 500px wide or less, the images will stack on top of each other instead of next to each other:</p>
-<p>Resize the browser window to see the effect.</p>
+<h2></h2>
+<p></p>
 
 <div class="row">
   <div class="column">
@@ -854,10 +670,102 @@ function carousel() {
   <div class="column">
     <img src="https://www.w3schools.com/howto/img_forest.jpg" alt="Forest" style="width:100%">
   </div>
-  <div class="column">
-    <img src="https://www.w3schools.com/howto/img_mountains.jpg" alt="Mountains" style="width:100%">
-  </div>
+
 </div>
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.cities {
+  background-color: white;
+  color: black;
+  margin: 20px;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="cities">
+<h2>London Resize the browser</h2>
+<p>Resize the browser to seedifferent versions of the picture loading at different viewport sizes.<br />The browser looks for the first sourceelement where the media query matches the user's current.</p>
+</div> 
+
+<div class="cities">
+<h2>Paris</h2>
+<p>Paris is the capital of France.</p>
+</div>
+
+<div class="cities">
+<h2>Tokyo</h2>
+<p>Tokyo is the capital of Japan.</p>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 0.01px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 500px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2></h2>
+<p></p>
+
+<div class="row">
+  <div class="column">
+    <img src="https://www.w3schools.com/howto/img_snow.jpg" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://www.w3schools.com/howto/img_forest.jpg" alt="Forest" style="width:100%">
+  </div>
+
+</div>
+
+
+
+
 
 </body>
 </html>
