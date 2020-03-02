@@ -709,6 +709,9 @@ function closeNav() {
 <div class="cities">
 <h2>Tokyo</h2>
 <p>Tokyo is the capital of Japan.</p>
+<input class="toggle-box" id="identifier-1" type="checkbox" >
+<label for="identifier-1"><img src="https://emiia.github.io/1/podrobnee.svg"/></label>
+<div>As you may know, HTML (HyperText Markup Language) - is a language for web page markup. Its main goal is to translate information given in the form of readable content. Mostly, because of HTML, we see the Web as it is, we see its beauty, color and multi-functionality.</div>
 </div>
 
 </body>
@@ -767,4 +770,58 @@ function closeNav() {
 
 
 </body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en-GB"><head>
+            <title>Example 2 / Creating a toggle box to collapse or expand content using only CSS3 / HTML &amp; CSS / Markup languages / Programming languages / Articles / BASICuse / Home - BASICuse</title>
+          <meta charset="UTF-8">
+
+
+         </script><style type="text/css">
+div#page {
+  height: auto;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.toggle-box {
+  display: none;
+}
+
+.toggle-box + label {
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  line-height: 21px;
+  margin-bottom: 5px;
+}
+
+.toggle-box + label + div {
+  display: none;
+  margin-bottom: 10px;
+}
+
+.toggle-box:checked + label + div {
+  display: block;
+}
+
+
+
+
+
+
+
+</style>
+  </head>
+<body>
+      <div id="page">
+        
+
+<input class="toggle-box" id="identifier-2" type="checkbox" >
+<label for="identifier-2">Click here to read more about CSS!</label>
+<div>Cascading Style Sheets allow you to keep the color, text size, and other parameters in styles. A style is a set of formatting rules, which are applied to some parts of a document to quickly change its appearance.</div>        </div>
+
+      </body>
 </html>
