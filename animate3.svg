@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 650">
+
+
+
+<path d="M68.427 8.257v5.68H28.039v16.687h32.464v5.75H28.04v16.688h40.388v5.68H22.359V8.256z">
+
+    <animate dur="2s" values="#4e86b1; #000000; #4e86b1" keyTimes="0; 0.5; 1" attributeName="fill" repeatCount="indefinite"/>
+    </path>
+
+
+<path  fill="#4e86b1" d="M46.52 8.385v5.68H6.133v16.687h32.464v5.75H6.133V53.19H46.52v5.68H.453V8.384z">
+
+       <animate dur="2s" values="#000000; #4e86b1; #000000" keyTimes="0; 0.5; 1" attributeName="fill" repeatCount="indefinite"/>
+  </path>
+  
+</svg>
