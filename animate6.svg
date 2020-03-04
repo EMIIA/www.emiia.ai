@@ -72,7 +72,7 @@
        style="fill:#000000;fill-opacity:1;stroke-width:1.46078312"
        id="path857"
        inkscape:connector-curvature="0" >
-              <animate dur="2s" values="#000000; #4e86b1; #000000" keyTimes="0; 0.5; 1" attributeName="fill" repeatCount="indefinite"/>
+              <animate dur="5s" values="#000000; #d7d7d7; #4e86b1; #000000" keyTimes="0; 0.6; 0.7; 1" attributeName="fill" repeatCount="indefinite"/>
   </path>
        
        
