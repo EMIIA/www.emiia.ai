@@ -83,9 +83,9 @@
          <animate dur="2s" values="#000000; #4e86b1; #000000" keyTimes="0; 0.5; 1" attributeName="fill" repeatCount="indefinite"/>
          </path>
          
-         
-         
-         
+           
     </g>
-  </a>
+  </a>       
+         
+
 </svg>
