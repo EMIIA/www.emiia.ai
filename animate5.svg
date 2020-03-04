@@ -1,6 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" >
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 -28.973999 -31.752329">
+
+
 
 <path  fill="#4e86b1" d="m 46.520378,10.065487 v 5.679525 H 6.1326491 V 32.432997 H 38.597091 v 5.749642 H 6.1326491 V 54.870624 H 46.520378 v 5.679524 H 0.45312474 V 10.065487 Z">
+
 
        <animate dur="2s" values="#000000; #4e86b1; #000000" keyTimes="0; 0.5; 1" attributeName="fill" repeatCount="indefinite"/>
   </path>
