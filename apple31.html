@@ -329,3 +329,176 @@
     
 </body>
 </html>
+
+
+
+
+
+<!doctype html>
+  
+ <style>
+    .menu ul {
+      margin:-30px;
+      list-style: none;
+font-family: "Arial", arial;
+       
+      
+      display: none;
+  position: 700px;
+    min-width: 700px;
+    min-height: 1500px
+border-radius:0px; 
+border: 0px solid #ffffff;
+ line-height: -20px;
+       line-width: -20px;
+background-color: white;
+    box-shadow: 100px 100px 1000px 2500px rgba(255,255,255,255.255);
+    z-index: +2;
+    
+    }
+.menu {
+    
+display: inline-block;
+    position: fixed; /* Фиксированное положение */
+    right: 15px; /* Расстояние от правого края окна браузера */
+    top: 7.7%; /* Расстояние сверху */
+    z-index: +2;
+    
+}
+    .menu .title {
+      font-size: 0px;
+      
+
+    
+    }
+    .menu .title:before {
+      content: url(https://www.iactuator.ru/iaplus.svg);
+      z-index: +2;
+          cursor: pointer;
+       
+         
+  
+
+    }
+    
+    
+    .menu.open .title:before {
+      content: url(https://www.iactuator.ru/iaplus2.svg);
+        position: fixed; 
+    right: 15px; 
+    top: 7.7%; 
+    z-index: +3;
+
+
+    
+    
+    
+    }
+    .menu.open ul {
+      display: block;
+     
+      
+    }
+  </style>
+
+
+  <div id="sweeties" class="menu" class="menu-ul">
+    <span class="title"></span>
+    <ul>
+
+
+<br/>
+
+<br/>
+<br/>
+<br/>
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"></a>
+  <div class="overlay-content">
+  
+
+<p class="buttond"  style="text-align: right"><a href="https://emiia.ru/" target="_self" style="cursor: pointer; font-size:11px; text-decoration: none; padding:8px; color:#4A99D9; background-color:#ffffff; border-radius:3px; border: 0px solid #000000; margin-right: 4%; ">文А</a></p>
+
+<p class="buttond"  style="text-align: left"><a href="https://emiia.ru/" target="_self" style="cursor: pointer; font-size:11px; text-decoration: none; padding:8px; color:#000000; background-color:#ffffff; border-radius:3px; border: 0px solid #000000; margin-left: 65%; ">HOME</a></p>
+
+
+<p class="buttond"  style="text-align: left"><a href="https://www.emiia.ru/p/information-economy.html" target="_self" style="cursor: pointer; font-size:11px;  text-decoration: none; padding:8px; color:#000000; background-color:#ffffff; border-radius:3px; border: 0px solid #000000; margin-left: 65%;">ABOUT/CONTACTS</a></p>
+
+
+<p class="buttond"  style="text-align: left"><a href="https://www.emiia.ru/p/emiia.html" target="_self" style="cursor: pointer; font-size:11px;  text-decoration: none; padding:8px; color:#000000; background-color:#ffffff; border-radius:3px; border: 0px solid #000000; margin-left: 65%;">MEDIA</a></p>
+
+
+<p class="buttond"  style="text-align: left"><a href="https://www.emiia.ru/p/projects.html" target="_self" style="cursor: pointer; font-size:11px;  text-decoration: none; padding:8px; color:#000000; background-color:#ffffff; border-radius:3px; border: 0px solid #000000; margin-left: 65%;">PROJECTS</a></p>
+
+
+<p class="buttond"  style="text-align: left"><a href="https://blog.emiia.ai" target="_self" style="cursor: pointer; font-size:11px;  text-decoration: none; padding:8px; color:#000000; background-color:#ffffff; border-radius:3px; border: 0px solid #000000; margin-left: 65%;">BLOG</a></p>
+
+
+<p class="buttond"  style="text-align: left"><a href="https://www.emiia.ru/p/b2b.html" target="_self" style="cursor: pointer; font-size:11px;  text-decoration: none; padding:8px; color:#4A99D9; background-color:#ffffff; border-radius:3px; border: 0px solid #000000; margin-left: 65%;">SMART CONTROLLERS</a></p>
+
+
+
+<p class="buttond"  style="text-align: left"><a href="https://www.emiia.ru/p/radio.html" target="_self" style="cursor: pointer; font-size:11px;  text-decoration: none; padding:8px; color:#4A99D9; background-color:#ffffff; border-radius:3px; border: 0px solid #000000; margin-left: 65%;">COGNITIVE RADIO OPTICS</a></p>
+
+
+<p class="buttond"  style="text-align: left"><a href="https://emiia.github.io/1/support.html" target="_self" style="cursor: pointer; font-size:11px;  text-decoration: none; padding:8px; color:#000000; background-color:#ffffff; border-radius:3px; border: 0px solid #000000; margin-left: 65%;">FEEDBACK</a></p>
+
+
+
+<div class="buttond" style="text-align: left">
+<a href="https://emiia.github.io/1/support.html" style="background-color: white; border-radius: 3px; border: 0px solid #000000; color: #4A99D9 cursor: pointer; font-size: 8px; padding: 4px; text-decoration: none; margin-left: 65%;" target="_self">&#160;&#160;SIGN IN | SIGN UP</a>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+    </div></ul>
+
+  </div>
+  
+
+  <script>
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+
+
+ var menuElem = document.getElementById('sweeties');
+    var titleElem = menuElem.querySelector('.title');
+    titleElem.onclick = function() {
+      menuElem.classList.toggle('open');
+    }
+
+</script>
+     
+</body>
+</html>
+
+
+
+
+<div style="position: fixed; top: 7.2%; left: 30px; z-index: +2;">
+<p><a href="https://www.emiia.ai"><img src="https://www.emiia.ai/animate6.svg" 
+  width="31.752329" height="28.973999" alt="EMIIA"   title="EMIIA AI — cognitive radio optics" ></a></p>
+
+
+
+<div style="position: fixed; top: 5.45%; right: 60px; z-index: +2;">
+  <a href="https://emiia.github.io/1/preorder.html" title="Preorder">
+<img src="https://www.iactuator.ru/iastore.svg" />
