@@ -3,15 +3,14 @@
 
 
 <path
-     id="path842"
      d="m 34.531056,50.602133 -10.57555,5.16985 c -1.004733,0.52427 -0.778668,-3.43159 -0.02512,-4.76611 l 9.444249,-16.87149 c 0.728432,-1.31068 1.859001,-1.33451 2.612551,0.0233 l 9.570082,16.4669 c 0.75355,1.31068 1.029852,5.5504 0.02512,5.04995 z"
      
 
-     
-     
-     style="fill:none;stroke:#000000;stroke-width:4.55433083;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+      style="fill:none;stroke:#000000;stroke-width:4.55433083;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      inkscape:connector-curvature="0"
-     sodipodi:nodetypes="cccccccc" />
+     sodipodi:nodetypes="cccccccc"    
+     
+ />
 
 
 
