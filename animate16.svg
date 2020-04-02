@@ -1,4 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><title>sp-radar</title><circle class="a" cx="250" cy="250" r="150"/><circle class="a" cx="250" cy="250" r="100"/><circle class="a" cx="250" cy="250" r="50"/><circle class="a" cx="250" cy="250" r="200"/><path class="b" d="M250,50A199.92,199.92,0,0,0,76.77,150L250,250Z"/><defs><script type="application/ecmascript"><![CDATA[
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><title>sp-radar</title><circle class="a" cx="250" cy="250" r="150"/><circle class="a" cx="250" cy="250" r="100"/><circle class="a" cx="250" cy="250" r="50"/><circle class="a" cx="250" cy="250" r="200"/><path class="b" d="M250,50A199.92,199.92,0,0,0,76.77,150L250,250Z"/><defs>
+
+
+<script type="application/ecmascript"><![CDATA[
 var paramList = ['color','animationDuration'],refs = [],href = document.defaultView.location.href,ele;
 if ( -1 != href.indexOf("?") ) {
 	var paramList = href.split("?")[1].split(/&|;/);
@@ -7,7 +10,7 @@ if ( -1 != href.indexOf("?") ) {
 	}
 }
 if(refs['color'] == undefined) { refs['color'] = '#000'; }
-if(refs['animationDuration'] == undefined) { refs['animationDuration'] = 1; }
+if(refs['animationDuration'] == undefined) { refs['animationDuration'] = 5; }
 for (var i = 0; i < document.querySelectorAll('svg circle').length; i++) {
 	ele = document.querySelectorAll('svg circle')[i];
 	ele.setAttribute("stroke", refs['color']);
@@ -17,7 +20,7 @@ ele = document.querySelector('svg path');
 ele.setAttribute("fill", refs['color']);
 ele.style.animationDuration = refs['animationDuration']+'s';
 ]]></script><style type="text/css">
-.a{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:10px;}
-svg path.b { animation-name:rot-sp; animation-iteration-count:infinite; animation-timing-function: linear; transform-origin:50% 50%; opacity:0.3; }
+.a{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:3px;}
+svg path.b { animation-name:rot-sp; animation-iteration-count:infinite; animation-timing-function: linear; transform-origin:50% 50%; opacity:0.2; }
 @keyframes rot-sp { from { transform: rotate(0); } to { transform: rotate(1turn); } }
 </style></defs></svg>
