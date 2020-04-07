@@ -3,7 +3,7 @@
  <path id="path">
 		<animate attributeName="d" from="m0,110 h0" to="m0,110 h1100" dur="6.8s" begin="0s" repeatCount="indefinite"/>
 	</path>
-	<text font-size="20" font-family="Arial"  fill='hsla(00, 0%, 0%, 1)'>
+	<text font-size="23" font-family="Arial"  fill='hsla(00, 0%, 0%, 1)'>
 		<textPath xlink:href="#path">HUAWEI XIAOMI GLONASS
     </textPath>
 	</text>
