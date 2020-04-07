@@ -1,0 +1,110 @@
+$duration: 25s;
+$steps: 4;
+$step: $duration/$steps;
+
+$mask-duration: $step;
+
+$vert-max: 28*2;
+$vert-duration: $mask-duration;
+$vert-step: $vert-duration/$vert-max;
+
+
+BODY {
+  background: #111;
+}
+
+svg {
+  display: block;
+  position: absolute;
+  width: 800px;
+  height: 532px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: visible;
+}
+
+text {
+  fill: #222;
+  fill-opacity: .5;
+  font-size: 3em;
+  filter: url(#fl-shadow)
+}
+
+.image {
+  animation: opacity $duration infinite step-start; 
+  opacity: 0;
+  @for $item from 1 through $steps {
+    &:nth-child(#{$steps}n + #{$item}) {
+      animation-delay: -#{$step * $item};
+    }
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  26% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+  
+}
+
+.u-line {
+  fill: none;
+  stroke: white;
+  stroke-width: 0;
+  stroke-opacity: 0;
+
+  animation: stroke-width-line $vert-duration infinite;
+  @for $item from 1 through $vert-max {
+    &:nth-child(#{$vert-max}n + #{$item}){
+      animation-delay: $vert-step * $item;
+    }
+  }
+}
+
+
+
+
+@keyframes stroke-width-line {
+  20% {
+    stroke-width: 51;
+    stroke-opacity: 1;
+  }
+  60% {
+    stroke-width: 51;
+    stroke-opacity: 1
+  }
+  70% {
+    stroke-width: 0;
+    stroke-opacity: 0;
+  }
+}
+
+image {
+/*   display: none; */
+}
+
+.im-mask-waves-1 {
+  mask: url(#m-wavy-lines);
+}
+.im-mask-waves-2 {
+  mask: url(#m-wavy-lines-vertical);
+}
+.im-mask-lines {
+  mask: url(#m-lines);
+}
+
+.im-mask-circles {
+  mask: url(#m-circles);
+}
