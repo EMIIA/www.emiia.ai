@@ -10,8 +10,8 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+
+  
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,6 +237,36 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; }
       </div>
     </div>
   </section>
+  
+  
+  
+  
+  
+    <section id="contact" style="text-align: center">
+    <div class="w3-content w3-section" style="max-width:500px">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Contact us</h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
+          
+            <img class="mySlides w3-animate-fading" src="https://emiia.github.io/1/emiia105.png" style="width:100%">
+  <img class="mySlides w3-animate-fading" src="https://emiia.github.io/1/emiia116.png" style="width:100%">
+  <img class="mySlides w3-animate-fading" src="https://emiia.github.io/1/emiia109.png" style="width:100%">
+
+                   
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <br/>
   
   
@@ -256,12 +286,9 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; }
   
 
 
-
-
-
 <div class="w3-content w3-section" style="max-width:800px">
   <img  src="https://emiia.github.io/1/emiia116.png" style="width:100%">
- 
+
   
   
 
@@ -273,6 +300,29 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; }
     <!-- /.container -->
   </footer>
 
+ 
+ 
+ <script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 9000);    
+}
+</script>
+ 
+ 
+ 
+ 
+ 
  
 
 </body>
