@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+
+
 <html>
 
 <head>
@@ -148,33 +151,18 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; }
 
 <div class="w3-container">
   <h2>Tabs in a Grid</h2>
-  <p class="lead">С технологиями ЭМИИА миллионы устройств, беспилотных и роботизированных систем во всем мире, становятся более безопасными для человека, более быстрыми, воспреимчевыми и функциональными.</p>
-  
-
-
-  
-  
-
-
-
-
-
-
-  <h2>Tabs in a Grid</h2>
 
   <div class="w3-row">
     <a href="javascript:void(0)" onclick="openCity(event, 'London');">
-      <div class="w3-third tablink w3-bottombar ">London</div>
-    </a>
+      <div class="w3-third tablink w3-bottombar w3-hover-white-white w3-padding"><p class="lead">Машинное обучение</div>
     <a href="javascript:void(0)" onclick="openCity(event, 'Paris');">
-      <div class="w3-third tablink w3-bottombar ">Paris</div>
-    </a>
+      <div class="w3-third tablink w3-bottombar w3-hover-white-white w3-padding"><p class="lead">Когнитивная радиооптика</div>
     <a href="javascript:void(0)" onclick="openCity(event, 'Tokyo');">
-      <div class="w3-third tablink w3-bottombar ">Tokyo</div>
+      <div class="w3-third tablink w3-bottombar w3-hover-white-white w3-padding"><p class="lead">Машинное обучение</div>
     </a>
   </div>
 
-  <div id="London" class="w3-container city">
+<div id="London" class="w3-container city" style="display:none">
     <h2>London</h2>
     <p>London is the capital city of England.</p>
   </div>
@@ -189,6 +177,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; }
     <p>Tokyo is the capital of Japan.</p>
   </div>
 </div>
+
 
 
 
@@ -261,7 +250,19 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; }
 </div>
  
  
-  
+ 
+ 
+ 
+ 
+ 
+   <br/>
+  <br/>
+  <br/>
+ 
+
+
+ 
+ 
  
   
   
@@ -435,6 +436,11 @@ function carousel() {
 
 
 
+
+
+
+
+
 <script>
 function openCity(evt, cityName) {
   var i, x, tablinks;
@@ -444,13 +450,12 @@ function openCity(evt, cityName) {
   }
   tablinks = document.getElementsByClassName("tablink");
   for (i = 0; i < x.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
+    tablinks[i].className = tablinks[i].className.replace(" w3-border-blue", "");
   }
   document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.firstElementChild.className += " w3-border-red";
+  evt.currentTarget.firstElementChild.className += " w3-border-blue";
 }
 </script>
-
 
 
 
