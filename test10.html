@@ -175,7 +175,6 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; }
   <section id="services" class="bg-white">
     <div class="container">
       <div class="row">
-        
 
 <!DOCTYPE html>
 <html>
@@ -202,7 +201,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; }
   color: black;
   font-weight: bold;
   float: right;
-  margin-left: 5px;
+  margin-left: 0px;
 }
 
 .active:after {
@@ -545,6 +544,113 @@ for (i = 0; i < coll.length; i++) {
 
 
 <br/>
+
+
+
+
+  <section id="services" class="bg-white">
+    <div class="container">
+      <div class="row">
+      <div class="col-lg-8 mx-auto">
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.collapsible {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+}
+
+.active, .collapsible:hover {
+  background-color: ;
+}
+
+.collapsible:after {
+  content: url(https://www.iactuator.ru/iaplus.svg); 
+  color: black;
+  font-weight: bold;
+  float: right;
+  margin-left: 0px;
+}
+
+.active:after {
+  content: url(https://www.iactuator.ru/iaplus2.svg);
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: white;
+}
+</style>
+</head>
+<body>
+
+
+<button class="collapsible">Open Section 1</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button class="collapsible">Open Section 2</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button class="collapsible">Open Section 3</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+</body>
+
+
+</body>
+</html>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
