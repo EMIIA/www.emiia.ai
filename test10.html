@@ -713,7 +713,7 @@ target="_self" style="cursor: pointer; text-align: center;  font-size:14px;  tex
 
 
    <p class="buttond"  style="text-align: left;"><a href="https://www.emiia.ru/p/information-economy.html"
-target="_self" style="cursor: pointer; text-align: center;  font-size:13.5px;  text-decoration: none; padding:8px; color: black; background-color:transparent ; border-radius:20px; border: 15px solid #ffffff;">Copyright © 2020 EMIIA Ltd. All rights reserved.</a> 
+target="_self" style="cursor: pointer; text-align: center;  font-size:12px;  text-decoration: none; padding:8px; color: black; background-color:transparent ; border-radius:20px; border: 15px solid #ffffff;">Copyright © 2020 EMIIA Ltd. All rights reserved.</a> 
 
 
      
@@ -817,7 +817,7 @@ function openCity(evt, cityName) {
       list-style: none;
 font-family: "Montserrat", sans-serif;
     z-index: +10;   
-      
+  transition: max-height 0.2s ease-out;    
       display: none;
   position: 700px;
     min-width: 700px;
@@ -829,6 +829,7 @@ border: 0px solid #ffffff;
 background-color: white;
     box-shadow: 100px 100px 1000px 2500px rgba(255,255,255,255.255);
     z-index: +10;
+    transition: max-height 0.2s ease-out;
     
     }
 .menu {
@@ -838,10 +839,12 @@ display: inline-block;
     left: 16px; /* Расстояние от правого края окна браузера */
     top: 7.5%; /* Расстояние сверху */
     z-index: +10;
+    transition: max-height 0.2s ease-out;
     
 }
     .menu .title {
       font-size: 0px;
+      transition: max-height 0.2s ease-out;
       
 
     
@@ -851,6 +854,7 @@ display: inline-block;
       top: 7,4%;
       z-index: +1;
           cursor: pointer;
+          transition: max-height 0.2s ease-out;
        
          
   
@@ -864,6 +868,7 @@ display: inline-block;
     left: 18px; 
     top: 7,4%; 
     z-index: +1;
+    transition: max-height 0.2s ease-out;
 
 
     
@@ -872,13 +877,13 @@ display: inline-block;
     }
     .menu.open ul {
       display: block;
-     
+     transition: max-height 0.2s ease-out;
       
     }
   </style>
 
 
-  <div id="sweeties" class="menu" class="menu-ul">
+  <div id="sweeties" class="menu" class="menu-ul" transition="max-height 0.2s ease-out">
     <span class="title"></span>
     <ul>
 
@@ -896,7 +901,7 @@ display: inline-block;
 <br/>
 
 <div id="myNav" class="overlay">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"></a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" transition="max-height 0.2s ease-out"></a>
   <div class="overlay-content">
   
 
