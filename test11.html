@@ -221,11 +221,17 @@ background-color: #f8f9fa;
   text-align: left;
   outline: none;
   font-size: 16px;
+  outline: none;
+  outline: none !important;
+
 }
+
 
 .active, .collapsible:hover {
   background-color: #f8f9fa;
+  outline: none;
 }
+
 
 .collapsible:after {
   content: url(https://emiia.github.io/1/emiia135.svg); 
@@ -233,10 +239,12 @@ background-color: #f8f9fa;
   font-weight: bold;
   float: right;
   margin-left: 0px;
+  outline: none;
 }
 
 .active:after {
   content: url(https://emiia.github.io/1/emiia136.svg);
+  outline: none;
 }
 
 .content {
@@ -245,6 +253,10 @@ background-color: #f8f9fa;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   background-color: #f8f9fa;
+  outline: none;
+  button {
+   position: absolute;
+}
 }
 </style>
 </head>
@@ -259,10 +271,23 @@ background-color: #f8f9fa;
 <div class="content">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
+        </div>
+
+<div class="w3-content w3-section" style="max-width:800px">
+  <img  src="https://emiia.github.io/1/emiia116.png" style="width:100%">
+
+        </div>
+      </div>
+    </div>
+
+  <section id="services">
+      <div class="row">
+      <div class="col-lg-8 mx-auto">
+
 <button class="collapsible">Open Section 3</button>
 <div class="content">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
+  </div>
 
 <script>
 var coll = document.getElementsByClassName("collapsible");
@@ -289,6 +314,10 @@ for (i = 0; i < coll.length; i++) {
 
 
         </div>
+      </div>
+    </div>
+  </section>
+          </div>
       </div>
     </div>
   </section>
