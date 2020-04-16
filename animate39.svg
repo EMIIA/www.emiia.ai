@@ -1,0 +1,129 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+
+
+
+  width="200" height="200" viewBox="0 1 250 300" 
+  style="border:0px dotted red;">
+<title>EMIIA</title>
+  <desk>EIIA.AI
+  </desk>
+
+
+
+       <path class="path" fill="none" stroke-width="1" stroke ="black" stroke-dasharray= "600" stroke-dashoffset="600"
+
+d="M45.22 30.429l.744 1.53h-1.52v5.373H43.7l-4.561.783-.778.748v1.53l-.743 3.844v2.278l1.52 2.313.744 4.591 2.298 5.34-3.041-6.122M29.239 15.125l-3.818 3.843-3.041-1.53 5.338-5.374 3.041-1.53h2.298l6.082 1.53 2.263.782 3.041 3.06v3.81l.778 3.06-.778 1.531 3.041 3.843v.748" fill="none" stroke-width="1.585">
+
+	 <animate id="p1" attributeName="stroke-dashoffset" begin="0.1s;f1.end+0.2s" values="1000;0;1000" dur="5s" 
+	 calcMode="linear"/>
+     
+	 <animate id="f1" attributeName="fill" begin="p1.end-0.01s" values="white; white; white" dur="0.1s"  
+	 calcMode="linear" />
+     
+          
+	</path>
+
+
+
+       <path class="path" fill="none" stroke-width="1" stroke ="black" stroke-dasharray= "600" stroke-dashoffset="600"
+       
+       d="M27.718 12.064l1.52 3.06 2.298-.748-.777-3.843M33.057 10.533v3.843h-1.52M44.443 15.907l-3.04 2.278-2.264-1.53" fill="none" stroke-width="1.585">
+       
+       	 <animate id="p1" attributeName="stroke-dashoffset" begin="0.1s;f1.end+0.2s" values="1000;0;1000" dur="5s" 
+	 calcMode="linear"/>
+     
+	 <animate id="f1" attributeName="fill" begin="p1.end-0.01s" values="white; white; white" dur="0.1s"  
+	 calcMode="linear" />
+     
+          
+	</path>
+       
+       
+       
+        <path class="path" fill="none" stroke-width="1" stroke ="black" stroke-dasharray= "600" stroke-dashoffset="600" d="M33.057 20.498v-6.122l6.082 2.279 2.263-3.809M29.239 15.125l2.297 5.373M36.098 22.029l3.04-5.374M22.38 17.437l-.744 4.592 3.785 1.53v-4.591M25.42 18.968l3.819 3.06M21.636 22.029l1.52 6.121 2.265 6.122.777 1.53v3.061" fill="none" stroke-width="1.585">
+        
+               	 <animate id="p1" attributeName="stroke-dashoffset" begin="0.1s;f1.end+0.2s" values="1000;0;1000" dur="5s" 
+	 calcMode="linear"/>
+     
+	 <animate id="f1" attributeName="fill" begin="p1.end-0.01s" values="white; white; white" dur="0.1s"  
+	 calcMode="linear" />
+     
+          
+	</path>
+    
+    
+       
+       
+      <path class="path" fill="none" stroke-width="1" stroke ="black" stroke-dasharray= "600" stroke-dashoffset="600" 
+      
+      d="M23.157 28.15h3.784l-1.52-4.591M26.941 28.15l2.298 7.652h-3.041M33.8 29.68l1.52-1.53-1.52-2.312v-2.279h-1.52l-1.52 1.53 1.52 4.592h1.52M32.28 29.68l1.52-3.842M30.76 25.09l3.04.748" fill="none" stroke-width="1.585">
+      
+                     	 <animate id="p1" attributeName="stroke-dashoffset" begin="0.1s;f1.end+0.2s" values="1000;0;1000" dur="5s" 
+	 calcMode="linear"/>
+     
+	 <animate id="f1" attributeName="fill" begin="p1.end-0.01s" values="white; white; white" dur="0.1s"  
+	 calcMode="linear" />
+     
+          
+	</path>
+       
+       
+             <path class="path" fill="none" stroke-width="1" stroke ="black" stroke-dasharray= "600" stroke-dashoffset="600" 
+             
+             d="M39.139 38.115l-2.298-2.313-3.04-4.59-2.265-.783-2.297-5.34v-3.06l2.297-1.53h1.52l3.042 1.53-.777 1.53v3.06l-.744 3.062-.777 1.53M25.42 23.559l3.819 1.53M26.941 28.15l4.595 2.279M29.239 35.802l.777-.748.743-3.095.777-1.53M35.32 23.559l2.298.748" fill="none" stroke-width="1.585">
+             
+                                  	 <animate id="p1" attributeName="stroke-dashoffset" begin="0.1s;f1.end+0.2s" values="1000;0;1000" dur="5s" 
+	 calcMode="linear"/>
+     
+	 <animate id="f1" attributeName="fill" begin="p1.end-0.01s" values="white; white; white" dur="0.1s"  
+	 calcMode="linear" />
+     
+          
+	</path>
+       
+             <path class="path" fill="none" stroke-width="1" stroke ="black" stroke-dasharray= "600" stroke-dashoffset="600" 
+             
+             d="M43.7 35.802h-6.859l2.298-6.904M45.964 28.898l-1.52.783.777.748 2.263-.748v-.783h-1.52M30.016 35.054l5.305 3.81 2.297 5.373M38.361 40.394l-3.04-1.53.777-2.28" fill="none" stroke-width="1.585">
+                                               	 <animate id="p1" attributeName="stroke-dashoffset" begin="0.1s;f1.end+0.2s" values="1000;0;1000" dur="5s" 
+	 calcMode="linear"/>
+     
+	 <animate id="f1" attributeName="fill" begin="p1.end-0.01s" values="white; white; white" dur="0.1s"  
+	 calcMode="linear" />
+     
+          
+	</path>
+     
+     
+  <path class="path" fill="none" stroke-width="1" stroke ="black" stroke-dasharray= "600" stroke-dashoffset="600"
+  
+  d="M27.718 31.211l3.041.748 5.339 4.626M45.22 22.777h-3.817l-3.042 1.53.778 1.53" fill="none" stroke-width="1.585">
+  
+                                                	 <animate id="p1" attributeName="stroke-dashoffset" begin="0.1s;f1.end+0.2s" values="1000;0;1000" dur="5s" 
+	 calcMode="linear"/>
+     
+	 <animate id="f1" attributeName="fill" begin="p1.end-0.01s" values="white; white; white" dur="0.1s"  
+	 calcMode="linear" />
+     
+          
+	</path>
+       
+         <path class="path" fill="none" stroke-width="1" stroke ="black" stroke-dasharray= "600" stroke-dashoffset="600"
+         
+         d="M41.402 18.185v4.591l2.298 1.531-.777-1.53v-2.279M44.443 19.716l-3.04 1.53M41.402 21.246l-3.784 3.061h.743l.778.782M39.139 25.838l.743 1.53-.743 1.53 4.561 1.53.743-.747v-.783L43.7 26.62l-.777-.782M39.139 25.09l1.52.748H42.923v-.749M35.32 26.62l3.819 2.278M43.7 24.307l3.784 4.591M44.443 33.49v0l-.743.782h.743" fill="none" stroke-width="1.585">
+         
+                                                         	 <animate id="p1" attributeName="stroke-dashoffset" begin="0.1s;f1.end+0.2s" values="1000;0;1000" dur="5s" 
+	 calcMode="linear"/>
+     
+	 <animate id="f1" attributeName="fill" begin="p1.end-0.01s" values="white; white; white" dur="0.1s"  
+	 calcMode="linear" />
+     
+          
+	</path>
+    
+    
+       
+
+
+
+
+</svg>
