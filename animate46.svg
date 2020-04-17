@@ -112,7 +112,7 @@ M56.026 160.32l-9.484-2.377c-.136-.046-.226-.121-.271-.242l-12.484-28.176-5.94 2
 M17.399 54.717l.105.893h-.06l.467 8.872.74 24.33h.014l.015.742c0 .228-.165.424-.392.424a.385.385 0 0 1-.407-.393c-.362-11.643-.663-23.15-1.281-34.762-.03-.227.136-.44.347-.454a.396.396 0 0 1 .452.348z">
 
 
-	 <animate id="p1" attributeName="stroke-dashoffset" begin="0.01s;f1.end+0.05s" values="400;0;400" dur="12s" 
+	 <animate id="p1" attributeName="stroke-dashoffset" begin="0.01s;f1.end+0.05s" values="400;0;400" dur="14s" 
 	 calcMode="linear"/> 
 	 <animate id="f1" attributeName="fill" begin="p1.end-1s" values="#3f69aa; #3f69aa; #3f69aa" dur="1s"  
 	 calcMode="linear" />
