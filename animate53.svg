@@ -143,7 +143,7 @@ M18.27 48.048l.267 4.366-.536.041-.247-4.387zm0 4.387l.267-.021a.29.29 0 0 1-.24
 
 
 
-       <animate dur="3s" values="#000000; #3f69aa; #f8f9fa; #000000" keyTimes="0; 0.7; 0.9; 1" attributeName="fill" repeatCount="indefinite"/>
+       <animate dur="3s" values="white; #3f69aa; #f8f9fa; white" keyTimes="0; 0.7; 0.9; 1" attributeName="fill" repeatCount="indefinite"/>
 
 
 	</path>
