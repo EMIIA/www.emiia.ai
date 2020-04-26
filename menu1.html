@@ -910,6 +910,11 @@ function showSlides(n, no) {
 
 
 
+
+
+
+
+
  
  
  
@@ -944,10 +949,11 @@ function showSlides(n, no) {
 </div>
 
 
-
+  <section id="services" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
 <style>
-
-
 
 .menu-icon {
   height: 30px;
@@ -955,35 +961,52 @@ function showSlides(n, no) {
   position: fixed;
   z-index: +10;
   left: 18px;
-  top: 43px;
+  top: 49px;
   cursor: pointer;
 }
+
+
+
 .menu-icon__line {
-  height: 2px;
-  width: 30px;
+  height: 1.4px;
+  width: 0px;
   display: block;
   background-color: #000000;
-  margin-bottom: 3px;
+  margin-bottom: 5.5px;
   -webkit-transition: background-color .5s ease, -webkit-transform .2s ease;
   transition: background-color .5s ease, -webkit-transform .2s ease;
   transition: transform .2s ease, background-color .5s ease;
   transition: transform .2s ease, background-color .5s ease, -webkit-transform .2s ease;
+  
+  
+  
   z-index: +10;
 }
+
+
+
 .menu-icon__line-left {
-  width: 15px;
+  width: 30px;
+  float: left;
   z-index: +11;
 }
+
 .menu-icon__line-right {
-  width: 15px;
+  width: 30px;
   float: right;
   z-index: +11;
 }
+
+
+
+
+
 
 .nav {
   position: fixed;
   z-index: +11;
 }
+
 .nav:before, .nav:after {
   content: "";
   position: fixed;
@@ -991,12 +1014,7 @@ function showSlides(n, no) {
   height: 100vh;
   background: rgba(234, 234, 234, 0.2);
   z-index: +10;
-  -webkit-transition: -webkit-transform cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
-  transition: -webkit-transform cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
-  transition: transform cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
-  transition: transform cubic-bezier(0.77, 0, 0.175, 1) 0.8s, -webkit-transform cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
-  -webkit-transform: translateX(0%) translateY(-100%);
-          transform: translateX(0%) translateY(-100%);
+
 
                     
 }
@@ -1012,39 +1030,28 @@ function showSlides(n, no) {
 .nav__content {
   position: fixed;
   top: 50%;
-  -webkit-transform: translate(0%, -50%);
-          transform: translate(0%, -50%);
+  -webkit-transform: translate(0%, 50%);
+          transform: translate(0%, 50%);
   width: 100%;
   text-align: center;
   font-size: calc(2vw + 10px);
-  font-weight: 200;
+  font-weight: 200px;
   cursor: pointer;
 
   }
   
-  .nav__content2 {
-  position: fixed;
-  top: 50%;
-  -webkit-transform: translate(0%, -50%);
-          transform: translate(0%, -50%);
-  width: 50%;
-  text-align: left;
-  font-size: calc(2vw + 10px);
-  font-weight: 200;
-  cursor: pointer;
-}
 .nav__list-item {
   position: relative;
   display: inline-block;
-  -webkit-transition-delay: 0.8s;
-          transition-delay: 0.8s;
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
   opacity: 0;
   -webkit-transform: translate(0%, 100%);
           transform: translate(0%, 100%);
   -webkit-transition: opacity .2s ease, -webkit-transform .3s ease;
-  transition: opacity .2s ease, -webkit-transform .3s ease;
-  transition: opacity .2s ease, transform .3s ease;
-  transition: opacity .2s ease, transform .3s ease, -webkit-transform .3s ease;
+  transition: opacity .1s ease, -webkit-transform .2s ease;
+  transition: opacity .1s ease, transform .2s ease;
+  transition: opacity .1s ease, transform .2s ease, -webkit-transform .3s ease;
   margin-right: 25px;
   z-index: +10;
 
@@ -1053,7 +1060,7 @@ function showSlides(n, no) {
   content: "";
   position: absolute;
   background: #000;
-  width: 20px;
+  width: 30px;
   height: 1px;
   top: 100%;
   -webkit-transform: translate(0%, 0%);
@@ -1068,36 +1075,44 @@ function showSlides(n, no) {
 
 }
 
+
 body.nav-active .menu-icon__line {
   background-color: #000;
   -webkit-transform: translateX(0px) rotate(-45deg);
-          transform: translateX(0px) rotate(-45deg);
-
-
-
-
-
-
-
-
-
-
+          
+transform: translateX(-1px) rotate(-45deg);
 
 }
+
+
+
+
+
+
 body.nav-active .menu-icon__line-left {
-  -webkit-transform: translateX(1px) rotate(45deg);
-          transform: translateX(1px) rotate(45deg);
+      -webkit-transform: rotate(-35deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-0px, 5px);
+       
  
     box-shadow: 100px 100px 1000px 2500px rgba(255,255,255,255.255);
 
-
-
-
 }
+
+
+
 body.nav-active .menu-icon__line-right {
-  -webkit-transform: translateX(-2px) rotate(45deg);
-          transform: translateX(-2px) rotate(45deg);
+  -webkit-transform: rotate(35deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-0px, -5px);
+                            
 }
+
+
+
+
+
+
+
+
 body.nav-active .nav {
   visibility: visible;
 }
@@ -1115,32 +1130,32 @@ body.nav-active .nav:before {
 }
 body.nav-active .nav__list-item {
   opacity: 1;
-  -webkit-transform: translateX(0%);
-          transform: translateX(0%);
-  -webkit-transition: opacity .3s ease, color .3s ease, -webkit-transform .3s ease;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: opacity .1s ease, color .1s ease, -webkit-transform .3s ease;
   transition: opacity .3s ease, color .3s ease, -webkit-transform .3s ease;
   transition: opacity .3s ease, transform .3s ease, color .3s ease;
   transition: opacity .3s ease, transform .3s ease, color .3s ease, -webkit-transform .3s ease;
 }
 body.nav-active .nav__list-item:nth-child(0) {
-  -webkit-transition-delay: 0.5s;
-          transition-delay: 0.5s;
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
 }
 body.nav-active .nav__list-item:nth-child(1) {
-  -webkit-transition-delay: 0.6s;
-          transition-delay: 0.6s;
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
 }
 body.nav-active .nav__list-item:nth-child(2) {
-  -webkit-transition-delay: 0.7s;
-          transition-delay: 0.7s;
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
 }
 body.nav-active .nav__list-item:nth-child(3) {
-  -webkit-transition-delay: 0.8s;
-          transition-delay: 0.8s;
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
 }
 body.nav-active .nav__list-item:nth-child(4) {
-  -webkit-transition-delay: 0.9s;
-          transition-delay: 0.9s;
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
 }
 </style>
 <script>
@@ -1161,25 +1176,19 @@ body.nav-active .nav__list-item:nth-child(4) {
 <div class="nav">
 <div class="nav__content">
 <ul class="nav__list">
-<li class="nav__list-item">Home</li>
-<li class="nav__list-item">About</li>
-<li class="nav__list-item">Projects</li>
-<li class="nav__list-item">Contact</li>
+<li class="nav__list-item" style="text-align: center">Home</li>
+
+<li class="nav__list-item" style="text-align: center">Ljv</li>
+
+
 </ul>
 
-        <br/>
-  <br/>
-  
-        <br/>
-  <br/>
 
-<div class="nav__content2">
-<ul class="nav__list">
-<li class="nav__list-item">Home</li>
-<li class="nav__list-item">About</li>
-<li class="nav__list-item">Projects</li>
-<li class="nav__list-item">Contact</li>
-</ul>
+
+
+
+
+
 
 
 
@@ -1214,6 +1223,9 @@ const app = (() => {
 })();
 //# sourceURL=pen.js
     </script>
+
+
+
     
     
         </section>
