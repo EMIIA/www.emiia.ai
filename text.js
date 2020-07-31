@@ -5,7 +5,7 @@
 class TextScramble {
   constructor(el) {
     this.el = el
-    this.chars = '!<>-_\\/[]{}—=+*^?#________'
+    this.chars = 'M!<>1-_9E\\8/[H]{}6—=+*^?#________'
     this.update = this.update.bind(this)
   }
   setText(newText) {
