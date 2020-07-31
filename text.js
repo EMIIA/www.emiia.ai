@@ -61,13 +61,12 @@ class TextScramble {
 // ——————————————————————————————————————————————————
 
 const phrases = [
-  'ASI NTI',
+  'ASI',
+  'Yandex Cloud Boost',
   'NTI',
-  'Yandex',
-  'Huawei Xiaomi',
-  'Прогресс Буран',
-  'between knowing the path',
-  'and walking the path'
+  'Huawei Xiaomi Glonass',
+  'MIET iotas',
+  'FASIE'
 ]
 
 const el = document.querySelector('.text')
