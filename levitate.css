@@ -1,0 +1,29 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.circle {
+  width: 6em;
+  height: 6em;
+  position: absolute;
+  top: calc(50% - 3em);
+  left: calc(50% - 3em);
+  border-radius: 50%;
+}
+
+@keyframes do-levitation {
+  0% {
+    transform: translate(0, 0);
+    background-color: red;
+  }
+  100% {
+    transform: translate(0, 0.5em);
+    background-color: blue;
+  }
+}
+
+.levitate {
+  animation: do-levitation 1.2s alternate ease-in-out infinite;
+}
