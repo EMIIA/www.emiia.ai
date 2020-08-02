@@ -6,7 +6,7 @@
 		attributeName="transform"
 		type="translate"
 		values="0,0;0,8;0,0"
-		dur="6s"
+		dur="5s"
 		repeatCount="indefinite"
 	/></path>
 
@@ -15,7 +15,7 @@
 		attributeName="transform"
 		type="translate"
 		values="0,0;0,8;0,0"
-		dur="6s"
+		dur="5s"
 		repeatCount="indefinite"
 	/> </path>
 
@@ -24,7 +24,7 @@
 		attributeName="transform"
 		type="translate"
 		values="0,0;0,8;0,0"
-		dur="6s"
+		dur="5s"
 		repeatCount="indefinite"
 	/></path>
 
@@ -34,7 +34,7 @@
 		attributeName="transform"
 		type="translate"
 		values="0,0;0,8;0,0"
-		dur="6s"
+		dur="5s"
 		repeatCount="indefinite"
 	/></path>
 
@@ -45,7 +45,7 @@
 		attributeName="transform"
 		type="translate"
 		values="0,0;0,8;0,0"
-		dur="6s"
+		dur="5s"
 		repeatCount="indefinite"
 	/></path>
 
@@ -55,7 +55,7 @@
 		attributeName="transform"
 		type="translate"
 		values="0,0;0,8;0,0"
-		dur="6s"
+		dur="5s"
 		repeatCount="indefinite"
 	/></path>
 
