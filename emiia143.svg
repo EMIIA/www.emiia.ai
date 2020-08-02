@@ -1,21 +1,63 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="45.616" height="59.639">
-	<style type="text/css"></style>
+<style type="text/css"></style>
+
 
 <path d="M41.967 20.813a.719.719 0 0 1-.718-.714c-.057-9.586-7.591-17.552-17.15-18.137a.718.718 0 1 1 .088-1.434c10.31.63 18.437 9.223 18.499 19.563a.718.718 0 0 1-.714.723h-.005z" fill="#050505"><animate dur="5s" values="#000000; #4e86b1; #d7d7d7; #000000" keyTimes="0; 0.5; 0.7; 1" attributeName="fill" repeatCount="indefinite"/></path>
+  	<animateTransform 
+		attributeName="transform"
+		type="translate"
+		values="0,0;0,8;0,0"
+		dur="6s"
+		repeatCount="indefinite"
+	/>
 
-<path d="M36.087 20.813a.718.718 0 0 1-.718-.712 12.35 12.35 0 0 0-11.29-12.244.718.718 0 1 1 .128-1.43 13.783 13.783 0 0 1 12.599 13.662.718.718 0 0 1-.712.724h-.007z" fill="#050505"><animate dur="4s" values="#000000; #4e86b1; #d7d7d7; #000000" keyTimes="0; 0.5; 0.7; 1" attributeName="fill" repeatCount="indefinite"/></path>
+<path d="M36.087 20.813a.718.718 0 0 1-.718-.712 12.35 12.35 0 0 0-11.29-12.244.718.718 0 1 1 .128-1.43 13.783 13.783 0 0 1 12.599 13.662.718.718 0 0 1-.712.724h-.007z" fill="#050505"><animate dur="4s" values="#000000; #4e86b1; #d7d7d7; #000000" keyTimes="0; 0.5; 0.7; 1" attributeName="fill" repeatCount="indefinite"/> </path>
+  	<animateTransform 
+		attributeName="transform"
+		type="translate"
+		values="0,0;0,8;0,0"
+		dur="6s"
+		repeatCount="indefinite"
+	/>
+
 
 <path d="M30.52 20.813a.719.719 0 0 1-.718-.707 6.816 6.816 0 0 0-5.77-6.65.719.719 0 0 1 .222-1.419 8.251 8.251 0 0 1 6.985 8.047.718.718 0 0 1-.708.73h-.01z" fill="#050505"><animate dur="2s" values="#000000; #4e86b1; #d7d7d7; #000000" keyTimes="0; 0.5; 0.7; 1" attributeName="fill" repeatCount="indefinite"/></path>
+  	<animateTransform 
+		attributeName="transform"
+		type="translate"
+		values="0,0;0,8;0,0"
+		dur="6s"
+		repeatCount="indefinite"
+	/>
 
 
 
-
-<path style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;text-orientation:mixed;white-space:normal;shape-padding:0;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1" d="M23.246 16.203a3.551 3.551 0 0 0-3.543 3.543 3.551 3.551 0 0 0 3.543 3.543 3.551 3.551 0 0 0 3.543-3.543 3.551 3.551 0 0 0-3.543-3.543zm0 1.34h.002a2.203 2.203 0 1 1-2.205 2.205v-.002c.002-1.22.984-2.2 2.203-2.203z" color="#000" font-weight="400" font-family="sans-serif" overflow="visible"><animate dur="3s" values="#000000; #4e86b1; #d7d7d7; #000000" keyTimes="0; 0.5; 0.7; 1" attributeName="fill" repeatCount="indefinite"/></path>
+<path style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;text-orientation:mixed;white-space:normal;shape-padding:0;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1" d="M23.246 16.203a3.551 3.551 0 0 0-3.543 3.543 3.551 3.551 0 0 0 3.543 3.543 3.551 3.551 0 0 0 3.543-3.543 3.551 3.551 0 0 0-3.543-3.543zm0 1.34h.002a2.203 2.203 0 1 1-2.205 2.205v-.002c.002-1.22.984-2.2 2.203-2.203z" color="#000" font-weight="400" font-family="sans-serif" overflow="visible"><animate dur="3s" values="#000000; #4e86b1; #d7d7d7; #000000" keyTimes="0; 0.5; 0.7; 1" attributeName="fill" repeatCount="indefinite"/>   	<animateTransform 
+		attributeName="transform"
+		type="translate"
+		values="0,0;0,1;0,0"
+		dur="6s"
+		repeatCount="indefinite"
+	/></path>
+  	<animateTransform 
+		attributeName="transform"
+		type="translate"
+		values="0,0;0,8;0,0"
+		dur="6s"
+		repeatCount="indefinite"
+	/>
 
 
 
 
 <path d="M22.965 27.402c-6.945 0-10.608-4.511-11.86-6.451a2.15 2.15 0 0 1 .008-2.333c1.136-1.753 4.441-5.886 10.597-6.387a.48.48 0 0 1 .077.955c-5.73.467-8.812 4.319-9.87 5.953-.256.396-.26.904-.008 1.293 1.167 1.808 4.582 6.013 11.056 6.013 4.826 0 7.948-2.326 9.717-4.277a.48.48 0 0 1 .71.643c-1.9 2.094-5.25 4.59-10.427 4.59z" fill="#050505"/>
+  	<animateTransform 
+		attributeName="transform"
+		type="translate"
+		values="0,0;0,8;0,0"
+		dur="6s"
+		repeatCount="indefinite"
+	/>
 
 
 <path d="M22.967 51.152c-.64 0-1.28-.218-1.802-.657-1.94-1.627-5.854-5.219-10.28-10.988-4.876-6.354-7.357-12.49-7.373-18.237a19.247 19.247 0 0 1-.03-1.06c0-10.253 8.01-18.792 18.236-19.44a.479.479 0 0 1 .06.956C12.056 2.341 4.44 10.461 4.44 20.21c0 .346.01.692.028 1.033.017 5.558 2.431 11.499 7.176 17.681 4.37 5.697 8.227 9.236 10.136 10.838a1.842 1.842 0 0 0 2.373 0c1.909-1.602 5.764-5.14 10.136-10.838 4.413-5.755 6.814-11.294 7.137-16.464a.47.47 0 0 1 .508-.448.479.479 0 0 1 .448.508c-.334 5.364-2.802 11.079-7.333 16.987-4.427 5.77-8.341 9.362-10.28 10.988a2.793 2.793 0 0 1-1.802.657z" fill="#050505"/>
