@@ -7,13 +7,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   sodipodi:docname="sdk (1).svg"
-   id="svg72"
-   version="1.1"
-   width="215.653"
+   viewBox="0 0 57.058 13.683"
    height="51.717"
-   viewBox="0 0 57.058 13.683">
+   width="215.653"
+   version="1.1"
+   id="svg72"
+   sodipodi:docname="sdk.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)">
   <metadata
      id="metadata76">
     <rdf:RDF>
@@ -26,235 +26,263 @@
     </rdf:RDF>
   </metadata>
   <sodipodi:namedview
-     inkscape:current-layer="svg72"
-     inkscape:window-maximized="1"
-     inkscape:window-y="-11"
-     inkscape:window-x="-11"
-     inkscape:cy="75.110891"
-     inkscape:cx="139.9711"
-     inkscape:zoom="1.410751"
-     showgrid="false"
-     id="namedview74"
-     inkscape:window-height="1046"
-     inkscape:window-width="1920"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0"
-     guidetolerance="10"
-     gridtolerance="10"
-     objecttolerance="10"
-     borderopacity="1"
+     inkscape:document-rotation="0"
+     pagecolor="#ffffff"
      bordercolor="#666666"
-     pagecolor="#ffffff" />
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1046"
+     id="namedview74"
+     showgrid="false"
+     inkscape:zoom="5.643004"
+     inkscape:cx="116.75651"
+     inkscape:cy="6.5880627"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg72" />
   <defs
      id="defs46">
     <clipPath
        id="clipPath4">
       <path
-         id="path2"
-         d="M22.142 14.65l-8.395-4.884-.033-.094.067-.048v-.001l5 .012s.5.02 1.12.256c0 0 1.38.437 2.094 2 0 0 .64 1.273.146 2.76" />
+         d="M22.142 14.65l-8.395-4.884-.033-.094.067-.048v-.001l5 .012s.5.02 1.12.256c0 0 1.38.437 2.094 2 0 0 .64 1.273.146 2.76"
+         id="path2" />
     </clipPath>
     <filter
-       id="filter8"
-       height="28"
-       width="29"
-       y="496"
+       filterUnits="userSpaceOnUse"
        x="55.5"
-       filterUnits="userSpaceOnUse">
+       y="496"
+       width="29"
+       height="28"
+       id="filter8">
       <feColorMatrix
-         id="feColorMatrix6"
-         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
+         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"
+         id="feColorMatrix6" />
     </filter>
     <filter
-       id="filter12"
-       height="13.1"
-       width="23"
-       y="189"
+       filterUnits="userSpaceOnUse"
        x="404"
-       filterUnits="userSpaceOnUse">
+       y="189"
+       width="23"
+       height="13.1"
+       id="filter12">
       <feColorMatrix
-         id="feColorMatrix10"
-         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
+         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"
+         id="feColorMatrix10" />
     </filter>
     <filter
-       id="filter16"
-       height="17.8"
-       width="12.8"
-       y="188.2"
+       filterUnits="userSpaceOnUse"
        x="445"
-       filterUnits="userSpaceOnUse">
+       y="188.2"
+       width="12.8"
+       height="17.8"
+       id="filter16">
       <feColorMatrix
-         id="feColorMatrix14"
-         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
+         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"
+         id="feColorMatrix14" />
     </filter>
     <filter
-       id="filter20"
-       height="11.9"
-       width="14.4"
-       y="187.1"
+       filterUnits="userSpaceOnUse"
        x="483"
-       filterUnits="userSpaceOnUse">
-      <feColorMatrix
-         id="feColorMatrix18"
-         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
-    </filter>
-    <filter
-       id="filter24"
-       height="11.9"
-       width="11.9"
        y="187.1"
+       width="14.4"
+       height="11.9"
+       id="filter20">
+      <feColorMatrix
+         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"
+         id="feColorMatrix18" />
+    </filter>
+    <filter
+       filterUnits="userSpaceOnUse"
        x="483.3"
-       filterUnits="userSpaceOnUse">
+       y="187.1"
+       width="11.9"
+       height="11.9"
+       id="filter24">
       <feColorMatrix
-         id="feColorMatrix22"
-         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
+         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"
+         id="feColorMatrix22" />
     </filter>
     <filter
-       id="filter28"
-       height="25"
-       width="25"
-       y="189.4"
+       filterUnits="userSpaceOnUse"
        x="560"
-       filterUnits="userSpaceOnUse">
+       y="189.4"
+       width="25"
+       height="25"
+       id="filter28">
       <feColorMatrix
-         id="feColorMatrix26"
-         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
+         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"
+         id="feColorMatrix26" />
     </filter>
     <filter
-       id="filter32"
-       height="25"
-       width="25"
-       y="150.8"
+       filterUnits="userSpaceOnUse"
        x="519.5"
-       filterUnits="userSpaceOnUse">
-      <feColorMatrix
-         id="feColorMatrix30"
-         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
-    </filter>
-    <filter
-       id="filter36"
-       height="25"
-       width="25"
        y="150.8"
+       width="25"
+       height="25"
+       id="filter32">
+      <feColorMatrix
+         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"
+         id="feColorMatrix30" />
+    </filter>
+    <filter
+       filterUnits="userSpaceOnUse"
        x="557.5"
-       filterUnits="userSpaceOnUse">
+       y="150.8"
+       width="25"
+       height="25"
+       id="filter36">
       <feColorMatrix
-         id="feColorMatrix34"
-         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
+         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"
+         id="feColorMatrix34" />
     </filter>
     <filter
-       id="filter40"
-       height="23.8"
-       width="24"
-       y="337.6"
+       filterUnits="userSpaceOnUse"
        x="5.6"
-       filterUnits="userSpaceOnUse">
+       y="337.6"
+       width="24"
+       height="23.8"
+       id="filter40">
       <feColorMatrix
-         id="feColorMatrix38"
-         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
+         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"
+         id="feColorMatrix38" />
     </filter>
     <filter
-       id="filter44"
-       height="19"
-       width="19.6"
-       y="338.5"
+       filterUnits="userSpaceOnUse"
        x="53.4"
-       filterUnits="userSpaceOnUse">
+       y="338.5"
+       width="19.6"
+       height="19"
+       id="filter44">
       <feColorMatrix
-         id="feColorMatrix42"
-         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
+         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"
+         id="feColorMatrix42" />
     </filter>
   </defs>
   <path
-     style="fill:#ffffff;fill-opacity:1"
+     id="path48"
      d="m 7.519,1.619 c -1.438,0 -2.6,1.16 -2.6,2.598 v 5.627 c 0,1.438 1.162,2.598 2.6,2.598 h 5.76 c 1.438,0 2.6,-1.16 2.6,-2.598 V 4.217 c 0,-1.438 -1.162,-2.598 -2.6,-2.598 z m 0,0.2 h 5.76 a 2.39,2.39 0 0 1 2.398,2.398 v 5.627 a 2.39,2.39 0 0 1 -2.398,2.398 h -5.76 c -1.33,0 -2.4,-1.068 -2.4,-2.398 V 4.217 c 0,-1.33 1.07,-2.398 2.4,-2.398 z m 0.786,5.925 h 1.286 q 0.134,0 0.228,0.094 0.094,0.094 0.094,0.228 V 9.674 H 9.696 V 8.969 H 8.201 V 9.674 H 7.984 V 8.066 Q 7.984,7.932 8.078,7.838 8.172,7.744 8.306,7.744 Z M 8.2,8.752 H 9.695 V 8.066 Q 9.695,8.023 9.663,7.994 9.633,7.962 9.591,7.962 H 8.305 Q 8.262,7.962 8.23,7.994 8.2,8.024 8.2,8.066 Z m 2.018,-1.005 h 1.608 q 0.134,0 0.228,0.094 0.094,0.094 0.094,0.228 v 0.565 q 0,0.134 -0.094,0.228 -0.094,0.094 -0.228,0.094 h -1.285 q -0.024,0 -0.105,-0.01 v 0.73 H 10.219 Z M 11.93,8.634 V 8.069 q 0,-0.043 -0.032,-0.072 -0.03,-0.032 -0.072,-0.032 h -1.285 q -0.043,0 -0.075,0.032 -0.03,0.03 -0.03,0.072 v 0.565 q 0,0.043 0.03,0.072 0.032,0.03 0.075,0.03 h 1.286 q 0.043,0 0.072,-0.03 0.032,-0.03 0.032,-0.072 z m 0.41,1.04 v -1.93 h 0.217 v 1.93 z M 43.795,1.619 c -1.438,0 -2.6,1.16 -2.6,2.598 v 5.627 c 0,1.438 1.162,2.598 2.6,2.598 h 5.76 c 1.438,0 2.6,-1.16 2.6,-2.598 V 4.217 c 0,-1.438 -1.162,-2.598 -2.6,-2.598 z m 0,0.2 h 5.76 a 2.39,2.39 0 0 1 2.398,2.398 v 5.627 a 2.39,2.39 0 0 1 -2.398,2.398 h -5.76 A 2.39,2.39 0 0 1 41.397,9.844 V 4.217 a 2.39,2.39 0 0 1 2.398,-2.398 z"
-     id="path48" />
+     style="fill:#ffffff;fill-opacity:1;stroke-width:1.00012168;stroke-miterlimit:4;stroke-dasharray:none" />
   <g
-     transform="translate(42.341,-261.586)"
-     fill="#ffffff"
+     id="g56"
      stroke-width="0.16"
-     id="g56">
+     fill="#ffffff"
+     transform="translate(42.341,-261.586)">
     <path
-       d="m 7.438,268.94 a 0.115,0.115 0 0 1 -0.115,-0.114 2.93,2.93 0 0 0 -2.743,-2.901 0.115,0.115 0 1 1 0.014,-0.229 3.16,3.16 0 0 1 2.959,3.129 0.115,0.115 0 0 1 -0.114,0.116 H 7.438 Z"
-       id="path50">
+       id="path50"
+       d="m 7.438,268.94 a 0.115,0.115 0 0 1 -0.115,-0.114 2.93,2.93 0 0 0 -2.743,-2.901 0.115,0.115 0 1 1 0.014,-0.229 3.16,3.16 0 0 1 2.959,3.129 0.115,0.115 0 0 1 -0.114,0.116 H 7.438 Z">
       <animate
-         repeatCount="indefinite"
-         attributeName="fill"
-         keyTimes="0; 0.5; 0.7; 1"
+         dur="5s"
          values="white; #4e86b1; #d7d7d7; white"
-         dur="5s" />
+         keyTimes="0; 0.5; 0.7; 1"
+         attributeName="fill"
+         repeatCount="indefinite" />
     </path>
     <path
-       d="m 6.497,268.94 a 0.115,0.115 0 0 1 -0.115,-0.114 1.975,1.975 0 0 0 -1.806,-1.958 0.115,0.115 0 1 1 0.02,-0.229 2.204,2.204 0 0 1 2.015,2.185 0.115,0.115 0 0 1 -0.114,0.116 z"
-       id="path52">
+       id="path52"
+       d="m 6.497,268.94 a 0.115,0.115 0 0 1 -0.115,-0.114 1.975,1.975 0 0 0 -1.806,-1.958 0.115,0.115 0 1 1 0.02,-0.229 2.204,2.204 0 0 1 2.015,2.185 0.115,0.115 0 0 1 -0.114,0.116 z">
       <animate
-         repeatCount="indefinite"
-         attributeName="fill"
-         keyTimes="0; 0.5; 0.7; 1"
+         dur="4s"
          values="white; #4e86b1; #d7d7d7; white"
-         dur="4s" />
+         keyTimes="0; 0.5; 0.7; 1"
+         attributeName="fill"
+         repeatCount="indefinite" />
     </path>
     <path
-       d="m 5.607,268.94 a 0.115,0.115 0 0 1 -0.115,-0.113 1.09,1.09 0 0 0 -0.923,-1.064 0.115,0.115 0 0 1 0.036,-0.227 1.32,1.32 0 0 1 1.117,1.287 0.115,0.115 0 0 1 -0.113,0.117 z"
-       id="path54">
+       id="path54"
+       d="m 5.607,268.94 a 0.115,0.115 0 0 1 -0.115,-0.113 1.09,1.09 0 0 0 -0.923,-1.064 0.115,0.115 0 0 1 0.036,-0.227 1.32,1.32 0 0 1 1.117,1.287 0.115,0.115 0 0 1 -0.113,0.117 z">
       <animate
-         repeatCount="indefinite"
-         attributeName="fill"
-         keyTimes="0; 0.5; 0.7; 1"
+         dur="2s"
          values="white; #4e86b1; #d7d7d7; white"
-         dur="2s" />
+         keyTimes="0; 0.5; 0.7; 1"
+         attributeName="fill"
+         repeatCount="indefinite" />
     </path>
   </g>
   <path
-     style="fill:#ffffff;fill-opacity:1"
-     font-family="sans-serif"
-     d="m 46.785,6.617 a 0.568,0.568 0 0 0 -0.567,0.567 0.568,0.568 0 0 0 0.567,0.567 0.568,0.568 0 0 0 0.567,-0.567 0.568,0.568 0 0 0 -0.567,-0.567 z m 0,0.214 v 0 a 0.352,0.352 0 1 1 -0.353,0.353 v 0 c 0,-0.195 0.157,-0.352 0.352,-0.352 z"
+     id="path58"
      stroke-width="0.16"
-     id="path58">
+     d="m 46.785,6.617 a 0.568,0.568 0 0 0 -0.567,0.567 0.568,0.568 0 0 0 0.567,0.567 0.568,0.568 0 0 0 0.567,-0.567 0.568,0.568 0 0 0 -0.567,-0.567 z m 0,0.214 v 0 a 0.352,0.352 0 1 1 -0.353,0.353 v 0 c 0,-0.195 0.157,-0.352 0.352,-0.352 z"
+     font-family="sans-serif"
+     style="fill:#ffffff;fill-opacity:1">
     <animate
-       repeatCount="indefinite"
-       attributeName="fill"
-       keyTimes="0; 0.5; 0.7; 1"
+       dur="3s"
        values="white; #4e86b1; #d7d7d7; white"
-       dur="3s" />
+       keyTimes="0; 0.5; 0.7; 1"
+       attributeName="fill"
+       repeatCount="indefinite" />
   </path>
   <path
-     style="fill:#ffffff;fill-opacity:1"
+     id="path60"
      d="M 9.221,5.249 V 5.324 H 9.004 V 5.249 Q 9.004,5.206 8.972,5.177 8.942,5.145 8.9,5.145 H 7.614 q -0.043,0 -0.075,0.032 -0.03,0.03 -0.03,0.072 v 0.43 q 0,0.043 0.03,0.072 0.032,0.03 0.075,0.03 H 8.9 q 0.134,0 0.228,0.094 0.094,0.094 0.094,0.228 v 0.43 q 0,0.134 -0.094,0.228 Q 9.034,6.855 8.9,6.855 H 7.614 Q 7.48,6.855 7.386,6.761 7.292,6.667 7.292,6.533 V 6.458 h 0.217 v 0.075 q 0,0.043 0.03,0.075 0.032,0.03 0.075,0.03 H 8.9 q 0.043,0 0.072,-0.03 Q 9.004,6.576 9.004,6.533 V 6.103 Q 9.004,6.06 8.972,6.031 8.942,6.001 8.9,6.001 H 7.614 Q 7.48,6.001 7.386,5.907 7.292,5.813 7.292,5.679 V 5.249 Q 7.292,5.115 7.386,5.021 7.48,4.927 7.614,4.927 H 8.9 q 0.134,0 0.228,0.094 0.094,0.094 0.094,0.228 z M 9.513,4.927 h 1.608 q 0.134,0 0.228,0.094 0.094,0.094 0.094,0.228 v 1.286 q 0,0.134 -0.094,0.228 -0.094,0.094 -0.228,0.094 H 9.513 Z m 1.712,1.608 V 5.249 q 0,-0.043 -0.032,-0.072 -0.03,-0.032 -0.072,-0.032 H 9.835 q -0.043,0 -0.075,0.032 -0.03,0.03 -0.03,0.072 v 1.286 q 0,0.043 0.03,0.075 0.032,0.03 0.075,0.03 h 1.286 q 0.043,0 0.072,-0.03 0.032,-0.032 0.032,-0.075 z m 2.08,-1.608 h 0.28 l -0.807,0.965 0.8,0.965 h -0.28 L 12.58,6.002 h -0.622 v 0.855 h -0.22 v -1.93 h 0.22 v 0.855 h 0.622 z"
-     id="path60" />
+     style="fill:#ffffff;fill-opacity:1" />
   <g
-     transform="translate(42.341,-261.586)"
-     fill="#ffffff"
+     id="g68"
      stroke-width="0.16"
-     id="g68">
+     fill="#ffffff"
+     transform="translate(42.341,-261.586)">
     <path
-       d="m 1.294,268.674 a 0.115,0.115 0 0 1 0.114,0.115 2.93,2.93 0 0 0 2.731,2.912 0.115,0.115 0 1 1 -0.015,0.229 3.16,3.16 0 0 1 -2.946,-3.141 0.115,0.115 0 0 1 0.115,-0.115 z"
-       id="path62">
+       id="path62"
+       d="m 1.294,268.674 a 0.115,0.115 0 0 1 0.114,0.115 2.93,2.93 0 0 0 2.731,2.912 0.115,0.115 0 1 1 -0.015,0.229 3.16,3.16 0 0 1 -2.946,-3.141 0.115,0.115 0 0 1 0.115,-0.115 z">
       <animate
-         repeatCount="indefinite"
-         attributeName="fill"
-         keyTimes="0; 0.5; 0.7; 1"
+         dur="5s"
          values="white; #4e86b1; #d7d7d7; white"
-         dur="5s" />
+         keyTimes="0; 0.5; 0.7; 1"
+         attributeName="fill"
+         repeatCount="indefinite" />
     </path>
     <path
-       d="m 2.234,268.678 a 0.115,0.115 0 0 1 0.114,0.114 1.975,1.975 0 0 0 1.798,1.965 0.115,0.115 0 1 1 -0.021,0.229 2.204,2.204 0 0 1 -2.006,-2.193 0.115,0.115 0 0 1 0.114,-0.115 z"
-       id="path64">
+       id="path64"
+       d="m 2.234,268.678 a 0.115,0.115 0 0 1 0.114,0.114 1.975,1.975 0 0 0 1.798,1.965 0.115,0.115 0 1 1 -0.021,0.229 2.204,2.204 0 0 1 -2.006,-2.193 0.115,0.115 0 0 1 0.114,-0.115 z">
       <animate
-         repeatCount="indefinite"
-         attributeName="fill"
-         keyTimes="0; 0.5; 0.7; 1"
+         dur="4s"
          values="white; #4e86b1; #d7d7d7; white"
-         dur="4s" />
+         keyTimes="0; 0.5; 0.7; 1"
+         attributeName="fill"
+         repeatCount="indefinite" />
     </path>
     <path
-       d="m 3.124,268.682 a 0.115,0.115 0 0 1 0.114,0.114 1.09,1.09 0 0 0 0.919,1.067 0.115,0.115 0 0 1 -0.036,0.227 1.32,1.32 0 0 1 -1.112,-1.291 0.115,0.115 0 0 1 0.114,-0.116 h 0.002 z"
-       id="path66">
+       id="path66"
+       d="m 3.124,268.682 a 0.115,0.115 0 0 1 0.114,0.114 1.09,1.09 0 0 0 0.919,1.067 0.115,0.115 0 0 1 -0.036,0.227 1.32,1.32 0 0 1 -1.112,-1.291 0.115,0.115 0 0 1 0.114,-0.116 h 0.002 z">
       <animate
-         repeatCount="indefinite"
-         attributeName="fill"
-         keyTimes="0; 0.5; 0.7; 1"
+         dur="2s"
          values="white; #4e86b1; #d7d7d7; white"
-         dur="2s" />
+         keyTimes="0; 0.5; 0.7; 1"
+         attributeName="fill"
+         repeatCount="indefinite" />
     </path>
+  </g>
+  <rect
+     rx="2.3281579"
+     ry="2.5057087"
+     y="1.8377562"
+     x="23.485878"
+     height="10.532076"
+     width="10.626725"
+     id="rect862"
+     style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.197807;stroke-linejoin:round;stroke-dashoffset:0.3367;stroke-opacity:1" />
+  <g
+     transform="translate(0,0.14066043)"
+     style="font-size:7.14814px;line-height:1.25;font-family:sans-serif;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;fill:#ffffff;fill-opacity:1"
+     id="text962"
+     aria-label="E">
+    <g
+       style="opacity:1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;fill:#ffffff;fill-opacity:1"
+       id="g967">
+      <path
+         id="path969"
+         d="m 31.178915,4.460435 v 0.5789993 h -4.117328 v 1.7012573 h 3.309588 v 0.5861475 h -3.309588 v 1.7012573 h 4.117328 V 9.6070957 H 26.482587 V 4.460435 Z"
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Orbitron;-inkscape-font-specification:Orbitron;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate;stop-color:#000000;stop-opacity:1" />
+      <path
+         id="path971"
+         d="m 26.429688,4.40625 v 5.2539062 h 4.802734 V 8.9746094 h -4.117188 v -1.59375 h 3.308594 V 6.6875 H 27.115234 V 5.09375 h 4.117188 v -0.6875 h -0.05273 z m 0.107421,0.1074219 H 31.125 v 0.4726562 h -4.117188 v 1.8085938 h 3.310547 V 7.2734375 H 27.007812 V 9.0820312 H 31.125 v 0.4707032 h -4.587891 z"
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Orbitron;-inkscape-font-specification:Orbitron;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate;stop-color:#000000;stop-opacity:1;fill:#ffffff" />
+    </g>
   </g>
 </svg>
