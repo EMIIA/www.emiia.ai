@@ -1,0 +1,35 @@
+body {
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.tb {
+  display: table;
+  width: 100%;
+}
+.container {
+  display: table-cell;
+  vertical-align: center;
+}
+#basic-setup {
+  margin: 0 auto;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.button {
+  display: table-cell;
+  vertical-align: center;
+  font-size: 200%;
+  padding: 0.2em 1em 0.34em;
+  border-radius: 20px;
+  background: none;
+  color: #000;
+}
+.button:hover {
+  background: none;
+  color: red;
+}
