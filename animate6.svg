@@ -69,10 +69,10 @@
      transform="matrix(0.62895002,0,0,0.62895002,-0.28499281,-6.3306882)">
     <path
        d="m 46.520378,10.065487 v 5.679525 H 6.1326491 V 32.432997 H 38.597091 v 5.749642 H 6.1326491 V 54.870624 H 46.520378 v 5.679524 H 0.45312474 V 10.065487 Z"
-       style="fill:#000000;fill-opacity:1;stroke-width:1.46078312"
+       style="fill:#383838;fill-opacity:1;stroke-width:1.46078312"
        id="path857"
        inkscape:connector-curvature="0" >
-             <animate dur="6s" values="#000000; #4e86b1; #d7d7d7; #000000" keyTimes="0; 0.5; 0.7; 1" attributeName="fill" repeatCount="indefinite"/>
+             <animate dur="6s" values="#383838; #4e86b1; #d7d7d7; #383838" keyTimes="0; 0.5; 0.7; 1" attributeName="fill" repeatCount="indefinite"/>
   </path>
        
        
