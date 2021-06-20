@@ -12,16 +12,16 @@ var TrimbleWorldLoader = {
     });
 
     Promise.all([
-      System.import("components/webgl-viewer/dist/amd/index.js"),
-      System.import("components/webgl-viewer/dist/amd/ContextMenu.js"),
-      System.import("components/webgl-viewer-plugin-trimbim/dist/amd/index.js"),
-      System.import("components/webgl-viewer-plugin-trimbim/dist/amd/ConnectIdentifier.js"),
-      System.import("components/webgl-viewer-plugin-trimbim/dist/amd/HierarchySelection.js"),
-      System.import("components/webgl-viewer-plugin-compass/dist/amd/index.js"),
-      System.import("components/webgl-viewer-plugin-icons/dist/amd/index.js"),
-      System.import("components/webgl-viewer-plugin-markup/dist/amd/index.js"),
-      System.import("components/webgl-viewer-plugin-potree/dist/amd/index.js"),
-      System.import("components/react-hotkeys/umd/react-hotkeys.min.js"),
+      System.import("https://3d.connect.trimble.com/components/webgl-viewer/dist/amd/index.js"),
+      System.import("https://3d.connect.trimble.com/components/webgl-viewer/dist/amd/ContextMenu.js"),
+      System.import("https://3d.connect.trimble.com/components/webgl-viewer-plugin-trimbim/dist/amd/index.js"),
+      System.import("https://3d.connect.trimble.com/components/webgl-viewer-plugin-trimbim/dist/amd/ConnectIdentifier.js"),
+      System.import("https://3d.connect.trimble.com/components/webgl-viewer-plugin-trimbim/dist/amd/HierarchySelection.js"),
+      System.import("https://3d.connect.trimble.com/components/webgl-viewer-plugin-compass/dist/amd/index.js"),
+      System.import("https://3d.connect.trimble.com/components/webgl-viewer-plugin-icons/dist/amd/index.js"),
+      System.import("https://3d.connect.trimble.com/components/webgl-viewer-plugin-markup/dist/amd/index.js"),
+      System.import("https://3d.connect.trimble.com/components/webgl-viewer-plugin-potree/dist/amd/index.js"),
+      System.import("https://3d.connect.trimble.com/components/react-hotkeys/umd/react-hotkeys.min.js"),
     ]).then((modules) => {
       webglViewer = modules[0];
       ContextMenu = modules[1];
