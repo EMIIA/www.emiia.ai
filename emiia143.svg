@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="38.0" height="63.0">
+<svg xmlns="https://www.w3.org/2000/svg" width="38.0" height="63.0">
 <style type="text/css"></style>
 
 
@@ -7,7 +7,7 @@
 
 
 <path d="m 12.430062,19.93286 v 5.114431 m 6.542565,-8.597288 v 8.597288 m 6.543378,-12.09642 v 12.09642 m 11.102829,-6.127552 c 0,4.947611 -2.034378,9.423247 -5.313798,12.637566 l -0.02849,0.03012 -12.356823,12.111068 -12.366585,-12.12246 -0.010573,-0.0106 c -3.2875605,-3.214324 -5.32194,-7.689959 -5.32194,-12.645708 0,-9.781295 7.917805,-17.6991 17.6991,-17.6991 9.773161,0 17.699103,7.917805 17.699103,17.6991 z"
-fill="none" stroke="black" stroke-width="1.9" stroke-linecap="round" stroke-miterlimit="10">
+fill="white" stroke="#383838" stroke-width="1.9" stroke-linecap="round" stroke-miterlimit="10">
 
 <animateTransform 
 		attributeName="transform"
