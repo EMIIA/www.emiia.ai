@@ -1,24 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="38.0" height="63.0">
-<style type="text/css">
-	.st0{fill:#3f69aa;}
-	.st1{fill:#FFFFFF;}
-</style>
-<g id="Layer_1">
-</g>
-<g id="Layer_2">
-	<path class="st0" d="M37.5,19.3c0,9.1-6.6,16.7-15.3,18.3l-2.3,2.9c-0.5,0.6-1.4,0.6-1.9,0l-2.3-2.9C7.1,36,0.5,28.4,0.5,19.3
-		C0.5,9.1,8.8,0.8,19,0.8S37.5,9.1,37.5,19.3z"/>
-</g>
-<g id="Layer_3">
-	<g>
-		<path class="st1" d="M24.4,24.3c-0.9,0-1.7-0.8-1.7-1.7v-8.3c0-0.9,0.8-1.7,1.7-1.7s1.7,0.8,1.7,1.7v8.3
-			C26.2,23.5,25.4,24.3,24.4,24.3z"/>
-		<path class="st1" d="M19,24.1c-0.9,0-1.7-0.8-1.7-1.7v-6c0-0.9,0.8-1.7,1.7-1.7s1.7,0.8,1.7,1.7v6C20.7,23.3,19.9,24.1,19,24.1z"
-			/>
-		<path class="st1" d="M13.6,24.2c-0.9,0-1.7-0.8-1.7-1.7v-3.4c0-0.9,0.8-1.7,1.7-1.7s1.7,0.8,1.7,1.7v3.4
-			C15.3,23.4,14.5,24.2,13.6,24.2z"/>
-	</g>
-</g>
+
+
+
+
+
+
+
+<path d="M37.5,19.3c0,9.1-6.6,16.7-15.3,18.3l-2.3,2.9c-0.5,0.6-1.4,0.6-1.9,0l-2.3-2.9C7.1,36,0.5,28.4,0.5,19.3
+		C0.5,9.1,8.8,0.8,19,0.8S37.5,9.1,37.5,19.3z"
+fill="#3f69aa"  stroke-width="1.9" stroke-linecap="round" stroke-miterlimit="10">
 
 <animateTransform 
 		attributeName="transform"
@@ -26,6 +16,46 @@
 		values="0,0;0,16;0,0"
 		dur="4s"
 		repeatCount="indefinite"
-	/>
+	/></path>
 
+
+  <path class="st1" d="M24.4,24.3c-0.9,0-1.7-0.8-1.7-1.7v-8.3c0-0.9,0.8-1.7,1.7-1.7s1.7,0.8,1.7,1.7v8.3
+			C26.2,23.5,25.4,24.3,24.4,24.3z">
+            
+              <animateTransform 
+		attributeName="transform"
+		type="translate"
+		values="0,0;0,16;0,0"
+		dur="4s"
+		repeatCount="indefinite"
+	/></path>
+            
+            
+            
+            
+            
+		<path class="st1" d="M19,24.1c-0.9,0-1.7-0.8-1.7-1.7v-6c0-0.9,0.8-1.7,1.7-1.7s1.7,0.8,1.7,1.7v6C20.7,23.3,19.9,24.1,19,24.1z"
+			>
+            
+            
+              <animateTransform 
+		attributeName="transform"
+		type="translate"
+		values="0,0;0,16;0,0"
+		dur="4s"
+		repeatCount="indefinite"
+	/></path>
+            
+		<path class="st1" d="M13.6,24.2c-0.9,0-1.7-0.8-1.7-1.7v-3.4c0-0.9,0.8-1.7,1.7-1.7s1.7,0.8,1.7,1.7v3.4
+			C15.3,23.4,14.5,24.2,13.6,24.2z">
+  
+  
+  <animateTransform 
+		attributeName="transform"
+		type="translate"
+		values="0,0;0,16;0,0"
+		dur="4s"
+		repeatCount="indefinite"
+	/></path>
+  
 </svg>
