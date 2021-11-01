@@ -93,7 +93,7 @@
     <animateTransform
        attributeName="transform"
        type="translate"
-       values="0,0;0,16;0,0"
+       values="0,0;0,6;0,0"
        dur="6s"
        repeatCount="indefinite" />
   </path>
@@ -126,7 +126,7 @@
     <animateTransform
        attributeName="transform"
        type="translate"
-       values="0,0;0,16;0,0"
+       values="0,0;0,6;0,0"
        dur="6s"
        repeatCount="indefinite" />
   </path>
@@ -148,7 +148,7 @@
     <animateTransform
        attributeName="transform"
        type="translate"
-       values="0,0;0,16;0,0"
+       values="0,0;0,6;0,0"
        dur="6s"
        repeatCount="indefinite" />
   </path>
@@ -170,7 +170,7 @@
     <animateTransform
        attributeName="transform"
        type="translate"
-       values="0,0;0,16;0,0"
+       values="0,0;0,6;0,0"
        dur="6s"
        repeatCount="indefinite" />
   </path>
