@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html><html>
 
 
@@ -16,14 +14,18 @@
     </head>
     <style>
         .fp-Video {
-            border: 1px double black;
-            width: 322px;
-            height: 242px;
+
+            
+               position: relative;         
+
+  height: 100vh;
+  display: block;
+  width: 100vw;
         }
         .display {
             width: 100%;
             height: 100%;
-            display: inline-block;
+    
         }
         .display > video,
         object {
@@ -31,13 +33,17 @@
             height: 100%;
         }
     </style>
-    <body onload="init_api()">
+
+
+
+<body onload="init_api()">
         <div class="fp-Video">
             <div id="play" class="display"></div>
-        </div>
-        <br />
-        <button id="playBtn">PLAY</button>
-    </body>
+
+
+     <br> <button id="playBtn">PLAY EMIIA.AI MRV/CCTV</button>
+      </body>
+  
     
     
     
@@ -93,12 +99,4 @@ function playStream() {
 }
     
     
-  </script>  
-    
-    
-    
-    
-    
-    
-    
-</html>
+  </script>
