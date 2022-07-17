@@ -23,7 +23,7 @@
 <meta name="apple-mobile-web-app-title" content="EMIIA.AI MRV">
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#fff">
-<meta name="msapplication-starturl" content="https://www.emiia.ai/indoor9.html">
+<meta name="msapplication-starturl" content="https://www.emiia.ai/indoor8.html">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link rel="icon" href="/favicon.ico">
@@ -95,7 +95,21 @@
         
         
         
-     
+        
+        
+
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js"></script>
+        
+        
+    
+    
+    
+
+    
+    
+        
         
         
         <script src='https://mapbox.github.io/mapbox-gl-traffic/mapbox-gl-traffic.js'></script>
@@ -147,7 +161,13 @@ max-width: 200px;
     
     
     
+    
+    
     <style>
+
+
+
+
 
 
 
@@ -229,7 +249,6 @@ a.mapboxgl-ctrl-logo{
 
 
 
-            
 
 
 
@@ -274,11 +293,15 @@ a.mapboxgl-ctrl-logo{
 
 
 
+
 .mapboxgl-ctrl-geocoder {
 
  font: 14px/20px Montserrat, montserrat;
  
  }
+
+
+
 
 
 .mapboxgl-popup-content {
@@ -307,16 +330,6 @@ a.mapboxgl-ctrl-logo{
 @import url('/css.css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
 
 }
-
-
-
-
-
-
-
-
-
-
 
 </style>
     
@@ -397,10 +410,8 @@ a.mapboxgl-ctrl-logo{
     <script>
     
     
-  const monument = [  37.17403560876846,55.977308625119825];
-
+    const monument = [  37.17403560876846,55.977308625119825];
     
-  
     
         mapboxgl.accessToken = 'pk.eyJ1IjoiZW1paWFhaSIsImEiOiJja21icnU4bHkyNGRwMnFrbjVvNXdtdGJ0In0.TcfxV21Ov7zOgvWvgPxzlA'
         const map = window.map = new mapboxgl.Map({
@@ -408,20 +419,10 @@ a.mapboxgl-ctrl-logo{
             zoom: 18,
             center: [37.174014151096344,
               55.97747745943937],
-            style: 'mapbox://styles/mapbox/streets-v9',
+            style: 'mapbox://styles/mapbox/streets-v10',
              attributionControl: false,
             hash: true
         });
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
       
 
@@ -478,9 +479,6 @@ a.mapboxgl-ctrl-logo{
             localGeocoder: forwardGeocoder,
             zoom: 19,
             placeholder: 'Search/Navigation Indoor',
-            
-
-            
             mapboxgl: mapboxgl,
             marker: true,
         });
@@ -595,7 +593,9 @@ map.on('mousemove', 'country-fill', function (e) {
     
     
     
-  <script>  
+    
+    
+    <script>  
     
     // create the popup
 const popup = new mapboxgl.Popup({ offset: 25 })
@@ -615,92 +615,6 @@ new mapboxgl.Marker(el)
 
     
     
-    
-    
-    
-    
- 
-    
-    
-    
-    
-    
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    <script> 
-    
- map.on('load', () => {
-// Insert the layer beneath any symbol layer.
-const layers = map.getStyle().layers;
-const labelLayerId = layers.find(
-(layer) => layer.type === 'symbol' && layer.layout['text-field']
-).id;
- 
-// The 'building' layer in the Mapbox Streets
-// vector tileset contains building height data
-// from OpenStreetMap.
-map.addLayer(
-{
-'id': 'add-3d-buildings',
-'source': 'composite',
-'source-layer': 'building',
-'filter': ['==', 'extrude', 'true'],
-'type': 'fill-extrusion',
-'minzoom': 15,
-'paint': {
-'fill-extrusion-color': '#aaa',
- 
-// Use an 'interpolate' expression to
-// add a smooth transition effect to
-// the buildings as the user zooms in.
-'fill-extrusion-height': [
-'interpolate',
-['linear'],
-['zoom'],
-15,
-0,
-15.05,
-['get', 'height']
-],
-'fill-extrusion-base': [
-'interpolate',
-['linear'],
-['zoom'],
-15,
-0,
-15.05,
-['get', 'min_height']
-],
-'fill-extrusion-opacity': 0.0
-}
-},
-labelLayerId
-);
-});
-
-
-map.on('style.load', function () {
-			map.addLayer(createCustomLayer('3d-model', modelOrigin), '');
-            
-   
-		});
-    
-    
-  </script> 
-
-    
-    
-    
-
-  
-  
     
     
     
