@@ -591,70 +591,25 @@ map.on('mousemove', 'country-fill', function (e) {
     
     
     
+<script>  
     
-    <script> 
-    
- map.on('load', () => {
-// Insert the layer beneath any symbol layer.
-const layers = map.getStyle().layers;
-const labelLayerId = layers.find(
-(layer) => layer.type === 'symbol' && layer.layout['text-field']
-).id;
- 
-// The 'building' layer in the Mapbox Streets
-// vector tileset contains building height data
-// from OpenStreetMap.
-map.addLayer(
-{
-'id': 'add-3d-buildings',
-'source': 'composite',
-'source-layer': 'building',
-'filter': ['==', 'extrude', 'true'],
-'type': 'fill-extrusion',
-'minzoom': 15,
-'paint': {
-'fill-extrusion-color': '#aaa',
- 
-// Use an 'interpolate' expression to
-// add a smooth transition effect to
-// the buildings as the user zooms in.
-'fill-extrusion-height': [
-'interpolate',
-['linear'],
-['zoom'],
-15,
-0,
-15.05,
-['get', 'height']
-],
-'fill-extrusion-base': [
-'interpolate',
-['linear'],
-['zoom'],
-15,
-0,
-15.05,
-['get', 'min_height']
-],
-'fill-extrusion-opacity': 0.0
-}
-},
-labelLayerId
-);
-});
-
-
-map.on('style.load', function () {
-			map.addLayer(createCustomLayer('3d-model', modelOrigin), '');
-            
+    // create the popup
+const popup = new mapboxgl.Popup({ offset: 25 })
+   .setHTML("<iframe top:0;left:0;position:absolute;  allowfullscreen:true; width=335 height=500  frameborder='0'   src=https://www.emiia.ru/mrvpinw3.html?token=2.GtErfHCeAAcABc_H50WdWnkWZhJog9K6RBpaBlvUD9zSiDCX&amp;camera=0&amp;width=&amp;height=&amp;lang=ru frameborder=0 allow=accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture allowfullscreen></iframe>")
    
-		});
-    
-    
-  </script> 
+
+// create DOM element for the marker
+var el = document.createElement('div');
+el.id = 'marker';
+ 
+// create the marker
+new mapboxgl.Marker(el)
+.setLngLat(monument)
+.setPopup(popup) // sets a popup on this marker
+.addTo(map);
 
     
-    
+ </script>    
     
     
     
