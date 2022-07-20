@@ -134,7 +134,7 @@
     
  <style>   
     
-    /* Basics */
+  /* Basics */
 .mapboxgl-ctrl-geocoder,
 .mapboxgl-ctrl-geocoder *,
 .mapboxgl-ctrl-geocoder *:after,
@@ -143,7 +143,7 @@
 }
 
 .mapboxgl-ctrl-geocoder {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 24px;
   font-family: "Montserrat", Montserrat, montserrat;
   position: relative;
@@ -155,22 +155,10 @@
   transition: width .25s, min-width .25s;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 .mapboxgl-ctrl-geocoder--input {
- font-family: "Montserrat", Montserrat, montserrat;
- font-size: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Montserrat", Montserrat, montserrat;
   width: 100%;
   border: 0;
   background-color: transparent;
@@ -178,25 +166,11 @@
   height: 50px;
   color: #404040; /* fallback */
   color: rgba(0, 0, 0, 0.75);
-  padding: 8px 50px;
-  
-  
-    text-overflow: ellipsis;
+  padding: 6px 45px;
+  text-overflow: ellipsis;
   white-space: nowrap;
-
-
+  overflow: hidden;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .mapboxgl-ctrl-geocoder--input::-ms-clear {
   display: none; /* hide input clear button in IE */
@@ -223,15 +197,12 @@
   box-shadow: 0 0 10px 2px rgba(0,0,0,.1);
 }
 
-
 /* Collapsed */
 .mapboxgl-ctrl-geocoder.mapboxgl-ctrl-geocoder--collapsed {
   width: 50px;
   min-width: 50px;
   transition: width .25s, min-width .25s;
 }
-
-
 
 /* Suggestions */
 .mapboxgl-ctrl-geocoder .suggestions {
@@ -243,7 +214,7 @@
   padding: 0;
   position: absolute;
   width: 100%;
-  top: 100%; /* fallback */
+  top: 110%; /* fallback */
   top: calc(100% + 6px);
   z-index: 1000;
   overflow: hidden;
@@ -256,8 +227,6 @@
   bottom: 100%;
 }
 
-
-
 .mapboxgl-ctrl-geocoder .suggestions > li > a {
   cursor: default;
   display: block;
@@ -268,11 +237,30 @@
 
 
 
+.mapboxgl-ctrl-geocoder .suggestions > .active > a,
+.mapboxgl-ctrl-geocoder .suggestions > li > a:hover {
+  color: #404040;
+  
+  background-color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 
 
 
 
+
+.mapboxgl-ctrl-geocoder--suggestion-title {
+  font-weight: bold;
+}
+
+.mapboxgl-ctrl-geocoder--suggestion-title,
+.mapboxgl-ctrl-geocoder--suggestion-address {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
 /* Icons */
 .mapboxgl-ctrl-geocoder--icon {
@@ -283,9 +271,6 @@
   top: 15px;
 }
 
-
-
-
 .mapboxgl-ctrl-geocoder--icon-search {
   position: absolute;
   top: 13px;
@@ -293,8 +278,6 @@
   width: 23px;
   height: 23px;
 }
-
-
 
 .mapboxgl-ctrl-geocoder--button {
   padding: 0;
@@ -305,22 +288,16 @@
   line-height: 1;
 }
 
-
-
-
 .mapboxgl-ctrl-geocoder--icon-close {
   width: 12px;
   height: 12px;
-  margin-top: 15px;
+  margin-top: 12px;
   margin-right: 3px;
-
 }
-
 
 .mapboxgl-ctrl-geocoder--button:hover .mapboxgl-ctrl-geocoder--icon-close {
   fill: #383838;
 }
-
 
 .mapboxgl-ctrl-geocoder--icon-loading {
   width: 26px;
@@ -355,23 +332,61 @@
   }
 }
 
+/* Media queries*/
+@media screen and (min-width: 640px) {
 
+  .mapboxgl-ctrl-geocoder.mapboxgl-ctrl-geocoder--collapsed {
+    width: 36px;
+    min-width: 36px;
+  }
 
-  
+  .mapboxgl-ctrl-geocoder {
+    width: 33.3333%;
+    font-size: 15px;
+    line-height: 20px;
+    max-width: 360px;
+  }
+  .mapboxgl-ctrl-geocoder .suggestions {
+    font-size: 13px;
+  }
 
+  .mapboxgl-ctrl-geocoder--icon {
+    top: 8px;
+  }
 
+  .mapboxgl-ctrl-geocoder--icon-close {
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+    margin-right: 0;
+  }
 
+  .mapboxgl-ctrl-geocoder--icon-search {
+    left: 7px;
+    width: 20px;
+    height: 20px;
+  }
 
+  .mapboxgl-ctrl-geocoder--input {
+    height: 36px;
+    padding: 6px 35px;
+  }
 
+  .mapboxgl-ctrl-geocoder--icon-loading {
+    width: 26px;
+    height: 26px;
+    margin-top: -2px;
+    margin-right: -5px;
+  }
 
-  
-  
-  @import url('https://www.emiia.ru/css.css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
+  .mapbox-gl-geocoder--error{
+    color:#909090;
+    padding: 6px 12px;
+    font-size: 16px;
+    text-align: center
+  }
 
-
-  
-@import url('/css.css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
-  
+}
   
 
 }
@@ -916,6 +931,9 @@ new mapboxgl.Marker(el)
 </body>
 
 </html>
+
+
+
 
 
 
