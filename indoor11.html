@@ -143,7 +143,7 @@
 }
 
 .mapboxgl-ctrl-geocoder {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 24px;
   font-family: "Montserrat", Montserrat, montserrat;
   position: relative;
@@ -195,12 +195,15 @@
   box-shadow: 0 0 10px 2px rgba(0,0,0,.1);
 }
 
+
 /* Collapsed */
 .mapboxgl-ctrl-geocoder.mapboxgl-ctrl-geocoder--collapsed {
   width: 50px;
   min-width: 50px;
   transition: width .25s, min-width .25s;
 }
+
+
 
 /* Suggestions */
 .mapboxgl-ctrl-geocoder .suggestions {
@@ -212,7 +215,7 @@
   padding: 0;
   position: absolute;
   width: 100%;
-  top: 110%; /* fallback */
+  top: 100%; /* fallback */
   top: calc(100% + 6px);
   z-index: 1000;
   overflow: hidden;
@@ -225,6 +228,8 @@
   bottom: 100%;
 }
 
+
+
 .mapboxgl-ctrl-geocoder .suggestions > li > a {
   cursor: default;
   display: block;
@@ -232,24 +237,14 @@
   color: #404040;
 }
 
-.mapboxgl-ctrl-geocoder .suggestions > .active > a,
-.mapboxgl-ctrl-geocoder .suggestions > li > a:hover {
-  color: #404040;
-  background-color: #f3f3f3;
-  text-decoration: none;
-  cursor: pointer;
-}
 
-.mapboxgl-ctrl-geocoder--suggestion-title {
-  font-weight: bold;
-}
 
-.mapboxgl-ctrl-geocoder--suggestion-title,
-.mapboxgl-ctrl-geocoder--suggestion-address {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
+
+
+
+
+
+
 
 /* Icons */
 .mapboxgl-ctrl-geocoder--icon {
@@ -385,6 +380,7 @@
   
   
 
+}
 }
     
     
