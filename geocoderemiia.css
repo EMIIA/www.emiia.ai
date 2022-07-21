@@ -1,4 +1,4 @@
-  /* Basics */
+      /* Basics */
 .mapboxgl-ctrl-geocoder,
 .mapboxgl-ctrl-geocoder *,
 .mapboxgl-ctrl-geocoder *:after,
@@ -137,10 +137,10 @@
 
 .mapboxgl-ctrl-geocoder--icon-search {
   position: absolute;
-  top: 13px;
+  top: 10px;
   left: 12px;
-  width: 23px;
-  height: 23px;
+  width: 30px;
+  height: 30px;
 }
 
 .mapboxgl-ctrl-geocoder--button {
