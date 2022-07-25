@@ -71,15 +71,18 @@
 	
 	
 	
-	
-	
-	
-	
-	
+    
+
+        
 	
 
+    
 
+ 
+              
+              
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
+
     
     
     
@@ -104,7 +107,7 @@
         
         
         <script src='https://mapbox.github.io/mapbox-gl-traffic/mapbox-gl-traffic.js'></script>
-    <link href='https://mapbox.github.io/mapbox-gl-traffic/mapbox-gl-traffic.css' rel='stylesheet' />
+
     
     
     
@@ -151,7 +154,16 @@
     
     
     
- 
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
         
         
         
@@ -163,27 +175,28 @@
     
     
 
-       
+        
     
     
 
     
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- <style>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <style>
  
  
  
@@ -405,10 +418,35 @@
   
   
   
-
+  
+/* emiia */
 .directions-control {
-  font:15px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+  
+  font-family: 12px/20px Montserrat, montserrat;
+  font:12px/20px 'Montserrat', montserrat;
+  
+   width: 33.33333%;
+  min-width: 300px;
+  max-width: 300px;
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 /* Layout containers */
 .directions-control {
@@ -435,6 +473,11 @@
 .mapbox-directions-destination {
   position:relative;
   }
+  
+  
+  
+  
+  /* emiia навигация (кнопки A B) */
 
 .mapbox-form-label {
   position:absolute;
@@ -446,19 +489,33 @@
   height:40px;
   text-align:center;
   line-height:38px;
-  border-radius:0 0 0 3px;
+  border-radius:4px 4px 4px 4px;
   }
+  
+  
+  
+  
+  
   .mapbox-form-label .directions-icon {
     background-position: center;
     width: 40px;
     height: 40px;
     }
+    
+    
+    
+    
   .mapbox-directions-origin .mapbox-form-label {
     background-color:#3bb2d0;
-    border-radius:3px 0 0 0;
+    border-radius:4px 4 4 4;
     box-shadow:0 1px 0 0 rgba(0,0,0,0.1);
     z-index:1;
     }
+    
+    
+    
+    
+    
 
 .directions-reverse {
   position:absolute;
@@ -484,28 +541,68 @@
   top:10px;
   display:none;
   }
-  .mapbox-directions-inputs .directions-pin-right *.active { display:block; }
+  
+.mapbox-directions-inputs .directions-pin-right *.active { display:block; }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* emiia навигация (кнопки Indoor внизу) */
 .mapbox-directions-profile {
   background:#fff;
   margin:7px 0 0;
-  padding:2px;
-  border-radius:15px;
+  padding:0px;
+  border-radius:4px;
   vertical-align:middle;
+  
+  
+
+  min-width: 300px;
+
+  
   }
+  
+  
+  
+  
+  /* emiia навигация (кнопки Indoor внизу) */
   .mapbox-directions-profile label {
     cursor:pointer;
     vertical-align:top;
     display:block;
-    border-radius:16px;
-    padding:3px 5px;
+    border-radius:4px;
+    padding:5px 4px;
     font-size:12px;
     color:rgba(0,0,0,.5);
     line-height:20px;
     text-align:center;
     width: 25%;
     float:left;
+    
+
+    
     }
+    
+ 
+ 
+ 
+ 
+ 
+    
+    
+    
     .mapbox-directions-profile label:hover {
       color:rgba(0,0,0,.75);
       }
@@ -749,10 +846,13 @@
  
  </style>
  
- 
- 
- 
- 
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1212,53 +1312,35 @@ max-width: 200px;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-var hoveredCountry;
-map.on('mousemove', 'country-fill', function (e) {
-    map.getCanvas().style.cursor = 'pointer';
-    if (e.features.length) {
-        if (hoveredCountry) {
-            map.setFeatureState({
-                source: 'countries',
-                id: hoveredCountry
-            }, {
-                hover: false
-            });
-        }
-        hoveredCountry = e.features[0].id;
-        map.setFeatureState({
-            source: 'countries',
-            id: hoveredCountry
-        }, {
-            hover: true
-        });
-    
-
-
-    }
+const geolocate = new mapboxgl.GeolocateControl({
+    positionOptions: {
+        enableHighAccuracy: true
+    },
+    trackUserLocation: true
 });
 
 
 
+map.addControl(geolocate, 'top-right');
+    
+
+map.addControl(new MapboxTraffic());
 
 
 
+
+
+
+
+
+
+
+var scale = new mapboxgl.ScaleControl({
+    positionOptions: {
+        enableHighAccuracy: true
+    },
+    trackUserLocation: true
+});
 
 
 
@@ -1695,8 +1777,6 @@ widget.init({
 </body>
 
 </html>
-
-
 
 
 
