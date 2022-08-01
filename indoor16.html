@@ -7966,15 +7966,6 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
 @import url('/css.css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
 
 
-
-
-
-
-
-
-
-
-
 /* emiia bottom цвет и толщина*/
           
   }
@@ -8083,6 +8074,8 @@ border-bottom:  1px solid rgba(0,0,0,.1);
 .mapboxgl-ctrl-geocoder ul {
   box-shadow:none;
   }
+  
+  
 
 /* Suggestions */
 .mapboxgl-ctrl-geocoder ul {
@@ -8097,8 +8090,11 @@ border-bottom:  1px solid rgba(0,0,0,.1);
   top:100%;
   z-index:1000;
   overflow:hidden;
-  font-size:12px;
+  font-size:14px;
   }
+  
+  
+  
   .mapboxgl-ctrl-bottom-left .mapboxgl-ctrl-geocoder ul,
   .mapboxgl-ctrl-bottom-right .mapboxgl-ctrl-geocoder ul {
     top:auto;
@@ -8279,9 +8275,20 @@ border-bottom:  1px solid rgba(0,0,0,.1);
 .directions-control {
   width:100%;
   z-index:1;
+  
+  
+  font-family: 14px/20px Montserrat, montserrat;
+  font:14px/20px 'Montserrat', montserrat;
+  
+  
+  
+  
+  
+  
+   /* Цвет раскрывающейся панели при детализации навигации */ 
   }
   .directions-control.directions-control-directions {
-    background:rgba(0,0,0,0.75);
+    background:white;
     margin: 7px 0 0;
     color:#fff;
     top:0;
@@ -8290,8 +8297,16 @@ border-bottom:  1px solid rgba(0,0,0,.1);
     overflow:auto;
     overflow-x:hidden;
     
+    
+    
+    
+   /* Закругление нижней раскрывающейся панели при детализации навигации */ 
+    border-radius:4px;
+    
 
-      
+     font-family: 14px/20px Montserrat, montserrat;
+  font:14px/20px 'Montserrat', montserrat;
+   
     
     }
   .directions-control.directions-control-inputs {
@@ -8497,18 +8512,49 @@ border-bottom:  1px solid rgba(0,0,0,.1);
   left:10px;
   top:10px;
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-/* Route Summary */
+/* emiia цвет панели инструкции к навигации, цвет текста...) Route Summary */
 .mapbox-directions-route-summary {
   position: relative;
   z-index:1;
   width:100%;
-  background-color:rgba(0,0,0,0.75);
-  color:#fff;
-  padding:5px 10px;
+  background-color: white;
+  color:#383838;
+  padding:4px 10px;
   font-size:15px;
-  line-height:28px;
+  line-height:28px; 
+  border-radius:4px;
+  
+  
+  
+
+    box-shadow:0 1px 0 0 rgba(0,0,0,0.1);
+
   }
+  
+  
+  
+
+  
   
   
   .mapbox-directions-route-summary + .mapbox-directions-instructions {
@@ -8522,19 +8568,64 @@ border-bottom:  1px solid rgba(0,0,0,.1);
     display:inline;
     font-size:inherit;
     line-height:inherit;
+  
+    
     }
   .mapbox-directions-route-summary span {
-    color:rgba(255,255,255,0.5);
+    color:#383838;
     margin:0 5px;
+    
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
   /* Alt route selection */
   .mapbox-directions-instructions {
       overflow: scroll;
     }
+    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    
+    /* Высота информационной панели при навигации внизу */
     .mapbox-directions-instructions-wrapper {
-      max-height: 50vh;
+      max-height: 0.0vh;
+      
+
       }
+      
+      
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+      
+      
+      
+      
   .mapbox-directions-routes {
     margin-left: 5px;
     font-size:12px;
@@ -8558,10 +8649,14 @@ border-bottom:  1px solid rgba(0,0,0,.1);
   position:absolute;
   left:12px;
   top:20px;
-  margin:auto;
+
+  margin:auto
+  
+    
   }
   .mapbox-directions-instructions .directions-icon:before {
     vertical-align:top;
+    
     }
 
 .mapbox-directions-error {
@@ -8573,9 +8668,11 @@ border-bottom:  1px solid rgba(0,0,0,.1);
   color:rgba(255,255,255,.5);
   position:absolute;
   padding:5px 10px;
-  font-size:12px;
+  font-size:14px;
   left:30px;
   bottom:-10px;
+  
+  
   }
 .mapbox-directions-steps {
   position:relative;
@@ -8583,15 +8680,23 @@ border-bottom:  1px solid rgba(0,0,0,.1);
   margin:0;
   padding:0;
   }
+  
+  
+  
+  
   .mapbox-directions-step {
     position:relative;
     color:rgba(255,255,255,.75);
     cursor:pointer;
     padding:20px 20px 20px 40px;
-    font-size:12px;
+    font-size:14px;
     line-height:18px;
     font-weight: 300;
     letter-spacing:0.1em;
+    
+
+    
+    
     }
     .mapbox-directions-step * { pointer-events:none; }
     .mapbox-directions-step:hover {
