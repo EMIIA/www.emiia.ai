@@ -10,6 +10,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html >
 <head>
@@ -7879,21 +7880,30 @@ var format = {
     m %= 60;
     if (h === 0 && m === 0) return s + 's';
     if (h === 0) return m + 'min';
-    return h + 'h ' + m + 'min';
+    return h + 'h ' + m + 'min';       
   },
+  
+  
+  
+  
+    metric: function metric(m) {
+    if (m >= 100000) return (m / 1000).toFixed(0) + 'km';
+    if (m >= 10000) return (m / 1000).toFixed(1) + 'km';
+    if (m >= 100) return (m / 1000).toFixed(2) + 'km';
+    return m.toFixed(0) + 'm';
+  },
+  
+  
+  
   imperial: function imperial(m) {
     var mi = m / 1609.344;
     if (mi >= 100) return mi.toFixed(0) + 'mi';
     if (mi >= 10) return mi.toFixed(1) + 'mi';
     if (mi >= 0.1) return mi.toFixed(2) + 'mi';
     return (mi * 5280).toFixed(0) + 'ft';
-  },
-  metric: function metric(m) {
-    if (m >= 100000) return (m / 1000).toFixed(0) + 'km';
-    if (m >= 10000) return (m / 1000).toFixed(1) + 'km';
-    if (m >= 100) return (m / 1000).toFixed(2) + 'km';
-    return m.toFixed(0) + 'm';
   }
+  
+  
 };
 
 
@@ -7927,10 +7937,6 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
     
     <style>
  
- 
- 
- 
-  
 
 
  
@@ -7969,9 +7975,7 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
 
 
 
-
-
-
+/* emiia bottom цвет и толщина*/
           
   }
   
@@ -7989,10 +7993,20 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
   }
   .mapbox-directions-origin .mapboxgl-ctrl-geocoder {
     border-radius:0 3px 0 0;
+    
+
+border-bottom:  1px solid rgba(0,0,0,.1);
+
+
+
+
+
+
+  /* emiia bottom размер шрифта в поле A B*/
     }
 
 .mapboxgl-ctrl-geocoder input[type='text'] {
-  font-size:12px;
+
   width:100%;
   border:0;
   background-color:transparent;
@@ -8003,17 +8017,44 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
   text-overflow:ellipsis;
   white-space:nowrap;
   overflow:hidden;
+  
+  font-family: 14px/20px Montserrat, montserrat;
+  font:14px/20px 'Montserrat', montserrat;
   }
+  
+  
+  
+  
+  
+  
   .mapbox-directions-origin input[type='text'] {
     box-shadow:0 1px 0 0 #ddd;
     position:relative;
     z-index:1;
+    
+  font-family: 14px/20px Montserrat, montserrat;
+  font:14px/20px 'Montserrat', montserrat;
+
+    
+    
     }
+    
+    
+    
+    
+    
+    
+    
+    
     
   .mapboxgl-ctrl-geocoder input:focus {
     color:rgba(0,0,0,.75);
     outline:0;
     outline:thin dotted\8;
+    
+    
+
+    
     }
 
 .mapboxgl-ctrl-geocoder .geocoder-icon-search {
@@ -8186,7 +8227,7 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
 .mapbox-directions-component-keyline {
 
   
-   box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);
+  box-shadow: 0 0 10px 0px rgb(0 0 0 / 10%);
   border-radius:3px;
   }
   
@@ -8206,9 +8247,11 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
 /* emiia */
 .directions-control {
 
+    font-family: 14px/20px Montserrat, montserrat;
+  font:14px/20px 'Montserrat', montserrat;
   
-  font-family: 12px/20px Montserrat, montserrat;
-  font:12px/20px 'Montserrat', montserrat;
+
+
   
    width: 33.33333%;
   min-width: 300px;
@@ -8232,7 +8275,7 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
   
   
 
-/* Layout containers */
+/* EMIIA РАЗМЕР ШРИФТА В РАСКРЫВАЮЩЕМСЯ МЕНЮ ДЕТАЛИ МАРШРУТА Layout containers */
 .directions-control {
   width:100%;
   z-index:1;
@@ -8246,6 +8289,10 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
     bottom:0;
     overflow:auto;
     overflow-x:hidden;
+    
+
+      
+    
     }
   .directions-control.directions-control-inputs {
     top:10px;
@@ -8274,6 +8321,7 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
   text-align:center;
   line-height:38px;
   border-radius:4px 4px 4px 4px;
+  
   }
   
   
@@ -8294,6 +8342,8 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
     border-radius:4px 4 4 4;
     box-shadow:0 1px 0 0 rgba(0,0,0,0.1);
     z-index:1;
+    
+    
     }
     
     
@@ -8324,6 +8374,9 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
   right:10px;
   top:10px;
   display:none;
+  
+
+  
   }
   
 .mapbox-directions-inputs .directions-pin-right *.active { display:block; }
@@ -8376,8 +8429,11 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
     width: 25%;
     float:left;
     
+    
+
  
   
+   
     }
     
  
@@ -8453,8 +8509,13 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
   font-size:15px;
   line-height:28px;
   }
+  
+  
   .mapbox-directions-route-summary + .mapbox-directions-instructions {
     }
+  
+  
+  
   .mapbox-directions-route-summary h1 {
     font-weight:500;
     margin:0;
@@ -8527,7 +8588,7 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
     color:rgba(255,255,255,.75);
     cursor:pointer;
     padding:20px 20px 20px 40px;
-    font-size:14px;
+    font-size:12px;
     line-height:18px;
     font-weight: 300;
     letter-spacing:0.1em;
@@ -8679,13 +8740,13 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
 
 
 
-
-
 *{margin:0;padding:0}body{font-family:-apple-system,Montserrat, montserrat;font-size:14px;font-weight:280;line-height:1.5}.is-loading{position:fixed;right:0;bottom:0;height:100%;text-align:center;color:#536580;text-shadow:0 2px 2px hsla(0,0%,100%,.4);
 
 a { 
     text-decoration: none; /* Отменяем подчеркивание у ссылки */
    } 
+
+
 
 
 background:hsla(0,0%,100%,.6);font-size:1.5rem;z-index:99999}.app-info,.is-loading{top:0;left:0;width:100%}.app-info{display:block;position:absolute;margin:0;padding:.5rem .75rem;background-color:transparent;color:#2b3441;
@@ -9062,13 +9123,14 @@ max-width: 200px;
               55.97747745943937],
             style: 'mapbox://styles/mapbox/streets-v10',
              attributionControl: false,
+          
             hash: true
         });
         
         
         
         
-        
+  
        
       
 
@@ -9124,6 +9186,7 @@ max-width: 200px;
             localGeocoderOnly: true,
             localGeocoder: forwardGeocoder,
             zoom: 19,
+     
             placeholder: '\u00A0 Search/Navigation Indoor',
             
             
@@ -9136,6 +9199,8 @@ max-width: 200px;
         geocoder.on("result", (result) => {
             console.log('result.result.properties:', result.result.properties);
             map.indoor.setLevel(parseInt(result.result.properties.level));
+            
+  
         })
        
        
@@ -9240,6 +9305,7 @@ var scale = new mapboxgl.ScaleControl({
         accessToken: mapboxgl.accessToken,
         steps: false,
         geometries: 'polyline',
+        unit: 'metric',
         controls: { instructions: false }
       });
 
@@ -9358,6 +9424,8 @@ new mapboxgl.Marker(el)
 </body>
 
 </html>
+
+
 
 
 
