@@ -7594,7 +7594,7 @@ var style = [{
     'line-join': 'round'
   },
   'paint': {
-    'line-color': '#3bb2d0',
+    'line-color': '#4CCCAA',
     'line-width': 4
   },
   'filter': ['all', ['in', '$type', 'LineString'], ['in', 'route', 'selected']]
@@ -7613,7 +7613,7 @@ var style = [{
   'source': 'directions',
   'paint': {
     'circle-radius': 6,
-    'circle-color': '#3bb2d0'
+    'circle-color': '#4CCCAA'
   },
   'filter': ['all', ['in', '$type', 'Point'], ['in', 'id', 'hover']]
 }, {
@@ -7631,7 +7631,7 @@ var style = [{
   'source': 'directions',
   'paint': {
     'circle-radius': 6,
-    'circle-color': '#8a8bc9'
+    'circle-color': '#7394EF'
   },
   'filter': ['all', ['in', '$type', 'Point'], ['in', 'id', 'waypoint']]
 }, {
@@ -7640,7 +7640,7 @@ var style = [{
   'source': 'directions',
   'paint': {
     'circle-radius': 18,
-    'circle-color': '#3bb2d0'
+    'circle-color': '#4CCCAA'
   },
   'filter': ['all', ['in', '$type', 'Point'], ['in', 'marker-symbol', 'A']]
 }, {
@@ -7662,7 +7662,7 @@ var style = [{
   'source': 'directions',
   'paint': {
     'circle-radius': 18,
-    'circle-color': '#8a8bc9'
+    'circle-color': '#7394EF'
   },
   'filter': ['all', ['in', '$type', 'Point'], ['in', 'marker-symbol', 'B']]
 }, {
@@ -8333,7 +8333,7 @@ border-bottom:  1px solid rgba(0,0,0,.1);
 .mapbox-form-label {
   position:absolute;
   top:0;left:0;
-  background:#8a8acb;
+  background:#7394EF;
   color:#fff;
   padding:0;
   width:40px;
@@ -8358,7 +8358,7 @@ border-bottom:  1px solid rgba(0,0,0,.1);
     
     
   .mapbox-directions-origin .mapbox-form-label {
-    background-color:#3bb2d0;
+    background-color:#4CCCAA;
     border-radius:4px 4 4 4;
     box-shadow:0 1px 0 0 rgba(0,0,0,0.1);
     z-index:1;
@@ -8435,6 +8435,16 @@ border-bottom:  1px solid rgba(0,0,0,.1);
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   /* emiia навигация (кнопки Indoor внизу) */
   .mapbox-directions-profile label {
     cursor:pointer;
@@ -8446,36 +8456,58 @@ border-bottom:  1px solid rgba(0,0,0,.1);
     color:rgba(0,0,0,.5);
     line-height:19px;
     text-align:center;
-    width: 25%;
+    width: 20%;
     float:left;
-    
-    
-
- 
-  
+     
    
     }
     
  
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ label::before {
+
+position: absolute;
+
+ top:7.45ex;
+   
+   left: 34.8ex; 
+    
+     padding: 0;
+    width: 16px;
+    height: 16px;
+    
+   
+   
     
     
+    text-align: center;
+  
+    
+   
+
+
+    content:""; 
+    
+    
+    background-image: url('https://www.emiia.ai/icon/bus.svg');
+    
+    
+    
+    
+  
+    
+    
+    
+ 
+}   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
     
     .mapbox-directions-profile label:hover {
       color:rgba(0,0,0,.75);
@@ -8617,7 +8649,7 @@ border-bottom:  1px solid rgba(0,0,0,.1);
 position: absolute;
     top:5.2ex;
     left: 12.54ex;
-    background: #3bb2d0;
+    background: #4CCCAA;
     
     padding: 0;
     width: 200px;
@@ -8794,7 +8826,7 @@ position: absolute;
   box-shadow:0 0 5px 0 rgba(0,0,0,0.5);
   }
   .mapbox-marker-drag-icon-step {
-    background-color:#3BB2D0;
+    background-color:4CCCAA;
     }
 
 .mapbox-directions-clearfix:after {
