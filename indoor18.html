@@ -9213,12 +9213,7 @@ a.mapboxgl-ctrl-logo{
 
 
 
-.mapboxgl-ctrl-top-right{clear:both;pointer-events:auto;transform:translate(0)}.mapboxgl-ctrl-top-right {   
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);float:left
-  }
+
 
 
 
@@ -9460,12 +9455,9 @@ max-width: 200px;
         
         
         
-     map.addControl(new mapboxgl.NavigationControl({
-  visualizePitch: false,
-  showZoom: false
-}));   
+    
   
-       
+
     
     
    
@@ -9548,7 +9540,7 @@ max-width: 200px;
      
   
           // Add the specific control
-        map.addControl(map.indoor.control, 'bottom-left');
+        map.addControl(map.indoor.control, 'bottom-right');
   
   
   
@@ -9650,7 +9642,10 @@ var scale = new mapboxgl.ScaleControl({
       
       
       
-      
+             map.addControl(new mapboxgl.NavigationControl({
+  visualizePitch: false,
+  showZoom: false
+}));    
       
       
       
