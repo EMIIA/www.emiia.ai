@@ -9703,6 +9703,81 @@ max-width: 200px;
     
     
     
+    
+    
+    
+<style>
+
+/*
+NOTE: This code overrides the viewport settings, an improvement would be
+      to take the original value and only add or change the user-scalable value
+*/
+
+// optionally only activate for iOS (done because I havn't tested the effect under other OS/devices combinations such as Android)
+var iOS = navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)
+if (iOS)
+  preventZoomOnFocus();
+
+
+function preventZoomOnFocus()
+{
+  document.documentElement.addEventListener("touchstart", onTouchStart);
+  document.documentElement.addEventListener("focusin", onFocusIn);
+}
+
+
+let dont_disable_for = ["checkbox", "radio", "file", "button", "image", "submit", "reset", "hidden"];
+//let disable_for = ["text", "search", "password", "email", "tel", "url", "number", "date", "datetime-local", "month", "year", "color"];
+
+
+function onTouchStart(evt)
+{
+  let tn = evt.target.tagName;
+
+  // No need to do anything if the initial target isn't a known element
+  // which will cause a zoom upon receiving focus
+  if (    tn != "SELECT"
+      &&  tn != "TEXTAREA"
+      && (tn != "INPUT" || dont_disable_for.indexOf(evt.target.getAttribute("type")) > -1)
+     )
+    return;
+
+  // disable zoom
+  setViewport("width=device-width, initial-scale=1.0, user-scalable=0");
+}
+
+// NOTE: for now assuming this focusIn is caused by user interaction
+function onFocusIn(evt)
+{
+  // reenable zoom
+  setViewport("width=device-width, initial-scale=1.0, user-scalable=1");
+}
+
+// add or update the <meta name="viewport"> element
+function setViewport(newvalue)
+{
+  let vpnode = document.documentElement.querySelector('head meta[name="viewport"]');
+  if (vpnode)
+    vpnode.setAttribute("content",newvalue);
+  else
+  {
+    vpnode = document.createElement("meta");
+    vpnode.setAttribute("name", "viewport");
+    vpnode.setAttribute("content", newvalue);
+  }
+}
+
+
+</style>
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     
     
@@ -9711,6 +9786,19 @@ max-width: 200px;
     
     
 </head>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <body>
     <div id="map"></div>
