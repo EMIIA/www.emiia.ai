@@ -9641,23 +9641,6 @@ color: #383838;
 
 
 
-body { font-size: 16px; }
-input, select { font-size: 100%; }
-
-
-
-
-
-@media screen and (device-aspect-ratio: 9/16) {
-    select, textarea, input[type="text"], input[type="password"],
-    input[type="datetime"], input[type="datetime-local"],
-    input[type="date"], input[type="month"], input[type="time"],
-    input[type="week"], input[type="number"], input[type="email"],
-    input[type="tel"], input[type="url"]{ font-size: 16px; }
-}
-
-
-
 
 
         </style>
@@ -9705,163 +9688,26 @@ max-width: 200px;
     
     
     
+   <script> 
     
-<style>
+    $("input[type=text], textarea").on({ 'touchstart' : function() {
+    zoomDisable();
+}});
+$("input[type=text], textarea").on({ 'touchend' : function() {
+    setTimeout(zoomEnable, 500);
+}});
 
-/*
-NOTE: This code overrides the viewport settings, an improvement would be
-      to take the original value and only add or change the user-scalable value
-*/
-
-// optionally only activate for iOS (done because I havn't tested the effect under other OS/devices combinations such as Android)
-var iOS = navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)
-if (iOS)
-  preventZoomOnFocus();
-
-
-function preventZoomOnFocus()
-{
-  document.documentElement.addEventListener("touchstart", onTouchStart);
-  document.documentElement.addEventListener("focusin", onFocusIn);
+function zoomDisable(){
+  $('head meta[name=viewport]').remove();
+  $('head').prepend('<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />');
 }
-
-
-let dont_disable_for = ["checkbox", "radio", "file", "button", "image", "submit", "reset", "hidden"];
-//let disable_for = ["text", "search", "password", "email", "tel", "url", "number", "date", "datetime-local", "month", "year", "color"];
-
-
-function onTouchStart(evt)
-{
-  let tn = evt.target.tagName;
-
-  // No need to do anything if the initial target isn't a known element
-  // which will cause a zoom upon receiving focus
-  if (    tn != "SELECT"
-      &&  tn != "TEXTAREA"
-      && (tn != "INPUT" || dont_disable_for.indexOf(evt.target.getAttribute("type")) > -1)
-     )
-    return;
-
-  // disable zoom
-  setViewport("width=device-width, initial-scale=1.0, user-scalable=0");
-}
-
-// NOTE: for now assuming this focusIn is caused by user interaction
-function onFocusIn(evt)
-{
-  // reenable zoom
-  setViewport("width=device-width, initial-scale=1.0, user-scalable=1");
-}
-
-// add or update the <meta name="viewport"> element
-function setViewport(newvalue)
-{
-  let vpnode = document.documentElement.querySelector('head meta[name="viewport"]');
-  if (vpnode)
-    vpnode.setAttribute("content",newvalue);
-  else
-  {
-    vpnode = document.createElement("meta");
-    vpnode.setAttribute("name", "viewport");
-    vpnode.setAttribute("content", newvalue);
-  }
-  
-  
-  
-  
-  
-  
-  input[type="text"] {
-    /* enlarge by 16/12 = 133.33% */
-    border-radius: 6.666666667px;
-    font-size: 16px;
-    line-height: 26.666666667px;
-    padding: 6.666666667px;
-    width: 133.333333333%;
-
-    /* scale down by 12/16 = 75% */
-    transform: scale(0.75);
-    transform-origin: left top;
-
-    /* remove extra white space */
-    margin-bottom: -10px;
-    margin-right: -33.333333333%;
-}
-  
-  
-  
-  
-  
-  
-  
-}
-
-
-</style>
+function zoomEnable(){
+  $('head meta[name=viewport]').remove();
+  $('head').prepend('<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1" />');
+} 
     
-    
-    
-    
- 
- 
- 
- 
- 
- 
- 
- 
- 
- <script type="text/javascript">
-<!--
-function attachEvent(element, evtId, handler) {
-    if (element.addEventListener) {
-        element.addEventListener(evtId, handler, false);
-    } else if (element.attachEvent) {
-        var ieEvtId = "on"+evtId;
-        element.attachEvent(ieEvtId, handler);
-    } else {
-        var legEvtId = "on"+evtId;
-        element[legEvtId] = handler;
-    }
-}
-function getSender(evt, local) {
-    if (!evt) {
-        evt = window.event;
-    }
-    var sender;
-    if (evt.srcElement) {
-        sender = evt.srcElement;
-    } else {
-        sender = local;
-    }
-    return sender;
-}
-function onBeforeZoom(evt) {
-    var zoom = 320 / window.innerWidth;
-    var element = getSender(evt);
-    element.style.fontSize = Math.ceil(16 / zoom) + "px";
-}
-function onAfterZoom(evt) {
-    var element = getSender(evt);
-    element.style.fontSize = "";
-}
-function disableZoom() {
-    // Search all relevant input elements and attach zoom-events
-    var inputs = document.getElementsByTagName("input");
-    for (var i=0; i<inputs.length; i++) {
-        attachEvent(inputs[i], "focus", onBeforeZoom);
-        attachEvent(inputs[i], "blur", onAfterZoom);
-    }
-}
-if (navigator.userAgent.match(/iPhone/i)) {
-    attachEvent(window, "load", disableZoom);
-}
-// -->
-</script>
- 
- 
- 
- 
+
+ </script>
  
  
     
