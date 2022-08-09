@@ -7665,7 +7665,7 @@ var style = [{
   },
   'paint': {
     'line-color': '#bbb',
-    'line-width': 10
+    'line-width': 12
   },
   'filter': ['all', ['in', '$type', 'LineString'], ['in', 'route', 'alternate']]
 }, {
@@ -7678,7 +7678,7 @@ var style = [{
   },
   'paint': {
     'line-color': '#4CCCAA',
-    'line-width': 10
+    'line-width': 12
   },
   'filter': ['all', ['in', '$type', 'LineString'], ['in', 'route', 'selected']]
 }, {
@@ -7686,7 +7686,7 @@ var style = [{
   'type': 'circle',
   'source': 'directions',
   'paint': {
-    'circle-radius': 8,
+    'circle-radius': 12,
     'circle-color': '#fff'
   },
   'filter': ['all', ['in', '$type', 'Point'], ['in', 'id', 'hover']]
@@ -7695,8 +7695,8 @@ var style = [{
   'type': 'circle',
   'source': 'directions',
   'paint': {
-    'circle-radius': 6,
-    'circle-color': '#4CCCAA'
+    'circle-radius': 10,
+    'circle-color': '#7394EF'
   },
   'filter': ['all', ['in', '$type', 'Point'], ['in', 'id', 'hover']]
 }, {
@@ -7704,7 +7704,7 @@ var style = [{
   'type': 'circle',
   'source': 'directions',
   'paint': {
-    'circle-radius': 8,
+    'circle-radius': 10,
     'circle-color': '#fff'
   },
   'filter': ['all', ['in', '$type', 'Point'], ['in', 'id', 'waypoint']]
@@ -8081,7 +8081,30 @@ border-bottom:  1px solid rgba(0,0,0,.1);
 
 
 
-  /* emiia bottom размер шрифта в поле A B*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* emiia bottom размер шрифта в поле A B ПОЛЕ B*/
     }
 
 .mapboxgl-ctrl-geocoder input[type='text'] {
@@ -8102,9 +8125,23 @@ border-bottom:  1px solid rgba(0,0,0,.1);
   }
   
   
-  
-  
-  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  /* emiia bottom размер шрифта в поле A B ПОЛЕ A*/
   
   .mapbox-directions-origin input[type='text'] {
     box-shadow:0 1px 0 0 #ddd;
@@ -9691,20 +9728,7 @@ max-width: 200px;
     
     
     
-   <script> 
-    
-$("input[type=text], textarea").mouseover(zoomDisable).mousedown(zoomEnable);
-function zoomDisable(){
-  $('head meta[name=viewport]').remove();
-  $('head').prepend('<meta name="viewport" content="user-scalable=0" />');
-}
-function zoomEnable(){
-  $('head meta[name=viewport]').remove();
-  $('head').prepend('<meta name="viewport" content="user-scalable=1" />');
-}
-    
 
- </script>
  
  
     
