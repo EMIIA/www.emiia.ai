@@ -9621,52 +9621,17 @@ a.mapboxgl-ctrl-logo{
 
 
 
-@media only screen and (max-width: 640px) {
-  .mapbox-mark {
-    width: 30px;
-  }
-  
-  
-  
-  .infobox-action {
-    display: none;
-  }
+
   
   
   
  
  
-.mapboxgl-popup-close-button {
-
-
-    padding: 0.4rem 0.7rem;
-    
-
-
-    
-   background-repeat: no-repeat; 
-
-
-color: #383838;
-
-  font-size: 23px;
-
-    
-    
-    border-radius:4px 4px 4px 4px;
-    
-    z-index: 20;
-    
-  
-
-
-}
 
 
 
 .geocoder-icon-close {
 
- 
     border-radius:4px 4px 4px 4px;
 
 
@@ -9676,6 +9641,73 @@ color: #383838;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mapboxgl-popup-close-button {
+
+    padding: 0.4rem 0.7rem;
+    background-repeat: no-repeat;
+    color: #383838;
+    font-size: 23px;
+    border-radius: 4px 4px 4px 4px;
+    z-index: 2000;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 0 3px 0 0;
+    
+ background-color: white;
+
+}
+
+
+
+
+
+
+
+
+
+
+.mapboxgl-popup-close-button:hover ~ *{
+  color: #fff;
+  
+
+  
+}
+.mapboxgl-popup-close-button:hover:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ededed;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 5px 5px 5px 5px;
+}
+
+
+
+
+
+
+
+}
 
 
 
