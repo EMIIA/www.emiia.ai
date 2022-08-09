@@ -3,6 +3,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html >
 <head>
@@ -6817,7 +6818,7 @@ var Inputs = function () {
 
       this.originInput = new _geocoder2.default(Object.assign({}, {
         flyTo: false,
-        placeholder: 'Choose a starting place',
+        placeholder: 'Откуда',
         accessToken: accessToken
       }, geocoder));
 
@@ -6827,7 +6828,7 @@ var Inputs = function () {
 
       this.destinationInput = new _geocoder2.default(Object.assign({}, {
         flyTo: false,
-        placeholder: 'Choose destination',
+        placeholder: 'Куда',
         accessToken: accessToken
       }, geocoder));
 
@@ -7686,7 +7687,7 @@ var style = [{
   'type': 'circle',
   'source': 'directions',
   'paint': {
-    'circle-radius': 12,
+    'circle-radius': 9,
     'circle-color': '#fff'
   },
   'filter': ['all', ['in', '$type', 'Point'], ['in', 'id', 'hover']]
@@ -7695,7 +7696,7 @@ var style = [{
   'type': 'circle',
   'source': 'directions',
   'paint': {
-    'circle-radius': 10,
+    'circle-radius': 7,
     'circle-color': '#7394EF'
   },
   'filter': ['all', ['in', '$type', 'Point'], ['in', 'id', 'hover']]
@@ -10082,6 +10083,8 @@ new mapboxgl.Marker(el)
 </body>
 
 </html>
+
+
 
 
 
