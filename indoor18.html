@@ -9665,6 +9665,7 @@ a.mapboxgl-ctrl-logo{
     border-radius:4px 4px 4px 4px;
 
     text-decoration: none; /* Отменяем подчеркивание у ссылки */
+    border: none; /* Убираем рамку */
 
 
 }
@@ -9695,16 +9696,15 @@ a.mapboxgl-ctrl-logo{
     color: #383838;
     font-size: 23px;
     border-radius: 4px 4px 4px 4px;
-    z-index: 2000;
+    z-index: 2;
     position: absolute;
     cursor: pointer;
     border-radius: 0 3px 0 0;
     
  background-color: white;
  
-
-    text-decoration: none; /* Отменяем подчеркивание у ссылки */
-
+outline: 0;
+    outline-offset: 0;
 
 }
 
@@ -9721,6 +9721,8 @@ a.mapboxgl-ctrl-logo{
   color: #fff;
   text-decoration: none; /* Отменяем подчеркивание у ссылки */
 
+  border: 1px dashed black;
+
   
 }
 .mapboxgl-popup-close-button:hover:after {
@@ -9736,6 +9738,7 @@ a.mapboxgl-ctrl-logo{
   z-index: -1;
   border-radius: 5px 5px 5px 5px;
   text-decoration: none; /* Отменяем подчеркивание у ссылки */
+  border: none; /* Убираем рамку */
 }
 
 
