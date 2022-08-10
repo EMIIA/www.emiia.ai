@@ -4,6 +4,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html >
 <head>
@@ -121,11 +122,13 @@ $viewportMeta.attr('content', 'width=device-width,initial-scale=1,maximum-scale=
 
     
 
- 
+ <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
               
               
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
 
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
     
     
     
@@ -174,6 +177,22 @@ $viewportMeta.attr('content', 'width=device-width,initial-scale=1,maximum-scale=
      
      
      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
      
      
@@ -9781,11 +9800,14 @@ max-width: 200px;
     
     
 
+
+
  
  
     
     
     
+
     
 
     
@@ -9807,12 +9829,13 @@ max-width: 200px;
 
 
 
-
-
 <body>
     <div id="map"></div>
     
     
+
+
+
 
     
     
@@ -9837,7 +9860,8 @@ max-width: 200px;
         
         
     
-  
+ 
+ 
 
     
     
@@ -9969,12 +9993,18 @@ accessToken: mapboxgl.accessToken
 
 
 
+
 const geolocate = new mapboxgl.GeolocateControl({
     positionOptions: {
         enableHighAccuracy: true
     },
-    trackUserLocation: true
+    trackUserLocation: true,
+    showUserHeading: true
 });
+
+
+
+
 
 
 
@@ -10134,6 +10164,8 @@ new mapboxgl.Marker(el)
 </body>
 
 </html>
+
+
 
 
 
