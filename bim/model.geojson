@@ -1,5 +1,4 @@
-export default [
-  {
+{
     type: "Feature",
     properties: { type: "room", tag: null, area: 11.44, layout: 124528 },
     geometry: {
@@ -8242,4 +8241,3 @@ export default [
       ]
     }
   }
-];
