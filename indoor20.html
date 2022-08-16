@@ -44,7 +44,7 @@
 <meta name="apple-mobile-web-app-title" content="EMIIA.AI MRV">
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#fff">
-<meta name="msapplication-starturl" content="https://www.emiia.ai/indoor19.html">
+<meta name="msapplication-starturl" content="https://www.emiia.ai/indoor20.html">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link rel="icon" href="/favicon.ico">
@@ -8089,7 +8089,7 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
 
 
 
-/* ОТСТУПЫ ГЕОКОДЕРА ЗАКРУГЛЕНИЕ УГЛОВ emiia bottom цвет и толщина*/
+/* ОТСТУПЫ МЕЖДУ ПОЛЯМИ ОТКУДА И КУДА ГЕОКОДЕРА ЗАКРУГЛЕНИЕ УГЛОВ emiia bottom цвет и толщина*/
           
   }
   
@@ -8099,14 +8099,16 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
 .mapboxgl-ctrl-geocoder {
   position:relative;
   
-margin: 3.5px 0;
+margin: 3.66px 0;
 
 
   
   width:calc(100% - 360px);;
   min-width:calc(100% - 40px);;
   max-width:calc(100% - 40px);;
-  margin-left:49px;
+  
+  
+  margin-left:48px;
   border-radius:8px 8px 8px 8px;
   
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1) !important;
@@ -8122,20 +8124,19 @@ margin: 3.5px 0;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  /* emiia bottom размер шрифта в поле A B ПОЛЕ B ВЫСОТА ГЕОКОДЕРА*/
+  /* emiia bottom размер шрифта в поле A B ПОЛЕ B ВЫСОТА ГЕОКОДЕРА отступ ОТКУДА КУДА*/
     }
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
 
 .mapboxgl-ctrl-geocoder input[type='text'] {
 
@@ -8177,7 +8178,7 @@ margin: 3.5px 0;
   /* emiia bottom размер шрифта в поле A B ПОЛЕ A*/
   
   .mapbox-directions-origin input[type='text'] {
-    box-shadow:0 1px 0 0 #ddd;
+    
     position:relative;
     z-index:1;
     
@@ -8187,12 +8188,7 @@ margin: 3.5px 0;
     
     }
     
-    
-    
-    
-    
-    
-    
+  
     
     
   .mapboxgl-ctrl-geocoder input:focus {
@@ -8207,22 +8203,24 @@ margin: 3.5px 0;
 
 .mapboxgl-ctrl-geocoder .geocoder-icon-search {
   position:absolute;
-  top:10px;
+  top:12px;
   left:10px;
   }
 .mapboxgl-ctrl-geocoder button {
   padding:0px;
-  margin:0;
+  margin:0px;
   background-color:#fff;
   border:none;
   cursor:pointer;
   }
+  
+  /* позиционирование иконки КЛОСЕ в геокодере */
 .mapboxgl-ctrl-geocoder .geocoder-pin-right * {
   background-color:#fff;
   z-index:2;
   position:absolute;
   right:10px;
-  top:10px;
+  top:12px;
   display:none;
   }
   .mapboxgl-ctrl-geocoder .geocoder-pin-right *.active { display:block; }
@@ -8503,8 +8501,8 @@ margin: 3.5px 0;
     
   .mapbox-directions-origin .mapbox-form-label {
     background-color:#4CCCAA;
-    border-radius:4px 4 4 4;
-    box-shadow:0 0px 0 0 rgba(0,0,0,0.1);
+    border-radius:8px 8 8 8;
+
     z-index:1;
 
    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1) !important; 
@@ -8520,8 +8518,8 @@ margin: 3.5px 0;
   position:absolute;
   z-index:10;
   background-color:transparent;
-  left:47px;
-  top:36px;
+  left:51px;
+  top:36.79px;
   cursor:pointer;
   }
   
@@ -8529,7 +8527,7 @@ margin: 3.5px 0;
 
 .mapbox-directions-inputs button {
   padding:0px;
-  margin:0;
+  margin:0px;
   background-color:transparent;
   border:none;
   cursor:pointer;
@@ -8644,8 +8642,8 @@ position: absolute;
     
     background-image: url('https://www.emiia.ai/icon/inv.svg');
     
-    
- 
+        background-repeat: no-repeat;
+
  
 }   
 
@@ -8687,7 +8685,7 @@ position: absolute;
     background-image: url('https://www.emiia.ai/icon/drone.svg');
     
     
- 
+     background-repeat: no-repeat;
  
 } 
 
@@ -8728,7 +8726,7 @@ position: absolute;
     background-image: url('https://www.emiia.ai/icon/robomobile.svg');
     
     
- 
+     background-repeat: no-repeat;
  
 } 
 
@@ -8822,7 +8820,6 @@ position: absolute;
   font-size:15px;
   line-height:28px; 
   border-radius:8px;
-  
 
   
   height: 82.5px;
@@ -8889,21 +8886,21 @@ position: absolute;
 .mapbox-directions-route-summary span::before {
 
 position: absolute;
-    top:5.0ex;
-    left: 5.45ex;
+    top:4.6ex;
+    left: 6.0ex;
     background: #4CCCAA;
     
     padding: 0;
-    width: 255px;
-    height: 42px;
+    width: 240px;
+    height: 44px;
     text-align: center;
 
-    border-radius: 4px 4px 4px 4px;
+    border-radius: 8px 8px 8px 8px;
     box-shadow: 0 0 10px 0px rgb(0 0 0 / 10%);
     
     
     text-align: center;
-    line-height: 38px;
+    line-height: 40px;
     
     color: white;
     
@@ -8927,16 +8924,16 @@ position: absolute;
 h1::before {
 
 position: absolute;
-    top:5.0ex;
+    top:4.5ex;
     left: 0.1ex;
     background: #7394ef;
     
     padding: 0;
-    width: 41.5px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     text-align: center;
 
-    border-radius: 4px 4px 4px 4px;
+    border-radius: 8px 8px 8px 8px;
     box-shadow: 0 0 10px 0px rgb(0 0 0 / 10%);
     
     
@@ -9003,7 +9000,7 @@ position: absolute;
 
     
     
-    
+        background-repeat: no-repeat;
     
   
     
@@ -9048,7 +9045,7 @@ color: #383838;
     content:"";
     
 
-  
+      background-repeat: no-repeat;
   
     
     
@@ -9411,7 +9408,7 @@ a.mapboxgl-ctrl-logo{
 /* Bottom emiia левый ряд включая кнопки INDOOR отступы*/
 
 .mapboxgl-ctrl-bottom-left .mapboxgl-ctrl {
-    margin: 0 0 13px 14px;
+    margin: -1px -1px 10px 10px;
     float: left;
 }
 
@@ -9632,7 +9629,7 @@ a.mapboxgl-ctrl-logo{
 
 
 
-/* ИКОНКИ ПО ЦЕНТРУ*/
+/* ИКОНКИ ПО ЦЕНТРУ ЦЕНТРАЦИЯ ИКОНОК ВНУТРИ КНОПОК*/
 
 .mapboxgl-ctrl-icon {
     background-size: 29px 29px !important;
