@@ -8079,7 +8079,16 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
 @import url('/css.css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
 
 
-/* emiia bottom цвет и толщина*/
+
+
+
+
+
+
+
+
+
+/* ОТСТУПЫ ГЕОКОДЕРА ЗАКРУГЛЕНИЕ УГЛОВ emiia bottom цвет и толщина*/
           
   }
   
@@ -8092,11 +8101,11 @@ exports.default = { format: format, coordinateMatch: coordinateMatch, createPoin
   width:calc(100% - 360px);;
   min-width:calc(100% - 40px);;
   max-width:calc(100% - 40px);;
-  margin-left:40px;
-  border-radius:0 0 3px 0;
+  margin-left:43px;
+  border-radius:8px 8px 8px 8px;
   }
   .mapbox-directions-origin .mapboxgl-ctrl-geocoder {
-    border-radius:0 3px 0 0;
+    border-radius:0 8px 0 0;
     
 
 border-bottom:  1px solid rgba(0,0,0,.1);
@@ -8129,7 +8138,7 @@ border-bottom:  1px solid rgba(0,0,0,.1);
 
 
 
-  /* emiia bottom размер шрифта в поле A B ПОЛЕ B*/
+  /* emiia bottom размер шрифта в поле A B ПОЛЕ B ВЫСОТА ГЕОКОДЕРА*/
     }
 
 .mapboxgl-ctrl-geocoder input[type='text'] {
@@ -8137,10 +8146,10 @@ border-bottom:  1px solid rgba(0,0,0,.1);
   width:100%;
   border:0;
   background-color:transparent;
-  height:40px;
-  margin:0;
+  height:46px;
+  margin:0px;
   color:rgba(0,0,0,.5);
-  padding:10px 40px 10px 10px;
+  padding:10px 40px 10px 20px;
   text-overflow:ellipsis;
   white-space:nowrap;
   overflow:hidden;
@@ -8230,11 +8239,11 @@ border-bottom:  1px solid rgba(0,0,0,.1);
 /* Suggestions */
 .mapboxgl-ctrl-geocoder ul {
   background-color:#fff;
-  border-radius: 0 0 3px 3px;
+  border-radius: 0 0 8px 8px;
   left:0;
   list-style:none;
   margin:0;
-  padding:0;
+  padding:0px;
   position:absolute;
   width:100%;
   top:100%;
@@ -8374,7 +8383,7 @@ border-bottom:  1px solid rgba(0,0,0,.1);
 
   
   box-shadow: 0 0 10px 0px rgb(0 0 0 / 10%);
-  border-radius:3px;
+  border-radius:8px;
   }
   
   
@@ -8474,16 +8483,16 @@ border-bottom:  1px solid rgba(0,0,0,.1);
   
   
   
-  /* emiia навигация (кнопки A B) */
+  /* emiia навигация (кнопки A B) плюс центрация иконок внутри */
 
 .mapbox-form-label {
   position:absolute;
   top:0;left:0;
   background:#7394EF;
   color:#fff;
-  padding:0;
-  width:42px;
-  height:42px;
+  padding:2px;
+  width:44px;
+  height:44px;
   text-align:center;
   line-height:38px;
   border-radius:8px 8px 8px 8px;
