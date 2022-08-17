@@ -7,7 +7,7 @@
   <path d="M5.68,13.47v2.05l-4-.57V14l4-.57" style="fill: #6b6b69"/>
   <path d="M6.18,6l2.53,1.9L7.57,9,5.68,6.51,6.18,6" style="fill: #cecece"/>
   <g>
-    <path d="M9.7,13.53l4.57-9.71,4.57,9.71H9.7" style="fill: #ff0817"/>
-    <path d="M18.84,15.47l-4.57,9.71L9.7,15.47h9.13" style="fill: #cecece"/>
+    <path d="M10.33,13.66l3.94-8.37,3.94,8.37H10.33" style="fill: #ff3f36"/>
+    <path d="M18.21,15.34l-3.94,8.37-3.94-8.37h7.87" style="fill: #cecece"/>
   </g>
 </svg>
