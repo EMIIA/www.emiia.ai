@@ -50,7 +50,7 @@
      bordercolor="#666666"
      pagecolor="#ffffff" />
   <path
-     d="M -0.5647821,1.4174342 H 35.774316 c 1.752218,0 3.162848,1.3907873 3.162848,3.1183572 v 0.850461 c 0,1.7275699 -1.41063,3.1183572 -3.162848,3.1183572 H -0.5647821 c -1.7522178,0 -3.1628479,-1.3907873 -3.1628479,-3.1183572 v -0.850461 c 0,-1.7275699 1.4106301,-3.1183572 3.1628479,-3.1183572 z"
-     style="opacity:0.522782;fill:#bcbcbc;fill-opacity:1;stroke:none;stroke-width:3.44342;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+     d="M -0.5647821,2.1261517 H 35.774316 c 1.752218,0 3.162848,1.1682613 3.162848,2.6194201 V 5.459959 c 0,1.4511588 -1.41063,2.6194201 -3.162848,2.6194201 H -0.5647821 c -1.7522178,0 -3.1628479,-1.1682613 -3.1628479,-2.6194201 V 4.7455718 c 0,-1.4511588 1.4106301,-2.6194201 3.1628479,-2.6194201 z"
+     style="opacity:0.522782;fill:#bcbcbc;fill-opacity:1;stroke:none;stroke-width:3.15594;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
      id="rect843" />
 </svg>
