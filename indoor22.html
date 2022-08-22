@@ -50,7 +50,7 @@
 <meta name="apple-mobile-web-app-title" content="EMIIA.AI MRV">
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#fff">
-<meta name="msapplication-starturl" content="https://www.emiia.ai/indoor22.html">
+<meta name="msapplication-starturl" content="https://www.emiia.ai/indoor20.html">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link rel="icon" href="/favicon.ico">
@@ -8150,7 +8150,7 @@ margin: 3.66px 0;
   width:100%;
   border:10px;
   background-color:transparent;
-  height:45px;
+  height:44px;
   margin:0px;
   
   padding:10px 40px 10px 20px;
@@ -8392,6 +8392,24 @@ margin: 3.66px 0;
   
   
   
+/* emiia */
+.directions-control {
+
+  
+  font-family: 14px/20px Montserrat, montserrat;
+  font:14px/20px 'Montserrat', montserrat;
+  
+  width: 33.33333%;
+  min-width: 300px;
+  max-width: 300px;
+
+   
+  }
+  
+  
+  
+  
+  
   
   
   
@@ -8405,6 +8423,14 @@ margin: 3.66px 0;
   
   
 
+/* EMIIA РАЗМЕР ШРИФТА В РАСКРЫВАЮЩЕМСЯ МЕНЮ ДЕТАЛИ МАРШРУТА Layout containers */
+.directions-control {
+  width:100%;
+  z-index:1;
+  
+  
+  font-family: 14px/20px Montserrat, montserrat;
+  font:14px/20px 'Montserrat', montserrat;
   
   
   
@@ -8412,20 +8438,33 @@ margin: 3.66px 0;
   
   
   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   /* Цвет раскрывающейся панели при детализации навигации при клике  ВАЖНО ОТСТУП ОТ ВЕХНЕЙ ПАНЕЛИ*/ 
+  }
+  .directions-control.directions-control-directions {
+    background:white;
+    margin: 20px 0 0;
+    color:#fff;
+    top:0;
+    right:0;
+    bottom:0;
+    overflow:auto;
+    overflow-x:hidden;
     
     
     
@@ -8442,7 +8481,22 @@ margin: 3.66px 0;
     
     }
     
-    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
     
     
     
@@ -8460,6 +8514,21 @@ margin: 3.66px 0;
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   /* emiia навигация (кнопки A B) плюс центрация иконок внутри */
 
 .mapbox-form-label {
@@ -8469,7 +8538,7 @@ margin: 3.66px 0;
   color:#fff;
   padding:0px;
   width:44px;
-  height:45px;
+  height:44px;
   text-align:center;
   line-height:41px;
   border-radius:12px 12px 12px 12px;
@@ -8619,7 +8688,7 @@ margin: 3.66px 0;
   .mapbox-directions-profile {
   
  
-    height: 46px;
+    height: 44px;
 
       box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1) !important; 
       
@@ -8643,7 +8712,7 @@ margin: 3.66px 0;
 
 position: absolute;
 
- top:8.2ex;
+ top:8.1ex;
    
    left: 26.0ex; 
     
@@ -8685,7 +8754,7 @@ position: absolute;
 
 position: absolute;
 
- top:7.9ex;
+ top:7.8ex;
    
    left: 31.6ex; 
     
@@ -8726,7 +8795,7 @@ position: absolute;
 
 position: absolute;
 
- top:7.8ex;
+ top:7.7ex;
    
    left: 37.7ex; 
     
@@ -8791,45 +8860,100 @@ position: absolute;
    
     
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
+/* Routes */
+.mapbox-directions-routes ul {
+  list-style:none;
+  margin:0;
+  padding:10px 10px 0 10px;
+  border-bottom:1px solid rgba(255,255,255,.25);
+  }
+
+.mapbox-directions-routes li {
+  font-size:12px;
+  padding:10px 10px 10px 80px;
+  display:block;
+  position:relative;
+  cursor:pointer;
+  color:rgba(255,255,255,.5);
+  min-height:60px;
+  }
+
+.mapbox-directions-routes li:hover,
+.mapbox-directions-routes .mapbox-directions-route-active {
+  color:white;
+  }
+
+.mapbox-directions-route-heading {
+  position:absolute;
+  left:10px;
+  top:10px;
+  
+    
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+/* ВАЖНО ВАЖНО ВАЖНО emiia цвет панели инструкции к навигации, цвет текста...) Route Summary */
+.mapbox-directions-route-summary {
+  position: relative;
+  z-index:1;
+  min-width: 300px;
+  background-color: transparent;
+  color:#383838;
+  padding:5px 5px 5px 5px;
+  font-size:15px;
+  line-height:38px; 
+  border-radius:50px;
+  
 
   
-  
-  
-  
-  
-  
+ height: 95.5px;
  
   
+ 
+   
+  
+
+  }
   
   
   
   
   
+  
+  
+  
 
 
 
 
+ /* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+    width: 5px; /* ширина для вертикального скролла */
 
-
-
-
-
-
-
-
-
-
+   background-color: white;
+   max-height: 0.0vh; 
+   
+}
 
 
 
@@ -8892,7 +9016,7 @@ position: absolute;
     
     padding: 0;
     width: 260px;
-    height: 45px;
+    height: 44px;
     text-align: center;
 
     border-radius: 12px 12px 12px 12px;
@@ -8930,7 +9054,7 @@ position: absolute;
     
     padding: 0;
     width: 44px;
-    height: 45px;
+    height: 44px;
     text-align: center;
 
     border-radius: 12px 12px 12px 12px;
@@ -9059,60 +9183,52 @@ color: #383838;
 
 
 
+
+
+
+
     
     
 
+  /* Alt route selection */
+  .mapbox-directions-instructions {
+      overflow: scroll;
+
+
+    }
+    
+   
 
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
     
-    
+    /* Высота информационной панели X X X при навигации внизу, а также цвет текста в панели */
+    .mapbox-directions-instructions-wrapper {
+      max-height: 20.0vh;
+
+
+      }
       
       
    
    
-   
-   
-   
-   
-   
-   
-   
-   
-      
-      
-      
+
       
   .mapbox-directions-routes {
-    margin-left: 12px;
+    margin-left: 5px;
     font-size:12px;
     float: right;
     }
   .mapbox-directions-routes input[type=radio] { display: none;}
   .mapbox-directions-routes input[type=radio]:not(:checked) + .button:before { width: 0;}
   .mapbox-directions-routes input[type=radio] + label {
-    background-color:white;
+    background-color:transparent;
     float:left;
-    padding:0 12px;
+    padding:0 10px;
     cursor:pointer;
-    border-radius:12px 12px 12px 12px;
     }
     .mapbox-directions-routes input[type=radio] + label:hover,
     .mapbox-directions-routes input[type=radio]:checked + label {
-      background-color:white;
-      border-radius:12px 12px 12px 12px;
+      background-color:transparent;
       }
 
 /* Instructions */
@@ -9135,6 +9251,8 @@ color: #383838;
   font-size:20px;
   line-height:25px;
   }
+  
+  
 .mapbox-directions-step-distance {
   color:black;
   position:absolute;
@@ -9156,7 +9274,7 @@ color: #383838;
   
   
   
-  
+  /* X X X цвет метров */
   .mapbox-directions-step {
     position:relative;
     color:black;
@@ -9175,12 +9293,15 @@ color: #383838;
     .mapbox-directions-step:hover {
       color:#7394EF;
       }
+      
+      
+         /* Цвет при наведении текста в панели X X X */
     .mapbox-directions-step:after {
       content:'';
       position:absolute;
       top:45px;
       bottom:-10px;
-      border-left:2px dotted #4CCCAA;
+      border-left:2px dotted black;
       left:20px;
       }
     .mapbox-directions-step:last-child:after,
@@ -9435,7 +9556,7 @@ a.mapboxgl-ctrl-logo{
 /* emiia размер боковых кнопок */
 .mapboxgl-ctrl-group button {
     width: 44.0px;
-    height: 45.0px;
+    height: 44.0px;
     display: block;
 
     padding: 0px;
@@ -9524,190 +9645,6 @@ a.mapboxgl-ctrl-logo{
 
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-  /* Routes */
-.mapbox-directions-routes ul {
-  list-style:none;
-  margin:0;
-  padding:10px 10px 0 10px;
-  border-bottom:1px solid rgba(255,255,255,.25);
-  }
-
-.mapbox-directions-routes li {
-  font-size:12px;
-  padding:10px 10px 10px 80px;
-  display:block;
-  position:relative;
-  cursor:pointer;
-  color:white;
-  min-height:60px;
-  }
-
-.mapbox-directions-routes li:hover,
-.mapbox-directions-routes .mapbox-directions-route-active {
-  color:white;
-  }
-
-.mapbox-directions-route-heading {
-  position:absolute;
-  left:10px;
-  top:10px;
-  
-    
-  
-  }
-  
-  
-  
-  
- /* ВАЖНО ВАЖНО ВАЖНО emiia цвет панели инструкции к навигации, цвет текста...) Route Summary */
-.mapbox-directions-route-summary {
-  position: relative;
-  z-index:1;
-  min-width: 300px;
-  background-color: transparent;
-  color:#383838;
-  padding:5px 5px 5px 5px;
-  font-size:15px;
-  line-height:38px; 
-  border-radius:50px;
-  
-
-  
- height: 105.5px;
- 
-  
- 
-   
-  
-
-  }
-  
-
-
-
- /* полоса прокрутки (скроллбар) */
-::-webkit-scrollbar {
-    width: 5px; /* ширина для вертикального скролла */
-
-   background-color: transparent;
-   max-height: 0.0vh; 
-   
-}
-
-
-
-
-
-  /* Alt route selection */
-  .mapbox-directions-instructions {
-      overflow: scroll;
-
-
-    }
-    
-   
-   
-   
-   
-   
-   
-   /* Высота информационной панели при навигации внизу */
-    .mapbox-directions-instructions-wrapper {
-      max-height: 20.0vh;
-
-
-      } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* emiia */
-.directions-control {
-
-  
-  font-family: 14px/20px Montserrat, montserrat;
-  font:14px/20px 'Montserrat', montserrat;
-  
-  width: 33.33333%;
-  min-width: 300px;
-  max-width: 300px;
-
-
-/* EMIIA РАЗМЕР ШРИФТА В РАСКРЫВАЮЩЕМСЯ МЕНЮ ДЕТАЛИ МАРШРУТА Layout containers */
-.directions-control {
-  width:100%;
-  z-index:1;
-  
-  
-  font-family: 14px/20px Montserrat, montserrat;
-  font:14px/20px 'Montserrat', montserrat;
-  
-
-  
- } 
-  
-  
-  
-  
-  /* Цвет раскрывающейся панели при детализации навигации при клике  ВАЖНО ОТСТУП ОТ ВЕХНЕЙ ПАНЕЛИ*/ 
-  }
-  .directions-control.directions-control-directions {
-    background:transparent;
-    margin: 20px 0 0;
-    color:#fff;
-    top:0;
-    right:0;
-    bottom:0;
-    overflow:auto;
-    overflow-x:hidden;
-
-}
-  
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -9863,7 +9800,7 @@ a.mapboxgl-ctrl-logo{
     
     
     background-size: 29px 29px !important;
-    background-position: 8px 8px !important;
+    background-position: 8px 6px !important;
     background-repeat: no-repeat !important;
     
 }
@@ -9906,7 +9843,7 @@ background-image:url("https://www.emiia.ai/icon/menu.svg");
 
 
 background-size: 29px 29px !important;
-    background-position: 6px 7px !important;
+    background-position: 7px 6px !important;
     background-repeat: no-repeat !important;
 
 }
@@ -10057,7 +9994,7 @@ border-bottom: 55px solid white;
  bottom: -40px;
 
 
-  left: 53%;
+  left: 54%;
 
 
   transform: translate(-50%, -50%);
