@@ -593,7 +593,7 @@
     		source: "indoor",
     		paint: {
     			"line-color": "#6B6B69",
-    			"line-width": 8,
+    			"line-width": 5,
     			"line-opacity": {
     				base: 1,
     				stops: [
