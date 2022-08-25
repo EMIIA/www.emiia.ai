@@ -592,7 +592,7 @@
     		type: "line",
     		source: "indoor",
     		paint: {
-    			"line-color": "#000",
+    			"line-color": "#6B6B69",
     			"line-width": 1,
     			"line-opacity": {
     				base: 1,
@@ -619,7 +619,7 @@
     		type: "fill",
     		source: "indoor",
     		paint: {
-    			"fill-color": "#D7CCC8",
+    			"fill-color": "#F8F9FA",
     			"fill-opacity": {
     				base: 1,
     				stops: [
