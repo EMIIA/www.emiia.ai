@@ -14,6 +14,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html >
 <head>
@@ -9830,7 +9831,7 @@ background-image:url("https://www.emiia.ai/icon/menu.svg");
 
 
 background-size: 29px 29px !important;
-    background-position: 7px 6px !important;
+    background-position: 6px 7px !important;
     background-repeat: no-repeat !important;
 
 }
@@ -10156,13 +10157,34 @@ max-width: 200px;
         mapboxgl.accessToken = 'pk.eyJ1IjoiZW1paWFhaSIsImEiOiJja21icnU4bHkyNGRwMnFrbjVvNXdtdGJ0In0.TcfxV21Ov7zOgvWvgPxzlA'
         const map = window.map = new mapboxgl.Map({
             container: "map",
-            zoom: 18,
+            
+  attributionControl: false,
+  
+  
+  
+  
+maxPitch: 45,
+
+minZoom: 7,
+maxZoom: 18,
+zoom: 18,
+pitch: 20,
+            
+            
+  
             center: [37.174014151096344,
               55.97747745943937],
             style: 'mapbox://styles/mapbox/streets-v10',
              attributionControl: false,
           
             hash: true
+            
+            
+            
+            
+
+            
+            
         });
         
         
@@ -10362,7 +10384,7 @@ var scale = new mapboxgl.ScaleControl({
       
       
              map.addControl(new mapboxgl.NavigationControl({
-  visualizePitch: false,
+  visualizePitch: true,
   showZoom: false
 }));    
       
@@ -10472,6 +10494,8 @@ new mapboxgl.Marker(el)
 </body>
 
 </html>
+
+
 
 
 
