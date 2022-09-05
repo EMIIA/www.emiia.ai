@@ -15,6 +15,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html >
 <head>
@@ -10150,7 +10151,8 @@ max-width: 200px;
 
     <script>
     
-    
+   
+
     const monument = [  37.17403560876846,55.977308625119825];
     
         mapboxgl.accessToken = 'pk.eyJ1IjoiZW1paWFhaSIsImEiOiJja21icnU4bHkyNGRwMnFrbjVvNXdtdGJ0In0.TcfxV21Ov7zOgvWvgPxzlA'
@@ -10173,7 +10175,8 @@ pitch: 20,
   
             center: [37.174014151096344,
               55.97747745943937],
-            style: 'mapbox://styles/mapbox/streets-v10',
+
+             style: 'mapbox://styles/emiiaai/ckv9cvgm062s515nz08d6ceq0',
              attributionControl: false,
           
             hash: true
@@ -10192,90 +10195,45 @@ pitch: 20,
  
  
 
+  
     
-    
-   
-
-        /**
+ /**
          * Indoor specific
          */
 
         // Where the indoor layers will be inserted.
         // Here, 'housenum-label' comes from streets-v10
-        const beforeLayerId = 'housenum-label';
 
-        // To avoid unwanted overlap from streets-v10 layers, some layers are hidden when an indoor map is shown
-        const layersToHide = ['poi-scalerank4-l15', 'poi-scalerank4-l1', 'poi-scalerank3', 'road-label-small'];
+ 
+    
+
+   
+          var beforeLayerId = '';
+          
+          
+          
+           // To avoid unwanted overlap from streets-v10 layers, some layers are hidden when an indoor map is shown
+        var layersToHide = ['poi-scalerank4-l15', 'poi-scalerank4-l1', 'poi-scalerank3', 'road-label-small'];
+
+
 
         var customData;
 
         // Retrieve the geojson from the path and add the map
-        fetch('https://www.emiia.ai/json/ofisgeojson24.geojson')
+        fetch('https://www.emiia.ai/json/ofisgeojson26.geojson')
             .then(res => res.json())
             .then(geojson => {
                 map.indoor.addMap(mapgl_indoor.IndoorMap.fromGeojson(geojson, { beforeLayerId, layersToHide }));
                 customData = geojson;
-            });
+            });  
 
-            function forwardGeocoder(query) {
-            var matchingFeatures = [];
 
-            for (var i = 0; i < customData.features.length; i++) {
-                var feature = customData.features[i];
-                if (feature.properties.hasOwnProperty('name') &&
-                    feature.properties['name']
-                        .toLowerCase()
-                        .search(query.toLowerCase()) !== -1
-                ) {
-                    feature['place_name'] = feature.properties['name'];
-                    feature['center'] = turf.centroid(feature).geometry.coordinates;
-                    feature['place_type'] = ['park'];
-                    matchingFeatures.push(feature);
-                } else if (feature.properties.hasOwnProperty('name') &&
-                    feature.properties.name
-                        .toLowerCase()
-                        .search(query.toLowerCase()) !== -1
-                ) {
-                    feature['place_name'] = feature.properties.name;
-                    feature['center'] = turf.centroid(feature).geometry.coordinates;
-                    feature['place_type'] = ['park'];
-                    matchingFeatures.push(feature);
-                }
-            }
-            return matchingFeatures;
-        }
-        let geocoder = new MapboxGeocoder({
-            localGeocoderOnly: true,
-            localGeocoder: forwardGeocoder,
-            zoom: 19,
-     
-            placeholder: '\u00A0 Search/Navigation Indoor',
             
-            
-           
- 
-            
-            mapboxgl: mapboxgl,
-            marker: true,
-        });
-        geocoder.on("result", (result) => {
-            console.log('result.result.properties:', result.result.properties);
-            map.indoor.setLevel(parseInt(result.result.properties.level));
-            
-  
-        })
        
        
-       
-       
-       
-     
-     
-     
-  
-          // Add the specific control
+  // Add the specific control
         map.addControl(map.indoor.control, 'bottom-right');
-  
+ 
   
   
      
@@ -10391,45 +10349,7 @@ var scale = new mapboxgl.ScaleControl({
       
       
       
-      
 
-      // After the map style has loaded on the page, add a source layer and default
-      // styling for a single point.
-      map.on('load', () => {
-        // Listen for the `directions.route` event that is triggered when a user
-        // makes a selection and add a symbol that matches the result.
-        directions.on('route', (event) => {
-          const styleSpecBox = document.getElementById('json-response');
-          styleSpecBox.innerHTML = `${syntaxHighlight(
-            JSON.stringify(event.route, null, 2)
-          )}`;
-        });
-      });
-
-      function syntaxHighlight(json) {
-        json = json
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;');
-        return json.replace(
-          /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g,
-          (match) => {
-            let cls = 'number';
-            if (/^"/.test(match)) {
-              if (/:$/.test(match)) {
-                cls = 'key';
-              } else {
-                cls = 'string';
-              }
-            } else if (/true|false/.test(match)) {
-              cls = 'boolean';
-            } else if (/null/.test(match)) {
-              cls = 'null';
-            }
-            return `<span class="${cls}">${match}</span>`;
-          }
-        );
-      }
   
 
 
@@ -10490,6 +10410,8 @@ new mapboxgl.Marker(el)
 </body>
 
 </html>
+
+
 
 
 
