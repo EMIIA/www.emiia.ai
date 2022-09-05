@@ -10220,7 +10220,7 @@ pitch: 20,
         var customData;
 
         // Retrieve the geojson from the path and add the map
-        fetch('https://www.emiia.ai/json/ofisgeojson26.geojson')
+        fetch('https://www.emiia.ai/json/ofisgeojson24.geojson')
             .then(res => res.json())
             .then(geojson => {
                 map.indoor.addMap(mapgl_indoor.IndoorMap.fromGeojson(geojson, { beforeLayerId, layersToHide }));
