@@ -10146,6 +10146,22 @@ max-width: 200px;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     
 
@@ -10196,36 +10212,7 @@ pitch: 20,
  
 
   
-    
- /**
-         * Indoor specific
-         */
 
-        // Where the indoor layers will be inserted.
-        // Here, 'housenum-label' comes from streets-v10
-
- 
-    
-
-   
-          var beforeLayerId = '';
-          
-          
-          
-           // To avoid unwanted overlap from streets-v10 layers, some layers are hidden when an indoor map is shown
-        var layersToHide = ['poi-scalerank4-l15', 'poi-scalerank4-l1', 'poi-scalerank3', 'road-label-small'];
-
-
-
-        var customData;
-
-        // Retrieve the geojson from the path and add the map
-        fetch('https://www.emiia.ai/json/ofisgeojson24.geojson')
-            .then(res => res.json())
-            .then(geojson => {
-                map.indoor.addMap(mapgl_indoor.IndoorMap.fromGeojson(geojson, { beforeLayerId, layersToHide }));
-                customData = geojson;
-            });  
 
 
             
@@ -10365,6 +10352,69 @@ var scale = new mapboxgl.ScaleControl({
     
     
     
+    
+    
+    
+    
+    
+    
+      <script>   
+     
+ /**
+         * Indoor specific
+         */
+
+        // Where the indoor layers will be inserted.
+        // Here, 'housenum-label' comes from streets-v10
+
+ 
+    
+          var beforeLayerId = 'building-number-label';
+
+    // To avoid unwanted overlap from streets-v10 layers, some layers are hidden when an indoor map is shown
+        const layersToHide = ['poi-scalerank4-l15', 'poi-scalerank4-l1', 'poi-scalerank3', 'road-label-small'];
+
+
+
+
+         var customData;
+
+        // Retrieve the geojson from the path and add the map
+        fetch('https://www.emiia.ai/json/ofisgeojson24.geojson')
+            .then(res => res.json())
+            .then(geojson => {
+                map.indoor.addMap(mapgl_indoor.IndoorMap.fromGeojson(geojson, { beforeLayerId, layersToHide }));
+                customData = geojson;
+            });
+
+                
+
+
+
+
+
+
+
+ 
+ 
+ 
+  </script>   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 <script>  
     
     // create the popup
@@ -10393,13 +10443,7 @@ new mapboxgl.Marker(el)
  
  
  
- 
- 
- 
- 
- 
- 
- 
+
     
     
     
