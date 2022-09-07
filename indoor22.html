@@ -14,6 +14,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html >
 <head>
@@ -73,8 +74,15 @@
     
     
     
+     
     <script  src="https://www.emiia.ru/typing-effect.js"></script>
   <script  src="/typing-effect.js"></script>
+  
+  
+  
+  
+   <script src='https://mapbox.github.io/mapbox-gl-language/index.js'></script>
+  
   
   
   
@@ -151,14 +159,13 @@ $viewportMeta.attr('content', 'width=device-width,initial-scale=1,maximum-scale=
     
     
     
-    
-    <script src="https://github.com/map-gl-indoor/map-gl-indoor/releases/download/v0.2.0/map-gl-indoor.umd.js"></script>
+ 
 
     
     
 
         
-        
+     <script src="https://dl.dropboxusercontent.com/s/p4pzuar2waqsn7m/map-gl-indoor.umd.js<"></script>   
         
         
     
@@ -190,6 +197,17 @@ $viewportMeta.attr('content', 'width=device-width,initial-scale=1,maximum-scale=
      
      
      
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9811,7 +9829,7 @@ a.mapboxgl-ctrl-logo{
     
     
     background-size: 29px 29px !important;
-    background-position: 8px 6px !important;
+    background-position: 7.9px 7.7px !important;
     background-repeat: no-repeat !important;
     
 }
@@ -9854,7 +9872,7 @@ background-image:url("https://www.emiia.ai/icon/menu.svg");
 
 
 background-size: 29px 29px !important;
-    background-position: 7px 6px !important;
+    background-position:  6.5px 7px !important;
     background-repeat: no-repeat !important;
 
 }
@@ -9975,7 +9993,7 @@ z-index: 2;
  
  .mapboxgl-ctrl-top-left{
 
-border-bottom: 55px solid white;
+border-bottom: 14px solid white;
 
 
 
@@ -10169,48 +10187,29 @@ max-width: 200px;
 
 
 
-    
-    
 
-    <script>
-    
-    
-    const monument = [  37.17403560876846,55.977308625119825];
-    
-        mapboxgl.accessToken = 'pk.eyJ1IjoiZW1paWFhaSIsImEiOiJja21icnU4bHkyNGRwMnFrbjVvNXdtdGJ0In0.TcfxV21Ov7zOgvWvgPxzlA'
-        const map = window.map = new mapboxgl.Map({
-            container: "map",
-            zoom: 18,
-            center: [37.174014151096344,
-              55.97747745943937],
-            style: 'mapbox://styles/mapbox/streets-v10',
-             attributionControl: false,
-          
-            hash: true
-        });
-        
-        
-        
-    
- 
- 
 
-    
-    
-   
 
-        /**
+<script>   
+     
+ /**
          * Indoor specific
          */
 
         // Where the indoor layers will be inserted.
         // Here, 'housenum-label' comes from streets-v10
-        const beforeLayerId = 'housenum-label';
 
-        // To avoid unwanted overlap from streets-v10 layers, some layers are hidden when an indoor map is shown
+ 
+    
+          var beforeLayerId = 'building-number-label';
+
+    // To avoid unwanted overlap from streets-v10 layers, some layers are hidden when an indoor map is shown
         const layersToHide = ['poi-scalerank4-l15', 'poi-scalerank4-l1', 'poi-scalerank3', 'road-label-small'];
 
-        var customData;
+
+
+
+         var customData;
 
         // Retrieve the geojson from the path and add the map
         fetch('https://www.emiia.ai/json/ofisgeojson24.geojson')
@@ -10220,65 +10219,83 @@ max-width: 200px;
                 customData = geojson;
             });
 
-            function forwardGeocoder(query) {
-            var matchingFeatures = [];
+                
 
-            for (var i = 0; i < customData.features.length; i++) {
-                var feature = customData.features[i];
-                if (feature.properties.hasOwnProperty('name') &&
-                    feature.properties['name']
-                        .toLowerCase()
-                        .search(query.toLowerCase()) !== -1
-                ) {
-                    feature['place_name'] = feature.properties['name'];
-                    feature['center'] = turf.centroid(feature).geometry.coordinates;
-                    feature['place_type'] = ['park'];
-                    matchingFeatures.push(feature);
-                } else if (feature.properties.hasOwnProperty('name') &&
-                    feature.properties.name
-                        .toLowerCase()
-                        .search(query.toLowerCase()) !== -1
-                ) {
-                    feature['place_name'] = feature.properties.name;
-                    feature['center'] = turf.centroid(feature).geometry.coordinates;
-                    feature['place_type'] = ['park'];
-                    matchingFeatures.push(feature);
-                }
-            }
-            return matchingFeatures;
-        }
-        let geocoder = new MapboxGeocoder({
-            localGeocoderOnly: true,
-            localGeocoder: forwardGeocoder,
-            zoom: 19,
-     
-            placeholder: '\u00A0 Search/Navigation Indoor',
-            
-            
-           
+
+
  
+ 
+  </script>   
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    <script>
+    
+   
+
+    const monument = [  37.17403560876846,55.977308625119825];
+    
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZW1paWFhaSIsImEiOiJja21icnU4bHkyNGRwMnFrbjVvNXdtdGJ0In0.TcfxV21Ov7zOgvWvgPxzlA'
+        const map = window.map = new mapboxgl.Map({
+            container: "map",
             
-            mapboxgl: mapboxgl,
-            marker: true,
+  attributionControl: false,
+  
+  
+  
+  
+maxPitch: 45,
+
+minZoom: 2,
+maxZoom: 19,
+zoom: 18,
+pitch: 20,
+            
+            
+  
+            center: [37.174014151096344,
+              55.97747745943937],
+
+             style: 'mapbox://styles/emiiaai/ckv9cvgm062s515nz08d6ceq0',
+             attributionControl: false,
+          
+            hash: true
+            
+     
+            
         });
-        geocoder.on("result", (result) => {
-            console.log('result.result.properties:', result.result.properties);
-            map.indoor.setLevel(parseInt(result.result.properties.level));
+        
+        
+        
+    
+ 
+ 
+
+  mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js');
+map.addControl(new MapboxLanguage({
+  defaultLanguage: 'ru'
+}));
+
+
+
             
-  
-        })
        
        
-       
-       
-       
-     
-     
-     
-  
-          // Add the specific control
+  // Add the specific control
         map.addControl(map.indoor.control, 'bottom-right');
-  
+ 
   
   
      
@@ -10386,7 +10403,7 @@ var scale = new mapboxgl.ScaleControl({
       
       
              map.addControl(new mapboxgl.NavigationControl({
-  visualizePitch: false,
+  visualizePitch: true,
   showZoom: false
 }));    
       
@@ -10394,54 +10411,36 @@ var scale = new mapboxgl.ScaleControl({
       
       
       
-      
-
-      // After the map style has loaded on the page, add a source layer and default
-      // styling for a single point.
-      map.on('load', () => {
-        // Listen for the `directions.route` event that is triggered when a user
-        // makes a selection and add a symbol that matches the result.
-        directions.on('route', (event) => {
-          const styleSpecBox = document.getElementById('json-response');
-          styleSpecBox.innerHTML = `${syntaxHighlight(
-            JSON.stringify(event.route, null, 2)
-          )}`;
-        });
-      });
-
-      function syntaxHighlight(json) {
-        json = json
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;');
-        return json.replace(
-          /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g,
-          (match) => {
-            let cls = 'number';
-            if (/^"/.test(match)) {
-              if (/:$/.test(match)) {
-                cls = 'key';
-              } else {
-                cls = 'string';
-              }
-            } else if (/true|false/.test(match)) {
-              cls = 'boolean';
-            } else if (/null/.test(match)) {
-              cls = 'null';
-            }
-            return `<span class="${cls}">${match}</span>`;
-          }
-        );
-      }
-  
 
 
 
 
 
-        
 
     </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -10477,15 +10476,232 @@ new mapboxgl.Marker(el)
  
  
  
+ <script> 
+    
+ map.on('load', () => {
+// Insert the layer beneath any symbol layer.
+const layers = map.getStyle().layers;
+const labelLayerId = layers.find(
+(layer) => layer.type === 'symbol' && layer.layout['text-field']
+).id;
  
+// The 'building' layer in the Mapbox Streets
+// vector tileset contains building height data
+// from OpenStreetMap.
+map.addLayer(
+{
+'id': 'add-3d-buildings',
+'source': 'composite',
+'source-layer': 'building',
+'filter': ['==', 'extrude', 'true'],
+'type': 'fill-extrusion',
+
+
+'minzoom': 14,
+'maxzoom': 17,
+
+
+
+'paint': {
+'fill-extrusion-color': '#aaa',
  
+// Use an 'interpolate' expression to
+// add a smooth transition effect to
+// the buildings as the user zooms in.
+'fill-extrusion-height': [
+'interpolate',
+['linear'],
+['zoom'],
+15,
+0,
+15.05,
+['get', 'height']
+],
+'fill-extrusion-base': [
+'interpolate',
+['linear'],
+['zoom'],
+15,
+0,
+15.05,
+['get', 'min_height']
+],
+'fill-extrusion-opacity': 0.3
+
+
+
+
+
+}
+},
+labelLayerId
+);
+});
+
+
+map.on('style.load', function () {
+			map.addLayer(createCustomLayer('3d-model', modelOrigin), '');
+            
+   
+		});
+    
+    
+  </script> 
  
- 
- 
- 
- 
- 
- 
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+
+      map.on('load', () => {
+        map.addSource('trees', {
+          'type': 'geojson',
+          'data': 'https://raw.githubusercontent.com/EMIIA/www.emiia.ai/master/json/circlegeojson.geojson'
+        });
+
+        map.addLayer(
+          {
+            'id': 'trees-heat',
+            'type': 'heatmap',
+            'source': 'trees',
+            'maxzoom': 0,
+            'paint': {
+              // increase weight as diameter breast height increases
+              'heatmap-weight': {
+                'property': 'dbh',
+                'type': 'exponential',
+                'stops': [
+                  [3, 0],
+                  [3, 0]
+                ]
+              },
+              // increase intensity as zoom level increases
+              'heatmap-intensity': {
+                'stops': [
+                  [3, 0],
+                  [3, 0]
+                ]
+              },
+              // use sequential color palette to use exponentially as the weight increases
+              'heatmap-color': [
+                'interpolate',
+                ['linear'],
+                ['heatmap-density'],
+                40,
+                'rgba(293,209,234,80)',
+                0.1,
+                'rgb(103,169,207,80)',
+                0.2,
+                'rgb(166,189,219,80)',
+                0.3,
+                'rgb(103,169,207,80)',
+                0.4,
+                'rgb(28,144,153,80)'
+                
+            
+              ],
+              // increase radius as zoom increases
+              'heatmap-radius': {
+                'stops': [
+                  [3, 2],
+                  [3, 2]
+                ]
+              },
+              // decrease opacity to transition into the circle layer
+              'heatmap-opacity': {
+                'default': 1,
+                'stops': [
+                  [3, 1],
+                  [3, 0]
+                ]
+              }
+            }
+          },
+          'waterway-label'
+        );
+
+        map.addLayer(
+          {
+            'id': 'trees-point',
+            'type': 'circle',
+            'source': 'trees',
+            'maxzoom': 0,
+            'paint': {
+              // increase the radius of the circle as the zoom level and dbh value increases
+              'circle-radius': {
+                'property': 'dbh',
+                'type': 'exponential',
+                'stops': [
+ [{ zoom: 2, value: 20 }, 100],
+
+                ]
+              },
+              'circle-color': {
+                'property': 'dbh',
+                'type': 'exponential',
+                'stops': [
+                  [50, 'rgba(193,209,234,0.5)']
+
+
+                ]
+              },
+              'circle-stroke-color': '#C1D1EA',
+              'circle-stroke-width': 0.1,
+            
+           
+              'circle-opacity': {
+                'stops': [
+                  [0, 0],
+                  [3, 1]
+                ]
+              }
+            }
+          },
+          'waterway-label'
+        );
+        
+        
+        map.setLayerZoomRange('trees-point', 0, 17);
+        
+      });
+
+     
+      
+      
+    </script>
+
+
+    
+    
+    
+    
     
     
     
@@ -10496,6 +10712,8 @@ new mapboxgl.Marker(el)
 </body>
 
 </html>
+
+
 
 
 
