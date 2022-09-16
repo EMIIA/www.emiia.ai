@@ -1340,7 +1340,7 @@
 	            {
 	                label: 'Map',
 	                styleName: 'Mapbox Streets',
-	                styleUrl: 'mapbox://styles/mapbox/streets-v11',
+	                styleUrl: 'mapbox://styles/emiiaai/ckv9cvgm062s515nz08d6ceq0',
 	            }, {
 	                label: 'Sat',
 	                styleName: 'Mapbox Satellite Streets',
@@ -1564,7 +1564,7 @@
 	    id: '$line',
 	    type: 'line',
 	    source: { type: 'geojson', data: polygon },
-	    paint: { 'line-width': 8, 'line-color': 'white' },
+	    paint: { 'line-width': 8, 'line-color': '#f8f9fa' },
 	  });
 	});
 
