@@ -1,4 +1,5 @@
 
+
 <html >
 <head>
   <meta charset="UTF-8">
@@ -176,7 +177,7 @@ a.mapboxgl-ctrl-logo{
     background-color: transparent;
     cursor: pointer;
     
-       font: 10px/20px Montserrat, montserrat;
+       font: 12px/20px Montserrat, montserrat;
        
        color:#383838
     
@@ -581,6 +582,51 @@ outline: 0;
 
 
 
+
+.mapboxgl-ctrl-bottom-right .mapboxgl-ctrl {
+    margin: -15px 18px 25px 0;
+    float: right;
+}
+
+
+
+
+.languages {
+    position: absolute;
+    left: 50%;
+    top: 9px;
+    transform: translateX(-50%);
+    z-index: 1;
+    
+    
+    text-decoration: none; /* Отменяем подчеркивание у ссылки */
+  border: none; /* Убираем рамку */
+  
+  
+
+    border-radius: 12px 12px 12px 12px;
+    
+    
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1) !important;
+    
+    background: #fff;
+    
+    font: 12px/20px Montserrat, montserrat;
+    
+     width: 88.0px;
+    height: 44.0px;
+
+
+
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+
+    
+    
+}
+
  
 
 
@@ -612,8 +658,8 @@ outline: 0;
 <div class="map" id="map"></div>
 
 
-<select  id="languages" >
-    <option value="" selected>browser language</option>
+<select  id="languages" class="languages">
+    <option value="" selected>Language</option>
     <option value="en">en</option>
     <option value="de">de</option>
     <option value="ru">ru</option>
@@ -648,6 +694,8 @@ outline: 0;
 
 </body>
 </html>
+
+
 
 
 
