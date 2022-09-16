@@ -1504,7 +1504,7 @@
 
 	/* Style */
 	map.addControl(new StylesControl({
-	  onChange: () => languages.value = '',
+	  onChange: () => languages.value = 'ru',
 	}), 'top-left');
 
 	/* Zoom */
@@ -1558,13 +1558,13 @@
 	    id: '$fill',
 	    type: 'fill',
 	    source: { type: 'geojson', data: polygon },
-	    paint: { 'fill-opacity': 0.3, 'fill-color': '#4264fb' },
+	    paint: { 'fill-opacity': 0.3, 'fill-color': '#c1d1ea' },
 	  });
 	  map.addLayer({
 	    id: '$line',
 	    type: 'line',
 	    source: { type: 'geojson', data: polygon },
-	    paint: { 'line-width': 2, 'line-color': '#4264fb' },
+	    paint: { 'line-width': 8, 'line-color': 'white' },
 	  });
 	});
 
