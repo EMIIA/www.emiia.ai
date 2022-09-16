@@ -64,7 +64,7 @@
   cursor: pointer;
 }
 .mapbox-control-inspect-prev:hover svg, .mapbox-control-inspect-next:hover svg {
-  fill: #4264fb;
+  fill: #3d85c6;
 }
 .mapbox-control-inspect-prev svg, .mapbox-control-inspect-next svg {
   vertical-align: top;
