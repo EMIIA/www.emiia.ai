@@ -1512,10 +1512,10 @@
 
 	/* Ruler */
 	map.addControl(new RulerControl(), 'bottom-right');
-	map.on('ruler.on', () => console.log('%cruler.on', 'color: #3D5AFE'));
-	map.on('ruler.off', () => console.log('%cruler.off', 'color: #3D5AFE'));
+	map.on('ruler.on', () => console.log('%cruler.on', 'color: #3d85c6'));
+	map.on('ruler.off', () => console.log('%cruler.off', 'color: #3d85c6'));
 	map.on('ruler.change', (params) => {
-	  console.log('%cruler.change', 'color: #3D5AFE');
+	  console.log('%cruler.change', 'color: #3d85c6');
 	  console.table(params.coordinates);
 	});
 
@@ -1528,10 +1528,10 @@
 	/* Image */
 	const imageControl = new ImageControl();
 	map.addControl(imageControl, 'bottom-right');
-	map.on('image.add', (image) => console.log('%cimage.add', 'color: #3D5AFE', image) );
-	map.on('image.select', (image) => console.log('%cimage.select', 'color: #3D5AFE', image) );
-	map.on('image.update', (image) => console.log('%cimage.update', 'color: #3D5AFE', image) );
-	map.on('image.deselect', (image) => console.log('%cimage.deselect', 'color: #3D5AFE', image) );
+	map.on('image.add', (image) => console.log('%cimage.add', 'color: #3d85c6', image) );
+	map.on('image.select', (image) => console.log('%cimage.select', 'color: #3d85c6', image) );
+	map.on('image.update', (image) => console.log('%cimage.update', 'color: #3d85c6', image) );
+	map.on('image.deselect', (image) => console.log('%cimage.deselect', 'color: #3d85c6', image) );
 	// map.on('style.load', () => {
 	//   imageControl.addImage('https://img.lunstatic.net/building-800x600/41771.jpg', {
 	//     position: [
