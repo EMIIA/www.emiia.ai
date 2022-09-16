@@ -1558,13 +1558,13 @@
 	    id: '$fill',
 	    type: 'fill',
 	    source: { type: 'geojson', data: polygon },
-	    paint: { 'fill-opacity': 0.5, 'fill-color': '#c1d1ea' },
+	    paint: { 'fill-opacity': 0.7, 'fill-color': '#c1d1ea' },
 	  });
 	  map.addLayer({
 	    id: '$line',
 	    type: 'line',
 	    source: { type: 'geojson', data: polygon },
-	    paint: { 'line-width': 3, 'line-color': '#f8f9fa' },
+	    paint: { 'line-width': 2, 'line-color': 'white' },
 	  });
 	});
 
