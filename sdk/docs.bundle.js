@@ -1474,6 +1474,7 @@
 	  style: 'mapbox://styles/mapbox/streets-v11',
 	  zoom: 14,
 	  center: [30.5234, 50.4501],
+		 attributionControl: false,
 	});
 
 	const polygon = {
