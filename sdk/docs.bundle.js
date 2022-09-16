@@ -1338,11 +1338,11 @@
 	    get defaultOptions() {
 	        return [
 	            {
-	                label: 'Streets',
+	                label: 'Map',
 	                styleName: 'Mapbox Streets',
 	                styleUrl: 'mapbox://styles/mapbox/streets-v11',
 	            }, {
-	                label: 'Satellite',
+	                label: 'Sat',
 	                styleName: 'Mapbox Satellite Streets',
 	                styleUrl: 'mapbox://sprites/mapbox/satellite-streets-v11',
 	            },
