@@ -1466,12 +1466,12 @@
 	    }
 	}
 
-	mapboxgl.accessToken = 'pk.eyJ1Ijoia29yeXdrYSIsImEiOiJja2p1ajdlOWozMnF2MzBtajRvOTVzZDRpIn0.nnlX7TDuZ3zuGkZGr_oA3A';
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZW1paWFhaSIsImEiOiJja21icnU4bHkyNGRwMnFrbjVvNXdtdGJ0In0.TcfxV21Ov7zOgvWvgPxzlA';
 
 	const languages = document.getElementById('languages');
 	const map = new mapboxgl.Map({
 	  container: 'map',
-	  style: 'mapbox://styles/mapbox/streets-v11',
+	  style: 'mapbox://styles/emiiaai/ckv9cvgm062s515nz08d6ceq0',
 	  zoom: 14,
           attributionControl: false,
 	  center: [30.5234, 50.4501],
@@ -1549,7 +1549,7 @@
 	  layer: '$fill',
 	  getContent: (event) => {
 	    const coords = event.lngLat;
-	    return `Tooltip Example: ${coords.lng.toFixed(6)}, ${coords.lat.toFixed(6)}`;
+	    return `EMIIA.AI MRV Track: ${coords.lng.toFixed(6)}, ${coords.lat.toFixed(6)}`;
 	  },
 	}));
 
