@@ -1,5 +1,6 @@
 
 
+
 <html >
 <head>
 
@@ -731,6 +732,14 @@ outline: 0;
 }
 
 
+
+
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+    margin: 8.9px 10px -10.6px 0px !important;
+}
+
+
 }
 
 
@@ -759,27 +768,65 @@ outline: 0;
 height: 75px;
 width: 100px;
 position: absolute;
-bottom: 20px;
+bottom: 40px;
 left: 3px;
 background-color: transparent;
 padding: 5px;
-text-align: center;
+text-align: left;
 }
  
 p {
 
 margin: 0;
 font-size: 13px;
+
+font: 13px/20px Montserrat, montserrat;
+
 }
 </style>
  
 
     
-    
-    
+
 
 
     <script src="https://unpkg.com/mapbox-gl-draw-scale-rotate-mode"></script>
+    
+    
+    
+    
+    
+    
+    
+    
+    <style>
+
+
+
+
+.coordinates {
+/*         background: rgba(0, 0, 0, 0.5); */
+        color: #383838;
+        font:18px/20px 'Montserrat', montserrat;
+        position: absolute;
+        bottom: 35px;
+        left: 2px;
+        padding: 0px 7px;
+        margin: 0px;
+        font-size: 12px;
+        line-height: 18px;
+        border-radius: 10px;
+        display: none;
+
+}
+
+</style>
+    
+    
+    
+    
+    
+    
     
     
     
@@ -822,7 +869,7 @@ font-size: 13px;
 
 
 
-
+<pre id="coordinates" class="coordinates"></pre>
 
 
 
@@ -2428,7 +2475,19 @@ alert('Click the map to draw a polygon.');
   
   
   
-  
+  const marker = new mapboxgl.Marker({
+draggable: true
+})
+.setLngLat([0, 0])
+.addTo(map);
+ 
+function onDragEnd() {
+const lngLat = marker.getLngLat();
+coordinates.style.display = 'block';
+coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+}
+ 
+marker.on('dragend', onDragEnd);
   
 
   
@@ -2501,6 +2560,7 @@ alert('Click the map to draw a polygon.');
 
 </body>
 </html>
+
 
 
 
