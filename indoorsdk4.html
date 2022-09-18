@@ -833,18 +833,20 @@ font: 13px/20px Montserrat, montserrat;
 
 
 
-    
+
 
     
-
+    
+   
 
 
 </style>
-    
-    
-    
-    
-    
+
+
+
+
+
+
     
     
     
@@ -2457,6 +2459,9 @@ displayControlsDefault: false,
 // Select which mapbox-gl-draw control buttons to add to the map.
 controls: {
 polygon: true,
+ line_string: true,
+    trash: true,
+
 trash: true
 },
 // Set mapbox-gl-draw to draw by default.
@@ -2486,7 +2491,32 @@ alert('Click the map to draw a polygon.');
     
     
     
-    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -2509,6 +2539,16 @@ coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
 marker.on('dragend', onDragEnd);
   
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -2549,8 +2589,6 @@ marker.on('dragend', onDragEnd);
 
 }());
 //# sourceMappingURL=docs.bundle.js.map
-
-
 
 
 
