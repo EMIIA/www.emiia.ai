@@ -112,6 +112,7 @@
 }
 .mapbox-control-styles button + button {
   border: none;
+  border-left: 1px solid #ddd;
 }
 .mapbox-control-styles button.-active {
   background: #f5f5f5;
