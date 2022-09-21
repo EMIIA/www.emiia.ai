@@ -1499,7 +1499,7 @@
 	const languageControl = new LanguageControl();
 	map.addControl(languageControl);
 	languages.addEventListener('change', () => {
-	  languageControl.setLanguage(languages.value);
+	  languageControl.setLanguage('mul');
 	});
 
 	/* Style */
