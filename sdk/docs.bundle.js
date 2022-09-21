@@ -1496,7 +1496,9 @@
 	};
 
 	/* Language */
-	const languageControl = new LanguageControl();
+	const languageControl = new LanguageControl({
+  language: 'ru',
+});
 	map.addControl(languageControl);
 	languages.addEventListener('change', () => {
 	  languageControl.setLanguage('ru');
