@@ -2,6 +2,7 @@
 
 
 
+
 <html >
 <head>
 
@@ -891,6 +892,20 @@ font: 13px/20px Montserrat, montserrat;
 
 
 <pre id="coordinates" class="coordinates"></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2191,6 +2206,7 @@ font: 13px/20px Montserrat, montserrat;
 	        node.style.boxSizing = 'border-box';
 	        node.style.border = `2px solid ${this.mainColor}`;
 	        return node;
+
 	    }
 	    styleLoadListener() {
 	        this.draw();
@@ -2371,7 +2387,21 @@ font: 13px/20px Montserrat, montserrat;
 	    }
 	}
 
+
+
+
+
+
+
+
+
+
+
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZW1paWFhaSIsImEiOiJja21icnU4bHkyNGRwMnFrbjVvNXdtdGJ0In0.TcfxV21Ov7zOgvWvgPxzlA';
+    
+    
+
+    
 
 	const languages = document.getElementById('languages');
 	const map = new mapboxgl.Map({
@@ -2380,7 +2410,15 @@ font: 13px/20px Montserrat, montserrat;
 	  zoom: 14,
           attributionControl: false,
 	  center: [30.5234, 50.4501],
+      
 	});
+    
+    
+
+
+
+
+    
 
 	const polygon = {
 	  id: 1234567890,
@@ -2399,6 +2437,8 @@ font: 13px/20px Montserrat, montserrat;
 	    ],
 	  },
 	};
+    
+    
 
 	/* Language */
 	const languageControl = new LanguageControl();
@@ -2406,6 +2446,9 @@ font: 13px/20px Montserrat, montserrat;
 	languages.addEventListener('change', () => {
 	  languageControl.setLanguage(languages.value);
 	});
+    
+    
+    
 
 	/* Style */
 	map.addControl(new StylesControl({
@@ -2420,6 +2463,7 @@ font: 13px/20px Montserrat, montserrat;
 	map.on('ruler.change', (params) => {
 	  console.log('%cruler.change', 'color: #3d85c6');
 	  console.table(params.coordinates);
+
 	});
 
 	/* Inspect */
@@ -2427,7 +2471,9 @@ font: 13px/20px Montserrat, montserrat;
 
 	/* Compass */
 	map.addControl(new CompassControl(), 'bottom-right');
-
+    
+    
+    
 	/* Image */
 	const imageControl = new ImageControl();
 	map.addControl(imageControl, 'bottom-right');
@@ -2449,6 +2495,7 @@ font: 13px/20px Montserrat, montserrat;
     
     
     
+
     
     
     
@@ -2495,6 +2542,15 @@ alert('Click the map to draw a polygon.');
   
   
   
+     map.on('style.load', function() {
+  map.on('click', function(e) {
+    var coordinates = e.lngLat ;
+    new mapboxgl.Popup()
+      .setLngLat(coordinates)
+      .setHTML( 'Point coordinates: <br/>'+ coordinates)
+      .addTo(map);
+  });
+});
   
   
   
@@ -2503,29 +2559,7 @@ alert('Click the map to draw a polygon.');
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  const marker = new mapboxgl.Marker({
+   const marker = new mapboxgl.Marker({
 draggable: true
 })
 .setLngLat([0, 0])
@@ -2534,32 +2568,66 @@ draggable: true
 function onDragEnd() {
 const lngLat = marker.getLngLat();
 coordinates.style.display = 'block';
-coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+
+coordinates.innerHTML = `LngLat: ${lngLat.lng}, ${lngLat.lat}`;
+
 }
  
 marker.on('dragend', onDragEnd);
+  
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
   
 
   
   
   
+  map.on('load', () => {
+map.addSource('radar', {
+'type': 'image',
+'url': 'https://docs.mapbox.com/mapbox-gl-js/assets/radar.gif',
+'coordinates': [
+ [30.51829972809344, 50.452100808065865],
+[30.517706443172955, 50.45072734494261],
+[30.515549696800434, 50.450954839702575],
+[30.51620057331678, 50.452592047508574]
+]
+});
+map.addLayer({
+id: 'radar-layer',
+'type': 'raster',
+'source': 'radar',
+'paint': {
+'raster-fade-duration': 0
+}
+});
+});
+
   
   
   
+
+
+
+
+
   
   
   
+
   
   
   
-  
-  
-  
-  
-  
-  
-    
-    
     
     
 
@@ -2569,7 +2637,7 @@ marker.on('dragend', onDragEnd);
 	  layer: '$fill',
 	  getContent: (event) => {
 	    const coords = event.lngLat;
-	    return `EMIIA.AI MRV Track: ${coords.lng.toFixed(6)}, ${coords.lat.toFixed(6)}`;
+	    return `EMIIA.AI MRV Track LngLat: ${coords.lng.toFixed(6)}, ${coords.lat.toFixed(6)}`;
 	  },
 	}));
 
@@ -2597,18 +2665,12 @@ marker.on('dragend', onDragEnd);
 
 
 
+
+
+
+
+
 </script>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2618,6 +2680,8 @@ marker.on('dragend', onDragEnd);
 
 </body>
 </html>
+
+
 
 
 
