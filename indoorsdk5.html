@@ -5,6 +5,7 @@
 
 
 
+
 <html >
 <head>
 
@@ -815,6 +816,16 @@ font-size: 13px;
 font: 13px/20px Montserrat, montserrat;
 
 }
+
+
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+    margin: 4.5px 10px 0.0px 0px !important;
+}
+
+
+
+
 </style>
  
 
@@ -823,7 +834,6 @@ font: 13px/20px Montserrat, montserrat;
 
 
 
-        <script src="https://unpkg.com/mapbox-gl-draw-scale-rotate-mode"></script>
     
     
     
@@ -2276,15 +2286,64 @@ font: 13px/20px Montserrat, montserrat;
 	    get defaultOptions() {
 	        return [
 	            {
+                
+                
+           
+           
+           
+          
+           
+                
+                
 	                label: 'Map',
 	                styleName: 'Mapbox Streets',
 	                styleUrl: 'mapbox://styles/emiiaai/ckv9cvgm062s515nz08d6ceq0',
-	            }, {
+	            }, 
+                
+                
+                {
 	                label: 'Sat',
 	                styleName: 'Mapbox Satellite Streets',
-	                styleUrl: 'mapbox://sprites/mapbox/satellite-streets-v11',
+	                styleUrl: 'mapbox://styles/mapbox/satellite-streets-v11',
+         
 	            },
+                
+                
+
+
+         
+                
+                
+                
+                
 	        ];
+            
+            
+            
+     
+     
+     
+     
+     
+            
+            /* Style */
+	map.addControl(new StylesControl({
+	  onChange: () => languages.value = 'ru',
+	}), 'top-left');
+            
+            
+    mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js');
+map.addControl(new MapboxLanguage({
+  defaultLanguage: 'ru'
+}));      
+
+
+
+
+
+
+            
+            
 	    }
 	    onAddControl() {
 	        this.insert();
@@ -2471,6 +2530,12 @@ font: 13px/20px Montserrat, montserrat;
 	map.addControl(new StylesControl({
 	  onChange: () => languages.value = 'ru',
 	}), 'top-left');
+    
+    
+    
+    	/* Inspect */
+	map.addControl(new InspectControl({ console: true }), 'top-right');
+    
 
 	
 	/* Ruler */
@@ -2483,8 +2548,7 @@ font: 13px/20px Montserrat, montserrat;
 
 	});
 
-	/* Inspect */
-	map.addControl(new InspectControl({ console: true }), 'top-right');
+
     
     
     
@@ -2705,12 +2769,15 @@ id: 'radar-layer',
 
 
 
-
+    <script src='https://mapbox.github.io/mapbox-gl-language/index.js'></script>
 
 
 
 </body>
 </html>
+
+
+
 
 
 
