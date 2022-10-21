@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+      crossorigin="anonymous"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/json2csv"></script>
+    <script src="https://unpkg.com/@aternus/csv-to-xlsx"></script>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
+      crossorigin="anonymous"
+      type="text/css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+
+    <!--chart.min.js-->
+    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+
+    <link rel="stylesheet" href="./src/styles.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Static Template</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        left: 600px;
+        bottom: 0;
+        width: calc(100% - 600px);
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="leftblock">
+      <h2 id="hd">Всего поступило идей:</h2>
+      <h2 id="ideas"></h2>
+      <div id="piechart">
+        <canvas id="myChart"></canvas>
+      </div>
+      <div id="piechart2">
+        <canvas id="bottomChart" height="200" width="600"></canvas>
+      </div>
+    </div>
+    <div id="map"></div>
+    <!--<div id="tab">
+       <button class="headerButton" id="🗺" data-title="Спутниковая подложка">
+        <i class="fas fa-globe-europe"></i>
+      </button>
+      <!--<button
+        class="headerButton"
+        id="tableButton"
+        data-title="Скачать таблицу"
+      >
+        <i class="fas fa-table"></i>
+      </button>
+    </div>-->
+    <script src="./src/index3.js" async></script>
+  </body>
+</html>
