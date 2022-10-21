@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg enable-background="new 0 0 217.5 217.5" version="1.1" viewBox="0 0 217.5 217.5" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+
+	<rect transform="matrix(.9489 -.3156 .3156 .9489 -33.466 49.561)" x="131" y="125.5" width="10.6" height="5.2"/>
+	<rect transform="matrix(.9489 -.3156 .3156 .9489 -31.122 54.048)" x="146" y="120.5" width="10.6" height="5.2"/>
+	<rect transform="matrix(.9704 -.2416 .2416 .9704 -19.841 42.217)" x="159.6" y="96.3" width="5.2" height="11.5"/>
+	<rect transform="matrix(.9704 -.2416 .2416 .9704 -15.924 40.716)" x="155.5" y="79.5" width="5.2" height="11.5"/>
+	<rect transform="matrix(.9704 -.2416 .2416 .9704 -12.009 39.218)" x="151.3" y="62.8" width="5.2" height="11.5"/>
+	<rect transform="matrix(.9052 -.425 .425 .9052 -30.257 39.991)" x="68.9" y="85.2" width="11.2" height="5.2"/>
+	<rect transform="matrix(.9052 -.425 .425 .9052 -16.875 57.274)" x="114.4" y="63.9" width="11.2" height="5.2"/>
+	<rect transform="matrix(.9052 -.425 .425 .9052 -12.416 63.038)" x="129.5" y="56.8" width="11.2" height="5.2"/>
+	<rect transform="matrix(.9052 -.425 .425 .9052 -21.336 51.521)" x="99.2" y="71" width="11.2" height="5.2"/>
+	<rect transform="matrix(.9052 -.425 .425 .9052 -25.794 45.746)" x="84.1" y="78.1" width="11.2" height="5.2"/>
+	<circle cx="150" cy="52.8" r="7.8"/>
+	<circle cx="166.1" cy="117.7" r="7.8"/>
+	<circle cx="121.4" cy="133.3" r="7.8"/>
+	<circle cx="59.9" cy="94.9" r="7.8"/>
+
+
+	<path d="m96.4 125.5v-24.8c0-1.4-1.1-2.5-2.5-2.5h-13.3c-1.4 0-2.5 1.1-2.5 2.5v24.8h-7.5c-2.2 0-3.4 2.7-1.8 4.3l16.6 16.6c1 1 2.6 1 3.6 0l16.6-16.6c1.6-1.6 0.5-4.3-1.8-4.3h-7.4z"/>
+	<path d="m122 170.1h-69.4c-1.1 0-2-0.9-2-2v-15.4c0-1.1 0.9-2 2-2h69.4c1.1 0 2 0.9 2 2v15.4c0 1.1-0.9 2-2 2z"/>
+
+</svg>
