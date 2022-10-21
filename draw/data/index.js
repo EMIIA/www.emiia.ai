@@ -9,12 +9,12 @@ import {
   DirectMode,
   SimpleSelectMode
 } from "mapbox-gl-draw-circle";
-import { cadOkruga, cadBboxes } from "./kad.js";
+import { cadOkruga, cadBboxes } from "https://www.emiia.ai/draw/kad.js";
 import { Matrix4 } from "@math.gl/core";
-import { createExtrusion } from "./tesselate.js";
-import { makeShadow } from "./shadowBuilder.js";
-import { roundCorners } from "./roundCorners";
-import { extruder, extrudeCheck, shorten } from "./bridgeUtils.js";
+import { createExtrusion } from "https://www.emiia.ai/draw/tesselate.js";
+import { makeShadow } from "https://www.emiia.ai/draw/shadowBuilder.js";
+import { roundCorners } from "https://www.emiia.ai/draw/roundCorners";
+import { extruder, extrudeCheck, shorten } from "https://www.emiia.ai/draw/bridgeUtils.js";
 
 import { FPSControl } from "mapbox-gl-fps/lib/MapboxFPS.min";
 
