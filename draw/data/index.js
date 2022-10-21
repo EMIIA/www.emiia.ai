@@ -33,11 +33,11 @@ var tpuStyles = require("./tpuStyles.json");
 var mapDOM = document.querySelector("#map");
 
 mapboxgl.accessToken =
-  "pk.eyJ1IjoieWFucG9ndXRzYSIsImEiOiJjajBhMzJydzIwZmtmMndvY3ozejFicTdqIn0.T6DCFk1BSoEkdG-2agIoQQ";
+  "pk.eyJ1IjoiZW1paWFhaSIsImEiOiJja21icnU4bHkyNGRwMnFrbjVvNXdtdGJ0In0.TcfxV21Ov7zOgvWvgPxzlA";
 
 const map = new mapboxgl.Map({
   container: mapDOM,
-  style: "mapbox://styles/yanpogutsa/cl5oikog3001f14of9db1ftk6", //"mapbox://styles/yanpogutsa/cl3d3hy3p001w14nw6zxugiqt", //"mapbox://styles/yanpogutsa/ckyu3g3kj001514o0e49udkxq", //"mapbox://styles/yanpogutsa/ckvslmtrk15ph15rwdbqawomh",
+  style: "mapbox://styles/emiiaai/ckv9cvgm062s515nz08d6ceq0",
   attributionControl: false,
   center: [37.618, 55.751],
   minZoom: 2,
