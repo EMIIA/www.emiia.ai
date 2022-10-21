@@ -1,84 +1,754 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
+    <title>ГП-ГЗК 3.3</title>
     <meta charset="UTF-8" />
+    <link rel="icon" href="data/favicon.svg" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.0/mapbox-gl-draw.js"></script>
+    <script src="https://unpkg.com/@turf/turf@6.3.0/turf.min.js"></script>
+    <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@loaders.gl/3d-tiles@3.0.11/dist/dist.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@loaders.gl/gltf@3.0.3/dist/dist.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
     <link
-      href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
       rel="stylesheet"
+      href="./data/styles.css"
+      type="text/css"
+      crossorigin="anonymous"
     />
     <link
-      href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+      href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css"
       crossorigin="anonymous"
       rel="stylesheet"
     />
-    <script src="https://cdn.jsdelivr.net/npm/json2csv"></script>
-    <script src="https://unpkg.com/@aternus/csv-to-xlsx"></script>
 
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.0/mapbox-gl-draw.css"
+      type="text/css"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"
+      crossorigin="anonymous"
+      rel="stylesheet"
+    />
+
     <link
       rel="stylesheet"
       href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
       crossorigin="anonymous"
       type="text/css"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
-
-    <!--chart.min.js-->
-    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
-
-    <link rel="stylesheet" href="./src/styles.css" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Static Template</title>
     <style>
+      @font-face {
+        font-family: "Moscow Sans Regular";
+        src: url("./data/MoscowSansRegular.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "Moscow Sans Bold";
+        src: url("./data/MoscowSansBold.ttf") format("truetype");
+      }
       body {
         margin: 0;
         padding: 0;
       }
       #map {
         position: absolute;
-        left: 600px;
+        top: 0;
         bottom: 0;
-        width: calc(100% - 600px);
-        height: 100%;
+        width: 100%;
       }
     </style>
+    <script>
+      function colorManager(e) {
+        var value = parseInt(e.currentTarget.value);
+        var color;
+        var text = "#000";
+        switch (value) {
+          case 1:
+          case 2:
+          case 3:
+          case 4:
+            color = "#9dd363";
+            break;
+          case 4:
+          case 5:
+          case 6:
+            color = "#e3e303";
+            break;
+          case 7:
+            color = "#e7b110";
+            break;
+          case 8:
+            color = "#f7743a";
+            break;
+          case 9:
+            color = "#c93939";
+            text = "#fff";
+            break;
+          case 10:
+            color = "#8d3939";
+            text = "#fff";
+            break;
+          default:
+            color = "";
+        }
+        e.currentTarget.style.background = color;
+        e.currentTarget.style.color = text;
+      }
+      const removeWatermark = () => {
+  const ids = [];
+  const iframes = document.body.querySelectorAll("iframe");
+  for (const iframe of iframes) {
+    if (iframe.id.startsWith("sb__open-sandbox")) ids.push(iframe.id);
+  }
+  for (const id of ids) {
+    const node = document.createElement("div");
+    node.style.setProperty("display", "none", "important");
+    node.id = id;
+    document.getElementById(id).remove();
+    document.body.appendChild(node);
+  }
+};
+removeWatermark();
+
+function resizeText(event){
+  event.target.size = Math.max(event.target.value.length,1)
+}
+    </script>
   </head>
+
   <body>
-    <div id="leftblock">
-      <h2 id="hd">Всего поступило идей:</h2>
-      <h2 id="ideas"></h2>
-      <div id="piechart">
-        <canvas id="myChart"></canvas>
-      </div>
-      <div id="piechart2">
-        <canvas id="bottomChart" height="200" width="600"></canvas>
+    <div id="map" oncontextmenu="return false;"></div>
+    <div id="drop">
+      <div id="dropBorder">
+        <div id="innerDrop">
+          <img id="hand" src="./data/hand.svg" />
+          <h id="labelDrop">[ drop IMAGE/GEOJSON ]</h>
+        </div>
       </div>
     </div>
-    <div id="map"></div>
-    <!--<div id="tab">
-       <button class="headerButton" id="🗺" data-title="Спутниковая подложка">
+    <div id="tab">
+        <button
+        class="headerButton"
+        id="layersButton"
+        data-title="Включить/Перенести слои"
+      >
+      <svg version="1.1" class="headerIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="217.5px" height="217.5px" viewBox="0 0 217.5 217.5" style="enable-background:new 0 0 217.5 217.5;" xml:space="preserve"
+	>
+<g>
+	<path d="M177.3,78.2l-64.1,32.4c-2.8,1.4-6.1,1.4-8.8,0L40.2,78.2c-6.3-3.2-6.3-11.6,0-14.8L104.3,31c2.8-1.4,6.1-1.4,8.8,0
+		l64.1,32.4C183.6,66.6,183.6,75,177.3,78.2z"/>
+	<g>
+		<path d="M104.3,158.1L58,134.8c-2.8-1.4-6.1-1.4-8.8,0l-9,4.5c-6.3,3.2-6.3,11.6,0,14.8l64.1,32.4c2.8,1.4,6.1,1.4,8.8,0
+			l64.1-32.4c6.3-3.2,6.3-11.6,0-14.8l-9-4.5c-2.8-1.4-6.1-1.4-8.8,0l-46.3,23.4C110.4,159.5,107.1,159.5,104.3,158.1z"/>
+	</g>
+	<path d="M104.3,120.2L58,96.8c-2.8-1.4-6.1-1.4-8.8,0l-9,4.5c-6.3,3.2-6.3,11.6,0,14.8l64.1,32.4c2.8,1.4,6.1,1.4,8.8,0l64.1-32.4
+		c6.3-3.2,6.3-11.6,0-14.8l-9-4.5c-2.8-1.4-6.1-1.4-8.8,0l-46.3,23.4C110.4,121.6,107.1,121.6,104.3,120.2z"/>
+</g>
+</svg>
+    </button>
+      <div class="break"></div>
+      <!--
+      <button
+        class="headerButton"
+        id="ППТ"
+        data-title="Включить разрабатываемые ППТ"
+        style="background-image: url(./data/icons/PPT-razr.svg);"
+      ></button>
+      <button
+        class="headerButton"
+        id="ППТold"
+        data-title="Включить утвержденные ППТ"
+        style="background-image: url(./data/icons/PPT-utv.svg);"
+      ></button>
+      <div class="break"></div>
+      <button
+        class="headerButton"
+        id="ZU"
+        data-title="Кадастр"
+        style="
+          filter: invert(45%);
+          background-image: url(./data/icons/cadastre.svg);
+        "
+      ></button>
+      <div class="break"></div>
+      <button class="headerButton" id="🗺" data-title="Спутниковая подложка">
         <i class="fas fa-globe-europe"></i>
       </button>
-      <!--<button
-        class="headerButton"
-        id="tableButton"
-        data-title="Скачать таблицу"
-      >
-        <i class="fas fa-table"></i>
+      <button id="launch" data-title="3D" class="headerButton">
+        <i class="fab fa-fly"></i>
       </button>
+      <div class="break"></div>
+    -->
+      <button
+        id="iso"
+        data-title="5 мин. пешком"
+        class="headerButton"
+      >
+
+      <svg class="headerIcon" version="1.1" viewBox="0 0 217.5 217.5" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="117.6 48.6 119.7 51.4 119.7 51.4 125.8 54.1 127.7 49.9 122.7 47.7 117.6 41"/>
+          <polygon points="115.4 54.8 115.3 53.7 115.3 50.7 115.3 45.6 115.3 41.2 115.3 35.7 106.1 35.7 106.1 35.8 90.5 53.5 93.9 56.5 106.1 42.7 106.1 47.5 103 66 89.9 78.9 93.4 82.4 107.8 69.2 107.8 69.2 107.8 69.2 110.5 59.6 117.1 68.4 122.6 84.5 127.2 82.7 122.3 66"/>
+            <path d="m110.7 32.9c2.5 0 4.6-2 4.6-4.6 0-2.5-2-4.6-4.6-4.6-2.5 0-4.6 2-4.6 4.6s2.1 4.6 4.6 4.6"/>
+            <circle cx="108.8" cy="108.8" r="22.3"/>
+        <path d="m132.6 51.5v6.6c19 9 32.2 28.3 32.2 50.7 0 30.9-25.1 56-56 56s-56-25.1-56-56c0-22.4 13.2-41.7 32.2-50.7v-6.6c-22.5 9.4-38.2 31.5-38.2 57.3 0 34.2 27.8 62 62 62s62-27.8 62-62c0-25.8-15.8-47.9-38.2-57.3z"/>
+      </svg>      
+    </button>
+      <button
+        id="popup"
+        data-title="Полосность"
+        class="headerButton"
+      >
+      <svg class="headerIcon" version="1.1" viewBox="0 0 217.5 217.5" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="90.5 94.4 89.5 91.6 84.8 93.1 79.6 82.6 65.5 82.6 51.5 82.6 46.3 93.1 41.5 91.6 40.6 94.4 44.9 95.8 42.6 100.6 43.7 115.1 43.7 121 50.4 121 50.4 114.9 65.5 114.9 80.6 114.9 80.6 121 87.3 121 87.3 115.1 88.5 100.6 86.1 95.8"/>
+        <path d="m179.8 70.2v-4h-6.2l0.2-5.9-6.6-3.9h-41.8l-6.6 3.9 0.2 5.9h-6.2v4h-0.9v8.2h4.6v-8.2h-2.5v-2.7h5l1.4 53.5h5.4v-5h41.2v5h5.4l1.4-53.5h5v2.7h-2.8v8.2h4.6v-8.2h-0.8z"/>
+        <path d="m66 133.5"/>
+        <path d="m175.1 125.6h-57.8c-2 0-3.6 1.6-3.6 3.6v28.3c0 2 1.6 3.6 3.6 3.6h57.8c2 0 3.6-1.6 3.6-3.6v-28.3c0-2-1.6-3.6-3.6-3.6zm-41.7 24.1 12.9-12.6 12.6 12.6h-25.5z"/>
+        <path d="m95.2 125.6h-58.1c-2 0-3.6 1.6-3.6 3.6v28.3c0 2 1.6 3.6 3.6 3.6h58.1c2 0 3.6-1.6 3.6-3.6v-28.3c0-2-1.6-3.6-3.6-3.6zm-29.8 24.1-12.6-12.6h25.4l-12.8 12.6z"/>
+      </svg>      
+    </button>
+     <!-- <button
+      id="modelLoadDOM"
+      data-title="Загрузить модель"
+      class="headerButton"
+    >
+      <i class="fas fa-city"></i>
+    </button>-->
+
+      <div class="break"></div>
+      <button
+        id="dlDraw"
+        data-title="Скачать полигоны"
+        class="headerButton"
+      >
+      <svg class="headerIcon" version="1.1" viewBox="0 0 217.5 217.5" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"> 
+        <rect transform="matrix(.9489 -.3156 .3156 .9489 -33.466 49.561)" x="131" y="125.5" width="10.6" height="5.2"/>
+        <rect transform="matrix(.9489 -.3156 .3156 .9489 -31.122 54.048)" x="146" y="120.5" width="10.6" height="5.2"/>
+        <rect transform="matrix(.9704 -.2416 .2416 .9704 -19.841 42.217)" x="159.6" y="96.3" width="5.2" height="11.5"/>
+        <rect transform="matrix(.9704 -.2416 .2416 .9704 -15.924 40.716)" x="155.5" y="79.5" width="5.2" height="11.5"/>
+        <rect transform="matrix(.9704 -.2416 .2416 .9704 -12.009 39.218)" x="151.3" y="62.8" width="5.2" height="11.5"/>
+        <rect transform="matrix(.9052 -.425 .425 .9052 -30.257 39.991)" x="68.9" y="85.2" width="11.2" height="5.2"/>
+        <rect transform="matrix(.9052 -.425 .425 .9052 -16.875 57.274)" x="114.4" y="63.9" width="11.2" height="5.2"/>
+        <rect transform="matrix(.9052 -.425 .425 .9052 -12.416 63.038)" x="129.5" y="56.8" width="11.2" height="5.2"/>
+        <rect transform="matrix(.9052 -.425 .425 .9052 -21.336 51.521)" x="99.2" y="71" width="11.2" height="5.2"/>
+        <rect transform="matrix(.9052 -.425 .425 .9052 -25.794 45.746)" x="84.1" y="78.1" width="11.2" height="5.2"/>
+        <circle cx="150" cy="52.8" r="7.8"/>
+        <circle cx="166.1" cy="117.7" r="7.8"/>
+        <circle cx="121.4" cy="133.3" r="7.8"/>
+        <circle cx="59.9" cy="94.9" r="7.8"/>     
+        <path d="m96.4 125.5v-24.8c0-1.4-1.1-2.5-2.5-2.5h-13.3c-1.4 0-2.5 1.1-2.5 2.5v24.8h-7.5c-2.2 0-3.4 2.7-1.8 4.3l16.6 16.6c1 1 2.6 1 3.6 0l16.6-16.6c1.6-1.6 0.5-4.3-1.8-4.3h-7.4z"/>
+        <path d="m122 170.1h-69.4c-1.1 0-2-0.9-2-2v-15.4c0-1.1 0.9-2 2-2h69.4c1.1 0 2 0.9 2 2v15.4c0 1.1-0.9 2-2 2z"/>
+      </svg>
+      </button>
+      <button
+        id="download"
+        data-title="Сохранить скриншот (ЛКМ пополам, ПКМ целое, CRTL+ЛКМ настройки)"
+        class="headerButton"
+      >
+      <svg class="headerIcon" version="1.1" viewBox="0 0 217.5 217.5" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+        <path d="m83.9 125.5v-24.8c0-1.4-1.1-2.5-2.5-2.5h-13.3c-1.4 0-2.5 1.1-2.5 2.5v24.8h-7.5c-2.2 0-3.4 2.7-1.8 4.3l16.6 16.6c1 1 2.6 1 3.6 0l16.6-16.6c1.6-1.6 0.5-4.3-1.8-4.3h-7.4z"/>
+        <path d="m109.4 170.1h-69.3c-1.1 0-2-0.9-2-2v-15.4c0-1.1 0.9-2 2-2h69.3c1.1 0 2 0.9 2 2v15.4c0 1.1-0.9 2-2 2z"/>
+        <path d="m131.7 86.1c0-5.9-4.8-10.6-10.6-10.6-5.9 0-10.6 4.8-10.6 10.6 0 5.9 4.8 10.6 10.6 10.6 5.9 0.1 10.6-4.7 10.6-10.6z"/>
+        <polygon points="164 121.3 141 98.3 119.8 119.5 119.8 146 164 146"/>
+        <path d="m119.8 160.4"/>
+        <path d="m165.6 162.9h-45.8v-5h45.8c4.9 0 8.9-4 8.9-8.9v-86.3c0-4.9-4-8.9-8.9-8.9h-113.7c-4.9 0-8.9 4-8.9 8.9v79.6h-5v-79.6c0-7.6 6.2-13.9 13.9-13.9h113.6c7.6 0 13.9 6.2 13.9 13.9v86.3c0.1 7.7-6.2 13.9-13.8 13.9z"/>
+      </svg>
+      </button>
+      <div class="break"></div>
+      <button
+        id="clear"
+        data-title="Очистить экран"
+        class="headerButton"
+        style="color: #ad1a1e;"
+      >
+      <svg version="1.1" class="headerIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      width="217.5px" height="217.5px" viewBox="0 0 217.5 217.5" style="enable-background:new 0 0 217.5 217.5;" xml:space="preserve"
+     >
+   <style type="text/css">
+     .st0{fill:#AD1A1E;}
+   </style>
+   <g>
+     <path class="st0" d="M108.8,40c37.9,0,68.8,30.8,68.8,68.8s-30.8,68.8-68.8,68.8S40,146.7,40,108.8S70.8,40,108.8,40 M108.8,30
+       C65.3,30,30,65.3,30,108.8s35.3,78.8,78.8,78.8s78.8-35.3,78.8-78.8S152.2,30,108.8,30L108.8,30z"/>
+   </g>
+   <path class="st0" d="M134.8,87l-4.3-4.3c-1.6-1.6-4.1-1.6-5.7,0L111.6,96c-1.6,1.6-4.1,1.6-5.7,0L92.7,82.7c-1.6-1.6-4.1-1.6-5.7,0
+     L82.7,87c-1.6,1.6-1.6,4.1,0,5.7L96,105.9c1.6,1.6,1.6,4.1,0,5.7l-13.2,13.2c-1.6,1.6-1.6,4.1,0,5.7l4.3,4.3c1.6,1.6,4.1,1.6,5.7,0
+     l13.2-13.2c1.6-1.6,4.1-1.6,5.7,0l13.2,13.2c1.6,1.6,4.1,1.6,5.7,0l4.3-4.3c1.6-1.6,1.6-4.1,0-5.7l-13.2-13.2
+     c-1.6-1.6-1.6-4.1,0-5.7l13.2-13.2C136.3,91.1,136.3,88.6,134.8,87z"/>
+   </svg>
+      </button>
+
+      <div id="ngptDOM">
+        <span id="ngptCountDOM">1</span>
+        <object
+          type="image/svg+xml"
+          id="busIcon"
+          data="/data/bus.svg"
+          width="15"
+          height="15"
+        ></object>
+      </div>
+      <div id="imageGeoref">
+        <button
+          class="headerButton"
+          id="editImageButton"
+          data-title="Редактировать изображение"
+        >
+        <svg version="1.1" class="headerIcon" style="width: 28px; height: 28px; margin-left: -7px; margin-top: -2px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 217.5 217.5" enable-background="new 0 0 217.5 217.5" xml:space="preserve">
+<g>
+	<path d="M162.2,48.2H55.3c-7.8,0-14.3,6.4-14.3,14.3v92.6c0,7.8,6.4,14.3,14.3,14.3h106.9c7.8,0,14.3-6.4,14.3-14.3V62.4
+		C176.4,54.6,170,48.2,162.2,48.2z M62.4,80.2c0-5.7,5-10.7,10.7-10.7s10.7,5,10.7,10.7s-5,10.7-10.7,10.7S62.4,85.9,62.4,80.2z
+		 M145.8,144.4h-67c-5.7,0-9.3-5.7-6.4-10.7l10-17.1c2.1-4.3,7.8-5,11.4-1.4l1.4,1.4c3.6,3.6,8.6,2.9,11.4-1.4l10.7-17.8
+		c2.9-4.3,9.3-4.3,12.1,0l22.8,36.3C155.1,138,151.5,144.4,145.8,144.4z"/>
+</g>
+</svg>
+
+
+        </button>
+        <input
+          id="imgOpacity"
+          type="range"
+          min="0"
+          max="1"
+          step="0.05"
+          value="0.85"
+        />
+        <button
+          class="headerButton"
+          id="saveImageButton"
+          data-title="Сохранить изображение"
+        >
+        <svg version="1.1" class="headerIcon" style="margin-left: -9px; margin-top: -4px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 217.5 217.5" enable-background="new 0 0 217.5 217.5" xml:space="preserve">
+<g>
+	<g>
+		<path d="M119.3,84.6h33c0.7,0,1.3,0,2.7,0l-37.7-35c-1.3-1.3-2.7-2-4-2.7c0.7,2,1.3,4,1.3,6.1v26.3
+			C114.5,81.9,116.6,84.6,119.3,84.6z"/>
+	</g>
+	<g>
+		<path d="M157.7,98.1l-2-2c-0.7-0.7-2-1.3-3.4-1.3h-33c-8.1,0-14.8-6.7-14.8-14.8V53c0-1.3-0.7-2.7-1.3-3.4l-2-2
+			c-1.3-1.3-3.4-2-5.4-2H72.1c-7.4,0-13.5,6.1-13.5,13.5v94.3c0,7.4,6.1,13.5,13.5,13.5h74.1c7.4,0,13.5-6.1,13.5-13.5v-50.5
+			C159.7,100.8,159,99.4,157.7,98.1z M129.4,130.4l-16.8,16.2c-2,2-5.4,2-7.4,0l-16.8-16.8c-2-2-2-5.4,0-7.4c2-2,5.4-2,7.4,0
+			l8.1,8.1v-19.5c0-2.7,2-4.7,4.7-4.7l0,0c2.7,0,4.7,2,4.7,4.7v19.5l8.1-8.1c2-2,5.4-2,7.4,0C131.4,125,131.4,128.4,129.4,130.4z"/>
+	</g>
+</g>
+</svg>
+
+        </button>
+        <button
+          class="headerButton"
+          id="clearImageButton"
+          data-title="Удалить изображение"
+        >
+        <svg version="1.1" class="headerIcon" style="margin-left: -10px; margin-top: -4px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 217.5 217.5" enable-background="new 0 0 217.5 217.5" xml:space="preserve">
+<g>
+	<path d="M162.5,59L162.5,59c0-3.7-3-6.7-6.7-6.7h-17.4c-1.8,0-3.5-0.7-4.8-2l-2.8-2.8c-1.2-1.2-3-2-4.8-2h-17.4H91.2
+		c-1.8,0-3.5,0.7-4.8,2l-2.8,2.8c-1.2,1.2-3,2-4.8,2H61.4c-3.7,0-6.7,3-6.7,6.7l0,0c0,3.7,3,6.7,6.7,6.7h94.3
+		C159.5,65.8,162.5,62.7,162.5,59z"/>
+	<path d="M63.5,86.9l10.6,74.1c0.4,3.3,3.3,5.8,6.7,5.8h21.1h34.6c3.4,0,6.2-2.5,6.7-5.8l10.6-74.1c0.6-4-2.6-7.7-6.7-7.7H70.2
+		C66,79.2,62.9,82.9,63.5,86.9z"/>
+</g>
+</svg>
+
+        </button>
+        <div id="maskTab"></div>
+      </div>
+      <button id="hide"><i class="fas fa-arrow-left"></i></button>
+    </div>
+
+    <svg width="0" height="0">
+      <defs>
+        <clipPath id="myClip">
+          <path
+            d="M56,23C56,10.3,45.7,0,33,0H0c12.7,0,23,10.3,23,23v37c0,12.7-10.3,23-23,23h33c12.7,0,23-10.3,23-23V23z"
+          />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <!--<div id="toggleLayers">
+      <button
+        id="metroLines"
+        data-title="Полосность"
+        class="headerButton"
+        style="
+          filter: invert(45%);
+          background-image: url(./data/icons/lanes.svg);
+        "
+      ></button>
     </div>-->
-    <script src="./src/index3.js" async></script>
+
+   <!-- <div id="modelDOM">
+      <b style="color: white; padding: 4px;">.json файл модели здания:</b>
+      <form id="urlField">
+        <input
+          id="linkFootprint"
+          type="text"
+          name="text"
+          value="https://smart.mos.ru/geodata/3dtiles/bim/00033/City_2.json"
+        />
+
+        <input id="loadLinkFootprint" class="modelButton" type="submit" value="Загрузить" />
+      </form>
+      <button id="closeModelDOM" class="closeButton">×</button>
+    </div>-->
+
+    <div id="qualityRangeDOM">
+      <!--<input type="range" id="qualityRange" />-->
+      <b style="color: white; padding: 4px;">Качество экспорта изображения:</b>
+      <div class="slider-container">
+        <div class="range-fill"></div>
+        <input
+          class="slider"
+          id="qualityRange"
+          type="range"
+          name="testerslider"
+          min="1"
+          max="4"
+          value="2"
+          step="1"
+          list="testlist"
+        />
+      </div>
+
+      <div class="labelQ-container">
+        <div class="labelQ">1X</div>
+        <div class="labelQ">2X</div>
+        <div class="labelQ" style="color:#ff6a00">3X</div>
+        <div class="labelQ" style="color:#ad1a1e">4X</div>
+      </div>
+      <button id="closeQualityDOM" class="closeButton">×</button>
+    </div>
+    <div id="loadingScreen">
+      <div id="dots">
+        <div class="lds-grid">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div id="progressScreenshot">
+        <div id="barScreenshot"></div>
+      </div>
+      <h id="placeholderLoading">[ 'Esc' для отмены ]</h>
+    </div>
+
+    <div id="layersDOM" style="display:none">
+      <span id="layersTitle">Слои:</span>
+      <section class="tasks">
+        <ul class="tasks__list">
+          <li class="tasks__item selected" data="tpu,rail-stations,metro-stations-close copy"> <image src="./data/icons/layer-icons/stations.jpg" class="layerIllustration">
+            Станции метро/МЦД
+            <button class="liTune" id="tpuText" title="Подпись станций"></button>
+          </li>
+          <li
+            class="tasks__item selected"
+            data="road-label,road-oneway-arrows,traffic-lights,poi-label,address-label,settlement-label,rayon-label"
+          ><image src="./data/icons/layer-icons/streets.jpg" class="layerIllustration">
+            Подписи улиц/Объектов
+          </li>
+          <li class="tasks__item selected" data="ngpt-stops"><image src="./data/icons/layer-icons/ngpt.jpg" class="layerIllustration">
+            Остановки НГПТ
+          </li>
+          <li
+            class="tasks__item selected"
+            data="metroLineWhite,metroLine,metroLine-constructing,MCC-red,MCC-white"
+          ><image src="./data/icons/layer-icons/lines.jpg" class="layerIllustration">
+            Линии метро/МЦД
+            <button class="liTune" id="metroLine" title="Толщина линий"></button>
+          </li>
+          
+          <li class="tasks__item" data="cadastre"><image src="./data/icons/layer-icons/cadastre.jpg" class="layerIllustration">Кадастр</li>
+            <li class="tasks__item" data="lgr"><image src="./data/icons/layer-icons/lgr.jpg" class="layerIllustration">Красные линии</li>
+            <!--<li class="tasks__item" data="tileset"><image src="./data/icons/layer-icons/3d.jpg" class="layerIllustration">3D</li>-->
+          <li class="tasks__item" data="ППТ,ППТ_line" id="PPT-container" style="padding-left:4px;justify-content: space-between"><div id="ППТ-old" class="tasks__subitem"><image src="./data/icons/layer-icons/ppt.jpg" class="layerIllustration" style="margin: 0px;margin-left: 0px;margin-right: 4px;">ППТ утв.</div><div class="break"></div><div id="ППТ-new" class="tasks__subitem" style="margin-right: -3px;"><image src="./data/icons/layer-icons/ppt-new.jpg" class="layerIllustration" style="margin: 0px;margin-left: 0px;margin-right: 4px;">ППТ разр.</div></li>
+            <!--<li class="tasks__item" data="ППТ" id="ППТ-old"><image src="./data/icons/layer-icons/ppt.jpg" class="layerIllustration">ППТ утвержденные</li>
+              <li class="tasks__item" data="ППТ" id="ППТ-new"><image src="./data/icons/layer-icons/ppt.jpg" class="layerIllustration">ППТ в разработке</li>-->
+                <!--<li class="tasks__item" data="sat" id="sat-container" style="padding-left:4px;justify-content: space-between"><div id="sat-mka" class="tasks__subitem"><image src="./data/icons/layer-icons/sat1.jpg" class="layerIllustration" style="margin: 0px;margin-left: 0px;margin-right: 4px;">Спутник<br>МКА</div><div class="break"></div><div id="sat-google" class="tasks__subitem" style="margin-right: -3px;"><image src="./data/icons/layer-icons/sat2.jpg" class="layerIllustration" style="margin: 0px;margin-left: 0px;margin-right: 4px;">Спутник<br>Google</div></li>-->
+                <!--<li class="tasks__item" data="sat"><image src="./data/icons/layer-icons/sat1.jpg" class="layerIllustration">Спутник</li>-->
+
+          <li data="sat" class="tasks__item"><image src="./data/icons/layer-icons/sat2.jpg" class="layerIllustration">Спутник Google <button class="liTune" id="satTune" title="Прозрачность слоя"></button></li>
+           
+                  <li class="tasks__item" data="yndx"><image src="./data/icons/layer-icons/yndx.jpg" class="layerIllustration">
+            Яндекс карта
+          </li> 
+          <!--<li class="tasks__item selected" data="moscow-boundary"><image src="./data/icons/layer-icons/mask.jpg" class="layerIllustration">
+            Маска Московской области
+          </li>-->
+          <li class="tasks__item selected" data="buildings,buildings-demolishing,buildings-constructing,3d-buildings"><image src="./data/icons/layer-icons/buildings.jpg" class="layerIllustration">
+            Здания
+          </li>
+          <li class="tasks__item selected" data="gzk,gzk-case,3d-gzk"><image src="./data/icons/layer-icons/buildings-plan.jpg" class="layerIllustration">
+            Планируемые здания
+          </li>
+          <li class="tasks__item selected" data="road3d,roadShadow"><image src="./data/icons/layer-icons/bridge-3d.png" class="layerIllustration">
+            Эстакады 3D
+          </li>
+          <li class="tasks__item selected" data="bridges-constructing,bridges,bridge-shadow,roads-aip-bridge"><image src="./data/icons/layer-icons/bridge-2d.png" class="layerIllustration">
+            Эстакады 2D
+          </li>
+          <li class="tasks__item selected" data="road-motorway-trunk,road-primary,road-secondary-tertiary,road-street,road-minor,road-pedestrian,road-major-link,road-steps,road-path,road-pedestrian-case"><image src="./data/icons/layer-icons/road-line.png" class="layerIllustration">
+            Улицы (линии)
+          </li>
+          <li class="tasks__item selected" data="odti-point,ped-line,1.12,1.11-2,1.11-1,1.10,1.7,1.6,1.5-1.8,1.4,1.3,1.1-1.2,bus-stops-pattern,bus-stops-case,waffle-pattern,waffle,buffer-pattern,buffer-case,1.14.3-1.15,road,road-case,curbs"><image src="./data/icons/layer-icons/detail.jpg" class="layerIllustration">
+            Улицы (разметка)
+          </li>
+          <li class="tasks__item selected" data="roads-aip,roads-aip-bridge,bridges-constructing"><image src="./data/icons/layer-icons/UDS.jpg" class="layerIllustration">
+            Планируемая УДС
+            <button class="liTune" id="udsConstrTune" title="Насыщенность штриховки"></button>
+          </li>
+          <li class="tasks__item selected" data="vegetation copy"><image src="./data/icons/layer-icons/green.png" class="layerIllustration">
+            Зелень
+          </li>
+          <li class="tasks__item selected" data="platform,platform-main,platform copy,platform-stroke"><image src="./data/icons/layer-icons/podzem.jpg" class="layerIllustration">
+            Подземные сооружения<br>и платформы
+          </li>
+          
+          <!--<li class="tasks__item" data="overlay"><image src="./data/icons/layer-icons/stations.jpg" class="layerIllustration">Изображение</li>-->
+        </ul>
+      </section>
+    </div>
+
+
+      <button id="hidePalette">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <div id="palette">
+        <div id="paletteShadow"></div>
+        <div class='paletteTitle'>
+          <b>Цвета:</b>
+          <i class="fas fa-angle-up"></i>
+        </div>
+        <div id="colorPalette" class="blockPalette"></div>
+        <div class="brake"></div>
+        <div class='paletteTitle'>
+            <b>Толщина линии:</b>
+            <i class="fas fa-angle-up"></i>
+          </div>
+        <div class="blockPalette">
+          <input
+            type="range"
+            class="paletteSlider"
+            value="2"
+            min="0"
+            max="10"
+            step="1"
+            id="widthRange"
+            title="Толщина линии"
+          />
+          <b id="widthRangeLabel" class="paletteSliderLabel">2</b>
+        </div>
+        <div class="brake"></div>
+        <div class='paletteTitle'>
+            <b>Тип линии:</b>
+            <i class="fas fa-angle-up"></i>
+          </div>
+        <div id="dashPalette" class="blockPalette"></div>
+        <div class="brake"></div>
+        <div class='paletteTitle'>
+            <b>Прозрачность:</b>
+            <i class="fas fa-angle-up"></i>
+          </div>
+        <div id="opacityPalette" class="blockPalette">
+            <input
+            type="range"
+            class="paletteSlider"
+            value="0.2"
+            min="0"
+            max="1"
+            step="0.1"
+            id="opacityRange"
+            title="Прозрачность заливки"
+          />
+          <b id="opacityRangeLabel" class="paletteSliderLabel" style="font-size: 0.9em;">0.2</b>
+        </div>
+        <div class="brake"></div>
+        <div class='paletteTitle'>
+            <b>Инструменты:</b>
+            <i class="fas fa-angle-up"></i>
+          </div>
+        <div id="editButtonsDom" class="blockPalette">
+            <button
+            id="pickButton"
+            class="paletteButton"
+            title="Пипетка"
+            style="background-image:url(/data/icons/eyedropper.svg)"
+            >
+            </button>
+            <button
+            id="arrowButton"
+            class="paletteButton"
+            title="Стрелка на конце"
+            style="background-image:url(/data/icons/arrow.svg)"
+            >
+            </button>
+            <button
+            id="reverseButton"
+            class="paletteButton"
+            title="Развернуть линию"
+            style="background-image:url(/data/icons/rotation.svg)"
+            >
+            </button>
+            <button
+            id="offsetButton"
+            class="paletteButton"
+            title="Сдвиг линии"
+            style="background-image:url(/data/icons/parallel.svg)"
+            >
+            </button>
+            
+        </div>
+        <div class="brake"></div>
+        <div class='paletteTitle'>
+          <b>Макс. радиус:</b>
+          <i class="fas fa-angle-down"></i>
+        </div>
+      <div class="blockPalette" style="display:none">
+        <input
+          type="range"
+          class="paletteSlider"
+          value="10"
+          min="0"
+          max="20"
+          step="1"
+          id="radius"
+          title="Радиус скругления"
+          style="width:78px"
+        />
+        <b id="radiusLabel" class="paletteSliderLabel">100</b>
+      </div>
+      <div class="brake"></div>
+        <div class='paletteTitle'>
+            <b>Мосты и дороги:</b>
+            <i class="fas fa-angle-down"></i>
+          </div>
+        <div id="bridgeTypeDom" class="blockPalette" style="display:none" >
+          <button
+            id="makeBridge"
+            data-title="Make bridge"
+            class="paletteButton"
+            title="Создать мост"
+            style="background-image: url('./data/icons/bridge.svg'); flex: auto; width:54px"
+          ></button>
+          <button
+            id="makeRoad"
+            data-title="Make road"
+            class="paletteButton"
+            title="Создать дорогу"
+            style="background-image: url('./data/icons/road.svg'); flex: auto; width:54px"
+          ></button>
+          <button
+            id="leftBridge"
+            class="paletteButton"
+            style="background-image: url('./data/icons/left.svg'); flex: auto;"
+            title="Левый пандус"
+          ></button>
+          <button
+            id="fullBridge"
+            class="paletteButton active"
+            style="background-image: url('./data/icons/full.svg'); flex: auto;"
+            title="Оба пандуса"
+          ></button>
+          <button
+            id="rightBridge"
+            class="paletteButton"
+            style="background-image: url('./data/icons/right.svg'); flex: auto;"
+            title="Правый пандус"
+          ></button>
+        </div>
+        <div class="brake"></div>
+        <div class='paletteTitle'>
+            <b>Ширина моста:</b>
+            <i class="fas fa-angle-down"></i>
+          </div>
+        <div class="blockPalette" style="display:none">
+          <input
+            type="range"
+            class="paletteSlider"
+            value="6"
+            min="3"
+            max="39"
+            step="3"
+            id="bridgeWidth"
+            title="Ширина моста"
+          />
+          <b id="bridgeWidthLabel" class="paletteSliderLabel">6</b>
+        </div>
+        <div class="brake"></div>
+        <div class='paletteTitle'>
+            <b>Высота моста:</b>
+            <i class="fas fa-angle-down"></i>
+          </div>
+        <div class="blockPalette" style="display:none">
+          <input
+            type="range"
+            class="paletteSlider"
+            value="9"
+            min="3"
+            max="24"
+            step="3"
+            id="bridgeHeight"
+            title="Высота моста"
+          />
+          <b id="bridgeHeightLabel" class="paletteSliderLabel">9</b>
+        </div>
+        <div class="brake"></div>
+        <div class='paletteTitle'>
+            <b>Прозрачность мостов и зданий:</b>
+            <i class="fas fa-angle-down"></i>
+          </div>
+        <div class="blockPalette" style="display:none">
+          <input
+            type="range"
+            class="paletteSlider"
+            value="0.8"
+            min="0.5"
+            max="1"
+            step="0.1"
+            id="bridgeOpacity"
+            title="Прозрачность моста"
+          />
+          <b id="bridgeOpacityLabel" class="paletteSliderLabel">0.8</b>
+        </div>
+        <div class="brake"></div>
+        <div class='paletteTitle'>
+            <b>Этажность:</b>
+            <i class="fas fa-angle-down"></i>
+          </div>
+        <div class="blockPalette" style="display:none">
+          <input
+            type="range"
+            class="paletteSlider"
+            value="0"
+            min="0"
+            max="12"
+            step="1"
+            id="bldHeight"
+            title="Этажность"
+          />
+          <b id="bldHeightLabel" class="paletteSliderLabel">0</b>
+        </div>
+      </div>
+  
+    <script src="data/index.js"></script>
   </body>
 </html>
