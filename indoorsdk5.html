@@ -6,6 +6,7 @@
 
 
 
+
 <html >
 <head>
 
@@ -826,6 +827,16 @@ font: 13px/20px Montserrat, montserrat;
 
 
 
+.mapbox-control-inspect-content {
+
+    border-radius: 12px;
+    
+    box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%) !important;
+}
+
+
+
+
 </style>
  
 
@@ -1610,9 +1621,8 @@ font: 13px/20px Montserrat, montserrat;
 	}
 
 	const svg$5 = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#505050">
-    <path d="M14 7l-5 5 5 5V7z"/>
-    <path fill="none" d="M24 0v24H0V0h24z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 24 16" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+  <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
 </svg>
 `;
 	function iconLeft () {
@@ -1620,9 +1630,8 @@ font: 13px/20px Montserrat, montserrat;
 	}
 
 	const svg$4 = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#505050">
-    <path d="M10 17l5-5-5-5v10z"/>
-    <path fill="none" d="M0 24V0h24v24H0z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 24 16" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
 </svg>
 `;
 	function iconRight () {
@@ -2775,6 +2784,8 @@ id: 'radar-layer',
 
 </body>
 </html>
+
+
 
 
 
