@@ -787,7 +787,6 @@ outline: 0;
 
 
 
-
 .languages {
     position: absolute;
     left: 50%;
@@ -823,6 +822,7 @@ outline: 0;
     
     
 }
+
 
 
 
@@ -946,6 +946,10 @@ font: 13px/20px Montserrat, montserrat;
 
 
 
+
+
+
+
 </style>
  
 
@@ -1036,28 +1040,18 @@ font: 13px/20px Montserrat, montserrat;
 
 <body>
 
-<div class="map" id="map"></div>
+<div class="map" id="map" class="languages" ></div>
 
 
-
-<select  id="languages" class="languages">
-    <option value="ru" selected>Lan</option>
-    <option value="en">En</option>
-    <option value="de">De</option>
-    <option value="ru">Ru</option>
-    <option value="zh">Zh</option>
-    <option value="ar">Ar</option>
-    <option value="mul">Mul</option>
-    
-    
-</select>
+<div  id="languages"  >
+      
+</div>
 
 
 <div class="calculation-box">
 <p></p>
 <div id="calculated-area"></div>
 </div>
-
 
 
 
@@ -2428,7 +2422,7 @@ font: 13px/20px Montserrat, montserrat;
            
                 
                 
-	                label: 'Map',
+	                  label: 'Map',
 	                styleName: 'Mapbox Streets',
 	                styleUrl: 'mapbox://styles/emiiaai/ckv9cvgm062s515nz08d6ceq0',
                     
@@ -2436,20 +2430,21 @@ font: 13px/20px Montserrat, montserrat;
 	            }, 
                 
                 
-                {
+   
+                
+   {
 	                label: 'Sat',
 	                styleName: 'Mapbox Satellite Streets',
-	                styleUrl: 'mapbox://styles/mapbox/satellite-streets-v11',
-                    
+	                styleUrl: 'mapbox://styles/mapbox/satellite-streets-v11',            
+
+                               
 
          
-	            },
-                
-                
-
+	            }, 
 
          
-                
+         
+       
           
                 
                 
@@ -2644,13 +2639,64 @@ zoom: 14,
 pitch: 20,
  hash: true,
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
 	});
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+      
+    
+    
+    
+    
+    
+    
 
 
 
+const polygon = {
+	  id: 1234567890,
+	  type: 'Feature',
+	  properties: {},
+	  geometry: {
+	    type: 'Polygon',
+	    coordinates: [
+	      [
+	        [30.51611423492432, 50.452667766971196],
+	        [30.514655113220215, 50.449006093706274],
+	        [30.516843795776367, 50.44862351447756],
+	        [30.518345832824707, 50.45217591688964],
+	        [30.51611423492432, 50.452667766971196],
+	      ],
+	    ],
+	  },
+	};
+    
 
 
 
@@ -2719,14 +2765,6 @@ labelLayerId
 });
 
 
-map.on('style.load', function () {
-			map.addLayer(createCustomLayer('3d-model', modelOrigin), '');
-            
-   
-		});
-
-
-
 
 
 
@@ -2737,24 +2775,7 @@ map.on('style.load', function () {
 
     
 
-	const polygon = {
-	  id: 1234567890,
-	  type: 'Feature',
-	  properties: {},
-	  geometry: {
-	    type: 'Polygon',
-	    coordinates: [
-	      [
-	        [30.51611423492432, 50.452667766971196],
-	        [30.514655113220215, 50.449006093706274],
-	        [30.516843795776367, 50.44862351447756],
-	        [30.518345832824707, 50.45217591688964],
-	        [30.51611423492432, 50.452667766971196],
-	      ],
-	    ],
-	  },
-	};
-    
+	
     
 
 /* Language */
@@ -2845,6 +2866,18 @@ map.on('style.load', function () {
     
 
 
+    
+    
+    
+    
+    
+
+
+
+
+    
+    
+    
     
 
 
@@ -2940,6 +2973,22 @@ marker.on('dragend', onDragEnd);
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
  
 
  
@@ -2995,6 +3044,30 @@ id: 'radar-layer',
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
   
@@ -3032,6 +3105,9 @@ id: 'radar-layer',
 
 }());
 //# sourceMappingURL=docs.bundle.js.map
+
+
+
 
 
 
