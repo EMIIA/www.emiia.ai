@@ -858,6 +858,7 @@ outline: 0;
     text-align: center;
     color: #3d85c6;
     
+    
     font: 16px/20px Montserrat, montserrat;
 }
 
@@ -937,7 +938,9 @@ font: 13px/20px Montserrat, montserrat;
 
     border-radius: 12px;
     
-    box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%) !important;
+   margin: 30px; 
+    
+    box-shadow: 0 0px 10px 2px rgb(0 0 0 / 10%) !important;
 }
 
 
@@ -2786,7 +2789,7 @@ map.addControl(draw);
 map.on('draw.create', updateArea);
 map.on('draw.delete', updateArea);
 map.on('draw.update', updateArea);
-map.on('draw.uncombine', updateArea);
+
  
 function updateArea(e) {
 const data = draw.getAll();
