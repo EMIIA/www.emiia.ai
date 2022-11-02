@@ -898,10 +898,10 @@ outline: 0;
 
 <style>
 .calculation-box {
-height: 75px;
+
 width: 100px;
 position: absolute;
-bottom: 40px;
+bottom: 65px;
 left: 4px;
 background-color: transparent;
 padding: 5px;
@@ -976,7 +976,7 @@ font: 13px/20px Montserrat, montserrat;
         color: #383838;
         font:18px/20px 'Montserrat', montserrat;
         position: absolute;
-        bottom: 35px;
+        bottom: 45px;
         left: 3px;
         padding: 0px 7px;
         margin: 0px;
@@ -2985,7 +2985,7 @@ if (data.features.length > 0) {
 const area = turf.area(data);
 // Restrict the area to 2 decimal points.
 const rounded_area = Math.round(area * 100) / 100;
-answer.innerHTML = `<p><strong>${rounded_area}</strong> м²</p><p></p>`;
+answer.innerHTML = `<p>${rounded_area} м²</p>`;
 } else {
 answer.innerHTML = '';
 if (e.type !== 'draw.delete')
@@ -3011,10 +3011,14 @@ alert('Click the map to draw a polygon.');
      map.on('style.load', function() {
   map.on('click', function(e) {
     var coordinates = e.lngLat ;
-    new mapboxgl.Popup()
-      .setLngLat(coordinates)
-      .setHTML( 'Point coordinates: <br/>'+ coordinates)
+    new mapboxgl.Popup(coordinates)
+      .setLngLat ( coordinates)
+      .setHTML( ''  + coordinates)
       .addTo(map);
+      
+
+
+      
   });
 });
   
@@ -3026,17 +3030,17 @@ alert('Click the map to draw a polygon.');
    const marker = new mapboxgl.Marker({
 draggable: true
 })
-.setLngLat([0, 0])
+.setLngLat([30.5234, 50.4501])
 .addTo(map);
  
 function onDragEnd() {
-const lngLat = marker.getLngLat();
+const lngLat = marker.getLngLat ();
 
 
 coordinates.innerHTML = `LngLat: ${lngLat.lng}, ${lngLat.lat}`;
 
-coordinates.style.display = 'block';
 
+coordinates.style.display = 'block';
 
 
 }
@@ -3156,7 +3160,7 @@ id: 'radar-layer',
 	  layer: '$fill',
 	  getContent: (event) => {
 	    const coords = event.lngLat;
-	    return `EMIIA.AI MRV Track LngLat: ${coords.lng.toFixed(6)}, ${coords.lat.toFixed(6)}`;
+	    return `LngLat: ${coords.lng.toFixed(6)}, ${coords.lat.toFixed(6)}`;
 	  },
 	}));
 
