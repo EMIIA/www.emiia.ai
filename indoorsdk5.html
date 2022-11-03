@@ -1059,10 +1059,27 @@ label1 {
 
 
 
-
-
-
-
+.mapbox-form-label3 {
+  position:absolute;
+  top:0px;left:0;
+  background:#7394EF;
+  color:#fff;
+  padding:0px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  line-height:41px;
+  border-radius:12px 12px 12px 12px;
+  
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1) !important;
+  
+  }
+  
+  
+  
+  
+  
+  
 
 
 </style>
@@ -1106,7 +1123,6 @@ label1 {
 
 
 <pre id="coordinates" class="coordinates"></pre>
-
 
 
 
@@ -2518,6 +2534,13 @@ const g=a.createNS("");g.setAttributeNS(null,"fill","transparent"),g.setAttribut
 
  {
 	                label: 'C (3)',
+
+                    
+        
+
+
+
+
 	                styleName: 'Mapbox Satellite Streets',
 	                styleUrl: 'mapbox://styles/mapbox/satellite-streets-v11',            
 
@@ -2857,7 +2880,6 @@ labelLayerId
 
 
 
-
     
 
 	
@@ -2977,7 +2999,6 @@ map.addControl(scale, 'bottom-left');
 
 
 
-
     
     
     
@@ -3011,6 +3032,8 @@ map.addControl(draw);
 map.on('draw.create', updateArea);
 map.on('draw.delete', updateArea);
 map.on('draw.update', updateArea);
+
+
 
  
 function updateArea(e) {
@@ -3148,6 +3171,9 @@ marker.on('dragend', onDragEnd);
       
       
      map.addControl(new MapboxTraffic());
+     
+     
+
 
 
   
@@ -3275,9 +3301,7 @@ id: 'radar-layer',
 
 
 
-
 </script>
-
 
 
 
@@ -3289,18 +3313,28 @@ id: 'radar-layer',
  
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
 
 
+<script src='https://mapbox.github.io/mapbox-gl-language/index.js'></script>
+    
+    
+    
+    
+    
+    
+        <style>
+label3 {
+background-image: url('https://www.emiia.ai/emiia143.1.3.svg');
+background-size: cover;
+width: 110px;  height: 48px;
+border-radius: 0%;
+cursor: pointer;
+}
+ 
 
-    <script src='https://mapbox.github.io/mapbox-gl-language/index.js'></script>
-    
-    
-    
-    
-    
-    
-    
+</style>
     
 
     
