@@ -116,7 +116,8 @@
 
 
 
-
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
     
     
     
@@ -464,7 +465,7 @@ a.mapboxgl-ctrl-logo{
     
     
     
-    
+
     
     
     
@@ -894,6 +895,21 @@ outline: 0;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style>
 .calculation-box {
 
@@ -954,6 +970,20 @@ font: 13px/20px Montserrat, montserrat;
  
 
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1105,22 +1135,12 @@ label1 {
 
 
 
-
-
-   
-   
-   
-
-
-
-
-
 .mapboxgl-ctrl-top-left .mapboxgl-ctrl {
     margin: 10px 10px -4.8px 8px;
     float: left;
     border-radius: 8px;    
     font-family: 'Montserrat', montserrat;
-    font-size: 15px;
+    font-size: 14px;
   
   
 }
@@ -1132,14 +1152,13 @@ label1 {
 
 
 .mapboxgl-ctrl-geocoder {
-    font-size: 18px;
-    line-height: 24px;
+
    
   
     background-color: #fff;
      position: relative;
-    min-width: 340px;
-    max-width: 340px;
+    min-width: 338px;
+    max-width: 338px;
     max-height: 44px;
     min-height: 44px;
     z-index: 1;
@@ -1152,6 +1171,65 @@ label1 {
     
     
 }
+
+
+
+
+
+
+
+
+
+.mapboxgl-ctrl-geocoder--icon-search {
+    left: 9px;
+    width: 20px;
+    height: 20px;    
+    top: 12px;
+    fill: #333333;
+}
+
+
+.mapboxgl-ctrl-geocoder--icon-close {
+
+    width: 15px;
+    height: 15px;    
+    top: 12px;
+    fill: #333333;
+}
+
+
+
+
+
+
+@media screen and (min-width: 640px)
+.mapboxgl-ctrl-geocoder--input {
+    height: 10px;
+    padding: 35px 3px;
+}
+
+
+
+   
+   
+   
+
+.mapboxgl-ctrl-geocoder--input {
+    font: inherit;
+    width: 100%;
+    border: 0px;
+    background-color: transparent;
+    margin: 0;
+    height: 44px;
+    color: #404040;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 6px 45px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
 
 
 
@@ -1190,8 +1268,7 @@ label1 {
 
 
 
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+
 
 
 
@@ -1224,8 +1301,6 @@ label1 {
 
 
 <pre id="coordinates" class="coordinates"></pre>
-
-
 
 
 
