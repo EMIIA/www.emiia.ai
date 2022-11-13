@@ -3812,7 +3812,7 @@ weatherWidget.init = function (settings) {
         document.getElementsByClassName('ow-temp-current')[0].innerHTML = Math.round(weather.main.temp) + '&deg';
         document.getElementsByClassName('ow-pressure')[0].innerHTML = weather.main.pressure + ' hPa';
         document.getElementsByClassName('ow-humidity')[0].innerHTML = weather.main.humidity + '%';
-        document.getElementsByClassName('ow-wind')[0].innerHTML = weather.wind.speed + '  km/h &#129133;';
+        document.getElementsByClassName('ow-wind')[0].innerHTML = weather.wind.speed + '  km/h <i class="bi bi-arrow-up-right"></i>';
         if (!!this.settings.icon_mapping[weather.weather[0].icon]) {
             let icon = this.settings.icon_mapping[weather.weather[0].icon];
             let ico_current =  document.getElementsByClassName('ow-ico-current')[0];
