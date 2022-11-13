@@ -14,6 +14,7 @@
 
 
 
+
 <html >
 <head>
 
@@ -1078,6 +1079,87 @@ label1 {
   
   
   
+  .mapboxgl-ctrl-group button {
+    width: 44px;
+    height: 44px;
+    display: block;
+    padding: 0px;
+    outline: 10px;
+    border: 10px;
+    box-sizing: border-box;
+    background-color: transparent;
+    cursor: pointer;
+    font: 12px/20px Montserrat, montserrat;
+    color: #383838;
+  
+   }
+   
+   
+   
+   
+   
+ 
+
+   
+
+
+
+
+
+
+   
+   
+   
+
+
+
+
+
+.mapboxgl-ctrl-top-left .mapboxgl-ctrl {
+    margin: 10px 10px -4.8px 8px;
+    float: left;
+    border-radius: 8px;    
+    font-family: 'Montserrat', montserrat;
+    font-size: 15px;
+  
+  
+}
+
+
+
+
+
+
+
+.mapboxgl-ctrl-geocoder {
+    font-size: 18px;
+    line-height: 24px;
+   
+  
+    background-color: #fff;
+     position: relative;
+    min-width: 340px;
+    max-width: 340px;
+    max-height: 44px;
+    min-height: 44px;
+    z-index: 1;
+    border-radius: 4px;
+    transition: width .25s, min-width .25s;
+    
+    
+    border-radius: 8px;  
+    
+    
+    
+}
+
+
+
+
+
+
+
+
 
 
 </style>
@@ -2957,7 +3039,7 @@ new MapboxGeocoder({
 accessToken: mapboxgl.accessToken,
 localGeocoder: coordinatesGeocoder,
 zoom: 4,
-placeholder: 'Try: -40, 170',
+placeholder: 'LngLat: -30, 70',
 mapboxgl: mapboxgl,
 
 
@@ -3756,6 +3838,8 @@ widget.init({
 
 </body>
 </html>
+
+
 
 
 
