@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -32,9 +33,9 @@
      inkscape:window-maximized="1"
      inkscape:window-y="-11"
      inkscape:window-x="-11"
-     inkscape:cy="10.15469"
-     inkscape:cx="76.813522"
-     inkscape:zoom="6.968254"
+     inkscape:cy="18.676978"
+     inkscape:cx="45.303087"
+     inkscape:zoom="9.8545993"
      showgrid="false"
      id="namedview12"
      inkscape:window-height="1046"
@@ -48,7 +49,7 @@
      bordercolor="#666666"
      pagecolor="#ffffff" />
   <path
-     style="stroke:#000000;stroke-width:2.9;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill:#ffffff;fill-opacity:1"
+     style="stroke:#383838;stroke-width:3.4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill:#ffffff;fill-opacity:1"
      id="path2"
      fill="#3d85c6"
      d="m 39.974032,20.283144 c 0.6,9.6 -6,17.7 -15,19.4 -0.3,0.1 -0.7,0.3 -0.9,0.5 l -2.1,2.5 c -0.3,0.3 -0.8,0.3 -1.1,0 l -2.1,-2.5 c -0.2,-0.3 -0.5,-0.4 -0.9,-0.5 -8.6000001,-1.6 -15.0000001,-9.2 -15.0000001,-18.2 0,-10.7 9.0000001,-19.3000005 19.8000001,-18.5000005 9.2,0.6 16.7,8.0000005 17.3,17.3000005 z"
@@ -61,7 +62,7 @@
        attributeName="transform" />
   </path>
   <path
-     style="stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1"
+     style="stroke:#383838;stroke-opacity:1;fill:#383838;fill-opacity:1;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none"
      id="path4"
      fill="#ffffff"
      d="m 21.374032,16.983144 c 0.7,0 1.3,0.6 1.3,1.3 v 6.2 0 c 0,0.7 -0.6,1.3 -1.3,1.3 v 0 c -0.7,0 -1.3,-0.6 -1.3,-1.3 v -6.2 0 c 0,-0.8 0.6,-1.3 1.3,-1.3 v 0">
@@ -95,7 +96,7 @@
        attributeName="transform" />
   </path>
   <path
-     style="stroke:none;stroke-opacity:1;fill:#080000;fill-opacity:1"
+     style="stroke:#383838;stroke-opacity:1;fill:#383838;fill-opacity:1;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none"
      id="path6"
      fill="#ffffff"
      d="m 15.774032,19.783144 c 0.7,0 1.3,0.6 1.3,1.3 v 3.5 0 c 0,0.7 -0.6,1.3 -1.3,1.3 v 0 c -0.7,0 -1.3,-0.6 -1.3,-1.3 v -3.6 0 c 0,-0.7 0.6,-1.2 1.3,-1.2 v 0">
@@ -118,7 +119,7 @@
        attributeName="transform" />
   </path>
   <path
-     style="stroke:none;stroke-opacity:1;fill:#070202;fill-opacity:1"
+     style="stroke:#383838;stroke-opacity:1;fill:#383838;fill-opacity:1;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none"
      id="path8"
      fill="#ffffff"
      d="m 27.074032,14.783144 c 0.7,0 1.3,0.6 1.3,1.3 v 8.6 0 c 0,0.7 -0.6,1.3 -1.3,1.3 v 0 c -0.7,0 -1.3,-0.6 -1.3,-1.3 v -8.6 0 c 0,-0.7 0.6,-1.3 1.3,-1.3 v 0">
