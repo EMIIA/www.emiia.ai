@@ -48,7 +48,7 @@
      bordercolor="#666666"
      pagecolor="#ffffff" />
   <path
-     style="fill:#ffffff;fill-opacity:1;stroke:#383838;stroke-width:3.02552;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:#ffffff;fill-opacity:1;stroke:#6B6B69;stroke-width:3.02552;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path2"
      fill="#3d85c6"
      d="m 35.497546,17.78744 c 0.533915,8.542631 -5.339144,15.750476 -13.34786,17.263233 -0.266957,0.08899 -0.6229,0.266957 -0.800872,0.444929 l -1.8687,2.224643 c -0.266957,0.266958 -0.711886,0.266958 -0.978843,0 L 16.63257,35.495602 C 16.454599,35.228645 16.187642,35.139659 15.831699,35.050673 8.1789256,33.626901 2.4838385,26.863986 2.4838385,18.855269 2.4838385,9.3337955 10.492555,1.6810213 20.103014,2.3929072 28.289702,2.9268217 34.963632,9.5117665 35.497546,17.78744 Z"
@@ -61,7 +61,7 @@
        attributeName="transform" />
   </path>
   <path
-     style="fill:#383838;fill-opacity:1;stroke:#383838;stroke-width:0.444929;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:#6B6B69;fill-opacity:1;stroke:#6B6B69;stroke-width:0.444929;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path4"
      fill="#ffffff"
      d="m 18.9462,14.850911 c 0.6229,0 1.156814,0.533915 1.156814,1.156815 v 5.517115 0 c 0,0.622901 -0.533914,1.156815 -1.156814,1.156815 v 0 c -0.622901,0 -1.156815,-0.533914 -1.156815,-1.156815 v -5.517115 0 c 0,-0.711886 0.533914,-1.156815 1.156815,-1.156815 v 0">
@@ -141,4 +141,3 @@
        attributeName="transform" />
   </path>
 </svg>
-
