@@ -1800,7 +1800,7 @@ new MapboxGeocoder({
 accessToken: mapboxgl.accessToken,
 localGeocoder: coordinatesGeocoder,
 zoom: 4,
-placeholder: 'Широта, Долгота: -30, 70',
+placeholder: 'LngLat: -30, 70',
 mapboxgl: mapboxgl,
 
 
@@ -1933,7 +1933,7 @@ map.addControl(scale, 'bottom-left');
 
     
     
-
+map.addControl(new mapboxgl.FullscreenControl());
 
 
     
@@ -2068,12 +2068,6 @@ marker.on('dragend', onDragEnd);
   
   
   
-                 map.addControl(new CompassControl({
-  visualizePitch: true,
-  showZoom: false
-}));  
-  
-  
   
   
    
@@ -2086,19 +2080,7 @@ marker.on('dragend', onDragEnd);
 
  
  
- 
-
-
-
-
-
-
-
-
- 
- 
- 
-   map.addControl(
+  map.addControl(
         new mapboxgl.GeolocateControl({
           positionOptions: {
             enableHighAccuracy: true
@@ -2106,13 +2088,31 @@ marker.on('dragend', onDragEnd);
           trackUserLocation: true
         })
       );
+
+
+
+
+
+
+
+
+  map.addControl(new MapboxTraffic());
+ 
+ 
+  
       
       
       
-     map.addControl(new MapboxTraffic());
+    
      
      
      
+                 map.addControl(new CompassControl({
+  visualizePitch: true,
+  showZoom: false
+}));  
+  
+  
      
      
    
