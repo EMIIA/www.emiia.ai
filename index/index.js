@@ -1,4 +1,3 @@
-
 (function () {
 	'use strict';
 
@@ -1722,7 +1721,7 @@ map.addLayer(
 15.05,
 ['get', 'min_height']
 ],
-'fill-extrusion-opacity': 0.2
+'fill-extrusion-opacity': 0.3
 
 
 
