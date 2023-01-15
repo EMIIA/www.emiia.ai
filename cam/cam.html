@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head id="Head1">
+    <title>WMVision - LIVE Streaming</title>
+    <link href="https://vjs.zencdn.net/7.20.2/video-js.css" rel="stylesheet">
+    <link href="https://api.wetmet.net/vjs/videojs-bug.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/7.20.2/video.min.js"></script>
+    <script src="https://api.wetmet.net/vjs/videojs-bug.js"></script>
+    <script src="https://api.wetmet.net/vjs/videojs-playlist.min.js"></script>
+  </head>
+  <body>
+    <div align="center">
+      <script type="text/javascript"> 
+      var smoverlay = "";
+      var tup = 120000;
+ 
+      function wmAnalyitcs(){if (tSession > 0){location.reload();}};
+      var tSession = 0;
+      setTimeout(()=>tSession = 1, 1800000);
+      </script>
+      <img id="video_placeholder" style="display: none;" src="Player.PNG" onclick="play_swap()" width="100%" height="100%"/>
+      <video id="SV360mediaplayer" class="video-js vjs-16-9 vjs-big-play-centered vjs-show-big-play-button-on-pause" controls muted autoplay preload="auto" width="100%" height="100%" poster="../PoweredbyWM_16x9.jpg" data-setup="{}" playsinline="true">
+        <!-- <source src="https://wms-prod-3.wetmet.net/live/207-12-01/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MS8xNS8yMDIzIDE6NDM6MjAgUE0maGFzaF92YWx1ZT04MGt0a3hqeHRINGRSOHIxa3UreUl3PT0mdmFsaWRtaW51dGVzPTMw" type='application/x-mpegURL'> -->
+        <p class="vjs-no-js">
+          Javascript not enabled or HTML5 video not supported!  Please consider upgrading your bowser.
+        </p>
+      </video>
+
+      <script type="text/javascript">
+        var sv360p = videojs('SV360mediaplayer');
+        var pstyle = document.getElementById("SV360mediaplayer");
+        var pwid = window.getComputedStyle(pstyle, null).getPropertyValue("width");
+        var phig = window.getComputedStyle(pstyle, null).getPropertyValue("height");
+        var tuprun = false;
+        var playlistIndex = 1;
+        sv360p.bug({
+          height: phig,
+          imgSrc: 'https://s3.amazonaws.com/wvclientassets/WebStream/clear.png?nocache='+Math.random(),
+          opacity: 0,
+          position: 'tr',
+          width: pwid
+          });  
+        sv360p.on('play', function(){
+          if (playlistIndex > 0)
+          {
+            sv360p.bug({
+              height: phig,
+              imgSrc: 'https://s3.amazonaws.com/wvclientassets/WebStream/clear.png?nocache='+Math.random(),
+              link: "",
+              opacity: 0.9,
+              position: 'tr',
+              width: pwid
+            });
+          }
+          
+          playlistIndex += 1;
+          
+          if (tuprun == false){
+            tuprun = true;
+            setTimeout(function(){
+              sv360p.exitFullscreen();
+              sv360p.playlist.autoadvance(1);
+              setTimeout(function(){
+                sv360p.reset(); //.autoplay(false);
+                stop_swap();
+                tuprun = false;
+                },250);
+              }, tup);
+            }
+          });
+        function play_swap(){
+          document.getElementById("video_placeholder").style.display= 'none' ;
+          document.getElementById("SV360mediaplayer").style.display= 'block' ;
+          wmAnalyitcs();
+          sv360p.src({ type: "application/x-mpegURL", src: "https://wms-prod-3.wetmet.net/live/207-12-01/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MS8xNS8yMDIzIDE6NDM6MjAgUE0maGFzaF92YWx1ZT04MGt0a3hqeHRINGRSOHIxa3UreUl3PT0mdmFsaWRtaW51dGVzPTMw" });
+          sv360p.play();
+        };
+        function stop_swap(){
+          document.getElementById("SV360mediaplayer").style.display= 'none' ;
+          document.getElementById("video_placeholder").style.display= 'inline' ;
+        }
+        sv360p.playlist([{
+            sources: [{
+            src: 'https://wms-prod-3.wetmet.net/live/207-12-01/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MS8xNS8yMDIzIDE6NDM6MjAgUE0maGFzaF92YWx1ZT04MGt0a3hqeHRINGRSOHIxa3UreUl3PT0mdmFsaWRtaW51dGVzPTMw',
+            type: 'application/x-mpegURL'
+            }],
+            poster: '../PoweredbyWM_16x9.jpg'
+          }, {
+            sources: [{
+            
+            
+            src: 'https://wms-prod-3.wetmet.net/live/207-12-01/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MS8xNS8yMDIzIDE6NDM6MjAgUE0maGFzaF92YWx1ZT04MGt0a3hqeHRINGRSOHIxa3UreUl3PT0mdmFsaWRtaW51dGVzPTMw',
+            type: 'application/x-mpegURL'
+            }],
+            poster: '../PoweredbyWM_16x9.jpg'
+          }]);
+        sv360p.playlist.autoadvance(0);
+      </script>      
+    </div>
+  </body>
+</html>
