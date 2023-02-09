@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <meta name="description" content="Check registrations and register for PD with Elkhart Ed Tech." />
+    <style>
+      body, html { height:100%; width:100%; margin:0; padding:0; }
+      div { font-size:18px; font-family:Arial, sans-serif; margin:10px auto; }
+      #body-wrap { margin: 20px; }
+      #toast-wrap { display:block; position:fixed; background:rgba(0,0,0,0.5); height:100%; width:100%; margin:0; left:0; top:0 }
+      #toast { position:relative; display:block; width:50%; padding:2%; background:rgb(235,235,235); top:50%; margin: 0 auto; transform:translateY(-70%); }
+      .hide { display:none !important; }
+      .past { text-decoration:line-through; }
+      
+      #header-img { position:absolute; top:0; right:0; margin:20px 25px 0 0; }
+      #header-img img { width:250px; }
+      input[type=checkbox] { padding:10px; margin-right:20px; }
+      #list, #courses { display:table; width:100%;border-collapse: separate; border-spacing:10px; table-layout:fixed; }
+      .row { display:table-row; margin-bottom:10px; }
+      .row span { display:table-cell; }
+      .row span.date { width:10%; }
+      .row span.time { width: 10%; }
+      .row span.title { width: 20%; }
+      .row span.desc  { width: 45%; }
+      .row span.seats { width:15%; text-align:center; }
+      
+      #titles { font-weight:bold; }
+      #titles.span { margin-bottom:10px; }
+      
+      #form {width:90%; }
+      </style>
+      <!-- jquery include -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+      
+    <script>
+        // from https://developers.google.com/apps-script/guides/html/communication#forms
+        // Prevent forms from submitting so the page doesn't reload.
+        function preventFormSubmit() {
+          var forms = document.querySelectorAll('form');
+          for (var i = 0; i < forms.length; i++) {
+            forms[i].addEventListener('submit', function(event) {
+              event.preventDefault();
+            });
+           }
+         }
+       
+       /* Class cancellation handler.
+        * param Object formObject
+       */
+       function cancelClass(formObject) {
+          google.script.run.cancelRegistration(formObject);
+         
+          // Reload the app to refresh the current registrations for the signed-in user.
+          window.location.href = "https://script.google.com/macros/s/AKfycbyy7IJAJXC1opIZRckrPJRZCSeNc9tyJAdBB6kuhzNLqx6wAdDx-RdJ8DZLoblruyQ7/exec";
+        }
+         
+       /* Registration form handler
+        * Pass the form object to the server, display toast
+        * @param Object formObject
+       */
+       function handleFormSubmit(formObject) {
+         google.script.run.withSuccessHandler(displayResult).recordData(formObject);
+         $("input").attr("disabled","disabled");
+         $("#toast-wrap").toggleClass("hide");
+       }
+       
+       // Callback function after server success, display confirmation message
+       function displayResult(e) {
+         $("input").attr("disabled",false);
+         $("#toast").empty().append("<p>Your registration has been received. Please refresh this page to see your updated registrations.</p><p>If you're done, you can close the window.</p>");
+       }
+    </script>
+    <script>
+    // Populate the school list select menu from an array
+    function buildSchoolList() {
+      var schools = [ "Beardsley", "Beck", "Bristol", "Cleveland", "Daly", "Eastwood", "Feeser", "Hawthorne", "Monger", "Osolo", "Pinewood", "Riverview", "Roosevelt", "Woodland", "North Side", "Pierre Moran", "West Side", "Elkhart Academy", "Central", "Memorial", "EACC", "Community Education", "PACE", "ESC", "Services", "Transportation" ];
+      var sorted = schools.sort();
+      var opt = '';
+          
+      for(var i=0; i<sorted.length;i++) {
+        opt += '<option value="' + sorted[i] + '">' + sorted[i] + '</option>'
+      }
+      $("#bldg").append(opt);
+    }
+    </script>
+  </head>
+  
+  <body>
+  <div id="body-wrap">
+    <div id="toast-wrap" class="hide">
+      <div id="toast"><p>Submitting...</p></div>
+    </div>
+    <div id="header-img"><img src="LOGO" /></div>
+    <div id="username">
+      <h1>Current User:</h1>
+      
+      <!-- Because this is templated HTML, GAS allows you to use scriptlets in the front end.
+           More information on GAS web apps scriptlets: https://developers.google.com/apps-script/guides/html/templates
+      -->
+      <p><?= Session.getActiveUser().getEmail(); ?></p>
+      
+      <!-- Display the current registrations -->
+      <div id="reg">
+        <h2>Your Registrations</h2>
+        <div id="courses">
+          <div class="row" id="titles"><span class="date">Date</span><span class="time">Start time</span><span class="title">Workshop</span></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Display all other workshops to the current user -->
+    <div id="workshops">
+      <h2>Upcoming Workshops</h2>
+      <p>To register for a workshop, fill in your name information and then click on the button next to each session title. Click <b>Register</b> when you're finished.</p>
+      <p><i>All workshops are held in the Professional Learning Center at the ECS Administration building unless otherwise noted.</i></p>
+      <div id="form">
+        
+        <!-- Registration form for workshops.
+             A hidden field collects the user email address to guard against typos.
+        -->
+        <form id="foo" onsubmit="handleFormSubmit(this)">
+          <input id="email" name="email" type="hidden" value="<?= Session.getActiveUser().getEmail(); ?>" />
+          <label for="first">First Name</label>
+          <input id="first" name="first" type="text" onfocus="this.value=''" value="Required" required />
+          <label for="last">Last Name</label>
+          <input id="last" name="last" type="text" onfocus="this.value=''" value="Required" required />
+          
+          <label for="bldg">Building</label>
+          <select id="bldg" name="building"></select>
+        
+          <input type="submit" value="Register" />
+          
+          <!-- Empty div to hold workshop options -->
+          <div id="list">
+            <div class="row" id="titles"><span class="date">Date</span><span class="time">Start time</span><span class="title">Workshop</span><span class="desc">Description</span><span class="seats">Seats available</span></div>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+    <script>
+      /* Populate the page based on the signed in user */
+      $(document).ready(function() {
+        
+        // Immediately build the list of schools for the dropdown.
+        // Does this need to be a function...? Probably not.
+        buildSchoolList();
+        
+        // Poll the server for current user registrations
+        google.script.run.withSuccessHandler(showClasses).availableWorkshops();
+        
+        // Display the result
+          function showClasses(returnObj) {
+            var data = JSON.parse(returnObj);
+            if(data.usrRegs.length == 0) {
+                $("#courses").append("<div class='row'><p>No registrations</p></div>");
+            } else { 
+              for(var i=0; i<data.usrRegs.length;i++) {
+                $("#courses").append("<div class='row'><span class='date'>" + data.usrRegs[i][0] + "</span><span class='time'>" + data.usrRegs[i][1] + "</span><span class='title'>" + data.usrRegs[i][3] + "</span><form id='cancel' onsubmit='cancelClass(this)'><input type='hidden' name='class " + i + "' value='" + data.usrRegs[i][0] + "' /><input type='submit' value='Cancel'></input></form></div>");
+              }
+            }
+            console.log(data.allClasses);
+            var today = new Date();
+            for(var j=0; j<data.allClasses.length;j++) {
+              $("#list").append("<div class='row' id='row" + j + "'><span class='date'>" + data.allClasses[j][0] + "</span><span class='time'>" + data.allClasses[j][1] + "</span><span class='title'><input type='checkbox' name='class " + j + "' value='" + data.allClasses[j][0] + "'>" + data.allClasses[j][2] + "</input></span><span class='desc'>" + data.allClasses[j][3] + "</span><span class='seats'>" + data.allClasses[j][4] + "</span></div>");
+              if(today.setHours(0,0,0,0) > new Date(data.allClasses[j][0]) && new Date(data.allClasses[j][0]) != today) {
+                $(":checkbox").attr("disabled", true);
+                $("#row" + j).addClass(" past");
+              }
+            }
+            preventFormSubmit();
+          }
+      })
+      </script>
+  </body>
+</html>
