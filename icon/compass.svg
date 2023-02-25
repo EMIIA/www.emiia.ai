@@ -1,16 +1,6 @@
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29">
-  
-  <title>12</title>
-  <path d="M22.59,6l.51.51L21.2,9.07,20.06,7.94,22.59,6" style="fill: #cecece"/>
-  <path d="M23.1,13.52l4,.57V15l-4,.57V13.52" style="fill: #6b6b69"/>
-  <path d="M21.2,20.06l1.9,2.53-.51.51-2.53-1.9,1.14-1.14" style="fill: #cecece"/>
-  <path d="M7.64,20.06l1.14,1.14-2.53,1.9-.51-.51,1.9-2.53" style="fill: #cecece"/>
-  <path d="M5.91,13.52v2.05l-4-.57v-.92l4-.57" style="fill: #6b6b69"/>
-  <path d="M6.42,6l2.53,1.9L7.81,9.07,5.91,6.55,6.42,6" style="fill: #cecece"/>
-  <path d="M18.44,15.38,15,22.72a.54.54,0,0,1-1,0l-3.45-7.34h7.87" style="fill: #cecece"/>
-  <path d="M14.5,6a.53.53,0,0,1,.49.31l3.45,7.34H10.57L14,6.35A.53.53,0,0,1,14.5,6Z" style="fill: #ff0817"/>
-  <path d="M15,1.65,15.5,5.4a1.55,1.55,0,0,0-1-.36,1.52,1.52,0,0,0-1,.36L14,1.65H15" style="fill: #6b6b69"/>
-  <path d="M14,27.35l-.54-3.75a1.55,1.55,0,0,0,1,.36,1.52,1.52,0,0,0,1-.36L15,27.35H14" style="fill: #6b6b69"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 29 29" stroke="#6B6B69" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(0deg);">
+
+<title>https://www.emiia.ai/icon/compass.svg</title>
+
+  <path d="M 8.0541549,2.4921492 A 0.5,0.40619867 0 0 1 8.521609,2.7520459 l 5.03092,10.5515841 a 0.5,0.40619867 0 0 1 -0.651832,0.524015 L 8.0828433,12.271588 3.272759,13.846285 A 0.5,0.40619867 0 0 1 2.6192748,13.324799 L 7.5882307,2.753853 A 0.5,0.40619867 0 0 1 8.0534494,2.4927249 Z M 3.9617875,12.744874 7.8944868,11.457952 a 0.5,0.40619867 0 0 1 0.3712317,-1.38e-4 L 12.205923,12.729487 8.057959,4.0299532 Z"></path>
 </svg>
-
-
