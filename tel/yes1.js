@@ -1,4 +1,4 @@
-var token = "1999907852:AAEqDGrWY3gRPhH9lXjcc9NaiV71HtqoF5M"; 
+var token = ""; 
 var telegramUrl = "https://api.telegram.org/bot" + token;
 var webAppUrl = "https://script.google.com/macros/s/AKfycbxALhzKog13CeN5TBrg7d990vaOPoW4h55W22fD50-cdXmLTBQDuej7FMmSbFodRY9HFQ/exec";
 
@@ -41,7 +41,7 @@ function doPost(e) {
 //parse user data
 var contents = JSON.parse(e.postData.contents);
 //set spreadsheet 
-var ssId = "1d6rPcyc1HzXGTNqQfEr6dus2hUAGE-NOwEaCBpdANJc";
+var ssId = "";
 var expenseSheet =  SpreadsheetApp.openById(ssId).getSheetByName("Sheet1");
 
 
