@@ -1,5 +1,5 @@
 // @ts-nocheck
-var token = "1953901207:AAEpzQuQ_4Zfu7wGsjyN2TgaTi1fQBj3dRE"; 
+var token = ""; 
 var telegramUrl = "https://api.telegram.org/bot" + token;
 var webAppUrl = "https://script.google.com/macros/s/AKfycbzAEeGWX3Mwm7o35sJQlCuEaXUswHNHwe-1fHIausUferE3qg2dXM-qftMw1fUYXbJ1eg/exec";
 
