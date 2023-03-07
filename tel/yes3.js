@@ -1,4 +1,4 @@
-var token = "1999907852:AAEqDGrWY3gRPhH9lXjcc9NaiV71HtqoF5M";
+var token = "";
 var telegramUrl = "https://api.telegram.org/bot" + token;
 var webAppUrl = "https://script.google.com/macros/s/AKfycbxgyqECV_ruP4cSrh3CDyUuG3n-eOxE5TYhq11O83T4Ey3K709PFK3wl4oDpBFu7HCfFA/exec";
 
