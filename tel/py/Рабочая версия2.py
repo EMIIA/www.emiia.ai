@@ -1,7 +1,7 @@
 from telebot import types
 import telebot
 
-bot = telebot.TeleBot('1999907852:AAEqDGrWY3gRPhH9lXjcc9NaiV71HtqoF5M')
+bot = telebot.TeleBot('')
 
 allowed_users = {"1005942370", "user2_id", "user3_id"}
 
