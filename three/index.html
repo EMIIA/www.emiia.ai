@@ -145,7 +145,7 @@ position: absolute; /* Абсолютное позиционирование */
 
 				const controls = new OrbitControls( camera, renderer.domElement );
 				controls.addEventListener( 'change', render );
-				controls.screenSpacePanning = false;
+				controls.screenSpacePanning = true;
 				
 				controls.minDistance = 5;
 				controls.maxDistance = 200;
