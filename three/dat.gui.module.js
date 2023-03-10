@@ -2576,7 +2576,7 @@ var GUI = function GUI( pars ) {
 
 		if ( params.closed === undefined ) {
 
-			params.closed = true;
+			params.closed = false;
 
 		}
 		var titleRowName = document.createTextNode( params.name );
@@ -2594,7 +2594,7 @@ var GUI = function GUI( pars ) {
 		dom.bind( titleRow, 'click', onClickTitle );
 		if ( ! params.closed ) {
 
-			this.closed = false;
+			this.closed = true;
 
 		}
 
