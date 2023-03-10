@@ -42,7 +42,7 @@
     --text-color: #383838;
     --title-background-color: white;
     --title-text-color: #383838;
-    --widget-color: #8C8C8C;
+    --widget-color: #f8f9fa;
     --hover-color: #4f4f4f;
     --focus-color: #595959;
     --number-color: #2cc9ff;
@@ -153,7 +153,7 @@
 					'Hexagon': './hexagon.svg',
 					'EMIIA.AI': './EMIIA.AI E LOGO TELEGRAM BOT.svg',
 
-				} ).name( 'SVG File' ).onChange( update );
+				} ).name( 'Уровни' ).onChange( update );
 
 				gui.add( guiData, 'drawStrokes' ).name( 'Этажи' ).onChange( update );
 
@@ -176,7 +176,7 @@
 				//
 
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color( 0xf8f9fa );
+				scene.background = new THREE.Color( 0xffffff );
 
 				//
 
