@@ -332,32 +332,23 @@ position: absolute; /* Абсолютное позиционирование */
 		
 		
 		<script>
-		var gui = new dat.GUI( { autoPlace: false } );
-gui.domElement.id = 'gui';
+gui = new dat.GUI( { autoPlace: false } );
+    {
+        // create fill and open folders
+    }
+    var customContainer = $('.moveGUI').append($(gui.domElement));
 </script>
 		
 		
 <style>		
 		
-				@media (max-width: 640px)
-.lil-gui.root {
 
 		
-position: absolute; /* Абсолютное позиционирование */
-    right: 5px; /* Положение от левого края */
-    top: 5px; /* Положение от верхнего края */
-
-
-	
-	
+.moveGUI{ 
+    position: fixed;
+    top: 13.1em;
+    right: -1em;
 }
-	
-	
-	
-	
-	#gui { position: absolute; top: 2px; right: 2px }
-		
-
 		
 </style>
 		
