@@ -18,7 +18,7 @@
 		
 		
 
-		
+	     <div id="gui_container"></div> 	
 		
 
 		<!-- Import maps polyfill -->
@@ -100,7 +100,32 @@
 		
 
 
-</style>		
+</style>	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		           <style>
+#gui_container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+#gui{
+  transform:translate(-50%, -50px);
+}
+
+</style>
+		
+		
+		
+		
 		
 		
 		
@@ -172,7 +197,7 @@
 				};
 				
 				
-				
+			
 				
 				
 
@@ -188,7 +213,18 @@
 
 				
 				
-				gui = new GUI({ opened: false });
+				gui = new GUI({  autoPlace: false });
+				
+		
+				 const gui = new dat.GUI({ autoPlace: false });
+                                  gui.domElement.id = 'gui';
+                                 gui_container.appendChild(gui.domElement);
+				
+				
+				
+				
+				
+				
 
 
 				gui.add( guiData, 'currentURL', {
