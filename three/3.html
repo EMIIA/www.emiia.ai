@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - svg loader</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="./main.css">
+		<style>
+			body {
+				background-color: #ffffff;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="container"></div>
+		
+		
+
+	     <div id="gui_container"></div> 	
+		
+
+		<!-- Import maps polyfill -->
+		<!-- Remove this when import maps will be widely supported -->
+		
+		
+		
+		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+		
+		
+		
+		
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "./three.module.js",
+					"three/./": "./"
+				}
+			}
+		</script>
+		
+	
+		
+	<style>	
+		.lil-gui {
+    --background-color: white;
+    --text-color: #383838;
+    --title-background-color: white;
+    --title-text-color: #383838;
+    --widget-color: #f8f9fa;
+    --hover-color: #4f4f4f;
+    --focus-color: #595959;
+    --number-color: #2cc9ff;
+    --string-color: #a2db3c;
+    --font-size: 11px;
+    --input-font-size: 11px;
+    --font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    --font-family-mono: Menlo,Monaco,Consolas,"Droid Sans Mono",monospace;
+    --padding: 4px;
+    --spacing: 4px;
+    --widget-height: 20px;
+    --name-width: 45%;
+    --slider-knob-width: 2px;
+    --slider-input-width: 27%;
+    --color-input-width: 27%;
+    --slider-input-min-width: 45px;
+    --color-input-min-width: 45px;
+    --folder-indent: 7px;
+    --widget-padding: 0 0 0 3px;
+    --widget-border-radius: 2px;
+    --checkbox-size: calc(var(--widget-height)*0.75);
+    --scrollbar-width: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    text-align: left;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+}
+		
+		
+@media (max-width: 640px)
+.lil-gui.root {
+    /* right: auto; */
+    /* top: auto; */
+    /* max-height: 50%; */
+    /* max-width: 80%; */
+    /* bottom: 0; */
+    right: 0;
+}
+		
+		
+		
+
+
+</style>	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		           <style>
+#gui_container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+#gui{
+  transform:translate(-50%, -50px);
+}
+
+</style>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		<script type="module">
+			
+			
+			
+						
+
+			import * as THREE from 'three';
+			import { GUI } from './lil-gui.module.min.js';
+			import { OrbitControls } from './OrbitControls.js';
+			import { SVGLoader } from './SVGLoader.js';
+
+			let renderer, scene, camera, gui, guiData;
+
+			init();
+			
+			
+
+
+			function init() {
+
+				const container = document.getElementById( 'container' );
+				
+
+				//
+
+				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 1000 );
+				camera.position.set( 0, 0, 200 );
+
+				//
+
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.outputEncoding = THREE.sRGBEncoding;
+				container.appendChild( renderer.domElement );
+
+				//
+
+				const controls = new OrbitControls( camera, renderer.domElement );
+				controls.addEventListener( 'change', render );
+				controls.screenSpacePanning = true;
+				
+				controls.minDistance = 10;
+				controls.maxDistance = 500;
+
+				//
+				
+				
+			
+				
+				
+				
+
+				window.addEventListener( 'resize', onWindowResize );
+
+				guiData = {
+					currentURL: './tiger.svg',
+					drawFillShapes: true,
+					drawStrokes: true,
+					fillShapesWireframe: false,
+					opened: true,
+					strokesWireframe: false
+				};
+				
+				
+			
+				
+				
+
+				loadSVG( guiData.currentURL );
+
+				createGUI();
+
+			}
+
+			function createGUI() {
+
+				if ( gui ) gui.destroy();
+
+				
+				
+		
+				
+		
+				 const gui = new dat.GUI({ autoPlace: false });
+                                  gui.domElement.id = 'gui';
+                                 gui_container.appendChild(gui.domElement);
+				
+				
+				
+				
+				
+				
+
+
+				gui.add( guiData, 'currentURL', {
+
+					'Tiger': './tiger.svg',
+					'Three.js': './threejs.svg',
+					'Joins and caps': './lineJoinsAndCaps.svg',
+					'Hexagon': './hexagon.svg',
+					'EMIIA.AI': './EMIIA.AI E LOGO TELEGRAM BOT.svg',
+
+				} ).name( 'Уровни' ).onChange( update );
+
+				gui.add( guiData, 'drawStrokes' ).name( 'Этажи' ).onChange( update );
+
+				gui.add( guiData, 'drawFillShapes' ).name( 'Строки' ).onChange( update );
+
+				gui.add( guiData, 'strokesWireframe' ).name( 'Wireframe strokes' ).onChange( update );
+
+				gui.add( guiData, 'fillShapesWireframe' ).name( 'Wireframe fill shapes' ).onChange( update );
+
+				function update() {
+
+					loadSVG( guiData.currentURL );
+					
+					
+					
+					
+
+				}
+
+			}
+
+			function loadSVG( url ) {
+
+				//
+
+				scene = new THREE.Scene();
+				scene.background = new THREE.Color( 0xffffff );
+
+				//
+
+				const helper = new THREE.GridHelper( 160, 10 );
+				helper.rotation.x = Math.PI / 2;
+				scene.add( helper );
+
+				//
+
+				const loader = new SVGLoader();
+
+				loader.load( url, function ( data ) {
+
+					const paths = data.paths;
+
+					const group = new THREE.Group();
+					group.scale.multiplyScalar( 0.25 );
+					group.position.x = - 70;
+					group.position.y = 70;
+					group.scale.y *= - 1;
+
+					for ( let i = 0; i < paths.length; i ++ ) {
+
+						const path = paths[ i ];
+
+						const fillColor = path.userData.style.fill;
+						if ( guiData.drawFillShapes && fillColor !== undefined && fillColor !== 'none' ) {
+
+							const material = new THREE.MeshBasicMaterial( {
+								color: new THREE.Color().setStyle( fillColor ).convertSRGBToLinear(),
+								opacity: path.userData.style.fillOpacity,
+								transparent: true,
+								side: THREE.DoubleSide,
+								depthWrite: false,
+								wireframe: guiData.fillShapesWireframe
+							} );
+
+							const shapes = SVGLoader.createShapes( path );
+
+							for ( let j = 0; j < shapes.length; j ++ ) {
+
+								const shape = shapes[ j ];
+
+								const geometry = new THREE.ShapeGeometry( shape );
+								const mesh = new THREE.Mesh( geometry, material );
+
+								group.add( mesh );
+
+							}
+
+						}
+
+						const strokeColor = path.userData.style.stroke;
+
+						if ( guiData.drawStrokes && strokeColor !== undefined && strokeColor !== 'none' ) {
+
+							const material = new THREE.MeshBasicMaterial( {
+								color: new THREE.Color().setStyle( strokeColor ).convertSRGBToLinear(),
+								opacity: path.userData.style.strokeOpacity,
+								transparent: true,
+								side: THREE.DoubleSide,
+								depthWrite: false,
+								wireframe: guiData.strokesWireframe
+							} );
+
+							for ( let j = 0, jl = path.subPaths.length; j < jl; j ++ ) {
+
+								const subPath = path.subPaths[ j ];
+
+								const geometry = SVGLoader.pointsToStroke( subPath.getPoints(), path.userData.style );
+
+								if ( geometry ) {
+
+									const mesh = new THREE.Mesh( geometry, material );
+
+									group.add( mesh );
+
+								}
+
+							}
+
+						}
+
+					}
+
+					scene.add( group );
+
+					render();
+
+				} );
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function render() {
+
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+		
+		
+		
+		
+		
+	</body>
+</html>
