@@ -107,8 +107,7 @@
 		
 		
 
-
-<script type="module">
+		<script type="module">
 			
 			
 			
@@ -172,9 +171,6 @@
 					strokesWireframe: false
 				};
 				
-				gui = new GUI();
-				gui.close();
-				
 				
 				
 				
@@ -191,7 +187,8 @@
 				if ( gui ) gui.destroy();
 
 				
-		
+				
+				gui = new GUI({ opened: false });
 
 
 				gui.add( guiData, 'currentURL', {
@@ -224,9 +221,8 @@
 
 			}
 
-			function update() {
-        loadSVG(guiData.currentURL);
-      }
+			function loadSVG( url ) {
+
 				//
 
 				scene = new THREE.Scene();
@@ -246,37 +242,98 @@
 
 					const paths = data.paths;
 
-					const function onWindowResize() {
+					const group = new THREE.Group();
+					group.scale.multiplyScalar( 0.25 );
+					group.position.x = - 70;
+					group.position.y = 70;
+					group.scale.y *= - 1;
 
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix();
+					for ( let i = 0; i < paths.length; i ++ ) {
 
-			renderer.setSize( window.innerWidth, window.innerHeight );
+						const path = paths[ i ];
 
-			render();
+						const fillColor = path.userData.style.fill;
+						if ( guiData.drawFillShapes && fillColor !== undefined && fillColor !== 'none' ) {
 
-		}
+							const material = new THREE.MeshBasicMaterial( {
+								color: new THREE.Color().setStyle( fillColor ).convertSRGBToLinear(),
+								opacity: path.userData.style.fillOpacity,
+								transparent: true,
+								side: THREE.DoubleSide,
+								depthWrite: false,
+								wireframe: guiData.fillShapesWireframe
+							} );
 
-		function render() {
+							const shapes = SVGLoader.createShapes( path );
 
-			renderer.render( scene, camera );
+							for ( let j = 0; j < shapes.length; j ++ ) {
 
-		}
+								const shape = shapes[ j ];
 
-	</script>
+								const geometry = new THREE.ShapeGeometry( shape );
+								const mesh = new THREE.Mesh( geometry, material );
 
-</body>
+								group.add( mesh );
 
+							}
 
+						}
 
+						const strokeColor = path.userData.style.stroke;
 
+						if ( guiData.drawStrokes && strokeColor !== undefined && strokeColor !== 'none' ) {
 
+							const material = new THREE.MeshBasicMaterial( {
+								color: new THREE.Color().setStyle( strokeColor ).convertSRGBToLinear(),
+								opacity: path.userData.style.strokeOpacity,
+								transparent: true,
+								side: THREE.DoubleSide,
+								depthWrite: false,
+								wireframe: guiData.strokesWireframe
+							} );
 
+							for ( let j = 0, jl = path.subPaths.length; j < jl; j ++ ) {
 
+								const subPath = path.subPaths[ j ];
 
+								const geometry = SVGLoader.pointsToStroke( subPath.getPoints(), path.userData.style );
 
+								if ( geometry ) {
 
+									const mesh = new THREE.Mesh( geometry, material );
 
+									group.add( mesh );
+
+								}
+
+							}
+
+						}
+
+					}
+
+					scene.add( group );
+
+					render();
+
+				} );
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function render() {
+
+				renderer.render( scene, camera );
+
+			}
 
 		</script>
 		
