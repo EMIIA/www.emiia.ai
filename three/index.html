@@ -157,7 +157,7 @@
 				
 			
 				
-				gui = new GUI({ opened: false });
+				
 				
 
 				window.addEventListener( 'resize', onWindowResize );
@@ -167,8 +167,14 @@
 					drawFillShapes: true,
 					drawStrokes: true,
 					fillShapesWireframe: false,
+					opened: false,
 					strokesWireframe: false
 				};
+				
+				
+				
+				
+				
 
 				loadSVG( guiData.currentURL );
 
@@ -180,9 +186,9 @@
 
 				if ( gui ) gui.destroy();
 
-				gui = new GUI();
 				
 				
+				gui = new GUI({ opened: false });
 
 
 				gui.add( guiData, 'currentURL', {
