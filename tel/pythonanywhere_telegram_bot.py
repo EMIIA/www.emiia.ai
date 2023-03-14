@@ -3,7 +3,7 @@ from telegram.ext import Updater, MessageHandler, Filters
 from transformers import pipeline
 
 # Initialize the Telegram bot with the token
-bot = telegram.Bot(token='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')
+bot = telegram.Bot(token='')
 
 # Initialize the ChatGPT model
 gpt_model = pipeline('text-generation', model='EleutherAI/gpt-neo-2.7B')
