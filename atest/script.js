@@ -1,5 +1,5 @@
 var pivot = new WebDataRocks({
-    container: "#wdr-component",
+    container: "#pivotContainer",
     toolbar: true,
     height: 580,
     width: "100%",
@@ -10,13 +10,7 @@ var pivot = new WebDataRocks({
         },
         
         
-        
-         options: {
-      configuratorButton: false
-    },
-        
-        
-        
+      
         
         "slice": {
             "rows": [{
