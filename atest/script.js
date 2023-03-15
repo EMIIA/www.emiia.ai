@@ -1,5 +1,5 @@
 var pivot = new WebDataRocks({
-    container: "#pivotContainer",
+    container: "#wdr-component",
     toolbar: true,
     height: 580,
     width: "100%",
@@ -8,6 +8,16 @@ var pivot = new WebDataRocks({
             "dataSourceType": "csv",
             "filename": "https://www.emiia.ai/renga/data.csv"
         },
+        
+        
+        
+         options: {
+      configuratorButton: false
+    },
+        
+        
+        
+        
         "slice": {
             "rows": [{
                 "uniqueName": "Country"
