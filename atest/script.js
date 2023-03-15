@@ -6,7 +6,7 @@ var pivot = new WebDataRocks({
     report: {
         "dataSource": {
             "dataSourceType": "csv",
-            "filename": "https://cdn.webdatarocks.com/data/data.csv"
+            "filename": "https://www.emiia.ai/renga/data.csv"
         },
         "slice": {
             "rows": [{
