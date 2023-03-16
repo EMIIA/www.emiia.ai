@@ -1,11 +1,28 @@
 
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
 <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-  <title>CodePen - amCharts Bubble Chart Chart &amp; WebDataRocks Pivot Table</title>
+  <title>EMIIA.AI</title>
   <link rel="stylesheet" href="./style.css">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+  
+  
+  
+  
+  
   
  
   
@@ -20,13 +37,7 @@
 
 
 
-<script src="https://cdn.webdatarocks.com/1.3.1/webdatarocks.amcharts.js"></script>
 
-<script src="https://www.amcharts.com/lib/4/core.js"></script>
-
-<script src="https://www.amcharts.com/lib/4/charts.js"></script>
-
-<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
 
 
@@ -44,6 +55,44 @@
 
 
 
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
+</style>
+
+	<style>
+@import url('https://www.emiia.ru/css.css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
+</style>
+
+  <style>  
+@import url('/css.css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
+</style>
+
+<link rel="stylesheet" href="https://www.emiia.ru/cssfamily=Montserrat.css">
+<link rel="stylesheet" href="/cssfamily=Montserrat.css">
+
+
+
+
+  
+  
+
+
+<div class="timer">
+    <div class="timer__items">
+      <div class="timer__item timer__days">00</div>
+      <div class="timer__item timer__hours">00</div>
+      <div class="timer__item timer__minutes">00</div>
+      <div class="timer__item timer__seconds">00</div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
 
 
 <div id="pivotContainer"></div>
@@ -51,10 +100,6 @@
 
 
 
-<g opacity="0.3" aria-labelledby="id-66-title" filter="url(&quot;#filter-id-66&quot;)" style="cursor: pointer;" transform="translate(0,479)"><g fill="red" opacity="0"><rect width="66" height="21"></rect></g><g><g shape-rendering="auto" fill="red" stroke-opacity="1" stroke-width="1.7999999999999998" stroke="red"><path d=" M15,15  C17.4001,15 22.7998,15.0001 27,15 C31.2002,14.9999 33.2999,6 36,6 C38.7001,6 38.6999,10.5 40.5,10.5 C42.3001,10.5 42.2999,6 45,6 C47.7001,6 50.9999,14.9999 54,15 C57.0002,15.0001 58.7999,15 60,15"></path></g>
-
-
-<g shape-rendering="auto" fill="none" stroke-opacity="0" stroke-width="10.7999999999999998" stroke="url(&quot;#gradient-id-69&quot;)"><path d=" M6,15  C8.2501,15 9.7498,15.0001 15,15 C20.2502,14.9999 20.7748,3.6 27,3.6 C33.2252,3.6 33.8998,14.9999 39.9,15 C45.9002,15.0001 45.9748,15 51,15 C56.0252,15 57.7499,15 60,15"></path></g></g><title id="id-66-title">Chart created using amCharts library</title></g>
 
 
 
@@ -128,9 +173,9 @@
                 "formula": "#value < 5000",
                 "measure": "Price",
                 "format": {
-                    "backgroundColor": "#f45328",
+                    "backgroundColor": "#3d85c6 ",
                     "color": "#FFFFFF",
-                    "fontFamily": "Arial",
+                    "fontFamily": "Montserrat, montserrat",
                     "fontSize": "12px"
                 }
             },
@@ -140,7 +185,7 @@
                 "format": {
                     "backgroundColor": "#0598df",
                     "color": "#FFFFFF",
-                    "fontFamily": "Arial",
+                    "fontFamily": "Montserrat, montserrat",
                     "fontSize": "12px"
                 }
             }
@@ -273,6 +318,11 @@ function updateChart(chartData, rawData) {
     z-index: -11;
     right: 0;
     top: 0;
+    
+
+  
+    
+    
 }	
 
 
@@ -288,30 +338,72 @@ function updateChart(chartData, rawData) {
 
 
 
+#wdr-pivot-view .wdr-ui, #wdr-pivot-view .wdr-ui a, #wdr-pivot-view .wdr-ui div, #wdr-pivot-view .wdr-ui input, #wdr-pivot-view .wdr-ui li, #wdr-pivot-view .wdr-ui p, #wdr-pivot-view .wdr-ui select, #wdr-pivot-view .wdr-ui span, #wdr-pivot-view .wdr-ui table, #wdr-pivot-view .wdr-ui table td, #wdr-pivot-view .wdr-ui table th, #wdr-pivot-view .wdr-ui table tr, #wdr-pivot-view .wdr-ui textarea, #wdr-pivot-view .wdr-ui ul, #wdr-toolbar-wrapper .wdr-toolbar-ui, #wdr-toolbar-wrapper .wdr-toolbar-ui a, #wdr-toolbar-wrapper .wdr-toolbar-ui div, #wdr-toolbar-wrapper .wdr-toolbar-ui input, #wdr-toolbar-wrapper .wdr-toolbar-ui li, #wdr-toolbar-wrapper .wdr-toolbar-ui p, #wdr-toolbar-wrapper .wdr-toolbar-ui select, #wdr-toolbar-wrapper .wdr-toolbar-ui span, #wdr-toolbar-wrapper .wdr-toolbar-ui table, #wdr-toolbar-wrapper .wdr-toolbar-ui table td, #wdr-toolbar-wrapper .wdr-toolbar-ui table th, #wdr-toolbar-wrapper .wdr-toolbar-ui table tr, #wdr-toolbar-wrapper .wdr-toolbar-ui textarea, #wdr-toolbar-wrapper  .wdr-cell #wdr-cell .wdr-toolbar-ui ul {
+
+font: 12px/20px Montserrat, montserrat;
+    color: #383838;
+
+
+}
+
+
+
+
+    
+
+
+
 
 .highcharts-figure, .highcharts-data-table table {
   min-width: 320px; 
   max-width: 800px;
   margin: 1em auto;
+  
+  
+  
+  
+  
+font: 12px/20px Montserrat, montserrat;
+    color: #383838;
+  
+  
 }
 
 #container {
   height: 400px;
+  
+  font: 12px/20px Montserrat, montserrat;
+    color: #383838;
 }
 
 .highcharts-data-table table {
-  font-family: Verdana, sans-serif;
+
+  font-family: Montserrat, montserrat;  
+  font: 12px/20px Montserrat, montserrat;
+  color: #383838;
+  
+  
+  
   border-collapse: collapse;
   border: 1px solid #EBEBEB;
   margin: 10px auto;
   text-align: center;
   width: 100%;
   max-width: 500px;
+  
+  font: 12px/20px Montserrat, montserrat;
+    color: #383838;
+  
 }
 .highcharts-data-table caption {
   padding: 1em 0;
   font-size: 1.2em;
   color: #555;
+  
+  
+  font: 12px/20px Montserrat, montserrat;
+    color: #383838;
+  
 }
 .highcharts-data-table th {
   font-weight: 600;
@@ -392,12 +484,13 @@ Highcharts.chart('container', {
 
   yAxis: {
     title: {
-      text: 'Показатели'
+      text: 'Эффективность (режим реального времени)'
     },
     plotLines: [{
       value: 0,
       width: 1,
-      color: '#808080'
+      color: '#383838',
+      stroke: 'red' 
     }]
   },
 
@@ -415,7 +508,7 @@ Highcharts.chart('container', {
   },
 
   series: [{
-    name: 'Random data',
+    name: 'Сводные данные',
     data: (function () {
       // generate an array of random data
       var data = [],
@@ -462,6 +555,95 @@ Highcharts.chart('container', {
   
 </script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // конечная дата
+      const deadline = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 01);
+      // id таймера
+      let timerId = null;
+      // склонение числительных
+      function declensionNum(num, words) {
+        return words[(num % 100 > 4 && num % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(num % 10 < 5) ? num % 10 : 5]];
+      }
+      // вычисляем разницу дат и устанавливаем оставшееся времени в качестве содержимого элементов
+      function countdownTimer() {
+        const diff = deadline - new Date();
+        if (diff <= 0) {
+          clearInterval(timerId);
+        }
+        const days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) : 0;
+        const hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0;
+        const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
+        const seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
+        $days.textContent = days < 10 ? '0' + days : days;
+        $hours.textContent = hours < 10 ? '0' + hours : hours;
+        $minutes.textContent = minutes < 10 ? '0' + minutes : minutes;
+        $seconds.textContent = seconds < 10 ? '0' + seconds : seconds;
+        $days.dataset.title = declensionNum(days, ['день', 'дня', 'дней']);
+        $hours.dataset.title = declensionNum(hours, ['час', 'часа', 'часов']);
+        $minutes.dataset.title = declensionNum(minutes, ['минута', 'минуты', 'минут']);
+        $seconds.dataset.title = declensionNum(seconds, ['секунда', 'секунды', 'секунд']);
+      }
+      // получаем элементы, содержащие компоненты даты
+      const $days = document.querySelector('.timer__days');
+      const $hours = document.querySelector('.timer__hours');
+      const $minutes = document.querySelector('.timer__minutes');
+      const $seconds = document.querySelector('.timer__seconds');
+      // вызываем функцию countdownTimer
+      countdownTimer();
+      // вызываем функцию countdownTimer каждую секунду
+      timerId = setInterval(countdownTimer, 1000);
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 
  	
@@ -471,8 +653,155 @@ Highcharts.chart('container', {
 
 
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+  
+  
+<style>
+
+
+
+
+
+
+
+body {
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+      
+      
+      font: 12px/20px Montserrat, montserrat;
+    color: #383838;
+          
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+    
+      text-align: center;
+      
+       justify-content: center;
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+
+    .timer {
+     margin-left: 5%; /* Отступ слева */
+     margin-right: 0%; /* Отступ справа */
+    
+     padding: 0px; /* Поля вокруг текста */
+    }
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+    
+
+    .timer__items {
+      display: flex;
+      font-size: 48px;
+    }
+    
+    
+
+
+    
+    
+    .timer__item {
+      position: relative;
+      min-width: 60px;
+      margin-left: 10px;
+      margin-right: 10px;
+      padding-bottom: 15px;
+      text-align: center;
+    }
+
+    
+
+    .timer__item::before {
+      content: attr(data-title);
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      font-size: 14px;
+    }
+
+    .timer__item:not(:last-child)::after {
+      content: ':';
+      position: absolute;
+      right: -15px;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+  </style>
+
+
+    
+    
+    
+    
+    
+    
+    
 
 
 
 </html>
+
+
 
