@@ -78,15 +78,28 @@
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-          integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
-          crossorigin="anonymous">  
 
+ 
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
+
+
+
+
+
+
+<br>
+<br>
 
 
 
 <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Объекты 
+
+
+      
+
+  
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Объект 
           <span class="caret"></span></button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
@@ -96,42 +109,27 @@
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
         </ul>
+        
+        
+        
+ 
+        
       </div>
-  
-
-<div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Данные 
-          <span class="caret"></span></button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">3</a></li>
-          <li role="presentation" class="divider"></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">4</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">5</a></li>
-        </ul>
-      </div>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 
 <div class="timer">
+
+<div id="text_centr1"><center>Завершение проекта через:</center></div>
+
+
     <div class="timer__items">
+    
+    
+  
+    
       <div class="timer__item timer__days">00</div>
       <div class="timer__item timer__hours">00</div>
       <div class="timer__item timer__minutes">00</div>
@@ -154,8 +152,8 @@
 
 
 
+<div id="text_centr"><center>Сводные данные по проектам</center></div>
 
-<div id="text_centr"><center>Сводные данные</center></div>
 
 
 
@@ -761,11 +759,6 @@ Highcharts.chart('container', {
 
 #text_centr {
   
-     
-     
-     
-     
-     
 
     
     padding: 10px; /* Поля вокруг текста */
@@ -773,6 +766,27 @@ Highcharts.chart('container', {
         overflow: auto; /* Добавление полосы прокрутки */  
      
  font: 20px/40px Montserrat, montserrat;
+    color: #383838;     
+     
+     
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    #text_centr1 {
+  
+     
+    
+    padding: 1px; /* Поля вокруг текста */
+
+  
+     
+ font: 14px/20px Montserrat, montserrat;
     color: #383838;     
      
      
@@ -807,12 +821,13 @@ body {
       font-weight: 400;
       line-height: 1.5;
     
-      text-align: center;
+  text-align: center;
       
        justify-content: center;
 
     }
     
+
     
     
     
@@ -821,12 +836,16 @@ body {
     
     
     
-        .timer {
+
+    
+    
+  
+       .timer {
   
      
      
      
-     
+  
      
 
     left: 50%; /* Положение слоя от левого края */
@@ -841,10 +860,6 @@ body {
      
      
     }
-    
-    
-  
-
 
 
     
