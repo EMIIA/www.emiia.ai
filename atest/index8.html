@@ -96,7 +96,7 @@
 
 
 <div id="pivotContainer"></div>
-<div id="chartContainer"></div>
+
 
 
 
@@ -491,7 +491,7 @@ Highcharts.chart('container', {
 
   yAxis: {
     title: {
-      text: 'Эффективность (режим реального времени)'
+      text: 'Эффективность в режим реального времени (KPI)'
     },
     plotLines: [{
       value: 0,
@@ -720,18 +720,32 @@ body {
     
     
     
+        .timer {
+  
+     
+     
+     
+     
+     
+
+    left: 50%; /* Положение слоя от левого края */
+    top: 50%; /* Положение слоя от верхнего края */
+   
     
+    padding: 10px; /* Поля вокруг текста */
+    overflow: auto; /* Добавление полосы прокрутки */ 
+     
+     
+     
+     
+     
+    }
     
     
   
 
 
-    .timer {
-     margin-left: 5%; /* Отступ слева */
-     margin-right: 0%; /* Отступ справа */
-    
-     padding: 0px; /* Поля вокруг текста */
-    }
+
     
     
     
