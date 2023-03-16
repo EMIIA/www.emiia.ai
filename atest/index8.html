@@ -73,8 +73,61 @@
 
 
 
+
+ <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js'></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+          integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+          crossorigin="anonymous">  
+
+
+
+
+<div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Объекты 
+          <span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+        </ul>
+      </div>
   
+
+<div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Данные 
+          <span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">3</a></li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">4</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">5</a></li>
+        </ul>
+      </div>
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="timer">
@@ -95,6 +148,19 @@
 
 
 
+
+
+
+
+
+
+
+<div id="text_centr"><center>Сводные данные</center></div>
+
+
+
+
+
 <div id="pivotContainer"></div>
 
 
@@ -110,7 +176,14 @@
 
 
 
+<script> 
 
+$(".dropdown-menu .dropdown-item").click(function(){
+  var selText = $(this).text();
+  $(this).parents('.dropdown').find('#dropdownMenuButton').html(selText+' <span class="caret"></span>');
+});
+
+</script> 
 
 <!-- partial -->
 
@@ -676,6 +749,34 @@ Highcharts.chart('container', {
   
   
 <style>
+
+
+
+
+
+
+
+
+
+
+#text_centr {
+  
+     
+     
+     
+     
+     
+
+    
+    padding: 10px; /* Поля вокруг текста */
+
+        overflow: auto; /* Добавление полосы прокрутки */  
+     
+ font: 20px/40px Montserrat, montserrat;
+    color: #383838;     
+     
+     
+    }
 
 
 
