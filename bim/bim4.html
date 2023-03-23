@@ -428,16 +428,7 @@ map.on('style.load', function() {
     
     
     
-    
-    
-    
-    
-
- 
-
- 
- 
- 
+     
  <script> 
     
  map.on('load', () => {
@@ -509,6 +500,15 @@ map.on('style.load', function () {
     
     
   </script> 
+    
+    
+    
+
+ 
+
+ 
+ 
+
  
 
     
@@ -518,11 +518,64 @@ map.on('style.load', function () {
     
     
     
-    
 
 
+
     
-    
+  <script>
+
+map.on('load', () => {
+// Add a data source containing GeoJSON data.
+map.addSource('maine', {
+'type': 'geojson',
+'data': {
+'type': 'Feature',
+'geometry': {
+'type': 'Polygon',
+// These coordinates outline Maine.
+'coordinates': [
+[
+[37.17426386157172, 55.976939621180264],
+[37.17449045262623, 55.97775780801268],
+[37.17453599932085, 55.97777153734967],
+[37.17543657072062, 55.977461273305295],
+
+[37.17495831966815,  55.976897165653895],
+[37.17486269394092,  55.976884215846155],
+
+
+[37.17426386157172, 55.976939621180264]
+]
+]
+}
+}
+});
+ 
+// Add a new layer to visualize the polygon.
+map.addLayer({
+'id': 'maine',
+'type': 'fill',
+'source': 'maine', // reference the data source
+'layout': {},
+'paint': {
+'fill-color': 'red', // blue color fill
+'fill-opacity': 0.1
+}
+});
+
+// Add a black outline around the polygon.
+map.addLayer({
+'id': 'outline',
+'type': 'line',
+'source': 'maine',
+'layout': {},
+'paint': {
+'line-color': '#3d85c6',
+'line-width': 2
+}
+});
+});
+</script>  
     
     
 
