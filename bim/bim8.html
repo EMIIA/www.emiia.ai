@@ -27,6 +27,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html >
 <head>
@@ -134,9 +135,20 @@
     
     
 
-    
-    
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
+</style>
+
+	<style>
+@import url('https://www.emiia.ru/css.css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
+</style>
+
+  <style>  
+@import url('/css.css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
+</style>
+
+<link rel="stylesheet" href="https://www.emiia.ru/cssfamily=Montserrat.css">
+<link rel="stylesheet" href="/cssfamily=Montserrat.css">
     
     
    
@@ -231,26 +243,76 @@
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', montserrat;
 }
 
-.mapboxgl-ctrl-markers {
-  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3Emarker-stroked-15%3C/title%3E%3Cg%3E%3Ctitle%3Ebackground%3C/title%3E%3Crect fill='none' id='canvas_background' height='32' width='32' y='-1' x='-1'/%3E%3C/g%3E%3Cg%3E%3Ctitle%3ELayer 1%3C/title%3E%3Cpath d='m15.01872,22.45972l-0.4,-0.495c-0.973,-1.189 -4.9,-6.556 -4.9,-9.16a5.066,5.066 0 0 1 4.836,-5.286q0.222,-0.01 0.445,0a5.066,5.066 0 0 1 5.286,4.836q0.01,0.225 0,0.45c0,2.213 -2.669,6.111 -4.678,8.851l-0.589,0.804zm-0.019,-13.955a4.077,4.077 0 0 0 -4.3,4.3c0,1.832 2.759,6.038 4.286,8.034c1.25,-1.71 4.315,-5.989 4.315,-8.034a4.077,4.077 0 0 0 -4.3,-4.3l-0.001,0z' id='Layer_7'/%3E%3C/g%3E%3C/svg%3E");
-}
+
 
 .mapboxgl-ctrl-map {
-
-
-background-image: url(https://www.emiia.ai/icon/e.svg);
+    background-image: url(https://www.emiia.ai/icon/e.svg);
     background-size: 28px 28px !important;
-    background-position: 5.7px 5.2px !important;
+    background-position: 8.7px 8.2px !important;
     background-repeat: no-repeat !important;
-
 }
+
+
+
+.mapboxgl-ctrl-markers {
+    background-image: url(https://www.emiia.ai/icon/e.svg);
+    background-size: 28px 28px !important;
+    background-position: 8.7px 8.2px !important;
+    background-repeat: no-repeat !important;
+}
+
+
+
+
+
+
+
 
 .mapboxgl-ctrl.markers input{
   padding: 5px;
 }
+
+
+
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: white;
+    max-height: 0vh;
+}
+
+
+
+
+
+.mapboxgl-ctrl-group button {
+    width: 44px;
+    height: 44px;
+    display: block;
+    padding: 0px;
+    outline: none;
+    border: 0;
+    box-sizing: border-box;
+    background-color: transparent;
+    cursor: pointer;
+    font: 13px/20px Montserrat, montserrat;
+    color: #383838;
+}
+
+
+.mapboxgl-ctrl-group {
+    border-radius: 12px;
+    background: #fff;
+}
+
+
+.mapboxgl-ctrl-group {
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
     
  </style>    
     
@@ -495,7 +557,7 @@ var exampleGeojson = {
         
         
         
-		style: 'mapbox://styles/emiiaai/ckofqwhvv1ujy17p27p0a6cr8',
+		style: 'mapbox://styles/emiiaai/ckv9cvgm062s515nz08d6ceq0',
         
 
         
@@ -510,12 +572,14 @@ var exampleGeojson = {
 	}));
     
     
-    
+
+
     // Plugin to add interactive markers to a GeoJSON that follows the marker-spec
         map.addControl(new MapboxMarkers(exampleGeojson));
+
     
-    
-    
+
+  
     
      mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js');
 map.addControl(new MapboxLanguage({
@@ -1938,7 +2002,47 @@ map.addLayer({
 
 
 
+<script>
 
+map.on('load', () => {
+// Add a data source containing GeoJSON data.
+map.addSource('maine', {
+'type': 'geojson',
+'data': {
+'type': 'Feature',
+'geometry': {
+'type': 'Polygon',
+// These coordinates outline Maine.
+'coordinates': [
+[
+
+[ 37.17401370184052, 55.97747807642449],
+[37.174225634276326, 55.97745691469268],
+[37.17408176609439, 55.97699386821293],
+[37.17386900953622, 55.97701402688608],
+[ 37.17401370184052, 55.97747807642449]
+
+]
+]
+}
+}
+});
+ 
+
+
+// Add a black outline around the polygon.
+map.addLayer({
+'id': 'outline',
+'type': 'line',
+'source': 'maine',
+'layout': {},
+'paint': {
+'line-color': 'white',
+'line-width': 3
+}
+});
+});
+</script>
 
 
     
@@ -1981,6 +2085,8 @@ map.addLayer({
 </body>
 
 </html>
+
+
 
 
 
