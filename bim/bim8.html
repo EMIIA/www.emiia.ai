@@ -1,0 +1,2071 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+
+ 
+ 
+ <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+ 
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+<meta name="format-detection" content="telephone=no">
+
+        
+        
+        
+    <title>EMIIA.AI MRV: SDK/API - em_70.3388_675_it_98342234...</title>    
+        
+
+	
+	<link rel="manifest" href="manifest.json">
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="application-name" content="EMIIA.AI MRV">
+<meta name="apple-mobile-web-app-title" content="EMIIA.AI MRV">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#fff">
+<meta name="msapplication-starturl" content="https://www.emiia.ru/osm/indoor9.html">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	
+	
+	
+	<link rel="manifest" href="/manifest.json">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
+    
+    
+    
+    
+    
+    
+    
+    
+	
+	
+
+
+
+
+
+
+
+        
+	
+
+    
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    
+    
+   
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+      
+    
+    <script src="https://unpkg.com/threebox-plugin/dist/threebox.min.js" type="text/javascript"></script>
+<link href="https://unpkg.com/threebox-plugin/dist/threebox.css" rel="stylesheet" />
+
+
+<script src="https://unpkg.com/three@0.106.2/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.106.2/examples/js/loaders/GLTFLoader.js"></script>
+
+
+
+<script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+    
+    
+    
+    
+    
+    
+ <style>   
+    
+    .marker {
+  background-image: url('https://www.mapbox.com/help/demos/custom-markers-gl-js/mapbox-icon.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-box-shadow: 2px 2px 14px -2px rgba(0,0,0,0.1);
+  -moz-box-shadow: 2px 2px 14px -2px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 14px -2px rgba(0,0,0,0.1);
+  transition: box-shadow 0.4s ease-in-out;
+}
+.marker:hover,.marker.active{
+  -webkit-box-shadow: 2px 2px 14px 1px rgba(0,0,0,1);
+  -moz-box-shadow: 2px 2px 14px 1px rgba(0,0,0,1);
+  box-shadow: 2px 2px 14px 1px rgba(0,0,0,1);
+  transition: box-shadow 0.1s ease-in-out;
+}
+
+.mapboxgl-popup {
+  max-width: 250px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.mapboxgl-ctrl-markers {
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3Emarker-stroked-15%3C/title%3E%3Cg%3E%3Ctitle%3Ebackground%3C/title%3E%3Crect fill='none' id='canvas_background' height='32' width='32' y='-1' x='-1'/%3E%3C/g%3E%3Cg%3E%3Ctitle%3ELayer 1%3C/title%3E%3Cpath d='m15.01872,22.45972l-0.4,-0.495c-0.973,-1.189 -4.9,-6.556 -4.9,-9.16a5.066,5.066 0 0 1 4.836,-5.286q0.222,-0.01 0.445,0a5.066,5.066 0 0 1 5.286,4.836q0.01,0.225 0,0.45c0,2.213 -2.669,6.111 -4.678,8.851l-0.589,0.804zm-0.019,-13.955a4.077,4.077 0 0 0 -4.3,4.3c0,1.832 2.759,6.038 4.286,8.034c1.25,-1.71 4.315,-5.989 4.315,-8.034a4.077,4.077 0 0 0 -4.3,-4.3l-0.001,0z' id='Layer_7'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.mapboxgl-ctrl-map {
+
+
+background-image: url(https://www.emiia.ai/icon/e.svg);
+    background-size: 28px 28px !important;
+    background-position: 5.7px 5.2px !important;
+    background-repeat: no-repeat !important;
+
+}
+
+.mapboxgl-ctrl.markers input{
+  padding: 5px;
+}
+    
+ </style>    
+    
+    
+
+
+
+
+<script>
+!function e(t,o,r){function i(s,a){if(!o[s]){if(!t[s]){var l="function"==typeof require&&require;if(!a&&l)return l(s,!0);if(n)return n(s,!0);var p=new Error("Cannot find module '"+s+"'");throw p.code="MODULE_NOT_FOUND",p}var c=o[s]={exports:{}};t[s][0].call(c.exports,function(e){var o=t[s][1][e];return i(o||e)},c,c.exports,e,t,o,r)}return o[s].exports}for(var n="function"==typeof require&&require,s=0;s<r.length;s++)i(r[s]);return i}({1:[function(e,t,o){function r(e,t){if(!(this instanceof r))throw new Error("MapboxMarkers needs to be called with the new keyword");this.URLSearchParams=new URLSearchParams(new URL(window.location).search),this._sourceName="markerspec",this._geojson=e,this._rendered=!1,this.options=Object.assign({enabled:this.URLSearchParams.get("enabled")||!0,showControl:this.URLSearchParams.get("show-control")||!0,marker:{image:"https://www.mapbox.com/help/demos/custom-markers-gl-js/mapbox-icon.png"},popup:{description:"<i>No description provided</i>"},style:{label:"{name}",labelSize:10,color:this.URLSearchParams.get("style-color")||"#c1d1ea",size:2,opacity:1,icon:"marker",layers:null}},t),this.toggle=this.toggle.bind(this),this.render=this.render.bind(this),this._toggleLayers=this._toggleLayers.bind(this),this._updateMap=this._updateMap.bind(this),this._toggle=new i({show:this.options.showControl,onToggle:this.toggle.bind(this)})}function i(e){var t,o;e=Object.assign({show:!0,onToggle:function(){}},e),this._btn=((t=document.createElement("button")).className="mapboxgl-ctrl-icon mapboxgl-ctrl-markers",t.type="button",t["aria-label"]="Inspect",t),this._btn.onclick=e.onToggle,this._input=((o=document.createElement("input")).id="marker-search",o.type="text",o.placeholder="Marker Search",o.style.display="none",o),this.elem=function(e,t,o){var r=document.createElement("div");return r.className="mapboxgl-ctrl mapboxgl-ctrl-group markerspec",r.appendChild(e),o||(r.style.display="none"),r}(this._btn,this._input,e.show)}r.prototype.onAdd=function(e){return this._map=e,e.on("load",this.render),e.on("moveend",this._updateMap),this._toggle.elem},r.prototype.onRemove=function(){this._map.off("load",this.render);var e=this._toggle.elem;e.parentNode.removeChild(e),this._map=void 0},r.prototype.toggle=function(){this.options.enabled=!this.options.enabled,this.render()},r.prototype.render=function(){if(!this._rendered){var e=this;if(this.URLSearchParams.get("data")){var t=new XMLHttpRequest;t.onreadystatechange=function(){t.readyState==XMLHttpRequest.DONE&&(e._geojson=JSON.parse(t.responseText),o())},t.open("GET",this.URLSearchParams.get("data"),!0),t.send(null)}else o();function o(){e._geojson.features.forEach(function(t){if("Point"==t.geometry.type){var o=document.createElement("div");o.className="markerspec marker",o.style=`background-image:url('${t.properties["marker-image"]||e.options.marker.image}')`,o.onclick=function(e){map.flyTo({center:t.geometry.coordinates})};var r=(void 0!==t.properties.title?`<h3>${t.properties.title}</h3>`:"")+(void 0!==t.properties.image?`<img src='${t.properties.image}' width=200 alt='${t.properties.title}'>`:"")+(void 0!==t.properties.description?`<p>${t.properties.description}</p>`:`<p>${e.options.popup.description}</p>`)+(void 0!==t.properties.website?`<a href='${t.properties.website}' target='_blank' class='button'>Website</a>`:`<a href='https://www.openstreetmap.org/?mlat=${t.geometry.coordinates[1]}&mlon=${t.geometry.coordinates[0]}' target='_blank' class='button'>Browse Location</a>`);new mapboxgl.Marker(o).setLngLat(t.geometry.coordinates).setPopup(new mapboxgl.Popup({offset:25}).setHTML(r)).addTo(map)}}),e._map.addSource("markerspec",{type:"geojson",data:e._geojson});var t,o,r=e._map.getStyle().layers.filter(function(e){return"road"===e["source-layer"]}),i=r[r.length-1].id;e.options.style.layers||(e.options.style.layers=(t=e._sourceName,o=e.options.style,[{id:`${t} fill`,type:"fill",source:`${t}`,paint:{"fill-color":o.color,"fill-opacity":o.opacity},filter:["==","$type","Polygon"]},{id:`${t} line`,type:"line",source:`${t}`,paint:{"line-color":o.color,"line-width":o.size,"line-opacity":o.opacity}},{id:`${t} circle`,type:"circle",source:`${t}`,paint:{"circle-color":o.color,"circle-radius":o.size,"circle-opacity":o.opacity}},{id:`${t} symbol`,type:"symbol",source:`${t}`,layout:{"text-field":o.label,"text-size":o.labelSize,"text-font":["Open Sans Semibold","Arial Unicode MS Bold"],"text-anchor":"top","icon-image":"{icon}-15","icon-allow-overlap":!0}}]));var n=function(e,t,o){for(var r=0;r<e.layers.length;r++){var i=e.layers[r];if(o===i.id){var n=e.layers.slice(0,r).concat(t).concat(e.layers.slice(r));return Object.assign({},e,{layers:n})}}return e}(e._map.getStyle(),e.options.style.layers,i);e._map.setStyle(n),e._toggle._input.onkeypress=(t=>{if("Enter"===t.key)return e.options.query=e._toggle._input.value,e._updateMap(),!0})}this._rendered=!0}this.options.enabled?(this._toggleLayers(),this._toggle.setMapIcon()):(this._toggleLayers(),this._toggle.setPluginIcon())},r.prototype._updateMap=function(){this.options.enabled&&this.options._geojson&&console.log("Nothing to update")},i.prototype.setPluginIcon=function(){this._btn.className="mapboxgl-ctrl-icon mapboxgl-ctrl-markers"},i.prototype.setMapIcon=function(){this._btn.className="mapboxgl-ctrl-icon mapboxgl-ctrl-map"},r.prototype._toggleLayers=function(){var e=this.options.enabled;Array.from(document.getElementsByClassName("markerspec marker")).forEach(function(t){t.style.display=e?"inline":"none"});var t=new RegExp(this._sourceName),o=this._map.getStyle();o.layers.forEach(function(o){t.test(o.source)&&(o.layout=o.layout||{},o.layout.visibility=e?"visible":"none")}),this._map.setStyle(o),this._toggle._input.style.display=e?"inline":"none"},void 0!==t&&void 0!==t.exports?window.MapboxMarkers=r:t.exports=r},{}]},{},[1]);
+
+</script>
+
+
+
+<script>
+
+var exampleGeojson = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "title": "North Atlantic Ocean",
+        "description": "This is a sample marker that follows the marker-stylespec",
+        "id": 1,
+        "website": "https://en.wikipedia.org/wiki/Atlantic_Ocean",
+        "image": "https://www.sciencedaily.com/images/2017/10/171009154949_1_900x600.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.17408839581992,
+          55.977276488284616
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#ce0d0d",
+        "stroke-width": 3,
+        "stroke-opacity": 1,
+    
+        "fill": "#ce0d0d",
+        
+        "fill-opacity": 0.5,
+        "id": 1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+          
+          
+          
+          
+[ 37.17401370184052, 55.97747807642449],
+[37.174225634276326, 55.97745691469268],
+[37.17408176609439, 55.97699386821293],
+[37.17386900953622, 55.97701402688608],
+[ 37.17401370184052, 55.97747807642449]
+            
+            
+            
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "marker-image": "https://d30y9cdsu7xlg0.cloudfront.net/png/7427-200.png",
+        "title": "Rocket launching spot"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -19.6875,
+          -27.994401411046148
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "marker-image": "https://www.sciencedaily.com/images/2017/10/171009154949_1_900x600.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.5,
+          -44.59046718130883
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "small",
+        "marker-symbol": "",
+        "title": "No Style"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.8671875,
+          -32.249974455863295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "title": "Just a line"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            21.796875,
+            56.75272287205736
+          ],
+          [
+            22.5,
+            40.97989806962013
+          ],
+          [
+            55.54687499999999,
+            24.84656534821976
+          ],
+          [
+            68.203125,
+            -7.362466865535738
+          ],
+          [
+            60.1171875,
+            -46.8000594467873
+          ],
+          [
+            46.05468749999999,
+            -62.103882522897855
+          ],
+          [
+            55.8984375,
+            -67.474922384787
+          ]
+        ]
+      }
+    }
+  ]
+};
+
+
+</script>    
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <div id="map"></div>
+    
+    
+
+<button id="replay"></button>
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+<script>
+
+	// import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r115/build/three.module.js';
+	// import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r115/examples/jsm/controls/OrbitControls.js';
+	// import {GLTFLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r115/examples/jsm/loaders/GLTFLoader.js';
+
+
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZW1paWFhaSIsImEiOiJja21icnU4bHkyNGRwMnFrbjVvNXdtdGJ0In0.TcfxV21Ov7zOgvWvgPxzlA';
+	var map = (window.map = new mapboxgl.Map({
+		container: 'map',
+        
+        
+        
+		style: 'mapbox://styles/emiiaai/ckofqwhvv1ujy17p27p0a6cr8',
+        
+
+        
+		zoom: 18,
+		center: [37.173764, 55.977719],
+		pitch: 60,
+        
+        
+        attributionControl: false,
+        
+		antialias: true // create the gl context with MSAA antialiasing, so custom layers are antialiased
+	}));
+    
+    
+    
+    // Plugin to add interactive markers to a GeoJSON that follows the marker-spec
+        map.addControl(new MapboxMarkers(exampleGeojson));
+    
+    
+    
+    
+     mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js');
+map.addControl(new MapboxLanguage({
+  defaultLanguage: 'ru'
+}));
+
+
+
+</script>
+
+    
+    
+    
+    
+    
+    
+    
+   
+
+   
+   
+   
+   
+   
+
+   
+   
+   
+   
+   
+   
+   
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script>
+
+
+	// converts from WGS84 Longitude, Latitude into a unit vector anchor at the top left as needed for GL JS custom layers
+var fromLL = function (lon,lat) {
+    // derived from https://gist.github.com/springmeyer/871897
+    var extent = 20037508.34;
+
+    var x = lon * extent / 180;
+    var y = Math.log(Math.tan((90 + lat) * Math.PI / 360)) / (Math.PI / 180);
+    y = y * extent / 180;
+
+    return [(x + extent) / (2 * extent), 1 - ((y + extent) / (2 * extent))];
+}
+var translate = fromLL(37.17409849995897,55.97737925266699);
+
+var transform = {
+    translateX: translate[0],
+    translateY: translate[1],
+    translateZ: 0,
+    rotateX: Math.PI / 2,
+    rotateY: 20.2485,
+    rotateZ: 0,
+    scale: 3.64843220338983e-8
+}
+
+var THREE = window.THREE;
+
+// Create the Mapbox Custom Layer object
+// See 
+var threeJSModel = {
+    id: 'custom_layer',
+    type: 'custom',
+    renderingMode: '3d',
+    onAdd: function(map, gl) {
+        this.camera = new THREE.Camera();
+        this.scene = new THREE.Scene();
+
+
+
+ 
+        
+        
+        
+                      var directionalLight = new THREE.DirectionalLight(0xFA8072);
+        directionalLight.position.set(100, 70, 100).normalize();
+        this.scene.add(directionalLight);
+
+        var directionalLight2 = new THREE.DirectionalLight(0xFA8072);
+        directionalLight2.position.set(-70, -100, -70).normalize();
+        this.scene.add(directionalLight2);
+        
+        
+        
+                var directionalLight3 = new THREE.DirectionalLight(0xFA8072);
+        directionalLight3.position.set(200, 100, 200).normalize();
+        this.scene.add(directionalLight3);
+        
+        
+        
+        var directionalLight4 = new THREE.DirectionalLight(0xFA8072);
+        directionalLight4.position.set(-200, -100, -200).normalize();
+        this.scene.add(directionalLight4);  
+        
+        
+        
+
+        var loader = new THREE.GLTFLoader();
+        loader.load('https://www.emiia.ai/base.glb', (function (gltf) {
+            this.scene.add(gltf.scene);
+        }).bind(this));
+        this.map = map;
+
+        this.renderer = new THREE.WebGLRenderer({
+            canvas: map.getCanvas(),
+            context: gl
+        });
+
+        this.renderer.autoClear = false;
+    },
+    render: function(gl, matrix) {
+        var rotationX = new THREE.Matrix4().makeRotationAxis(new THREE.Vector3(1, 0, 0), transform.rotateX);
+        var rotationY = new THREE.Matrix4().makeRotationAxis(new THREE.Vector3(0, 1, 0), transform.rotateY);
+        var rotationZ = new THREE.Matrix4().makeRotationAxis(new THREE.Vector3(0, 0, 1), transform.rotateZ);
+
+        var m = new THREE.Matrix4().fromArray(matrix);
+        var l = new THREE.Matrix4().makeTranslation(transform.translateX, transform.translateY, transform.translateZ)
+            .scale(new THREE.Vector3(transform.scale, -transform.scale, transform.scale))
+            .multiply(rotationX)
+            .multiply(rotationY)
+            .multiply(rotationZ);
+
+        this.camera.projectionMatrix.elements = matrix;
+        this.camera.projectionMatrix = m.multiply(l);
+        this.renderer.state.reset();
+        this.renderer.render(this.scene, this.camera);
+        this.map.triggerRepaint();
+    }
+}
+
+
+
+
+
+map.on('style.load', function() {
+    map.addLayer({
+
+        
+        'paint': {
+            'fill-extrusion-color': '#ccc',
+            'fill-extrusion-height': ["get", "height"]
+        }
+    }, 'waterway-label');
+        
+        
+        
+        
+
+    map.addLayer(threeJSModel, 'waterway-label');
+});
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+     
+ <script> 
+    
+ map.on('load', () => {
+// Insert the layer beneath any symbol layer.
+const layers = map.getStyle().layers;
+const labelLayerId = layers.find(
+(layer) => layer.type === 'symbol' && layer.layout['text-field']
+).id;
+ 
+// The 'building' layer in the Mapbox Streets
+// vector tileset contains building height data
+// from OpenStreetMap.
+map.addLayer(
+{
+'id': 'add-3d-buildings',
+'source': 'composite',
+'source-layer': 'building',
+'filter': ['==', 'extrude', 'true'],
+'type': 'fill-extrusion',
+
+
+'minzoom': 14,
+'maxzoom': 19,
+
+
+
+'paint': {
+'fill-extrusion-color': '#aaa',
+ 
+// Use an 'interpolate' expression to
+// add a smooth transition effect to
+// the buildings as the user zooms in.
+'fill-extrusion-height': [
+'interpolate',
+['linear'],
+['zoom'],
+15,
+0,
+15.05,
+['get', 'height']
+],
+'fill-extrusion-base': [
+'interpolate',
+['linear'],
+['zoom'],
+15,
+0,
+15.05,
+['get', 'min_height']
+],
+'fill-extrusion-opacity': 0.2
+
+
+
+
+
+}
+},
+labelLayerId
+);
+});
+
+
+map.on('style.load', function () {
+			map.addLayer(createCustomLayer('3d-model', modelOrigin), '');
+            
+   
+		});
+    
+    
+  </script> 
+    
+    
+    
+
+ 
+
+ 
+ 
+
+ 
+
+    
+    
+    
+    
+    
+    
+    
+
+
+
+    
+ 
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <script>
+
+
+      map.on('load', () => {
+        map.addSource('trees', {
+          'type': 'geojson',
+          'data': 'https://raw.githubusercontent.com/EMIIA/www.emiia.ai/master/json/circlegeojson.geojson'
+        });
+
+        map.addLayer(
+          {
+            'id': 'trees-heat',
+            'type': 'heatmap',
+            'source': 'trees',
+            
+            'minzoom': 14,
+'maxzoom': 23,
+            
+
+            'paint': {
+              // increase weight as diameter breast height increases
+              'heatmap-weight': {
+                'property': 'dbh',
+                'type': 'exponential',
+                'stops': [
+                  [3, 0],
+                  [3, 0]
+                ]
+              },
+              // increase intensity as zoom level increases
+              'heatmap-intensity': {
+                'stops': [
+                  [3, 0],
+                  [3, 0]
+                ]
+              },
+              // use sequential color palette to use exponentially as the weight increases
+              'heatmap-color': [
+                'interpolate',
+                ['linear'],
+                ['heatmap-density'],
+                40,
+                'rgba(293,209,234,80)',
+                0.1,
+                'rgb(103,169,207,80)',
+                0.2,
+                'rgb(166,189,219,80)',
+                0.3,
+                'rgb(103,169,207,80)',
+                0.4,
+                'rgb(28,144,153,80)'
+                
+            
+              ],
+              // increase radius as zoom increases
+              'heatmap-radius': {
+                'stops': [
+                  [3, 2],
+                  [3, 2]
+                ]
+              },
+              // decrease opacity to transition into the circle layer
+              'heatmap-opacity': {
+                'default': 1,
+                'stops': [
+                  [3, 1],
+                  [3, 0]
+                ]
+              }
+            }
+          },
+          'waterway-label'
+        );
+
+        map.addLayer(
+          {
+            'id': 'trees-point',
+            'type': 'circle',
+            'source': 'trees',
+            'maxzoom': 0,
+            'paint': {
+              // increase the radius of the circle as the zoom level and dbh value increases
+              'circle-radius': {
+                'property': 'dbh',
+                'type': 'exponential',
+                'stops': [
+ [{ zoom: 2, value: 20 }, 100],
+
+                ]
+              },
+              'circle-color': {
+                'property': 'dbh',
+                'type': 'exponential',
+                'stops': [
+                  [50, 'rgba(193,209,234,0.5)']
+
+
+                ]
+              },
+              'circle-stroke-color': '#C1D1EA',
+              'circle-stroke-width': 0.1,
+            
+           
+              'circle-opacity': {
+                'stops': [
+                  [0, 0],
+                  [3, 1]
+                ]
+              }
+            }
+          },
+          'waterway-label'
+        );
+        
+        
+        map.setLayerZoomRange('trees-point', 0, 15);
+        
+      });
+
+     
+      
+      
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+
+
+
+
+
+ 
+// A simple line from origin to destination.
+const route = {
+'type': 'FeatureCollection',
+'id': '888',
+'features': [
+{
+'type': 'Feature',
+'id': '888',
+'geometry': {
+'type': 'LineString',
+'coordinates': [[37.17396598258472, 55.97715952834096], [37.17400397506739, 55.977439886655446], [37.17396598258472, 55.97715952834096], [37.17400397506739, 55.977439886655446], [37.17396598258472, 55.97715952834096], [37.17400397506739, 55.977439886655446]]
+}
+}
+]
+};
+
+
+
+
+// A single point that animates along the route.
+// Coordinates are initially set to origin.
+const point = {
+'type': 'FeatureCollection',
+'id': '888',
+'features': [
+{
+'type': 'Feature',
+'properties': {},
+'geometry': {
+'type': 'Point',
+'coordinates': origin
+}
+}
+]
+};
+ 
+// Calculate the distance in kilometers between route start/end point.
+const lineDistance = turf.length(route.features[0]);
+ 
+const arc = [];
+ 
+// Number of steps to use in the arc and animation, more steps means
+// a smoother arc and animation, but too many steps will result in a
+// low frame rate
+const steps = 390000;
+ 
+// Draw an arc between the `origin` & `destination` of the two points
+for (let i = 0; i < lineDistance; i += lineDistance / steps) {
+const segment = turf.along(route.features[0], i);
+arc.push(segment.geometry.coordinates);
+}
+ 
+// Update the route with calculated arc coordinates
+route.features[0].geometry.coordinates = arc;
+ 
+// Used to increment the value of the point measurement against the route.
+let counter = 0;
+ 
+map.on('load', () => {
+// Add a source and layer displaying a point which will be animated in a circle.
+map.addSource('route', {
+'type': 'geojson',
+'data': route
+});
+
+
+
+
+
+
+
+
+    
+
+
+
+ 
+map.addSource('point', {
+'type': 'geojson',
+'data': point
+});
+ 
+map.addLayer({
+'id': 'route',
+'source': 'route',
+'type': 'line',
+'paint': {
+'line-width': 0,
+'line-color': '#007cbf'
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+});
+ 
+map.addLayer({
+'id': 'point',
+'source': 'point',
+
+'minzoom': 14,
+'maxzoom': 23,
+
+
+
+'type': 'symbol',
+'layout': {
+// This icon is a part of the Mapbox Streets style.
+// To view all images available in a Mapbox style, open
+// the style in Mapbox Studio and click the "Images" tab.
+// To add a new image to the style at runtime see
+// https://docs.mapbox.com/mapbox-gl-js/example/add-image/
+'icon-image': 'pulsing-dot',
+'icon-size': 0.6,
+
+'icon-rotate': ['get', 'bearing'],
+
+'icon-allow-overlap': true,
+
+
+
+
+
+'icon-ignore-placement': true
+}
+});
+ 
+function animate() {
+const start =
+route.features[0].geometry.coordinates[
+counter >= steps ? counter - 0 : counter
+];
+const end =
+route.features[0].geometry.coordinates[
+counter >= steps ? counter : counter + 0
+];
+if (!start || !end) return;
+ 
+// Update point geometry to a new position based on counter denoting
+// the index to access the arc
+point.features[0].geometry.coordinates =
+route.features[0].geometry.coordinates[counter];
+ 
+// Calculate the bearing to ensure the icon is rotated to match the route arc
+// The bearing is calculated between the current point and the next point, except
+// at the end of the arc, which uses the previous point and the current point
+point.features[0].properties.bearing = turf.bearing(
+turf.point(start),
+turf.point(end)
+);
+ 
+// Update the source with this new data
+map.getSource('point').setData(point);
+ 
+// Request the next frame of animation as long as the end has not been reached
+if (counter < steps) {
+requestAnimationFrame(animate);
+}
+ 
+ 
+ 
+
+ 
+ 
+counter = counter + 30;
+}
+ 
+document.getElementById('replay').addEventListener('click', () => {
+// Set the coordinates of the original point back to origin
+point.features[0].geometry.coordinates = origin;
+ 
+// Update the source layer
+map.getSource('point').setData(point);
+ 
+// Reset the counter
+counter = 0;
+
+
+ 
+// Restart the animation
+animate(counter);
+});
+ 
+// Start the animation
+animate(counter);
+});
+
+
+
+
+
+ 
+const size = 180;
+ 
+// This implements `StyleImageInterface`
+// to draw a pulsing dot icon on the map.
+const pulsingDot = {
+width: size,
+height: size,
+data: new Uint8Array(size * size * 4),
+ 
+// When the layer is added to the map,
+// get the rendering context for the map canvas.
+onAdd: function () {
+const canvas = document.createElement('canvas');
+canvas.width = this.width;
+canvas.height = this.height;
+this.context = canvas.getContext('2d');
+},
+ 
+// Call once before every frame where the icon will be used.
+render: function () {
+const duration = 1000;
+const t = (performance.now() % duration) / duration;
+ 
+const radius = (size / 2) * 0.3;
+const outerRadius = (size / 2) * 0.7 * t + radius;
+const context = this.context;
+ 
+// Draw the outer circle.
+context.clearRect(0, 0, this.width, this.height);
+context.beginPath();
+context.arc(
+this.width / 2,
+this.height / 2,
+outerRadius,
+0,
+Math.PI * 0
+);
+context.fillStyle = `rgba(255, 200, 200, ${1 - t})`;
+context.fill();
+ 
+// Draw the inner circle.
+context.beginPath();
+context.arc(
+this.width / 2,
+this.height / 2,
+radius,
+0,
+Math.PI * 2
+);
+context.fillStyle = '#3d85c6';
+context.strokeStyle = 'white';
+context.lineWidth = 5 + 4 * (1 - t);
+context.fill();
+context.stroke();
+ 
+// Update this image's data with data from the canvas.
+this.data = context.getImageData(
+0,
+0,
+this.width,
+this.height
+).data;
+ 
+// Continuously repaint the map, resulting
+// in the smooth animation of the dot.
+map.triggerRepaint();
+ 
+// Return `true` to let the map know that the image was updated.
+return true;
+}
+};
+ 
+map.on('load', () => {
+map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+ 
+map.addSource('dot-point', {
+'type': 'geojson',
+'data': {
+'type': 'FeatureCollection',
+'id': '888',
+'features': [
+{
+'type': 'Feature',
+'id': '888',
+'geometry': {
+'type': 'Point',
+'coordinates': [0, 0] // icon position [lng, lat]
+}
+}
+]
+}
+});
+
+
+
+
+
+});
+</script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+       
+        
+        
+        
+    <script>  
+    
+    
+    
+    
+    
+    
+     
+        map.on('load', async () => {
+// Get the initial location of the International Space Station (ISS).
+const geojson = await getLocation();
+// Add the ISS location as a source.
+map.addSource('iss', {
+type: 'geojson',
+data: geojson
+});
+    
+    
+    
+        
+       
+// Add the rocket symbol layer to the map.
+map.addLayer({
+'id': 'iss',
+'type': 'symbol',
+
+'minzoom': 14,
+'maxzoom': 23,
+
+
+'source': 'iss',
+'layout': {
+// This icon is a part of the Mapbox Streets style.
+// To view all images available in a Mapbox style, open
+// the style in Mapbox Studio and click the "Images" tab.
+// To add a new image to the style at runtime see
+// https://docs.mapbox.com/mapbox-gl-js/example/add-image/
+'icon-image': 'pulsing-dot',
+'icon-size': 0.6,
+'icon-rotate': ['get', 'bearing'],
+
+'icon-allow-overlap': true,
+'icon-ignore-placement': true
+}
+});
+ 
+// Update the source from the API every 2 seconds.
+const updateSource = setInterval(async () => {
+const geojson = await getLocation(updateSource);
+map.getSource('iss').setData(geojson);
+}, 10000000);
+ 
+async function getLocation(updateSource) {
+// Make a GET request to the API and return the location of the ISS.
+try {
+const response = await fetch(
+'https://www.emiia.ru/osm/25544.json',
+{ method: 'GET' }
+);
+
+
+const { latitude, longitude } = await response.json();
+
+
+// Fly the map to the location.
+map.flyTo({
+center: [longitude, latitude],
+speed: 0.0
+
+});
+
+
+
+
+// Return the location of the ISS as GeoJSON.
+return {
+'type': 'FeatureCollection',
+'features': [
+{
+'type': 'Feature',
+'geometry': {
+'type': 'Point',
+'coordinates': [longitude, latitude]
+}
+}
+]
+};
+
+
+
+
+
+
+
+} catch (err) {
+// If the updateSource interval is defined, clear the interval to stop updating the source.
+if (updateSource) clearInterval(updateSource);
+throw new Error(err);
+}
+}
+});
+
+
+
+
+
+</script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <script>  
+    
+    
+    
+    
+    
+    
+     
+        map.on('load', async () => {
+// Get the initial location of the International Space Station (ISS).
+const geojson = await getLocation();
+// Add the ISS location as a source.
+map.addSource('iss1', {
+type: 'geojson',
+data: geojson
+});
+    
+    
+    
+        
+       
+// Add the rocket symbol layer to the map.
+map.addLayer({
+'id': 'iss1',
+'type': 'symbol',
+
+'minzoom': 14,
+'maxzoom': 23,
+
+
+'source': 'iss1',
+'layout': {
+// This icon is a part of the Mapbox Streets style.
+// To view all images available in a Mapbox style, open
+// the style in Mapbox Studio and click the "Images" tab.
+// To add a new image to the style at runtime see
+// https://docs.mapbox.com/mapbox-gl-js/example/add-image/
+'icon-image': 'pulsing-dot',
+'icon-size': 0.6,
+'icon-rotate': ['get', 'bearing'],
+
+'icon-allow-overlap': true,
+'icon-ignore-placement': true
+}
+});
+ 
+// Update the source from the API every 2 seconds.
+const updateSource = setInterval(async () => {
+const geojson = await getLocation(updateSource);
+map.getSource('iss1').setData(geojson);
+}, 10000000);
+ 
+async function getLocation(updateSource) {
+// Make a GET request to the API and return the location of the ISS.
+try {
+const response = await fetch(
+'https://www.emiia.ru/osm/25545.json',
+{ method: 'GET' }
+);
+
+
+const { latitude, longitude } = await response.json();
+
+
+// Fly the map to the location.
+map.flyTo({
+center: [longitude, latitude],
+speed: 0.0
+
+});
+
+
+
+
+// Return the location of the ISS as GeoJSON.
+return {
+'type': 'FeatureCollection',
+'features': [
+{
+'type': 'Feature',
+'geometry': {
+'type': 'Point',
+'coordinates': [longitude, latitude]
+}
+}
+]
+};
+
+
+
+
+
+
+
+} catch (err) {
+// If the updateSource interval is defined, clear the interval to stop updating the source.
+if (updateSource) clearInterval(updateSource);
+throw new Error(err);
+}
+}
+});
+
+
+
+
+
+</script>
+    
+    
+    
+    
+    
+    <script>
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SXCK9F16F5');
+  
+  
+  
+  let tg = window.Telegram.WebApp; //получаем объект webapp телеграма target="_blank"  
+
+   tg.expand(); //расширяем на все окно  
+  
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+map.on('load', () => {
+map.addSource('places', {
+'type': 'geojson',
+'data': {
+'type': 'FeatureCollection',
+'features': [
+
+
+
+
+
+
+{
+'type': 'Feature',
+'properties': {
+'description': 
+'<strong>A Little Night Music</strong><p>The Arlington Players\' production of Stephen Sondheim\'s  <a href="http://www.thearlingtonplayers.org/drupal-6.20/node/4661/show" target="_blank" title="Opens in a new window"><em>A Little Night Music</em></a> comes to the Kogod Cradle at The Mead Center for American Theater (1101 6th Street SW) this weekend and next. 8:00 p.m.</p>'
+},
+'geometry': {
+'type': 'Point',
+'coordinates': [37.17403708738425,55.9773359924618]
+}
+}
+]
+}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Add a layer showing the places.
+map.addLayer({
+'id': 'places',
+'type': 'circle',
+
+
+'minzoom': 14,
+'maxzoom': 19,
+
+
+
+
+'source': 'places',
+'paint': {
+'circle-color': 'white',
+'circle-radius': 6,
+'circle-stroke-width': 2,
+'circle-stroke-color': '#3d85c6'
+}
+});
+
+
+
+
+
+
+
+
+
+
+
+ map.addLayer({
+            'id': 'places',
+            'type': 'circle',
+            'source': 'places',
+            'layout': {
+                'icon-image': ['get', 'circle'],
+                'icon-allow-overlap': true
+            }
+        });
+
+        // When a click event occurs on a feature in the places layer, open a popup at the
+        // location of the feature, with description HTML from its properties.
+        map.on('click', 'places', (e) => {
+            // Copy coordinates array.
+            const coordinates = e.features[0].geometry.coordinates.slice();
+            const description = e.features[0].properties.description;
+
+            // Ensure that if the map is zoomed out such that multiple
+            // copies of the feature are visible, the popup appears
+            // over the copy being pointed to.
+            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+
+            new mapboxgl.Popup()
+                .setLngLat(coordinates)
+                .setHTML(description)
+                .addTo(map);
+        });
+
+        // Change the cursor to a pointer when the mouse is over the places layer.
+        map.on('mouseenter', 'places', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'places', () => {
+            map.getCanvas().style.cursor = '';
+        });
+    });
+    
+    
+    
+    
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+map.on('load', () => {
+map.addSource('places1', {
+'type': 'geojson',
+
+
+
+
+'data': {
+'type': 'FeatureCollection',
+'features': [
+{
+'type': 'Feature',
+'properties': {
+'description':
+'<strong>A Little Night Music</strong><p>The Arlington Players\' production of Stephen Sondheim\'s  <a href="http://www.thearlingtonplayers.org/drupal-6.20/node/4661/show" target="_blank" title="Opens in a new window"><em>A Little Night Music</em></a> comes to the Kogod Cradle at The Mead Center for American Theater (1101 6th Street SW) this weekend and next. 8:00 p.m.</p>'
+},
+'geometry': {
+'type': 'Point',
+
+'coordinates': [37.174147071844686,55.977428264695845]
+}
+},
+
+
+
+
+
+
+
+
+
+{
+'type': 'Feature',
+'properties': {
+'description':
+'<strong>A Little Night Music</strong><p>The Arlington Players\' production of Stephen Sondheim\'s  <a href="http://www.thearlingtonplayers.org/drupal-6.20/node/4661/show" target="_blank" title="Opens in a new window"><em>A Little Night Music</em></a> comes to the Kogod Cradle at The Mead Center for American Theater (1101 6th Street SW) this weekend and next. 8:00 p.m.</p>'
+},
+'geometry': {
+'type': 'Point',
+
+'coordinates': [37.17405191989792,55.97710447718691]
+}
+},
+
+
+
+
+
+
+
+
+
+
+
+
+{
+'type': 'Feature',
+'properties': {
+'description': 
+'<strong>A Little Night Music</strong><p>The Arlington Players\' production of Stephen Sondheim\'s  <a href="http://www.thearlingtonplayers.org/drupal-6.20/node/4661/show" target="_blank" title="Opens in a new window"><em>A Little Night Music</em></a> comes to the Kogod Cradle at The Mead Center for American Theater (1101 6th Street SW) this weekend and next. 8:00 p.m.</p>'
+},
+'geometry': {
+'type': 'Point',
+
+'coordinates': [37.174114950657895,55.977264080461964]
+}
+}
+]
+}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Add a layer showing the places.
+map.addLayer({
+'id': 'places1',
+
+
+'minzoom': 14,
+'maxzoom': 19,
+
+
+
+
+'type': 'circle',
+'source': 'places1',
+'paint': {
+'circle-color': 'white',
+'circle-radius': 6,
+'circle-stroke-width': 2,
+'circle-stroke-color': '#be3455'
+}
+});
+
+
+
+
+
+
+
+
+ map.addLayer({
+            'id': 'places1',
+            'type': 'circle',
+            'source': 'places1',
+            'layout': {
+                'icon-image': ['get', 'circle'],
+                'icon-allow-overlap': true
+            }
+        });
+
+        // When a click event occurs on a feature in the places layer, open a popup at the
+        // location of the feature, with description HTML from its properties.
+        map.on('click', 'places1', (e) => {
+            // Copy coordinates array.
+            const coordinates = e.features[0].geometry.coordinates.slice();
+            const description = e.features[0].properties.description;
+
+            // Ensure that if the map is zoomed out such that multiple
+            // copies of the feature are visible, the popup appears
+            // over the copy being pointed to.
+            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+
+            new mapboxgl.Popup()
+                .setLngLat(coordinates)
+                .setHTML(description)
+                .addTo(map);
+        });
+
+        // Change the cursor to a pointer when the mouse is over the places layer.
+        map.on('mouseenter', 'places1', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'places1', () => {
+            map.getCanvas().style.cursor = '';
+        });
+    });
+    
+    
+    
+    
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
