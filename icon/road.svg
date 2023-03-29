@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-exclamation" viewBox="0 0 16 16" stroke="white">
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-exclamation" viewBox="0 0 16 16" stroke="#6B6B69">
  <title>https://www.emiia.ai/icon/road.svg</title>
  
   <path
      id="path14"
-     d="m 7.0453303,4.0109453 a 0.905,0.905 0 1 1 1.8,0 l -0.35,3.507 a 0.553,0.553 0 0 1 -1.1,0 z" style="fill: white"/>
+     d="m 7.0453303,4.0109453 a 0.905,0.905 0 1 1 1.8,0 l -0.35,3.507 a 0.553,0.553 0 0 1 -1.1,0 z" style="fill: #6B6B69"/>
   <path
      id="path2"
-     d="m 7.002,11 a 1,1 0 1 1 2,0 1,1 0 0 1 -2,0 z" style="fill: white" />
+     d="m 7.002,11 a 1,1 0 1 1 2,0 1,1 0 0 1 -2,0 z" style="fill: #6B6B69" />
 </svg>
