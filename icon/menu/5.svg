@@ -1,0 +1,17 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <title>Пожарные знаки</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <path d="M26,0V26H0V0H26" style="fill: #fff"/>
+    <path d="M25,1V25H1V1H25M2.5,23.48h21v-21H2.5v21" style="fill: #fd0302"/>
+    <path d="M22.52,20.19v2.3h-2.3l2.3-2.3" style="fill: #fd0302"/>
+    <polygon points="17.72 24.98 17.7 25 14.24 25 14.26 24.98 17.72 24.98" style="fill: #fff"/>
+    <path d="M22.52,13.31v3.42l-5.76,5.76H13.34l9.18-9.18" style="fill: #fd0302"/>
+    <polygon points="10.84 24.98 10.82 25 7.36 25 7.38 24.98 10.84 24.98" style="fill: #fff"/>
+    <path d="M22.52,6.4V9.84L9.88,22.48H6.44L22.52,6.4" style="fill: #fd0302"/>
+    <polygon points="3.94 24.98 3.92 25 1 25 1 24.98 3.94 24.98" style="fill: #fff"/>
+    <path d="M21.91,3.52,3.5,21.92V18.46L18.45,3.52h3.46" style="fill: #fd0302"/>
+    <path d="M15,3.52,3.5,15V11.57l8-8H15" style="fill: #fd0302"/>
+    <path d="M8.11,3.52,3.5,8.13V4.67L4.65,3.52H8.11" style="fill: #fd0302"/>
+  </g>
+</svg>
