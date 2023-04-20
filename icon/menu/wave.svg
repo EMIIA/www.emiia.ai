@@ -1,7 +1,13 @@
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26">
   <title>Пожарные знаки</title>
-  <path d="M26,0V26H0V0H26" style="fill: #fff"/>
-  <path d="M25,1.06v24H1v-24H25M2.78,17.11h7.8v-3l11.1,2.44.48.11.11-.48,1.42-6,.19-.77-.77.16L10.58,12.2V9.32H2.78v7.8" style="fill: #fd0302"/>
-  <path d="M3.4,16.49H10V9.94H3.4Z" style="fill: #fd0302"/>
-  <path d="M10.75,13.51l10.94,2.41L23,10.22,10.75,12.8Z" style="fill: #fd0302"/>
+  <g id="Layer_3" data-name="Layer 3">
+    <image width="450" height="450" transform="translate(0.14) scale(0.06)" xlink:href="vnlc0zt4k1qigcqiitgbazgrar5s4h4s.jpg"/>
+  </g>
+  <g id="Layer_2" data-name="Layer 2">
+    <path d="M26,0V26H0V0H26" style="fill: #fff"/>
+  </g>
+  <g id="Layer_4" data-name="Layer 4">
+    <path d="M10.34,10.46v5.45H4.88V10.46h5.46m11.16.47-1.09,4.42-9.07-1.94V13L21.5,10.94" style="fill: #fd0302"/>
+    <path d="M25,1.06v24H1v-24H25M3.88,16.91h7.46V14.44l9.81,2.1,1.69-6.9L11.34,12V9.46H3.88v7.45" style="fill: #fd0302"/>
+  </g>
 </svg>
