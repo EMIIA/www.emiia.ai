@@ -1,0 +1,7 @@
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <title>Пожарные знаки</title>
+  <path d="M26,0V26H0V0H26" style="fill: #fff"/>
+  <path d="M25,1.06v24H1v-24H25M2.78,17.11h7.8v-3l11.1,2.44.48.11.11-.48,1.42-6,.19-.77-.77.16L10.58,12.2V9.32H2.78v7.8" style="fill: #fd0302"/>
+  <path d="M3.4,16.49H10V9.94H3.4Z" style="fill: #fd0302"/>
+  <path d="M10.75,13.51l10.94,2.41L23,10.22,10.75,12.8Z" style="fill: #fd0302"/>
+</svg>
