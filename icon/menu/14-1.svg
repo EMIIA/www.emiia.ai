@@ -1,10 +1,11 @@
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
   <title>Пожарные знаки</title>
-  <g>
-    <path d="M5.93,8.41v8.4H5.07V9.17h-2V8.41H5.93" style="fill: #1d1d1b"/>
-    <path d="M13.21,8.41l-4.3,5.42h3.65V11.89h.84v1.94h1.68v.77H13.4v2.21h-.86V14.6H7.79V14l4.45-5.57h1" style="fill: #1d1d1b"/>
-    <path d="M19.23,13.18v.74H16.09v-.74h3.14" style="fill: #1d1d1b"/>
-    <path d="M22.7,8.41v8.4h-.86V9.17h-2V8.41H22.7" style="fill: #1d1d1b"/>
+  <g id="Layer_2" data-name="Layer 2">
+    <g>
+      <path d="M8,10.05v5.59H7.42V10.56H6.11v-.51H8" style="fill: #6b6b69"/>
+      <path d="M12.83,10.05,10,13.66H12.4V12.37H13v1.29h1.12v.51H13v1.47h-.57V14.17H9.23v-.41l3-3.7h.64" style="fill: #6b6b69"/>
+      <path d="M16.84,13.23v.49H14.75v-.49h2.09" style="fill: #6b6b69"/>
+      <path d="M19.14,10.05v5.59h-.57V10.56H17.25v-.51h1.89" style="fill: #6b6b69"/>
+    </g>
   </g>
-  <text transform="translate(2.98 -2.38)" style="font-size: 12px;font-family: Montserrat-Regular, Montserrat">1<tspan x="4.33" y="0" style="letter-spacing: 0.010009765625em">4</tspan><tspan x="12.38" y="0" style="letter-spacing: -0.017008463541666668em">-</tspan><tspan x="16.76" y="0">1</tspan></text>
 </svg>
