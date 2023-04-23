@@ -1,0 +1,57 @@
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="---.svg"
+   id="svg4"
+   version="1.1"
+   fill="#6B6B69"
+   height="7"
+   width="35"
+   viewBox="0 0 35 9.625">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     inkscape:current-layer="svg4"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-11"
+     inkscape:window-x="-11"
+     inkscape:cy="16.851508"
+     inkscape:cx="13.749631"
+     inkscape:zoom="9.7006212"
+     showgrid="false"
+     id="namedview6"
+     inkscape:window-height="1046"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <path
+     d="M -0.5647821,2.1261517 H 35.774316 c 1.752218,0 3.162848,1.1682613 3.162848,2.6194201 V 5.459959 c 0,1.4511588 -1.41063,2.6194201 -3.162848,2.6194201 H -0.5647821 c -1.7522178,0 -3.1628479,-1.1682613 -3.1628479,-2.6194201 V 4.7455718 c 0,-1.4511588 1.4106301,-2.6194201 3.1628479,-2.6194201 z"
+     style="opacity:0.222782;fill:#6B6B69;fill-opacity:1;stroke:none;stroke-width:3.15594;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+     id="rect843" />
+</svg>
