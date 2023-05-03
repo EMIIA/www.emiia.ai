@@ -1,10 +1,10 @@
 <svg id="в_кривых" data-name="в кривых" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
   <title>Нумерация помещений</title>
   <g>
-    <path d="M5.73,10.15v5.6h-1V11H3.5v-.87Z" style="fill: #6b6b69"/>
-    <path d="M11.83,14.48h-1v1.27h-1V14.48H6.76v-.72l2.76-3.61h1.11L8,13.6H9.86V12.47h1V13.6h1Z" style="fill: #6b6b69"/>
-    <path d="M12.44,13.11h2.2v.83h-2.2Z" style="fill: #6b6b69"/>
-    <path d="M17.21,10.15v5.6h-1V11H15v-.87Z" style="fill: #6b6b69"/>
-    <path d="M22.54,10.15v.7l-2.18,4.9H19.26L21.36,11h-2.2v1h-1V10.15Z" style="fill: #6b6b69"/>
+    <path d="M6.06,10.15v5.6H5V11H3.84v-.87Z" style="fill: #6b6b69"/>
+    <path d="M12.16,14.48h-1v1.27h-1V14.48H7.09v-.72l2.76-3.61H11L8.37,13.6H10.2V12.47h1V13.6h1Z" style="fill: #6b6b69"/>
+    <path d="M12.77,13.11H15v.83h-2.2Z" style="fill: #6b6b69"/>
+    <path d="M17.54,10.15v5.6h-1V11H15.32v-.87Z" style="fill: #6b6b69"/>
+    <path d="M22.88,10.15v.7l-2.18,4.9H19.59L21.69,11h-2.2v1h-1V10.15Z" style="fill: #6b6b69"/>
   </g>
 </svg>
