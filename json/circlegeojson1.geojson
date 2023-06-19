@@ -13,8 +13,8 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
-37.17403560876846,
-55.977308625119825
+37.17417854326868,
+55.97743554759995
 ]
 }
 },
@@ -42,7 +42,7 @@
 "marker-size": "medium",
 "marker-symbol": "circle",
 "dbh": 200,
-"text": "Программно-аппартный комплекс EMIIA.AI MRV-H"
+"text": "Эстакада EMIIA.AI MRV-H"
 },
 "geometry": {
 "type": "Point",
