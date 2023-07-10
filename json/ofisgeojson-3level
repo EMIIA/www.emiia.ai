@@ -1,0 +1,145 @@
+{
+"type": "FeatureCollection",
+"features": [
+{
+"type": "Feature",
+"id": "relation/-228132",
+"properties": {
+"title": "Washington DC",
+"icon-image": "monument-15",
+"@id": "relation/6021911",
+"fill": "#ffffff",
+"fill-opacity": "1",
+"indoor": "area",
+"level": "0",
+"name": "Hall Central",
+"stroke": "#000314",
+"stroke-opacity": 1,
+"stroke-width": "1",
+"type": "multipolygon",
+"id": "relation/-228132"
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+37.17401880352895,
+55.977474262001124
+],
+[
+37.1742169247774,
+55.97745468611697
+],
+[
+37.17407311895306,
+55.976998893580685
+],
+[
+37.17387896838318,
+55.97701803767575
+],
+[
+37.17401880352895,
+55.977474262001124
+]
+]
+]
+}
+},
+
+
+
+
+{
+"type": "Feature",
+"id": "relation/-228132",
+"properties": {
+"title": "Washington DC",
+"icon-image": "monument-15",
+"@id": "relation/6021911",
+"fill": "#ffffff",
+"fill-opacity": "1",
+"indoor": "area",
+"level": "1",
+"name": "Hall Central",
+"stroke": "#000314",
+"stroke-opacity": 1,
+"stroke-width": "1",
+"type": "multipolygon",
+"id": "relation/-228132"
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+37.17401880352895,
+55.977474262001124
+],
+[
+37.1742169247774,
+55.97745468611697
+],
+[
+37.17407311895306,
+55.976998893580685
+],
+[
+37.17387896838318,
+55.97701803767575
+],
+[
+37.17401880352895,
+55.977474262001124
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"id": "relation/-228132",
+"properties": {
+"@id": "relation/6021911",
+"fill": "#ffffff",
+"fill-opacity": "1",
+"indoor": "area",
+"level": "2",
+"name": "EMIIA.AI CLOUD",
+"stroke": "#000314",
+"stroke-opacity": "1",
+"stroke-width": 1,
+"type": "multipolygon",
+"id": "relation/-228132"
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+37.17401880352895,
+55.977474262001124
+],
+[
+37.1742169247774,
+55.97745468611697
+],
+[
+37.17407311895306,
+55.976998893580685
+],
+[
+37.17387896838318,
+55.97701803767575
+],
+[
+37.17401880352895,
+55.977474262001124
+]
+]
+]
+}
+}
+]
+}
