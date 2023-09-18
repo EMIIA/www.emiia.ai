@@ -1,3 +1,4 @@
+
 <!DOCTYPE html><html lang="ru">
 
 
@@ -10,15 +11,77 @@
     
     
 <html>
-    
+
+
+
+<style>
+
+body {
+	font-family: sans-serif;
+}
+
+.youtube-container {
+	overflow: hidden;
+	width: 100%;
+	/* Keep it the right aspect-ratio */
+	aspect-ratio: 16/9;
+	/* No clicking/hover effects */
+	pointer-events: none;
+	
+	iframe {
+		/* Extend it beyond the viewport... */
+		width: 300%;
+		height: 100%;
+		/* ...and bring it back again */
+		margin-left: -100%;
+	}
+}
+
+
+   </style> 
     
 <head>
+
+
+
+<style>  
+  
+  body {
+  font-family: sans-serif;
+}
+
+.youtube-container {
+  overflow: hidden;
+  width: 100%;
+  /* Keep it the right aspect-ratio */
+  aspect-ratio: 16/9;
+  /* No clicking/hover effects */
+  pointer-events: none;
+}
+.youtube-container iframe {
+  /* Extend it beyond the viewport... */
+  width: 300%;
+  height: 100%;
+  /* ...and bring it back again */
+  margin-left: -100%;
+}
+
+  </style> 
+
+
+
 <title>Video</title>
 
 
 
 </head>
 <body>
+
+
+
+<div class="youtube-container">
+	<iframe src="https://www.youtube.com/embed/WhY7uyc56ms?autoplay=1&mute=1&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&playlist=WhY7uyc56ms" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 
 <video  controls width="100%" height="100%" autoplay loop muted playsinline class="video-background " muted="muted" loop="" controls="true" autoplay="autoplay" controls preload="auto"  poster="https://www.emiia.ru/vi2.svg"    style=" border-radius: 18px 18px 18px 18px;">
@@ -44,8 +107,29 @@
 
 
 
+<video id="myMovie" style="width: 100%; height: 100%; cursor: pointer;  border-radius: 18px 18px 18px 18px;"  poster="https://www.emiia.ru/vi2.svg"  >
+        <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"/>
+</video>
+
+
+<script>
+function loadVideo(){
+    myMovie=document.getElementById('myMovie');
+    myMovie.addEventListener('click', playOrPause, false);
+}
+function playOrPause() {
+    if (!myMovie.paused && !myMovie.ended){
+        myMovie.pause();
+    } else {
+        myMovie.play();
+    }
+}
+window.addEventListener('load',loadVideo,false);
+</script>
 
 
 </body>
 </html>
+
+
 
