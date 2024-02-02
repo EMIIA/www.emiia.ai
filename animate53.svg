@@ -1078,10 +1078,13 @@
  </path>
     
     
-    <path d="M113.76,90.32H113V86.55l-1.15.39v-.66l1.83-.67h.1Z" transform="translate(-4.92 -2.89)" style="fill: #4e86b1"/>
+    <path d="M113.76,90.32H113V86.55l-1.15.39v-.66l1.83-.67h.1Z" transform="translate(-4.92 -2.89)" style="fill: #4e86b1">
     
     
+    <animate attributeName="r" from="5" to="15" dur="1s" begin="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" from="1" to="-1" dur="5s" begin="2s" repeatCount="indefinite"/>
     
+ </path>
     
     
     
