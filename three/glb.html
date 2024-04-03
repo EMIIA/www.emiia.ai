@@ -24,10 +24,10 @@
 
 			import * as THREE from 'three';
 
-			import { GLTFLoader } from './GLTFLoader.js';
+			import { GLTFLoader } from 'three/GLTFLoader.js';
 
-			import { VertexNormalsHelper } from './VertexNormalsHelper.js';
-			import { VertexTangentsHelper } from './VertexTangentsHelper.js';
+			import { VertexNormalsHelper } from 'three/VertexNormalsHelper.js';
+			import { VertexTangentsHelper } from 'three/VertexTangentsHelper.js';
 
 			let scene, renderer;
 			let camera, light;
@@ -68,7 +68,7 @@
 				scene.add( polarGridHelper );
 
 				const loader = new GLTFLoader();
-				loader.load( './LeePerrySmith/LeePerrySmith.glb', function ( gltf ) {
+				loader.load( 'three/LeePerrySmith/LeePerrySmith.glb', function ( gltf ) {
 
 					const mesh = gltf.scene.children[ 0 ];
 
