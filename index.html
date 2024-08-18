@@ -5,6 +5,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 
@@ -524,6 +525,39 @@ max-height: 100%;
 
 
 
+
+.toggle-menu.active::after {
+    content: "";
+
+
+  position: absolute;
+  z-index: 2; /* помещаем .green-box поверх .dashed-box */
+  background: #f8f9fa;
+  width: 200em;
+  
+  
+  
+  left: 362px;
+  top: -20px;
+  height: 200em;
+  opacity: 0.9;
+  
+  z-index: -30000;
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 #menu .main-nav a:first {
   padding-top: 0;
 }
@@ -780,11 +814,19 @@ background: linear-gradient(0deg, rgba(248,249,250,0.4852065826330533) 2%, rgba(
 
 
 
-<span style="color: black; font-size:17px; text-indent: 50px;">
-<p style=" color: #A0A0A0; text-align: left; font-size:16px; margin: 0 0 1.35rem;"><a style=" font-size:15px;" href="https://www.emiia.ru" alt="ЭМИИА ИИ — машинное радиозрение"  title="EN"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-translate" viewBox="0 0 16 18">
+<span style="color: black;  font-size:18px; text-indent: 50px; text-indent: 50px;">
+<p style=" color: #A0A0A0; text-align: left; font-size:16px; margin: 0 0 1.35rem;"><a style=" font-size:15px;" href="https://www.emiia.ru" alt="ЭМИИА ИИ — машинное радиозрение"  title="RU"> 
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-translate" viewBox="0 0 16 18">
   <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z"/>
   <path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31"/>
-</svg> &nbsp;&nbsp;A文 </a></p>
+</svg> 
+
+
+<span style="color: #A0A0A0; font-size:18px; text-indent: 50px; ">
+&nbsp;Russian 
 
   
 
@@ -4017,10 +4059,10 @@ Train neural networks, create, and deploy your applications according to your ow
 
   <meta name="HandheldFriendly" content="true" />
  
+<h2 style="text-align: center">Project team</h2>
 
 
 
-<a><p class="buttond"  data-aos="fade-up" data-aos-duration="3000" style="text-align: center; margin: 0.5rem 0rem 0rem;"><a  target="_self" style="cursor: pointer; font-size:15.4px;  text-decoration: none; padding:0px; color:#3d85c6; background-color:transparent; border-radius:0px; border: 0px solid #000000; margin-left: 0%;"><img src="https://www.emiia.ai/logo.svg" width="150" height="60" alt="Contact"   title="Contact" ></a></p></a>
   
           <h2 style="text-align: center"></h2>
 
@@ -4045,18 +4087,41 @@ Train neural networks, create, and deploy your applications according to your ow
 
 
 
+ <br/>
+  
+  
 
-    <a><div  class="w3-content w3-section" style="max-width:470px; ">
-  <img data-aos="zoom-in" data-aos-duration="2000" src="https://www.emiia.ru/fasie.svg" style="width:100%; margin: 1.3rem 0rem 0rem;"></div>
+  
+  <h2><a><p class="buttond"  
+   style="text-align: center">
+   
+   <a target="_self" style="cursor: pointer; font-size:15.4px;  text-decoration: none; padding:0px; color:#3d85c6; background-color:transparent; border-radius:0px; border: 0px solid #000000; margin-left: 0%;" href="https://fasie.ru/" title="Научные исследования осуществляются при грантовой поддержке Фонда содействия инновациям">
+   
 
+   <picture style="margin-left: 0%;">
+  <source media="(max-width: 1%)" srcset="https://www.emiia.ru/img/FASIE_EN.svg" />
+  <source media="(min-width: 800px)" srcset="https://www.emiia.ru/img/FASIE_EN.svg" />
+  <img src="https://www.emiia.ru/img/FASIE_EN.svg"  alt="ЭМИИА" title="Scientific research is carried out with grant support from The Foundation for Assistance to Small Innovative Enterprises"/>
+  
+  
+  
+  
+        
+       </picture>
+   
+   
+   
+   
+   </a></p></a></h2>
+
+ 
+ 
+
+
+
+<p  style="text-align: left; hyphens: auto; overflow-wrap: break-word;">Scientific research is carried out with grant support from <a style="color: #3d85c6;" alt="ЭМИИА ИИ — машинное радио зрение"   title="FASIE" href="https://fasie.ru/">The Foundation for Assistance to Small Innovative Enterprises</a>.</p> 
 
  <br/>
- 
- 
- 
-
-
-
      
 
 
@@ -4228,6 +4293,8 @@ style="-inkscape-font-specification:Montserrat"/></g>
 
 
 
+<h2><a><p class="buttond"  
+   style="text-align: center"/><a target="_self" style="cursor: pointer; font-size:15.4px;  text-decoration: none; padding:0px; color:#3d85c6; background-color:transparent; border-radius:0px; border: 0px solid #000000; margin-left: 0%;" href="https://sk.ru/"><img src="https://www.emiia.ru/img/SKOLKOVO_EN.svg"  alt="ЭМИИА ИИ — машинное радио зрение" title="Skolkovo Innovation Center" ></a></p></a></h2>
 
 
 
@@ -4270,6 +4337,7 @@ style="-inkscape-font-specification:Montserrat"/></g>
 
   
   </section>
+
 
 
 
