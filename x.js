@@ -1,190 +1,440 @@
-var OPENAI_API_KEY = "1u5JtOEwDsVB8WdrBDbuV5QQyvBypKEmZKwiPOIi2Rt4j073Y6fRpnI07";
-var bTextToSpeechSupported = false;
-var bSpeechInProgress = false;
-var oSpeechRecognizer = null
-var oSpeechSynthesisUtterance = null;
-var oVoices = null;
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-function OnLoad() {
-    if ("webkitSpeechRecognition" in window) {
-    } else {
-        //speech to text not supported
-        lblSpeak.style.display = "none";
-    }
 
-    if ('speechSynthesis' in window) {
-        bTextToSpeechSupported = true;
 
-        speechSynthesis.onvoiceschanged = function () {
-            oVoices = window.speechSynthesis.getVoices();
-            for (var i = 0; i < oVoices.length; i++) {
-                selVoices[selVoices.length] = new Option(oVoices[i].name, i);
+    
+    <!-- Мета-теги для мобильного приложения -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="EMIIA.AI SIP">
+    
+    
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#383838">
+
+    <link rel="manifest" href="manifest_sip.json">
+
+
+
+<meta name="Description" content="EMIIA.AI —  SPATIAL INTELLIGENCE"/>
+  <meta content='EMIIA.AI SIP' name='apple-mobile-web-app-title'/>
+
+
+
+
+    <title>EMIIA.AI SIP</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
+</style>
+
+	<style>
+@import url('https://www.emiia.ru/css.css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
+</style>
+
+  <style>  
+@import url('/css.css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
+</style>
+
+<link rel="stylesheet" href="https://www.emiia.ru/cssfamily=Montserrat.css">
+<link rel="stylesheet" href="/cssfamily=Montserrat.css">
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+           
+ overflow-y: auto;
+
+        }
+        body {
+            background-color: #383838;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            font-family: Montserrat, monospace !important;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding-top: 2vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 0px;
+            text-align: center;
+        }
+        .text-container {
+            display: inline-block;
+            text-align: left;
+            margin-bottom: 7px;
+        }
+        .text {
+            color: #57fc9d;
+            font-size: 14.7px;
+            font-weight: 500;
+            white-space: nowrap;
+            display: inline;
+            text-align: left;
+            font-family: Montserrat, monospace !important;
+            letter-spacing: 1px;
+            margin-left: 0.0px;
+            -webkit-font-feature-settings: "kern" 1;
+            font-feature-settings: "kern" 1;
+        }
+        .typed-cursor {
+            color: #57fc9d;
+            font-size: 14px;
+            animation: blink 1s infinite;
+            display: inline;
+            font-family: Montserrat, monospace !important;
+            font-weight: 600;
+        }
+        .iam {
+            color: #57fc9d;
+            font-size: 77.5px;
+            font-weight: 400;
+            font-family: Montserrat, monospace !important;
+            margin-bottom: -32px;
+            text-align: left;
+            display: block;
+            -webkit-font-feature-settings: "kern" 1;
+            font-feature-settings: "kern" 1;
+        }
+        
+        /* Стили для меню */
+        .menu-container {
+            display: block;
+            text-align: center;
+            margin-top: 0px;
+            position: relative;
+        }
+        .menu-button {
+            background-color: transparent;
+            border: 2px solid #57fc9d;
+            color: #57fc9d;
+            padding: 20px 20px;
+            font-family: Montserrat, monospace !important;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+            white-space: nowrap;
+        }
+        .menu-button:hover {
+            background-color: #57fc9d;
+            color: #383838;
+        }
+        .dropdown-menu {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #383838;
+            border: 2px solid #57fc9d;
+            min-width: 220px;
+            z-index: 1000;
+            display: block; /* ИЗМЕНЕНО: изначально видимо */
+            margin-top: 10px;
+            border-radius: 3px;
+            width: auto;
+        }
+        .dropdown-menu.hidden {
+            display: none; /* Скрываем только когда есть класс hidden */
+        }
+        .dropdown-menu a {
+            color: #57fc9d;
+            padding: 15px 20px;
+            text-decoration: none;
+            display: block;
+            font-family: Montserrat, monospace !important;
+            font-size: 16px;
+            text-align: left;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #57fc9d;
+            white-space: nowrap;
+            min-width: max-content;
+        }
+        .dropdown-menu a:first-child {
+            border-top: none;
+        }
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+        .dropdown-menu a:hover {
+            background-color: #57fc9d;
+            color: #383838;
+        }
+        
+        /* Стили для QR-кода */
+        .qr-code {
+            margin-top: 8px;
+            transition: all 0.3s ease;
+            opacity: 1;
+        }
+        .qr-code.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .qr-code img {
+            max-width: 325px;
+            height: auto;
+            border: 0px solid #57fc9d;
+            border-radius: 10px;
+            padding: 8px;
+            background: transparent;
+        }
+        
+        /* Медиа-запросы для мобильных устройств */
+        @media screen and (max-width: 480px) {
+            .menu-button {
+                font-size: 16px;
+                padding: 20px 16px;
             }
-        };
-    }
-}
-
-function ChangeLang(o) {
-    if (oSpeechRecognizer) {
-        oSpeechRecognizer.lang = selLang.value;
-        //SpeechToText()
-    }
-}
-
-function Send() {
-
-    var sQuestion = txtMsg.value;
-    if (sQuestion == "") {
-        alert("Type in your question!");
-        txtMsg.focus();
-        return;
-    }
-
-    var oHttp = new XMLHttpRequest();
-    oHttp.open("POST", "https://api.openai.com/v1/completions");
-    oHttp.setRequestHeader("Accept", "application/json");
-    oHttp.setRequestHeader("Content-Type", "application/json");
-    oHttp.setRequestHeader("Authorization", "Bearer " + OPENAI_API_KEY)
-
-    oHttp.onreadystatechange = function () {
-        if (oHttp.readyState === 4) {
-            //console.log(oHttp.status);
-            var oJson = {}
-            if (txtOutput.value != "") txtOutput.value += "\n";
-
-            try {
-                oJson = JSON.parse(oHttp.responseText);
-            } catch (ex) {
-                txtOutput.value += "Error: " + ex.message
+            .dropdown-menu {
+                min-width: 180px;
+                left: 50%;
+                transform: translateX(-50%);
             }
-
-            if (oJson.error && oJson.error.message) {
-                txtOutput.value += "Error: " + oJson.error.message;
-            } else if (oJson.choices && oJson.choices[0].text) {
-                var s = oJson.choices[0].text;
-
-                if (selLang.value != "en-US") {
-                    var a = s.split("?\n");
-                    if (a.length == 2) {
-                        s = a[1];
-                    }
-                }
-
-                if (s == "") s = "No response";
-                txtOutput.value += "Chat GPT: " + s;
-                TextToSpeech(s);
-            }            
-        }
-    };
-
-    var sModel = selModel.value;// "text-davinci-003";
-    var iMaxTokens = 2048;
-    var sUserId = "1";
-    var dTemperature = 0.5;    
-
-    var data = {
-        model: sModel,
-        prompt: sQuestion,
-        max_tokens: iMaxTokens,
-        user: sUserId,
-        temperature:  dTemperature,
-        frequency_penalty: 0.0, //Number between -2.0 and 2.0  
-                                //Positive values decrease the model's likelihood 
-                                //to repeat the same line verbatim.
-        presence_penalty: 0.0,  //Number between -2.0 and 2.0. 
-                                //Positive values increase the model's likelihood 
-                                //to talk about new topics.
-        stop: ["#", ";"]        //Up to 4 sequences where the API will stop 
-                                //generating further tokens. The returned text 
-                                //will not contain the stop sequence.
-    }
-
-    oHttp.send(JSON.stringify(data));
-
-    if (txtOutput.value != "") txtOutput.value += "\n";
-    txtOutput.value += "Me: " + sQuestion;
-    txtMsg.value = "";
-}
-
-function TextToSpeech(s) {
-    if (bTextToSpeechSupported == false) return;
-    if (chkMute.checked) return;
-
-    oSpeechSynthesisUtterance = new SpeechSynthesisUtterance();
-
-    if (oVoices) {
-        var sVoice = selVoices.value;
-        if (sVoice != "") {
-            oSpeechSynthesisUtterance.voice = oVoices[parseInt(sVoice)];
-        }        
-    }    
-
-    oSpeechSynthesisUtterance.onend = function () {
-        //finished talking - can now listen
-        if (oSpeechRecognizer && chkSpeak.checked) {
-            oSpeechRecognizer.start();
-        }
-    }
-
-    if (oSpeechRecognizer && chkSpeak.checked) {
-        //do not listen to yourself when talking
-        oSpeechRecognizer.stop();
-    }
-
-    oSpeechSynthesisUtterance.lang = selLang.value;
-    oSpeechSynthesisUtterance.text = s;
-    //Uncaught (in promise) Error: A listener indicated an 
-    //asynchronous response by returning true, but the message channel closed 
-    window.speechSynthesis.speak(oSpeechSynthesisUtterance);
-}
-
-function Mute(b) {
-    if (b) {
-        selVoices.style.display = "none";
-    } else {
-        selVoices.style.display = "";
-    }
-}
-
-function SpeechToText() {
-
-    if (oSpeechRecognizer) {
-
-        if (chkSpeak.checked) {
-            oSpeechRecognizer.start();
-        } else {
-            oSpeechRecognizer.stop();
-        }
-
-        return;
-    }    
-
-    oSpeechRecognizer = new webkitSpeechRecognition();
-    oSpeechRecognizer.continuous = true;
-    oSpeechRecognizer.interimResults = true;
-    oSpeechRecognizer.lang = selLang.value;
-    oSpeechRecognizer.start();
-
-    oSpeechRecognizer.onresult = function (event) {
-        var interimTranscripts = "";
-        for (var i = event.resultIndex; i < event.results.length; i++) {
-            var transcript = event.results[i][0].transcript;
-
-            if (event.results[i].isFinal) {
-                txtMsg.value = transcript;
-                Send();
-            } else {
-                transcript.replace("\n", "<br>");
-                interimTranscripts += transcript;
+            .dropdown-menu a {
+                font-size: 16px;
+                padding: 14px 16px;
+                white-space: nowrap;
             }
-
-            var oDiv = document.getElementById("idText");
-            oDiv.innerHTML = '<span style="color: #999;">' + 
-                               interimTranscripts + '</span>';
+            .qr-code img {
+                max-width: 325px;
+            }
         }
-    };
+        
+        /* Специальные стили для iOS */
+        @supports (-webkit-touch-callout: none) {
+            .dropdown-menu a {
+                -webkit-font-smoothing: antialiased;
+                -webkit-text-size-adjust: 100%;
+            }
+            .menu-button {
+                -webkit-font-smoothing: antialiased;
+                -webkit-text-size-adjust: 100%;
+            }
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        @supports (-webkit-touch-callout: none) {
+            .text, .iam {
+                -webkit-font-smoothing: subpixel-antialiased;
+            }
+        }
+    </style>
 
-    oSpeechRecognizer.onerror = function (event) {
 
-    };
+
+<style>.fixed-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0px; right: 0;
+  display: flex;
+  justify-content: center; /* горизонтальное центрирование */
+  padding: 35px;
+  pointer-events: none; /* чтобы клики не блокировались, если нужно */
+}.fixed-block {
+  pointer-events: auto;
+  font-family: Montserrat, monospace!important;
+  font-size: 13px;
+  color: #57fc9d;
+  white-space: nowrap;
+  text-align: center;
+}.fixed-block a {
+  color: #57fc9d;
+  text-decoration: none;
+  display: block;
 }
+</style>
+
+
+
+<style>
+  body.no-scroll {
+    overflow-y: scroll; /* сохраняем полосу прокрутки */
+    position: fixed;
+    width: 100%;
+    top: calc(-1 * var(--scroll-position));
+  }
+</style>
+
+
+
+
+
+</head>
+<body>
+
+
+
+
+
+
+
+<div class="fixed-wrapper">
+  <div class="fixed-block">
+   <a href="https://www.emiia.ai/">Copyright © 2025 EMIIA LLC. All rights reserved.</a>
+  </div>
+</div>
+
+
+
+
+
+
+    <div class="container">
+        <div class="text-container">
+            <div class="iam">
+<svg xmlns="http://www.w3.org/2000/svg" width="310.702" height="94" viewBox="0 0 66.067 11.642">
+<g aria-label="EMIIA.AI" style="line-height:1.25;-inkscape-font-specification:Montserrat" font-weight="400" font-size="107.126" font-family="Orbitron" letter-spacing="0" word-spacing="0" fill="#57fc9d" stroke-width="1.75">
+<path d="M10.66 0v1.31H1.313v3.848h7.512v1.326H1.314v3.848h9.345v1.31H0V0zM18.566 5.756L23.416 0h1.801v11.642h-1.314V1.488L18.566 7.81l-5.338-6.322v10.154h-1.314V0h1.8zM26.981 11.642V0h1.315v11.642zM30.562 11.642V0h1.314v11.642zM36.106 0h7.787q.812 0 1.38.566.567.566.567 1.374v9.702h-1.314V7.389h-9.053v4.253H34.16V1.94q0-.808.568-1.374Q35.295 0 36.106 0zm-.633 6.08h9.053V1.94q0-.258-.194-.436-.179-.194-.439-.194h-7.787q-.26 0-.454.194-.179.178-.179.436zM48.987 10.316v1.326h-1.33v-1.326zM53.154 0h7.787q.812 0 1.38.566.567.566.567 1.374v9.702h-1.314V7.389h-9.053v4.253h-1.314V1.94q0-.808.568-1.374Q52.343 0 53.154 0zm-.633 6.08h9.053V1.94q0-.258-.195-.436-.178-.194-.438-.194h-7.787q-.26 0-.454.194-.179.178-.179.436zM64.753 11.642V0h1.314v11.642z" style="-inkscape-font-specification:Orbitron"/></g>
+</svg>
+</div>
+            <span class="text"></span>
+        </div>
+        
+        <!-- Кнопка меню и выпадающий список -->
+        <div class="menu-container">
+            <button class="menu-button">&ensp;&ensp;МАТЕРИАЛЫ ПРОЕКТА/DATA&ensp;&ensp;</button>
+            <div class="dropdown-menu"> <!-- УБРАН класс show - меню изначально видимо -->
+                <a href="https://www.emiia.ru/">ИНТЕРНЕТ-РЕСУРС RU </a>
+                <a href="https://www.emiia.ai/">INTERNET RESOURCE EN&ensp;&ensp;&ensp;</a>
+                <a href="https://www.emiia.ru/emiia_ai_ru_v1.pdf">ПРЕЗЕНТАЦИЯ RU&ensp;&ensp;&ensp;&ensp;</a>
+                <a href="https://www.emiia.ai/emiia_ai_en_v1.pdf">PRESENTATION EN</a>
+                <a href="https://www.emiia.ru/investmentprop.pdf">ИНВЕСТПРЕДЛОЖЕНИЕ RU&ensp;&ensp;&ensp;&ensp;&ensp;</a>
+                <a href="https://www.emiia.ai/investmentprop_en.pdf">INVESTMENT PROPOSAL EN</a>
+                <a href="#QR" class="qr-link">QR</a>
+            </div>
+        </div>
+        
+        <!-- QR-код -->
+        <div class="qr-code hidden" id="qrCode"> <!-- Добавлен класс hidden -->
+            <img src="https://sos.emiia.ai/QR-01.png" alt="QR Code">
+        </div>
+    </div>
+</body>
+
+
+
+
+<script>
+  // Отключаем авто-восстановление позиции прокрутки браузером
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  var typing = new Typed(".text", {
+    strings: [" ПРОСТРАНСТВЕННЫЙ ИНТЕЛЛЕКТ", " SPATIAL INTELLIGENCE"],
+    typeSpeed: 100,
+    backSpeed: 40,
+    loop: true,
+    cursorChar: '_',
+    startDelay: 500,
+    fadeOut: false,
+    shuffle: false,
+    backDelay: 1500,
+    smartBackspace: true,
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuButton = document.querySelector('.menu-button');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const qrCode = document.getElementById('qrCode');
+    const qrLink = document.querySelector('.qr-link');
+
+    dropdownMenu.classList.remove('hidden');
+    qrCode.classList.add('hidden');
+
+    function toggleMenu() {
+      const isMenuVisible =!dropdownMenu.classList.contains('hidden');
+      if (isMenuVisible) {
+        dropdownMenu.classList.add('hidden');
+        qrCode.classList.remove('hidden');
+      } else {
+        dropdownMenu.classList.remove('hidden');
+        qrCode.classList.add('hidden');
+      }
+    }
+
+    menuButton.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    qrLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      dropdownMenu.classList.add('hidden');
+      qrCode.classList.remove('hidden');
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!dropdownMenu.contains(e.target) && e.target!== menuButton) {
+        dropdownMenu.classList.add('hidden');
+        qrCode.classList.remove('hidden');
+      }
+    });
+
+    dropdownMenu.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+
+    // При возврате назад сбрасываем скролл вручную (если надо)
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) {
+        window.scrollTo(0, 0);
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+
+<script>
+  // Функция отключения прокрутки и сохранения позиции
+  function disableScroll() {
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
+    document.documentElement.style.setProperty('--scroll-position', `${scrollY}px`);
+    document.body.classList.add('no-scroll');
+  }
+
+  // Функция включения прокрутки и возврата позиции
+  function enableScroll() {
+    const scrollY = document.documentElement.style.getPropertyValue('--scroll-position');
+    document.body.classList.remove('no-scroll');
+    document.documentElement.style.removeProperty('--scroll-position');
+    window.scrollTo(0, parseInt(scrollY || '0'));
+  }
+
+  // Пример использования: отключаем прокрутку сразу
+  disableScroll();
+
+  // Если нужно вернуть прокрутку, вызывай enableScroll()
+</script>
+
+
+
+
+
+
+</html>
+
