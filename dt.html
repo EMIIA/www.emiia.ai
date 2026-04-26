@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     
     <!-- iPhone notch + прозрачный статус-бар -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+
+
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
@@ -65,18 +71,34 @@
             padding: 0 !important;
         }
 
-        /* === 4. КОМПАС: ИСПРАВЛЕНИЕ ПОЗИЦИИ === */
-        /* Используем !important и специфичный селектор, чтобы перебить JS */
         #custom-compass {
-            position: absolute;
-            /* Опускаем ниже выреза: базовый отступ + безопасная зона */
-            top: calc(20px + env(safe-area-inset-top)) !important;
-            left: 20px !important; /* Левый отступ */
-            bottom: auto !important; /* Сброс привязки к низу */
-            right: auto !important;  /* Сброс привязки к правому краю */
-            transform: none !important; /* Отменяем центрирование transform */
-            z-index: 1000;
-        }
+    position: fixed !important;  /* КЛЮЧЕВОЕ ИЗМЕНЕНИЕ: fixed вместо absolute */
+    top: calc(20px + env(safe-area-inset-top, 20px)) !important;
+    left: 20px !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    border-radius: 44px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+}
+
+/* Добавьте это в самый конец CSS для надёжности */
+body {
+    background: transparent !important;
+}
+
+
 
         /* === 5. МЕНЮ (ВНИЗУ) === */
         #controls {
@@ -1811,7 +1833,14 @@ if (map && map.loaded()) {
 
 
 
+document.body.style.margin = '0';
+document.body.style.padding = '0';
+document.documentElement.style.margin = '0';
+document.documentElement.style.padding = '0';
 
+// Не меняйте существующий код, просто ДОБАВЬТЕ эти 2 строки
+document.body.style.backgroundColor = 'transparent';
+document.documentElement.style.backgroundColor = 'transparent';
 
 
 
