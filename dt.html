@@ -22,34 +22,37 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <style>
-        /* === 1. ГЛОБАЛЬНАЯ ОСНОВА === */
+ 
+
+
+    <style>
+        /* === 1. ГЛОБАЛЬНЫЙ СБРОС (Убираем полосы) === */
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
             overflow: hidden;
-            /* Прозрачный фон, чтобы не было "полос" */
-            background: transparent !important;
+            background: transparent !important; /* Фон прозрачный, чтобы не было полос */
         }
 
-        /* === 2. КАРТА: ЗАХОДИТ ПОД ВЫРЕЗ (FIXED) === */
+        /* === 2. КАРТА: ЗАХОДИТ ПОД ВЫРЕЗ === */
         #map {
-            position: fixed !important; /* Fixed привязывается к окну, игнорируя отступы body */
+            position: fixed !important; /* Жесткая фиксация относительно окна */
             top: 0 !important;          /* Прижимаем к самому верху, ЗАХОДЯ под вырез */
             left: 0;
             right: 0;
             bottom: 0;
             width: 100vw;
-            height: 100vh; /* Можно 100dvh для современных браузеров */
+            height: 100vh; 
+            height: 100dvh; /* Динамическая высота для Safari */
             margin: 0 !important;
-            padding: 0 !important; /* Убираем отступы */
-            background: #f8f9fa;
+            padding: 0 !important;       /* Убираем отступы */
+            background: #f8f9fa;        /* Цвет карты */
         }
 
         /* === 3. ВНУТРЕННИЕ ЭЛЕМЕНТЫ MAPBOX (КРИТИЧЕСКИ ВАЖНО) === */
-        /* Иногда Mapbox добавляет отступы на свои контейнеры. Форсируем 100% */
+        /* Форсируем растяжку холста на весь контейнер */
         .mapboxgl-map,
         .mapboxgl-canvas-container,
         .mapboxgl-canvas {
@@ -62,14 +65,17 @@
             padding: 0 !important;
         }
 
-        /* === 4. КОМПАС (ОПУСКАЕМ НИЖЕ ВЫРЕЗА) === */
+        /* === 4. КОМПАС: ИСПРАВЛЕНИЕ ПОЗИЦИИ === */
+        /* Используем !important и специфичный селектор, чтобы перебить JS */
         #custom-compass {
             position: absolute;
-            /* Сдвигаем вниз на высоту выреза + отступ */
+            /* Опускаем ниже выреза: базовый отступ + безопасная зона */
             top: calc(20px + env(safe-area-inset-top)) !important;
-            left: 20px;
+            left: 20px !important; /* Левый отступ */
+            bottom: auto !important; /* Сброс привязки к низу */
+            right: auto !important;  /* Сброс привязки к правому краю */
+            transform: none !important; /* Отменяем центрирование transform */
             z-index: 1000;
-            /* transform оставляем пустым, JS сам повернет иконку */
         }
 
         /* === 5. МЕНЮ (ВНИЗУ) === */
@@ -101,7 +107,7 @@
             right: 5%; 
         }
 
-        /* === 7. АДАПТИВ ДЛЯ МОБИЛЬНЫХ === */
+        /* === АДАПТИВ ДЛЯ МОБИЛЬНЫХ === */
         @media (max-width: 768px) {
             #controls {
                 bottom: calc(17px + env(safe-area-inset-bottom)) !important;
@@ -115,42 +121,13 @@
                 bottom: calc(0px + env(safe-area-inset-bottom)); 
                 right: 1%; 
             }
-        }
-    </style>
-
-    <script>
-        (function () {
-            if (window.Telegram && window.Telegram.WebApp) {
-                window.Telegram.WebApp.ready();
-                window.Telegram.WebApp.expand();
-            } else {
-                // fallback для обычного браузера
-                document.addEventListener('DOMContentLoaded', function() {
-                    document.body.style.height = window.innerHeight + 'px';
-                    setTimeout(function() {
-                        window.scrollTo(0, 0);
-                    }, 100);
-                });
+            /* На мобильных чуть опускаем компас */
+            #custom-compass {
+                top: calc(25px + env(safe-area-inset-top)) !important;
+                left: 15px !important;
             }
-        })();
-    </script>
-
-    <style>
-        .header1 { 
-            padding: 0rem; 
-            position: fixed; 
-            bottom: calc(50px + env(safe-area-inset-bottom)); 
-            z-index: 20000; 
-            right: 5%; 
-        }
-        @media (max-width: 768px) { 
-            .header1 { 
-                bottom: calc(0px + env(safe-area-inset-bottom)); 
-                right: 1%; 
-            } 
         }
     </style>
-
 
 
 
@@ -1548,8 +1525,9 @@ function createPulseElement() {
 
 // Найдите функцию createCustomCompass() и замените её полностью:
 
+
+
 function createCustomCompass() {
-    // Удаляем старый компас если есть
     const oldCompass = document.getElementById('custom-compass');
     if (oldCompass) {
         oldCompass.remove();
@@ -1559,31 +1537,15 @@ function createCustomCompass() {
     compass.id = 'custom-compass';
     
     compass.innerHTML = `
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="compass-icon"
-            stroke-linejoin="round"
-            stroke-linecap="round"
-            stroke-width="0.8"
-            stroke="#3d85c6"
-            stroke-opacity="0.8"
-            viewBox="0 0 15 15"
-            fill="transparent"
-            height="20"
-            width="20">
-            <path
-                fill="transparent"
-                stroke="#3d85c6"
-                stroke-width="2"
-                id="compass-path"
-                d="M 8.0541549,2.4921492 A 0.5,0.40619867 0 0 1 8.521609,2.7520459 l 5.03092,10.5515841 a 0.5,0.40619867 0 0 1 -0.651832,0.524015 L 8.0828433,12.271588 3.272759,13.846285 A 0.5,0.40619867 0 0 1 2.6192748,13.324799 L 7.5882307,2.753853 A 0.5,0.40619867 0 0 1 8.0534494,2.4927249 Z" />
+        <svg xmlns="http://www.w3.org/2000/svg" class="compass-icon" stroke-linejoin="round" stroke-linecap="round" stroke-width="0.8" stroke="#3d85c6" stroke-opacity="0.8" viewBox="0 0 15 15" fill="transparent" height="20" width="20">
+            <path fill="transparent" stroke="#3d85c6" stroke-width="2" id="compass-path" d="M 8.0541549,2.4921492 A 0.5,0.40619867 0 0 1 8.521609,2.7520459 l 5.03092,10.5515841 a 0.5,0.40619867 0 0 1 -0.651832,0.524015 L 8.0828433,12.271588 3.272759,13.846285 A 0.5,0.40619867 0 0 1 2.6192748,13.324799 L 7.5882307,2.753853 A 0.5,0.40619867 0 0 1 8.0534494,2.4927249 Z" />
         </svg>
     `;
     
+    // ВАЖНО: Не задаем top/bottom/transform здесь! CSS сделает это через !important.
+    // Задаем только визуальные стили и базовые.
     compass.style.cssText = `
         position: absolute;
-        top: 40%;
-        left: 20px;
         width: 40px;
         height: 40px;
         background: transparent;
@@ -1593,22 +1555,21 @@ function createCustomCompass() {
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 1; /* Низкий z-index, т.к. он ВНУТРИ карты */
+        z-index: 1;
         transition: all 0.3s ease;
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-50%);
     `;
 
     compass.addEventListener('click', handleCompassClick);
     compass.title = 'Показать мое местоположение';
 
-    // === КЛЮЧЕВОЕ ИЗМЕНЕНИЕ: Добавляем в контейнер карты, а не в body ===
+    // Добавляем компас ВНУТРЬ карты
     const mapContainer = document.getElementById('map');
     if (mapContainer) {
         mapContainer.appendChild(compass);
     } else {
-        document.body.appendChild(compass); // Fallback
+        document.body.appendChild(compass); 
     }
     
     return compass;
