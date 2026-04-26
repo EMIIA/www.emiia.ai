@@ -39,32 +39,28 @@
 
 
         <style>
-        /* === 1. ОСНОВА (Убираем серую полосу) === */
-   
+/* === ГЛАВНОЕ: принудительное растягивание === */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    /* Убираем background: transparent - он не работает в Safari */
+    background: transparent !important;
 }
 
-    /* === 2. КАРТА (Заходит под вырез) === */
 #map {
     position: fixed !important;
     top: 0 !important;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    height: 100dvh;
-    /* УБИРАЕМ background - это ключевое отличие! */
+    left: 0 !important;
+    width: 100% !important;
+    height: 100dvh !important;  /* КЛЮЧ: динамическая высота */
     margin: 0 !important;
     padding: 0 !important;
+    background: transparent !important;
 }
 
-
-/* Эти классы уже должны быть - проверьте */
+/* ПРИНУДИТЕЛЬНОЕ РАСТЯГИВАНИЕ CANVAS MAPBOX */
 .mapboxgl-map,
 .mapboxgl-canvas-container,
 .mapboxgl-canvas {
@@ -73,17 +69,16 @@ html, body {
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
+    background: transparent !important;
 }
 
-
-        /* Компас - опускаем ниже статус-бара */
+/* КОМПАС — сдвигаем вниз под статус-бар */
 #custom-compass {
-    position: absolute !important;
+    position: fixed !important;
     top: calc(20px + env(safe-area-inset-top, 20px)) !important;
     left: 20px !important;
-    z-index: 1000;
+    z-index: 10000 !important;
 }
-
 
 
         /* === 4. МЕНЮ === */
