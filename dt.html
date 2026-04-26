@@ -31,6 +31,37 @@
  
 
 
+
+<script>
+// ФИКС ПРОЗРАЧНОСТИ ДЛЯ TELEGRAM WEBAPP НА IPHONE
+(function() {
+    // Принудительно устанавливаем прозрачный фон для Telegram WebApp
+    if (window.Telegram && window.Telegram.WebApp) {
+        const tg = window.Telegram.WebApp;
+        tg.ready();
+        tg.expand();
+        // Эти две строки решают проблему с белой полосой
+        tg.setHeaderColor('bg_color');
+        tg.setBackgroundColor('bg_color');
+    }
+    
+    // Также добавляем прозрачный фон для body на случай, если Telegram не прогрузился
+    setTimeout(function() {
+        document.body.style.backgroundColor = 'transparent';
+        document.documentElement.style.backgroundColor = 'transparent';
+        
+        // Убираем возможные белые полосы у карты
+        const mapElement = document.getElementById('map');
+        if (mapElement) {
+            mapElement.style.backgroundColor = 'transparent';
+        }
+    }, 100);
+})();
+</script>
+
+
+
+
         <style>
         /* === 1. ОСНОВА (Убираем серую полосу) === */
         html, body {
