@@ -1785,7 +1785,44 @@ function initializeMap() {
 
 
 
+// Форсированное растягивание карты (уберет серую полосу)
+function forceMapFullscreen() {
+    setTimeout(() => {
+        const canvas = map.getCanvas();
+        const container = map.getContainer();
+        
+        // Принудительно сбрасываем все отступы, которые добавляет Mapbox
+        canvas.style.margin = '0';
+        canvas.style.padding = '0';
+        canvas.style.position = 'absolute';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        
+        container.style.margin = '0';
+        container.style.padding = '0';
+        container.style.overflow = 'hidden';
+        
+        // Ключевой момент: растягиваем контейнер за пределы экрана
+        container.style.position = 'fixed';
+        container.style.top = '-50px';
+        container.style.bottom = '-50px';
+        container.style.left = '-50px';
+        container.style.right = '-50px';
+        container.style.width = 'calc(100% + 100px)';
+        container.style.height = 'calc(100% + 100px)';
+        
+        map.resize();
+    }, 100);
+}
 
+// Вызываем после загрузки карты
+map.on('load', () => {
+    forceMapFullscreen();
+    map.on('styledata', forceMapFullscreen);
+    map.on('moveend', forceMapFullscreen);
+});
 
 
 
