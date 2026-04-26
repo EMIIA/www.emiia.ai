@@ -26,18 +26,20 @@
 
 
 
+
     <style>
-        /* === ПРОЗРАЧНЫЙ ФОН И ПОЛНОЭКРАННАЯ КАРТА === */
+        /* === 1. ОСНОВА: ПРОЗРАЧНОСТЬ И ПОЛНЫЙ ЭКРАН === */
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
             overflow: hidden;
-            background: transparent !important;
+            /* Важно: фон прозрачный, чтобы видеть карту под вырезом */
+            background: transparent !important; 
         }
-        
-        /* Карта на ВЕСЬ экран, ЗАХОДИТ под вырез */
+
+        /* === 2. КАРТА: ЗАХОДИТ ПОД ВЫРЕЗ === */
         #map {
             position: fixed;
             top: 0;
@@ -46,18 +48,25 @@
             bottom: 0;
             width: 100vw;
             height: 100vh;
-            height: 100dvh; /* Динамическая высота для iOS Safari */
-            background: #f8f9fa;
+            height: 100dvh; /* Корректная высота на iPhone */
+            
+            /* ГЛАВНОЕ ИСПРАВЛЕНИЕ: Убираем отступ сверху! */
+            padding: 0 !important; 
             margin: 0 !important;
-            padding: 0 !important; /* УБИРАЕМ padding-top, чтобы карта ушла под вырез */
+            
+            background: #f8f9fa;
         }
-        
-        /* Контролы — ВНИЗУ экрана (как в оригинале) */
+
+        /* === 3. МЕНЮ (ВНИЗУ СЛЕВА) === */
+        /* Возвращаем позиционирование снизу, как в оригинале */
         #controls {
             position: fixed;
-            bottom: calc(70px + env(safe-area-inset-bottom)); /* Отступ от нижней безопасной зоны */
+            /* Привязка к низу + безопасная зона iPhone (Home Indicator) */
+            bottom: calc(70px + env(safe-area-inset-bottom)); 
             left: 25px;
             z-index: 1000;
+            
+            /* Визуальные стили из вашего оригинала */
             background: rgba(255, 255, 255, 0.95);
             padding: 20px;
             border-radius: 38px;
@@ -68,27 +77,36 @@
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
             overflow: hidden;
-            transform-origin: bottom left; /* Анимация от левого нижнего угла */
+            transform-origin: bottom left; /* Анимация от угла */
             padding-bottom: 0 !important;
         }
-        
-        /* Логотип — внизу справа */
+
+        /* === 4. КОМПАС (ВВЕРХУ СЛЕВА) === */
+        /* Исправляем проблему, когда он "улетел" вверх */
+        #custom-compass {
+            position: absolute; /* Он внутри #map, поэтому absolute */
+            
+            /* Опускаем его НИЖЕ выреза с запасом */
+            top: calc(15px + env(safe-area-inset-top)) !important; 
+            
+            left: 20px;
+            z-index: 1000; /* Чтобы был поверх карты */
+            
+            /* Центрируем по вертикали относительно точки привязки */
+            transform: translateY(0) !important; 
+        }
+
+        /* === 5. ЛОГОТИП (ВНИЗУ СПРАВА) === */
         .header1 { 
             padding: 0; 
             position: fixed; 
+            /* Безопасная зона снизу */
             bottom: calc(50px + env(safe-area-inset-bottom)); 
             z-index: 20000; 
             right: 5%; 
         }
 
-        /* Компас — если он absolute внутри #map, достаточно просто опустить его под вырез */
-        #custom-compass {
-            position: absolute;
-            /* top задается через JS, но можно перебить здесь для безопасности */
-            top: calc(20px + env(safe-area-inset-top)) !important;
-            left: 20px;
-        }
-
+        /* === АДАПТИВ ДЛЯ МОБИЛЬНЫХ === */
         @media (max-width: 768px) {
             #controls {
                 bottom: calc(17px + env(safe-area-inset-bottom)) !important;
@@ -103,17 +121,13 @@
                 right: 1%; 
             }
         }
-
-        /* Остальные ваши стили... */
-        .custom-option { padding: 12px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-      
+        
+        /* Остальные ваши стили (для маркеров, попапов и т.д.) оставьте без изменений */
     </style>
 
 
 
 
-
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
     <script>
         (function () {
