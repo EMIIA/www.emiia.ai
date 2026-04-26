@@ -22,8 +22,12 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+
+
+
+
     <style>
-        /* === ПРОЗРАЧНЫЙ ФОН ПОД ВЫРЕЗОМ === */
+        /* === ПРОЗРАЧНЫЙ ФОН И ПОЛНОЭКРАННАЯ КАРТА === */
         html, body {
             margin: 0;
             padding: 0;
@@ -33,7 +37,7 @@
             background: transparent !important;
         }
         
-        /* Карта на весь экран включая вырез */
+        /* Карта на ВЕСЬ экран, ЗАХОДИТ под вырез */
         #map {
             position: fixed;
             top: 0;
@@ -42,32 +46,72 @@
             bottom: 0;
             width: 100vw;
             height: 100vh;
-            height: -webkit-fill-available;
+            height: 100dvh; /* Динамическая высота для iOS Safari */
             background: #f8f9fa;
             margin: 0 !important;
-            padding: 0 !important;
-            /* Safe area — контент не под вырез, но фон виден */
-            padding-top: env(safe-area-inset-top);
-            padding-bottom: env(safe-area-inset-bottom);
-            padding-left: env(safe-area-inset-left);
-            padding-right: env(safe-area-inset-right);
+            padding: 0 !important; /* УБИРАЕМ padding-top, чтобы карта ушла под вырез */
         }
         
-        /* Контролы с отступом от выреза */
+        /* Контролы — ВНИЗУ экрана (как в оригинале) */
         #controls {
             position: fixed;
-            bottom: calc(70px + env(safe-area-inset-bottom));
+            bottom: calc(70px + env(safe-area-inset-bottom)); /* Отступ от нижней безопасной зоны */
             left: 25px;
             z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 38px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            max-width: 280px;
+            min-width: 280px;
+            max-height: 80vh;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            transform-origin: bottom left; /* Анимация от левого нижнего угла */
+            padding-bottom: 0 !important;
         }
         
+        /* Логотип — внизу справа */
+        .header1 { 
+            padding: 0; 
+            position: fixed; 
+            bottom: calc(50px + env(safe-area-inset-bottom)); 
+            z-index: 20000; 
+            right: 5%; 
+        }
+
+        /* Компас — если он absolute внутри #map, достаточно просто опустить его под вырез */
+        #custom-compass {
+            position: absolute;
+            /* top задается через JS, но можно перебить здесь для безопасности */
+            top: calc(20px + env(safe-area-inset-top)) !important;
+            left: 20px;
+        }
+
         @media (max-width: 768px) {
             #controls {
                 bottom: calc(17px + env(safe-area-inset-bottom)) !important;
                 left: 29px !important;
+                padding-bottom: 20px;
+                box-sizing: border-box;
+                margin-bottom: 0 !important;
+                overflow-y: auto;
+            }
+            .header1 { 
+                bottom: calc(0px + env(safe-area-inset-bottom)); 
+                right: 1%; 
             }
         }
+
+        /* Остальные ваши стили... */
+        .custom-option { padding: 12px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+      
     </style>
+
+
+
+
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
