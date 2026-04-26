@@ -22,45 +22,62 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <style>
-        /* === 1. ОСНОВА: ПРОЗРАЧНОСТЬ И ПОЛНЫЙ ЭКРАН === */
+        <style>
+        /* === 1. ГЛОБАЛЬНАЯ ОСНОВА === */
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
             overflow: hidden;
-            /* Глобальный прозрачный фон для эффекта под вырезом */
-            background: transparent !important; 
+            /* Прозрачный фон, чтобы не было "полос" */
+            background: transparent !important;
         }
 
-        /* === 2. КАРТА: ЗАХОДИТ ПОД ВЫРЕЗ === */
+        /* === 2. КАРТА: ЗАХОДИТ ПОД ВЫРЕЗ (FIXED) === */
         #map {
-            position: fixed;
-            top: 0;
+            position: fixed !important; /* Fixed привязывается к окну, игнорируя отступы body */
+            top: 0 !important;          /* Прижимаем к самому верху, ЗАХОДЯ под вырез */
             left: 0;
             right: 0;
             bottom: 0;
             width: 100vw;
-            height: 100vh;
-            height: 100dvh; /* Корректная высота на iPhone */
-            
-            /* ГЛАВНОЕ ИСПРАВЛЕНИЕ: Убираем отступ сверху! */
-            padding: 0 !important; 
+            height: 100vh; /* Можно 100dvh для современных браузеров */
             margin: 0 !important;
-            
+            padding: 0 !important; /* Убираем отступы */
             background: #f8f9fa;
         }
 
-        /* === 3. МЕНЮ (ВНИЗУ СЛЕВА) === */
+        /* === 3. ВНУТРЕННИЕ ЭЛЕМЕНТЫ MAPBOX (КРИТИЧЕСКИ ВАЖНО) === */
+        /* Иногда Mapbox добавляет отступы на свои контейнеры. Форсируем 100% */
+        .mapboxgl-map,
+        .mapboxgl-canvas-container,
+        .mapboxgl-canvas {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* === 4. КОМПАС (ОПУСКАЕМ НИЖЕ ВЫРЕЗА) === */
+        #custom-compass {
+            position: absolute;
+            /* Сдвигаем вниз на высоту выреза + отступ */
+            top: calc(20px + env(safe-area-inset-top)) !important;
+            left: 20px;
+            z-index: 1000;
+            /* transform оставляем пустым, JS сам повернет иконку */
+        }
+
+        /* === 5. МЕНЮ (ВНИЗУ) === */
         #controls {
             position: fixed;
-            /* Привязка к низу + безопасная зона iPhone (Home Indicator) */
-            bottom: calc(70px + env(safe-area-inset-bottom)); 
+            bottom: calc(70px + env(safe-area-inset-bottom));
             left: 25px;
             z-index: 1000;
-            
-            /* Визуальные стили */
             background: rgba(255, 255, 255, 0.95);
             padding: 20px;
             border-radius: 38px;
@@ -75,32 +92,16 @@
             padding-bottom: 0 !important;
         }
 
-        /* === 4. КОМПАС (ВВЕРХУ СЛЕВА) === */
-        /* Используем absolute, так как он внутри #map */
-        #custom-compass {
-            position: absolute; 
-            
-            /* Опускаем компас НИЖЕ выреза. 
-               25px - визуальный отступ, safe-area-inset-top - высота "челки" */
-            top: calc(25px + env(safe-area-inset-top)) !important; 
-            
-            left: 20px;
-            z-index: 1000;
-            
-            /* ВАЖНО: Здесь НЕ трогаем transform, чтобы JS мог управлять поворотом компаса */
-        }
-
-        /* === 5. ЛОГОТИП (ВНИЗУ СПРАВА) === */
+        /* === 6. ЛОГОТИП (ВНИЗУ СПРАВА) === */
         .header1 { 
             padding: 0; 
             position: fixed; 
-            /* Безопасная зона снизу */
-            bottom: calc(50px + env(safe-area-inset-bottom)); 
+            bottom: calc(50px + env(safe-area-inset-bottom));
             z-index: 20000; 
             right: 5%; 
         }
 
-        /* === АДАПТИВ ДЛЯ МОБИЛЬНЫХ === */
+        /* === 7. АДАПТИВ ДЛЯ МОБИЛЬНЫХ === */
         @media (max-width: 768px) {
             #controls {
                 bottom: calc(17px + env(safe-area-inset-bottom)) !important;
