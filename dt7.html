@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- ПРАВИЛЬНАЯ ССЫЛКА НА МАНИФЕСТ (как в твоём примере) -->
+    <link rel="manifest" href="https://sos.emiia.ai/manifest.json">
+    
+    <title>Тест прозрачности — EMIIA.AI</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: transparent !important;
+            overflow: hidden;
+        }
+        
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .test-circle {
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            font-family: system-ui, -apple-system, sans-serif;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .test-text {
+            margin-top: 30px;
+            color: white;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 18px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .status-test {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: rgba(255, 0, 0, 0.6);
+            z-index: 99999;
+            pointer-events: none;
+        }
+        
+        .instruction {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-family: system-ui, monospace;
+            font-size: 11px;
+            background: rgba(0,0,0,0.5);
+            padding: 8px;
+            z-index: 99999;
+        }
+    </style>
+</head>
+<body>
+    <div class="status-test"></div>
+    
+    <div class="fullscreen">
+        <div class="test-circle">
+            ✅
+        </div>
+        <div class="test-text">
+            Если красная полоса<br>видна ПОД часами и батареей<br>→ прозрачность РАБОТАЕТ
+        </div>
+    </div>
+    
+    <div class="instruction">
+        Красная полоса — тестовая. Она должна быть ВИДНА под статус-баром
+    </div>
+    
+    <script>
+        document.body.style.margin = '0';
+        document.body.style.padding = '0';
+        document.documentElement.style.margin = '0';
+        document.documentElement.style.padding = '0';
+    </script>
+</body>
+</html>
