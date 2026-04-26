@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="https://sos.emiia.ai/manifest.json">
+    <title>EMIIA.AI — полная прозрачность</title>
+    
+    <style>
+        /* ЖЁСТКИЙ СБРОС */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* ПОЛНОЕ ИГНОРИРОВАНИЕ SAFE AREA СНИЗУ */
+        html, body {
+            margin: 0;
+            padding: 
+                env(safe-area-inset-top) 
+                env(safe-area-inset-right) 
+                0px
+                env(safe-area-inset-left);
+            width: 100%;
+            height: 100%;
+            background: transparent !important;
+            overflow-x: hidden;
+        }
+        
+        /* ОСНОВНОЙ КОНТЕЙНЕР - ВЕСЬ ЭКРАН */
+        .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding-bottom: 50px;
+        }
+        
+        /* КОНТЕНТ КОТОРЫЙ ПРОКРУЧИВАЕТСЯ */
+        .scrollable-content {
+            padding: 20px;
+            padding-top: calc(60px + env(safe-area-inset-top, 20px));
+        }
+        
+        /* КАРТОЧКИ ДЛЯ ПРИМЕРА */
+        .card {
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h2 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        .card p {
+            color: #333;
+            line-height: 1.5;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        /* ТЕСТОВЫЙ ЭЛЕМЕНТ В САМОМ НИЗУ - ДОЛЖЕН БЫТЬ ВИДЕН */
+        .bottom-test {
+            background: rgba(255,0,0,0.8);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-family: monospace;
+        }
+        
+        /* ЗАГОЛОВОК В САМОМ ВЕРХУ */
+        .top-test {
+            position: fixed;
+            top: calc(10px + env(safe-area-inset-top, 10px));
+            left: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 14px;
+            font-family: monospace;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            pointer-events: none;
+        }
+        
+        /* ИНСТРУКЦИЯ */
+        .instruction {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: #0f0;
+            font-family: monospace;
+            font-size: 10px;
+            padding: 6px;
+            text-align: center;
+            border-radius: 10px;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="scrollable-content">
+            
+            <!-- ПЕРВЫЙ ЭЛЕМЕНТ - ВИДЕН ПОД СТАТУС-БАРОМ -->
+            <div class="card">
+                <h2>✅ Этот блок виден ПОД статус-баром</h2>
+                <p>Он начинается сразу под часами и батареей. Без отступа! Если вы видите этот текст вплотную к верхнему краю — прозрачность работает.</p>
+            </div>
+            
+            <div class="card">
+                <h2>📱 Прокручиваемый контент</h2>
+                <p>Мы тестируем полную прозрачность — сверху и снизу. Листайте дальше, чтобы увидеть нижний тестовый блок.</p>
+            </div>
+            
+            <div class="card">
+                <h2>🎯 Что проверяем</h2>
+                <p>1. Верхний край — контент должен быть виден под часами<br>
+                2. Нижний край — контент должен быть виден над защитной полосой<br>
+                3. Прокрутка — вся страница прокручивается без потери контента</p>
+            </div>
+            
+            <div class="card">
+                <h2>📜 Дополнительный контент для прокрутки</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <br>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+            </div>
+            
+            <!-- НИЖНИЙ ТЕСТОВЫЙ БЛОК - ДОЛЖЕН БЫТЬ ВИДЕН НАД ЗАЩИТНОЙ ПОЛОСОЙ -->
+            <div class="bottom-test">
+                🔴 ЭТОТ БЛОК ДОЛЖЕН БЫТЬ ВИДЕН НАД НИЖНЕЙ ЗАЩИТНОЙ ПОЛОСОЙ
+            </div>
+            
+            <div class="card">
+                <h2>📊 Ещё контент</h2>
+                <p>Убедитесь, что красный блок выше виден полностью, и над ним нет лишних отступов снизу.</p>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- ФИКСИРОВАННЫЙ ЭЛЕМЕНТ ДЛЯ ПРОВЕРКИ ВЕРХА -->
+    <div class="top-test">
+        ⬆️ Этот текст должен быть прямо под часами (статус-баром)
+    </div>
+    
+    <div class="instruction">
+        ✅ Верхний край: текст должен быть под часами | ✅ Нижний край: красный блок должен быть виден над защитной полосой
+    </div>
+    
+    <script>
+        // Полное игнорирование safe area снизу
+        document.body.style.margin = '0';
+        document.body.style.padding = '0';
+        document.documentElement.style.margin = '0';
+        document.documentElement.style.padding = '0';
+        
+        console.log('=== ТЕСТ ПРОЗРАЧНОСТИ ===');
+        console.log('safe-area-inset-top:', getComputedStyle(document.documentElement).getPropertyValue('padding-top'));
+    </script>
+</body>
+</html>
