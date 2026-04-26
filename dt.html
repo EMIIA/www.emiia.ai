@@ -2,86 +2,111 @@
 <html>
 <head>
     <title>ПРОСТРАНСТВЕННЫЙ ИНТЕЛЛЕКТ</title>
+    <meta charset="UTF-8">
+    
+    <!-- iPhone notch + прозрачный статус-бар -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Theme color для Android -->
+    <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: dark)">
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sos.emiia.ai/" />
+    <meta property="og:title" content="EMIIA.AI MRV"/>
+    <meta property="og:description" content="Safe environment" />
+    <meta property="og:image" content="https://sos.emiia.ai/sos_500_500.png" />
+    <meta property="og:image" content="/sos_500_500.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-
-
-<meta charset="UTF-8">
-
-
-
-
-<meta name="theme-color" content="#f8f9fa">
-<meta name="theme-color" content="lab(29.2345% 39.3825 20.0664)">
-
-
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://sos.emiia.ai/" />
-        
-<meta property="og:title" content="EMIIA.AI MRV"/>
-<meta property="og:description" content="Safe environment" />
-        
-<!-- Путь до картинки обязательно полный, включающий адрес сайта -->
-<meta property="og:image" content="https://sos.emiia.ai/sos_500_500.png" />
-		<meta property="og:image" content="/sos_500_500.png" />
-
-<meta name="twitter:card" content="summary_large_image" />		
-
-
-
-
-		
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-
-  
-
-
-
-  <style> 
-#map {
-    position: fixed;
-    top: -100px;
-    bottom: -100px;
-    left: 0;
-    right: 0;
-    background: #f8f9fa;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-</style>
-
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-<script>
-    (function () {
-        if (window.Telegram && window.Telegram.WebApp) {
-            window.Telegram.WebApp.ready();
-            window.Telegram.WebApp.expand();
-        } else {
-            // fallback для обычного браузера
-            document.addEventListener('DOMContentLoaded', function() {
-                document.body.style.height = window.innerHeight + 'px';
-                setTimeout(function() {
-                    window.scrollTo(0, 0);
-                }, 100);
-            });
+    <style>
+        /* === ПРОЗРАЧНЫЙ ФОН ПОД ВЫРЕЗОМ === */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background: transparent !important;
         }
-    })();
-</script>
+        
+        /* Карта на весь экран включая вырез */
+        #map {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            height: -webkit-fill-available;
+            background: #f8f9fa;
+            margin: 0 !important;
+            padding: 0 !important;
+            /* Safe area — контент не под вырез, но фон виден */
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+        
+        /* Контролы с отступом от выреза */
+        #controls {
+            position: fixed;
+            bottom: calc(70px + env(safe-area-inset-bottom));
+            left: 25px;
+            z-index: 1000;
+        }
+        
+        @media (max-width: 768px) {
+            #controls {
+                bottom: calc(17px + env(safe-area-inset-bottom)) !important;
+                left: 29px !important;
+            }
+        }
+    </style>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <script>
+        (function () {
+            if (window.Telegram && window.Telegram.WebApp) {
+                window.Telegram.WebApp.ready();
+                window.Telegram.WebApp.expand();
+            } else {
+                // fallback для обычного браузера
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.body.style.height = window.innerHeight + 'px';
+                    setTimeout(function() {
+                        window.scrollTo(0, 0);
+                    }, 100);
+                });
+            }
+        })();
+    </script>
+
+    <style>
+        .header1 { 
+            padding: 0rem; 
+            position: fixed; 
+            bottom: calc(50px + env(safe-area-inset-bottom)); 
+            z-index: 20000; 
+            right: 5%; 
+        }
+        @media (max-width: 768px) { 
+            .header1 { 
+                bottom: calc(0px + env(safe-area-inset-bottom)); 
+                right: 1%; 
+            } 
+        }
+    </style>
 
 
 
 
-
-
-<style>
-.header1 { padding: 0rem; position: fixed; bottom: 50px; z-index: 20000; right: 5%; }
-@media (max-width: 768px) { .header1 { bottom: 0px; right: 1%; } }
-</style>
 
 <style>
 .loader { display: flex; align-items: center; justify-content: center; height: 100%; }
