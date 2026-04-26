@@ -22,11 +22,6 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-
-
-
-
-
     <style>
         /* === 1. ОСНОВА: ПРОЗРАЧНОСТЬ И ПОЛНЫЙ ЭКРАН === */
         html, body {
@@ -35,7 +30,7 @@
             height: 100%;
             width: 100%;
             overflow: hidden;
-            /* Важно: фон прозрачный, чтобы видеть карту под вырезом */
+            /* Глобальный прозрачный фон для эффекта под вырезом */
             background: transparent !important; 
         }
 
@@ -58,7 +53,6 @@
         }
 
         /* === 3. МЕНЮ (ВНИЗУ СЛЕВА) === */
-        /* Возвращаем позиционирование снизу, как в оригинале */
         #controls {
             position: fixed;
             /* Привязка к низу + безопасная зона iPhone (Home Indicator) */
@@ -66,7 +60,7 @@
             left: 25px;
             z-index: 1000;
             
-            /* Визуальные стили из вашего оригинала */
+            /* Визуальные стили */
             background: rgba(255, 255, 255, 0.95);
             padding: 20px;
             border-radius: 38px;
@@ -77,23 +71,23 @@
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
             overflow: hidden;
-            transform-origin: bottom left; /* Анимация от угла */
+            transform-origin: bottom left;
             padding-bottom: 0 !important;
         }
 
         /* === 4. КОМПАС (ВВЕРХУ СЛЕВА) === */
-        /* Исправляем проблему, когда он "улетел" вверх */
+        /* Используем absolute, так как он внутри #map */
         #custom-compass {
-            position: absolute; /* Он внутри #map, поэтому absolute */
+            position: absolute; 
             
-            /* Опускаем его НИЖЕ выреза с запасом */
-            top: calc(15px + env(safe-area-inset-top)) !important; 
+            /* Опускаем компас НИЖЕ выреза. 
+               25px - визуальный отступ, safe-area-inset-top - высота "челки" */
+            top: calc(25px + env(safe-area-inset-top)) !important; 
             
             left: 20px;
-            z-index: 1000; /* Чтобы был поверх карты */
+            z-index: 1000;
             
-            /* Центрируем по вертикали относительно точки привязки */
-            transform: translateY(0) !important; 
+            /* ВАЖНО: Здесь НЕ трогаем transform, чтобы JS мог управлять поворотом компаса */
         }
 
         /* === 5. ЛОГОТИП (ВНИЗУ СПРАВА) === */
@@ -121,13 +115,7 @@
                 right: 1%; 
             }
         }
-        
-        /* Остальные ваши стили (для маркеров, попапов и т.д.) оставьте без изменений */
     </style>
-
-
-
-
 
     <script>
         (function () {
