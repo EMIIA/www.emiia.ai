@@ -4,58 +4,186 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- black-translucent — ключ для прозрачности статус-бара -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>EMIIA.AI — рабочий пример</title>
-
-    <link rel="manifest" href="https://sos.emiia.ai/manifest.json">
+    <title>EMIIA.AI — полная прозрачность</title>
     
     <style>
-        html, body {
+        * {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            background: transparent;
+            box-sizing: border-box;
         }
         
-        /* ТВОЙ КОНТЕЙНЕР — КАК В РАБОЧЕМ ПРИМЕРЕ */
-        .container {
-            position: fixed;
+        html, body {
+            width: 100%;
+            /* Ключ: 100dvh вместо 100vh — динамическая высота viewport */
+            height: 100dvh;
+            /* Или fallback: */
+            min-height: -webkit-fill-available;
+            background: transparent !important;
+            overflow-x: hidden;
+        }
+        
+        /* ОСНОВНОЙ КОНТЕЙНЕР — растянут на ВЕСЬ экран */
+        .content {
+            position: fixed; /* fixed вместо absolute — ключ для покрытия всего экрана */
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            /* Ключ: используем 100dvh + safe-area-inset, чтобы покрыть всё */
+            height: calc(100dvh + env(safe-area-inset-top) + env(safe-area-inset-bottom));
+            /* Или для надёжности: */
+            min-height: 100lvh;
+            
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            
+            /* Прокрутка всего контейнера */
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            
+            /* ВАЖНО: padding включает safe-area, но НЕ отодвигает контент от краёв */
+            padding-top: env(safe-area-inset-top);
+            padding-right: env(safe-area-inset-right);
+            /* Снизу ДОБАВЛЯЕМ safe-area, а не убираем */
+            padding-bottom: calc(20px + env(safe-area-inset-bottom));
+            padding-left: env(safe-area-inset-left);
         }
         
-        /* ТВОЙ КОНТЕНТ */
-        .content {
+        .scrollable-content {
             padding: 20px;
-            padding-top: calc(60px + env(safe-area-inset-top));
-            padding-bottom: calc(60px + env(safe-area-inset-bottom));
+            padding-top: 20px; /* Дополнительный отступ после safe-area */
         }
         
         .card {
-            background: rgba(255,255,255,0.95);
+            background: rgba(255,255,255,0.9);
             border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h2 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        .card p {
+            color: #333;
+            line-height: 1.5;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        /* НИЖНИЙ ТЕСТ — теперь виден НАД home-индикатором */
+        .bottom-test {
+            background: rgba(255,0,0,0.8);
+            color: white;
+            text-align: center;
             padding: 20px;
-            margin-bottom: 15px;
+            margin-top: 10px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-family: monospace;
+            /* Дополнительный отступ снизу, чтобы точно не перекрывался */
+            margin-bottom: calc(20px + env(safe-area-inset-bottom));
+        }
+        
+        .top-test {
+            position: fixed;
+            top: calc(10px + env(safe-area-inset-top));
+            left: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 14px;
+            font-family: monospace;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            pointer-events: none;
+        }
+        
+        .instruction {
+            position: fixed;
+            bottom: calc(10px + env(safe-area-inset-bottom));
+            left: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: #0f0;
+            font-family: monospace;
+            font-size: 10px;
+            padding: 6px;
+            text-align: center;
+            border-radius: 10px;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="content">
+    <div class="content">
+        <div class="scrollable-content">
+            
             <div class="card">
-                <h2>✅ Рабочий пример</h2>
-                <p>Этот код взят из твоего работающего примера. Здесь прозрачность ЕСТЬ.</p>
+                <h2>✅ Этот блок теперь ПОД статус-баром</h2>
+                <p>Контент начинается с самого верха экрана. Градиент виден через прозрачный статус-бар.</p>
             </div>
+            
             <div class="card">
-                <h2>📱 Что дальше</h2>
-                <p>Вставь сюда свою карту Mapbox вместо этого текста.</p>
+                <h2>📱 Прокручиваемый контент</h2>
+                <p>Листайте вниз — нижний красный блок должен быть виден НАД home-индикатором.</p>
             </div>
+            
+            <div class="card">
+                <h2>🎯 Что изменено</h2>
+                <p>1. <code>100dvh</code> вместо <code>100vh</code> — динамическая высота<br>
+                2. <code>position: fixed</code> — покрывает весь экран<br>
+                3. <code>padding-bottom: env(safe-area-inset-bottom)</code> — контент над индикатором<br>
+                4. <code>height: 100lvh</code> как fallback — large viewport height [^6^]</p>
+            </div>
+            
+            <div class="card">
+                <h2>📜 Дополнительный контент</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <br>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+            
+            <!-- НИЖНИЙ ТЕСТ -->
+            <div class="bottom-test">
+                🔴 ЭТОТ БЛОК ВИДЕН НАД HOME-ИНДИКАТОРОМ
+            </div>
+            
+            <div class="card">
+                <h2>📊 Проверка</h2>
+                <p>Красный блок выше должен быть полностью виден. Если под ним есть чёрная полоса — home-индикатор перекрывает. Если над ним — лишний отступ.</p>
+            </div>
+            
         </div>
     </div>
+    
+    <div class="top-test">
+        ⬆️ Этот текст прямо под часами (в safe-area)
+    </div>
+    
+    <div class="instruction">
+        ✅ Верх: контент под статус-баром | ✅ Низ: красный блок над home-индикатором
+    </div>
+    
+    <script>
+        // Диагностика — проверяем значения safe-area
+        const styles = getComputedStyle(document.documentElement);
+        console.log('safe-area-inset-top:', styles.getPropertyValue('--sat') || 'use env() directly');
+        console.log('Viewport height:', window.innerHeight);
+        console.log('Visual viewport:', window.visualViewport?.height);
+        
+        // Альтернатива: установить CSS-переменные для JS-доступа
+        document.documentElement.style.setProperty('--sat', 'env(safe-area-inset-top)');
+        document.documentElement.style.setProperty('--sab', 'env(safe-area-inset-bottom)');
+    </script>
 </body>
 </html>
