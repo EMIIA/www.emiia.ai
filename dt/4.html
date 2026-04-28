@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Растянутая карта</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        /* Убираем все ограничения */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000; /* Цвет за картой, если она не прогрузилась */
+        }
+
+        #map {
+            position: absolute;
+            /* Отрицательный отступ сверху, чтобы залезть ПОД статус-бар */
+            top: -50px; 
+            left: 0;
+            width: 100%;
+            /* Высота больше 100%, чтобы залезть ПОД нижнюю панель */
+            height: calc(100% + 100px); 
+            z-index: 1;
+        }
+
+        /* Полное игнорирование safe area */
+        .leaflet-container {
+            background-color: #fff !important;
+        }
+
+        /* Твоя плашка в самом низу без отступов */
+        .overlay {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding-bottom: env(safe-area-inset-bottom);
+            display: flex;
+            justify-content: center;
+        }
+
+        .header-glass {
+            margin-bottom: 5px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <div class="overlay">
+        <div class="header-glass">Карта растянута в края 📍</div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        window.onload = function() {
+            var map = L.map('map', {
+                zoomControl: false,
+                attributionControl: false
+            }).setView([55.7558, 37.6173], 12);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            
+            // Принудительная команда пересчитать размер
+            setTimeout(() => { map.invalidateSize(); }, 200);
+        };
+    </script>
+</body>
+</html>
