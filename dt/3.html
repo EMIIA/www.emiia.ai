@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport-fit=cover — критически важен -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Safari Browser Fullscreen</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            /* Делаем высоту чуть больше 100%, чтобы была возможность скролла для скрытия бара */
+            height: 100.1%; 
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        #map {
+            /* Фиксируем карту, чтобы она не уезжала при скролле */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* Растягиваем на максимум */
+            height: 100dvh; 
+            z-index: 1;
+        }
+
+        /* Невидимый блок для создания прокрутки */
+        .scroll-stretcher {
+            height: 102vh;
+            width: 1px;
+            pointer-events: none;
+        }
+
+        .overlay {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+
+        .header-glass {
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.9);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            pointer-events: auto;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+    
+    <!-- Этот блок заставляет Safari разрешить скролл и спрятать адресную строку -->
+    <div class="scroll-stretcher"></div>
+
+    <div class="overlay">
+        <div class="header-glass">Свайпни вверх, чтобы карта заехала под часы ↑</div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        window.onload = function() {
+            var map = L.map('map', {
+                zoomControl: false,
+                attributionControl: false
+            }).setView([55.7558, 37.6173], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+            // Скрываем адресную строку программно при загрузке (работает не всегда)
+            window.scrollTo(0, 1);
+            
+            setTimeout(() => map.invalidateSize(), 300);
+        };
+    </script>
+</body>
+</html>
