@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Live Map Test</title>
+
+    <!-- Настройки для PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ✅ Исправленная ссылка на стили Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background: #000;
+            font-family: -apple-system, system-ui, sans-serif;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .overlay {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            pointer-events: none;
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+            display: flex;
+            justify-content: center;
+        }
+
+        .header-glass {
+            margin: 10px 20px 20px 20px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            color: #000;
+            pointer-events: auto;
+            text-align: center;
+            font-weight: 600;
+            min-width: 200px;
+        }
+
+        /* Сдвигаем кнопки управления картой чуть выше, чтобы не перекрывали блок */
+        .leaflet-bottom.leaflet-right {
+            bottom: 80px !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <div class="overlay">
+        <div class="header-glass">
+            Карта над статус-баром 📍
+        </div>
+    </div>
+
+    <!-- ✅ Исправленная ссылка на скрипт Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map', {
+            zoomControl: true,
+            attributionControl: false
+        }).setView([55.7558, 37.6173], 13);
+
+        // ✅ Реальный слой OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            maxZoom: 19,
+        }).addTo(map);
+
+        // ✅ Добавляем маркер в центр Москвы для наглядности
+        L.marker([55.7558, 37.6173]).addTo(map)
+            .bindPopup('Красная площадь, Москва')
+            .openPopup();
+
+        window.addEventListener('resize', () => {
+            map.invalidateSize();
+        });
+    </script>
+</body>
+</html>
