@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ultimate Fullscreen Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        /* Убираем фоновые цвета, которые могут давать полосы */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            /* Делаем высоту чуть больше, чтобы Safari разрешил свайп и скрыл бары */
+            height: 100.5%; 
+            background: transparent;
+            overflow-x: hidden;
+        }
+
+        #map {
+            position: fixed; /* Фиксируем, чтобы карта не дергалась при скролле */
+            top: 0;
+            left: 0;
+            width: 100vw;
+            /* lvh заполняет всё пространство от края до края стекла */
+            height: 100lvh; 
+            z-index: 1;
+        }
+
+        /* Невидимый блок-распорка для активации прозрачности бара */
+        .scroll-trigger {
+            height: 110vh;
+            width: 1px;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+        }
+
+        .overlay {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding-bottom: env(safe-area-inset-bottom);
+            display: flex;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .glass-btn {
+            margin-bottom: 20px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.8);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            font-family: -apple-system, sans-serif;
+            font-weight: bold;
+            pointer-events: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+    <!-- Распорка, которая убирает серые/черные полосы при свайпе -->
+    <div class="scroll-trigger"></div>
+
+    <div class="overlay">
+        <div class="glass-btn">СВАЙПНИ ВВЕРХ ПО КАРТЕ ↑</div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        window.onload = function() {
+            var map = L.map('map', { 
+                zoomControl: false, 
+                attributionControl: false 
+            }).setView([55.7558, 37.6173], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+            // Пытаемся автоматически скрыть адресную строку при загрузке
+            setTimeout(() => {
+                window.scrollTo(0, 1);
+                map.invalidateSize();
+            }, 100);
+
+            // Слушаем изменение размера (когда бары скрываются/появляются)
+            window.addEventListener('resize', () => {
+                map.invalidateSize();
+            });
+        };
+    </script>
+</body>
+</html>
+
+
