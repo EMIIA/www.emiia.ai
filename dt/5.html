@@ -1,0 +1,91 @@
+ ```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Full Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        /* Убираем любые системные цвета, ставим прозрачность */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            overflow-x: hidden;
+        }
+
+        /* Карта зафиксирована и растянута на МАКСИМАЛЬНУЮ высоту экрана */
+        #map {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100lvh; /* Игнорирует наличие панелей Safari */
+            z-index: 1;
+        }
+
+        /* Специальная невидимая распорка для активации полноэкранного режима Safari */
+        .safari-expander {
+            height: 120vh; /* Больше экрана, чтобы разрешить скролл */
+            width: 1px;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            z-index: 0;
+        }
+
+        .overlay {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            /* Вжимаем в самый низ, игнорируя безопасную зону */
+            padding-bottom: 5px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .header-glass {
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.8);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 15px;
+            font-family: sans-serif;
+            font-weight: 900;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+    <div class="safari-expander"></div>
+
+    <div class="overlay">
+        <div class="header-glass">СВАЙПНИ ВВЕРХ ДЛЯ ПОЛНОГО ЭКРАНА</div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map', {
+            zoomControl: false,
+            attributionControl: false
+        }).setView([55.7558, 37.6173], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        // Хак: принудительно прокручиваем на 1 пиксель, чтобы Safari был готов скрыть бары
+        window.scrollTo(0, 1);
+
+        // Пересчет карты при скрытии панелей
+        window.addEventListener('resize', () => {
+            map.invalidateSize();
+        });
+    </script>
+</body>
+</html>
+```
