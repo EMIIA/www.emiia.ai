@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!-- Строгие правила для iPhone: обязательно viewport-fit=cover -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <!-- Никаких apple-mobile-web-app-status-bar-style, пусть система сама рисует статус-бар поверх -->
+    <title>Карта во весь экран для iPhone 17</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            /* Фон страницы должен быть прозрачным или под цвет карты, 
+               чтобы не светить белым под safe-area при скролле/прыжках */
+            background: #f8f4f0;
+            overflow: hidden;
+            position: fixed; /* Помогает избежать "прыжков" адресной строки */
+        }
+
+        #map {
+            /* 
+               ГЛАВНЫЙ СЕКРЕТ: 
+               Карта рисуется от самого верха (top: 0) до самого низа.
+               Она физически занимает всё пространство, включая область под "челкой" и Dynamic Island.
+               Это аналог "edge-to-edge" режима.
+            */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh; /* или 100%, но vh надежнее */
+            z-index: 1;
+        }
+
+        /* Убираем стандартный серый фон контейнера карты */
+        .leaflet-container {
+            background-color: #f8f4f0 !important;
+            outline: none;
+        }
+
+        /* 
+           Плашка "Карта в краях" 
+           Мы размещаем её в БЕЗОПАСНОЙ зоне снизу, 
+           чтобы её не перекрывала полоска Home Indicator.
+        */
+        .overlay {
+            position: fixed;
+            /* env(safe-area-inset-bottom) автоматически поднимет плашку над полоской */
+            bottom: env(safe-area-inset-bottom, 20px);
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            pointer-events: none; /* Чтобы не мешала тапам по карте позади */
+        }
+
+        .header-glass {
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.9);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            font-family: sans-serif;
+            font-weight: 900;
+            pointer-events: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            color: #000;
+        }
+
+        /* 
+           ДОПОЛНИТЕЛЬНО ДЛЯ iPhone 17:
+           Отступы для элементов интерфейса карты. 
+           На iPhone 17 Dynamic Island занимает 62pt сверху (в портрете).
+           Leaflet обычно прячет зум под safe area, этого хватит.
+        */
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div class="overlay">
+        <div class="header-glass">КАРТА В КРАЯХ 📍</div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        window.onload = function() {
+            var map = L.map('map', {
+                zoomControl: true, // Вернем зум, но можем подвинуть
+                attributionControl: false
+            }).setView([55.7558, 37.6173], 12);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+            // Принудительно пересчитываем размер после появления карты
+            setTimeout(() => {
+                map.invalidateSize();
+            }, 100);
+        };
+    </script>
+</body>
+</html>
