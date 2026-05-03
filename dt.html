@@ -1,135 +1,60 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>ПРОСТРАНСТВЕННЫЙ ИНТЕЛЛЕКТ</title>
-    <meta charset="UTF-8">
-    
-    <!-- iPhone notch + прозрачный статус-бар -->
 
+<!-- PWA -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="shortcut icon" href="https://sos.emiia.ai/vv.ico" type="image/x-icon">
+<meta name="theme-color" content="#f8f9fa">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="https://sos.emiia.ai/vv.webmanifest">
 
+<!-- PWA STYLE -->
+<style>
+body { margin: 0; padding: 0; height: 100vh; overflow: hidden; }
+#map { position: fixed; top: -100px; bottom: -100px; left: 0; right: 0; background: #f8f9fa; margin: 0 !important; padding: 0 !important; }
+</style>
 
+<style>
+.header1 { padding: 0rem; position: fixed; bottom: 50px; z-index: 20000; right: 5%; }
+@media (max-width: 768px) { .header1 { bottom: 0px; right: 1%; } }
+</style>
 
+<style>
+.loader { display: flex; align-items: center; justify-content: center; height: 100%; }
+#wave path { fill: #818cf8; transform-origin: 50% 50%; animation: pulse 1s infinite; }
+#wave.stop path { animation-play-state: paused; }
+#wave #Line_1 { animation-delay: 0.0s; }
+#wave #Line_2 { animation-delay: 0.15s; }
+#wave #Line_3 { animation-delay: 0.3s; }
+#wave #Line_4 { animation-delay: 0.45s; }
+#wave #Line_5 { animation-delay: 0.6s; }
+@keyframes pulse { 0% { transform: scaleY(1); } 50% { transform: scaleY(0.7); } 100% { transform: scaleY(1); } }
+textarea::placeholder { color: #E2E8F0 !important; }
+@media (max-width: 640px) { textarea::placeholder { color: #E2E8F0 !important; } }
+</style>
 
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no, viewport-fit=cover">
-
-
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
-    <!-- Theme color для Android -->
-    <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: dark)">
-    
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sos.emiia.ai/" />
-    <meta property="og:title" content="EMIIA.AI MRV"/>
-    <meta property="og:description" content="Safe environment" />
-    <meta property="og:image" content="https://sos.emiia.ai/sos_500_500.png" />
-    <meta property="og:image" content="/sos_500_500.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
- 
-
-
-
-
-
-
-
-
-        <style>
-/* === ГЛАВНОЕ: принудительное растягивание === */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: transparent !important;
-}
-
-#map {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100dvh !important;  /* КЛЮЧ: динамическая высота */
-    margin: 0 !important;
-    padding: 0 !important;
-    background: transparent !important;
-}
-
-/* ПРИНУДИТЕЛЬНОЕ РАСТЯГИВАНИЕ CANVAS MAPBOX */
-.mapboxgl-map,
-.mapboxgl-canvas-container,
-.mapboxgl-canvas {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: transparent !important;
-}
-
-/* КОМПАС — сдвигаем вниз под статус-бар */
-#custom-compass {
-    position: fixed !important;
-    top: calc(20px + env(safe-area-inset-top, 20px)) !important;
-    left: 20px !important;
-    z-index: 10000 !important;
-}
-
-
-        /* === 4. МЕНЮ === */
-        #controls {
-            position: fixed;
-            bottom: calc(70px + env(safe-area-inset-bottom));
-            left: 25px;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            border-radius: 38px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            max-width: 280px;
-            min-width: 280px;
-            max-height: 80vh;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            overflow: hidden;
-            transform-origin: bottom left;
-            padding-bottom: 0 !important;
-        }
-
-        /* === 5. ЛОГОТИП === */
-        .header1 { 
-            padding: 0; 
-            position: fixed; 
-            bottom: calc(50px + env(safe-area-inset-bottom));
-            z-index: 20000; 
-            right: 5%; 
-        }
-
-        /* === 6. АДАПТИВ === */
-        @media (max-width: 768px) {
-            #controls {
-                bottom: calc(17px + env(safe-area-inset-bottom)) !important;
-                left: 29px !important;
-                padding-bottom: 20px;
-                box-sizing: border-box;
-                margin-bottom: 0 !important;
-                overflow-y: auto;
-            }
-            .header1 { 
-                bottom: calc(0px + env(safe-area-inset-bottom)); 
-                right: 1%; 
-            }
-            #custom-compass {
-                top: calc(20px + env(safe-area-inset-top)) !important;
-                left: 15px !important;
-            }
-        }
-    </style>
 
 
 
@@ -727,17 +652,17 @@ letter-spacing: 1px; /* добавляет пробел между буквам�
             <div class="control-group">
                 <label for="resolution-select">Resolution:</label>
                 <div class="custom-select-wrapper" id="resolution-wrapper">
-                    <div class="custom-select-trigger" id="resolution-trigger">17</div>
+                    <div class="custom-select-trigger" id="resolution-trigger">18</div>
                     <div class="custom-options" id="resolution-options">
                         <div class="custom-option" data-value="10">10</div>
                         <div class="custom-option" data-value="11">11</div>
                         <div class="custom-option" data-value="12">12</div>
                         <div class="custom-option" data-value="13">13</div>
                         <div class="custom-option" data-value="14">14</div>
-                        <div class="custom-option selected" data-value="15">15</div>
+                        <div class="custom-option" data-value="15">15</div>
                         <div class="custom-option" data-value="16">16</div>
                         <div class="custom-option" data-value="17">17</div>
-                        <div class="custom-option" data-value="18">18</div>
+                        <div class="custom-option selected" data-value="18">18</div>
                         <div class="custom-option" data-value="19">19</div>
                         <div class="custom-option" data-value="20">20</div>
                         <div class="custom-option" data-value="21">21</div>
@@ -746,7 +671,7 @@ letter-spacing: 1px; /* добавляет пробел между буквам�
                         <div class="custom-option" data-value="24">24</div>
                     </div>
                     <select id="resolution-select" class="native-select-hidden">
-                        <option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15" selected>15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option>
+                        <option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18" selected>18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option>
                     </select>
                 </div>
             </div>
@@ -861,7 +786,7 @@ const INITIAL_VIEW = {center: [37.6357745, 55.8383770], zoom: 20, pitch: 30, att
 // ================== ПЕРЕМЕННЫЕ ==================
 let map = null;
 let h3Grid = new StableH3Grid();
-let currentResolution = 17;
+let currentResolution = 18;
 let mapLoaded = false;
 let isGenerating = false;
 let gridActive = false;
@@ -1509,24 +1434,42 @@ function createPulseElement() {
 
 // Найдите функцию createCustomCompass() и замените её полностью:
 
-
-
 function createCustomCompass() {
-    // Удаляем старый компас
+    // Удаляем старый компас если есть
     const oldCompass = document.getElementById('custom-compass');
-    if (oldCompass) oldCompass.remove();
+    if (oldCompass) {
+        oldCompass.remove();
+    }
 
     const compass = document.createElement('button');
     compass.id = 'custom-compass';
     
     compass.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" class="compass-icon" stroke-linejoin="round" stroke-linecap="round" stroke-width="0.8" stroke="#3d85c6" stroke-opacity="0.8" viewBox="0 0 15 15" fill="transparent" height="20" width="20">
-            <path fill="transparent" stroke="#3d85c6" stroke-width="2" id="compass-path" d="M 8.0541549,2.4921492 A 0.5,0.40619867 0 0 1 8.521609,2.7520459 l 5.03092,10.5515841 a 0.5,0.40619867 0 0 1 -0.651832,0.524015 L 8.0828433,12.271588 3.272759,13.846285 A 0.5,0.40619867 0 0 1 2.6192748,13.324799 L 7.5882307,2.753853 A 0.5,0.40619867 0 0 1 8.0534494,2.4927249 Z" />
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="compass-icon"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            stroke-width="0.8"
+            stroke="#3d85c6"
+            stroke-opacity="0.8"
+            viewBox="0 0 15 15"
+            fill="transparent"
+            height="20"
+            width="20">
+            <path
+                fill="transparent"
+                stroke="#3d85c6"
+                stroke-width="2"
+                id="compass-path"
+                d="M 8.0541549,2.4921492 A 0.5,0.40619867 0 0 1 8.521609,2.7520459 l 5.03092,10.5515841 a 0.5,0.40619867 0 0 1 -0.651832,0.524015 L 8.0828433,12.271588 3.272759,13.846285 A 0.5,0.40619867 0 0 1 2.6192748,13.324799 L 7.5882307,2.753853 A 0.5,0.40619867 0 0 1 8.0534494,2.4927249 Z" />
         </svg>
     `;
     
-    // ВАЖНО: Не задаем здесь top/left/transform! Ими управляет CSS выше.
     compass.style.cssText = `
+        position: absolute;
+        top: 40%;
+        left: 20px;
         width: 40px;
         height: 40px;
         background: transparent;
@@ -1536,25 +1479,27 @@ function createCustomCompass() {
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 1;
+        z-index: 1; /* Низкий z-index, т.к. он ВНУТРИ карты */
         transition: all 0.3s ease;
         opacity: 0;
         visibility: hidden;
+        transform: translateY(-50%);
     `;
 
     compass.addEventListener('click', handleCompassClick);
     compass.title = 'Показать мое местоположение';
 
-    // Добавляем в контейнер карты
+    // === КЛЮЧЕВОЕ ИЗМЕНЕНИЕ: Добавляем в контейнер карты, а не в body ===
     const mapContainer = document.getElementById('map');
     if (mapContainer) {
         mapContainer.appendChild(compass);
     } else {
-        document.body.appendChild(compass); 
+        document.body.appendChild(compass); // Fallback
     }
     
     return compass;
 }
+
 
 
 
@@ -1801,15 +1746,6 @@ function initializeMap() {
     mapboxgl.accessToken = MAPBOX_TOKEN;
     map = new mapboxgl.Map({ container: 'map', style: 'https://sos.emiia.ai/moscow_style_2.json', center: INITIAL_VIEW.center, zoom: INITIAL_VIEW.zoom, pitch: INITIAL_VIEW.pitch, bearing: INITIAL_VIEW.bearing, maxZoom: 24, attributionControl: false, minZoom: 0, antialias: true });
 
-
-
-
-
-
-
-
-
-
     map.on('style.load', function() {
         setTimeout(function() {
             if (!map || !map.getStyle()) return;
@@ -1842,48 +1778,201 @@ var geojson = { 'type': 'FeatureCollection', 'features': [{ 'type': 'Feature', '
     customPopupContainer.id = 'custom-marker-popup';
     document.body.appendChild(customPopupContainer);
 
-    function createPopupHTML(title, description, switchState, saiState) {
-        return `<div class="custom-popup-content"><div class="custom-popup-tail"></div><button class="custom-popup-close" id="custom-popup-close-btn">×</button><h3 style="margin: 0 0 10px 0; color: #383838; font-size: 16px; font-weight: 600; padding-right: 25px;">${title}</h3><p style="margin: 0 0 15px 0; color: #666; font-size: 14px; line-height: 1.5;">${description}</p><div class="marker-popup-switch"><label class="switch-container" style="cursor: pointer;"><div class="switch"><input type="checkbox" id="custom-marker-switch" ${switchState ? 'checked' : ''}><span class="slider"></span></div><span class="switch-text">EMIIA.AI MRV (H12-L2)</span></label><svg class="settings-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/></svg></div>
-
-<div class="marker-popup-switch" style="margin-top: 0; padding-top: 10px;"><label class="switch-container" style="cursor: pointer;"><div class="switch"><input type="checkbox" id="custom-marker-sai-switch" ${saiState ? 'checked' : ''}><span class="slider"></span></div><span class="switch-text">EMIIA.AI SAI</span></label><svg class="settings-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/></svg></div><div class="marker-popup-switch" style="margin-top: 0; padding-top: 10px;"><label class="switch-container" style="cursor: pointer;"><div class="switch">
-
-<input type="checkbox" id="custom-marker-sdk-switch" checked>
-
-<span class="slider"></span></div><span class="switch-text">EMIIA.AI API</span></label><svg class="settings-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/></svg></div><div style="height: 1px; background-color: #e9ecef; margin: 15px 0;"></div>
 
 
+function createPopupHTML(title, description, switchState, saiState) {
+    return `<div class="custom-popup-content">
+        <div class="custom-popup-tail"></div>
+        <button class="custom-popup-close" id="custom-popup-close-btn">×</button>
+        <h3 style="margin: 0 0 10px 0; color: #383838; font-size: 16px; font-weight: 600; padding-right: 25px;">${title}</h3>
+        <p style="margin: 0 0 15px 0; color: #666; font-size: 14px; line-height: 1.5;">${description}</p>
+        
+        <!-- Переключатели -->
+        <div class="marker-popup-switch">
+            <label class="switch-container" style="cursor: pointer;">
+                <div class="switch">
+                    <input type="checkbox" id="custom-marker-switch" ${switchState ? 'checked' : ''}>
+                    <span class="slider"></span>
+                </div>
+                <span class="switch-text">EMIIA.AI MRV (H12-L2)</span>
+            </label>
+            <svg class="settings-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/>
+            </svg>
+        </div>
 
-<div class="marker-popup-functions" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 15px; min-width: 250px; background: rgba(255,255,255,0.95); border-radius: 26px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  
-  <!-- Левая группа: Лого + Тексты -->
-  <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
-    
-    <!-- Логотип (уменьшенный) -->
-    <div style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(61,133,198,0.1); border-radius: 50%; flex-shrink: 0;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#3d85c6" viewBox="0 0 16 16">
-        <path d="M2 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h5.5a.5.5 0 0 1 0 1H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v4a.5.5 0 0 1-1 0V4a1 1 0 0 0-1-1z"/>
-        <path d="M3.146 5.146a.5.5 0 0 1 .708 0L5.177 6.47a.75.75 0 0 1 0 1.06L3.854 8.854a.5.5 0 1 1-.708-.708L4.293 7 3.146 5.854a.5.5 0 0 1 0-.708M5.5 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5"/>
-      </svg>
+        <div class="marker-popup-switch" style="margin-top: 0; padding-top: 10px;">
+            <label class="switch-container" style="cursor: pointer;">
+                <div class="switch">
+                    <input type="checkbox" id="custom-marker-sai-switch" ${saiState ? 'checked' : ''}>
+                    <span class="slider"></span>
+                </div>
+                <span class="switch-text">EMIIA.AI SAI</span>
+            </label>
+            <svg class="settings-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/>
+            </svg>
+        </div>
+        
+        <div class="marker-popup-switch" style="margin-top: 0; padding-top: 10px;">
+            <label class="switch-container" style="cursor: pointer;">
+                <div class="switch">
+                    <input type="checkbox" id="custom-marker-sdk-switch" checked>
+                    <span class="slider"></span>
+                </div>
+                <span class="switch-text">EMIIA.AI API</span>
+            </label>
+            <svg class="settings-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/>
+            </svg>
+        </div>
+        
+        <div style="height: 1px; background-color: #e9ecef; margin: 15px 0;"></div>
+
+        <!-- Первая кнопка "Добавить функцию" -->
+        <div class="marker-popup-functions" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 15px; min-width: 250px; background: rgba(255,255,255,0.95); border-radius: 26px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 10px;">
+            <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
+                <div style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(61,133,198,0.1); border-radius: 50%; flex-shrink: 0;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#3d85c6" viewBox="0 0 16 16">
+                        <path d="M2 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h5.5a.5.5 0 0 1 0 1H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v4a.5.5 0 0 1-1 0V4a1 1 0 0 0-1-1z"/>
+                        <path d="M3.146 5.146a.5.5 0 0 1 .708 0L5.177 6.47a.75.75 0 0 1 0 1.06L3.854 8.854a.5.5 0 1 1-.708-.708L4.293 7 3.146 5.854a.5.5 0 0 1 0-.708M5.5 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5"/>
+                    </svg>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 2px; align-items: flex-start;">
+                    <span style="font-size: 14px; font-weight: 600; color: #3d85c6; font-family: 'Montserrat', sans-serif; line-height: 1.1;">
+                        Добавить функцию
+                    </span>
+                    <span style="font-size: 10px; font-weight: 500; color: #888; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px; line-height: 1.1;">
+                        EMIIA.AI APP (LLM)
+                    </span>
+                </div>
+            </div>
+
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#3d85c6" viewBox="0 0 16 16" style="cursor: pointer; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+            </svg>
+
+
+        </div>
+
+
+
+
+
+        <!-- Вторая кнопка "Добавить функцию" -->
+        <div class="marker-popup-functions" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 15px; min-width: 250px; background: rgba(255,255,255,0.95); border-radius: 26px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 10px;">
+            <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
+                <div style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(61,133,198,0.1); border-radius: 50%; flex-shrink: 0;">
+
+
+                   
+
+
+
+ <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#3d85c6" viewBox="0 0 16 16">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+
+
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="M11.354 4.646a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 .708.708l6-6a.5.5 0 0 0 0-.708"/>
+</svg>
+
+
+
+
+
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 2px; align-items: flex-start;">
+                    <span style="font-size: 14px; font-weight: 600; color: #3d85c6; font-family: 'Montserrat', sans-serif; line-height: 1.1;">
+                        Добавить субагента
+                    </span>
+                    <span style="font-size: 10px; font-weight: 500; color: #888; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px; line-height: 1.1;">
+                        EMIIA.AI LLM
+                    </span>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#3d85c6" viewBox="0 0 16 16" style="cursor: pointer; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+            </svg>
+        </div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+<!-- Третья кнопка "Добавить функцию" -->
+<div class="marker-popup-functions" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 15px; min-width: 250px; background: rgba(255,255,255,0.95); border-radius: 26px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 10px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
+        <div style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(61,133,198,0.1); border-radius: 50%; flex-shrink: 0;">
+
+
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#3d85c6" viewBox="0 0 16 16">
+                
+
+
+
+
+  <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383m.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+
+
+
+
+            </svg>
+
+
+
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px; align-items: flex-start;">
+            <span style="font-size: 14px; font-weight: 600; color: #3d85c6; font-family: 'Montserrat', sans-serif; line-height: 1.1;">
+               EMIIA.AI SIP
+            </span>
+            <span style="font-size: 10px; font-weight: 500; color: #888; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px; line-height: 1.1;">
+                Рабочее пространство 
+            </span>
+        </div>
     </div>
-    
-    <!-- Тексты: уменьшенный gap -->
-    <div style="display: flex; flex-direction: column; gap: 2px; align-items: flex-start;">
-      <span style="font-size: 14px; font-weight: 600; color: #3d85c6; font-family: 'Montserrat', sans-serif; line-height: 1.1;">
-        Добавить функцию
-      </span>
-      <span style="font-size: 10px; font-weight: 500; color: #888; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px; line-height: 1.1;">
-        EMIIA.AI CODE (LLM)
-      </span>
-    </div>
-  </div>
-  
-  <!-- Правая иконка (плюс) -->
-  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#3d85c6" viewBox="0 0 16 16" style="cursor: pointer; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
-    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-  </svg>
-  
-</div>`;
-    }
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" stroke="#3d85c6" stroke-width="0.6" viewBox="0 0 18 18" style="cursor: pointer; opacity: 0.7; transition: opacity 0.2s; margin-top: 3px;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">
+    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+</svg>
+</div>
+
+
+
+
+
+
+
+
+    </div>`;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1924,9 +2013,6 @@ var geojson = { 'type': 'FeatureCollection', 'features': [{ 'type': 'Feature', '
 
 
 
-
-
-
     geojson.features.forEach(function (marker) {
         var el = document.createElement('div');
         el.className = 'marker1';
@@ -1936,6 +2022,15 @@ var geojson = { 'type': 'FeatureCollection', 'features': [{ 'type': 'Feature', '
         map.on('zoom', updateMarkerVisibility);
         updateMarkerVisibility();
     });
+
+
+
+
+
+
+
+
+
 
     map.on('move', updatePopupPositionAboveMarker);
     map.on('zoom', function() { updatePopupPositionAboveMarker(); });
@@ -2198,23 +2293,6 @@ map.addLayer({
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             modelAdded = true;
         } catch (error) { console.error('Ошибка добавления 3D модели:', error); }
     }
@@ -2403,7 +2481,7 @@ function addStore21Marker() {
                     </div>
                     <div style="display: flex; flex-direction: column; gap: 2px; align-items: flex-start;">
                         <span style="font-size: 14px; font-weight: 600; color: #3d85c6; font-family: 'Montserrat', sans-serif; line-height: 1.1;">Добавить функцию</span>
-                        <span style="font-size: 10px; font-weight: 500; color: #888; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px; line-height: 1.1;">EMIIA.AI CODE (LLM)</span>
+                        <span style="font-size: 10px; font-weight: 500; color: #888; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px; line-height: 1.1;">EMIIA.AI APP (LLM)</span>
                     </div>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#3d85c6" viewBox="0 0 16 16" style="flex-shrink: 0; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
@@ -2996,6 +3074,8 @@ function removePathLayers() {
     pathAnimation.visible = false;
 }
 
+
+
 // =============================================================================
 // ======================== АНИМАЦИЯ ==========================================
 // =============================================================================
@@ -3335,7 +3415,7 @@ const ROBOT_ZONE_CONFIG = {
     // Параметры экструзии
     zoneBaseHeight: 0,
     zoneExtrusionHeight: 0.0,
-    zoneColor: '#3d85c6',
+    zoneColor: '#909497',
     zoneOpacity: 0.3,
     
     // ID слоёв
@@ -3451,7 +3531,7 @@ function initGroup1Layers() {
             type: 'line',
             source: ROBOT_ZONE_CONFIG.sourceIdGroup1,
             paint: {
-                'line-color': '#5d9cec',
+                'line-color': 'red',
                 'line-width': 2,
                 'line-opacity': 0.7
             }
@@ -3509,7 +3589,7 @@ function initGroup2Layers() {
             type: 'line',
             source: ROBOT_ZONE_CONFIG.sourceIdGroup2,
             paint: {
-                'line-color': '#5d9cec',
+                'line-color': 'red',
                 'line-width': 2,
                 'line-opacity': 0.7
             }
@@ -3611,7 +3691,7 @@ function initGroup1Layers() {
         type: 'fill-extrusion',
         source: floatingSourceId1,
         paint: {
-            'fill-extrusion-color': '#3d85c6',
+            'fill-extrusion-color': '#909497',
             'fill-extrusion-base': 1.8,
             'fill-extrusion-height': 2.0,
             'fill-extrusion-opacity': 0.9
@@ -3647,7 +3727,7 @@ function initGroup1Layers() {
         type: 'line',
         source: ROBOT_ZONE_CONFIG.sourceIdGroup1,
         paint: {
-            'line-color': '#5d9cec',
+            'line-color': '#909497',
             'line-width': 2,
             'line-opacity': 0.7
         }
@@ -3656,11 +3736,17 @@ function initGroup1Layers() {
     console.log('>>> ГРУППА 1 СОЗДАНА');
 }
 
+
+
+
+
 // === ГРУППА 2 (одна зона) + висячий гексагон ===
 function initGroup2Layers() {
     if (!map) return;
     
     removeGroup2Layers();
+
+
     
     // === ВИСЯЧИЙ ГЕКСАГОН ДЛЯ ГРУППЫ 2 (3 метра вверх) ===
     const floatingSourceId2 = 'floating-hex-source-2';
@@ -3698,6 +3784,10 @@ function initGroup2Layers() {
             }]
         }
     });
+
+
+
+
     
     // 3 метра вверх: base 3.0, height 3.2 (толщина 20см)
     map.addLayer({
@@ -3705,7 +3795,7 @@ function initGroup2Layers() {
         type: 'fill-extrusion',
         source: floatingSourceId2,
         paint: {
-            'fill-extrusion-color': '#3d85c6',
+            'fill-extrusion-color': '#909497',
             'fill-extrusion-base': 3.3,
             'fill-extrusion-height': 3.5,
             'fill-extrusion-opacity': 0.9
@@ -3741,7 +3831,7 @@ function initGroup2Layers() {
         type: 'line',
         source: ROBOT_ZONE_CONFIG.sourceIdGroup2,
         paint: {
-            'line-color': '#5d9cec',
+            'line-color': '#909497',
             'line-width': 2,
             'line-opacity': 0.7
         }
@@ -4513,25 +4603,7 @@ document.querySelector('.logo-link').addEventListener('touchcancel', function(e)
 
 
 
-
-
-          
-
-
-
-
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-
-
-
-
-
-
-
-
 </html>
-
 
 
 
